@@ -1,0 +1,945 @@
+\doxysection{Класс src.\+Database\+Manager.\+Database\+Manager.\+Database\+Manager}
+\label{classsrc_1_1_database_manager_1_1_database_manager_1_1_database_manager}\index{src.DatabaseManager.DatabaseManager.DatabaseManager@{src.DatabaseManager.DatabaseManager.DatabaseManager}}
+
+
+Менеджер базы данных для управления игровыми сессиями  
+
+
+\doxysubsubsection*{Открытые члены}
+\begin{DoxyCompactItemize}
+\item 
+ \textquotesingle{}\textbf{ Database\+Manager}\textquotesingle{} \textbf{ \+\_\+\+\_\+new\+\_\+\+\_\+} (cls)
+\begin{DoxyCompactList}\small\item\em Реализация паттерна Singleton. \end{DoxyCompactList}\item 
+None \textbf{ \+\_\+\+\_\+init\+\_\+\+\_\+} (self)
+\begin{DoxyCompactList}\small\item\em Инициализация атрибутов экземпляра \end{DoxyCompactList}\item 
+int \textbf{ create\+\_\+user} (self)
+\begin{DoxyCompactList}\small\item\em Создание нового пользователя \end{DoxyCompactList}\item 
+List[int] \textbf{ get\+\_\+all\+\_\+users} (self)
+\begin{DoxyCompactList}\small\item\em Получение списка всех пользователей \end{DoxyCompactList}\item 
+int \textbf{ create\+\_\+session} (self, int user\+\_\+id, str world\+\_\+description, str player\+\_\+description, str language="{}Russian"{})
+\begin{DoxyCompactList}\small\item\em Создание новой игровой сессии \end{DoxyCompactList}\item 
+List[Tuple[int, str, str, str]] \textbf{ get\+\_\+user\+\_\+sessions} (self, int user\+\_\+id)
+\begin{DoxyCompactList}\small\item\em Получение списка сессий пользователя \end{DoxyCompactList}\item 
+Optional[Tuple[str, str]] \textbf{ get\+\_\+session\+\_\+info} (self, int session\+\_\+id)
+\begin{DoxyCompactList}\small\item\em Получение информации о сессии \end{DoxyCompactList}\item 
+None \textbf{ save\+\_\+character} (self, int session\+\_\+id, str name, str description)
+\begin{DoxyCompactList}\small\item\em Сохранение персонажа \end{DoxyCompactList}\item 
+List[Tuple[str, str]] \textbf{ get\+\_\+characters} (self, int session\+\_\+id)
+\begin{DoxyCompactList}\small\item\em Получение списка персонажей сессии \end{DoxyCompactList}\item 
+None \textbf{ save\+\_\+user\+\_\+message} (self, int session\+\_\+id, str user\+\_\+input, str response)
+\begin{DoxyCompactList}\small\item\em Сохранение сообщения пользователя \end{DoxyCompactList}\item 
+None \textbf{ save\+\_\+master\+\_\+message} (self, int session\+\_\+id, str user\+\_\+input, str master\+\_\+output, str actor\+\_\+output)
+\begin{DoxyCompactList}\small\item\em Сохранение сообщения мастера игры \end{DoxyCompactList}\item 
+None \textbf{ save\+\_\+actor\+\_\+message} (self, int session\+\_\+id, str master\+\_\+prompt, str actor\+\_\+response)
+\begin{DoxyCompactList}\small\item\em Сохранение сообщения актора \end{DoxyCompactList}\item 
+List[Tuple[int, str, str]] \textbf{ get\+\_\+user\+\_\+messages} (self, int session\+\_\+id)
+\begin{DoxyCompactList}\small\item\em Получение истории сообщений пользователя \end{DoxyCompactList}\item 
+List[Tuple[int, str, str, str]] \textbf{ get\+\_\+master\+\_\+messages} (self, int session\+\_\+id)
+\begin{DoxyCompactList}\small\item\em Получение истории сообщений мастера игры \end{DoxyCompactList}\item 
+List[Tuple[int, str, str]] \textbf{ get\+\_\+actor\+\_\+messages} (self, int session\+\_\+id)
+\begin{DoxyCompactList}\small\item\em Получение истории сообщений актора \end{DoxyCompactList}\item 
+None \textbf{ delete\+\_\+session} (self, int session\+\_\+id)
+\begin{DoxyCompactList}\small\item\em Удаление сессии и всех связанных с ней данных \end{DoxyCompactList}\item 
+None \textbf{ delete\+\_\+user\+\_\+data} (self, int user\+\_\+id)
+\begin{DoxyCompactList}\small\item\em Удаление всех данных пользователя \end{DoxyCompactList}\item 
+None \textbf{ save\+\_\+game\+\_\+master\+\_\+prompt} (self, int session\+\_\+id, str prompt\+\_\+type, str prompt\+\_\+content, str model\+\_\+response)
+\begin{DoxyCompactList}\small\item\em Сохранение промпта мастера игры \end{DoxyCompactList}\item 
+None \textbf{ save\+\_\+actor\+\_\+prompt} (self, int session\+\_\+id, str prompt\+\_\+content, str model\+\_\+response)
+\begin{DoxyCompactList}\small\item\em Сохранение промпта актора \end{DoxyCompactList}\item 
+List[Tuple[str, str, str]] \textbf{ get\+\_\+game\+\_\+master\+\_\+prompts} (self, int session\+\_\+id)
+\begin{DoxyCompactList}\small\item\em Получение промптов мастера игры \end{DoxyCompactList}\item 
+List[Tuple[str, str]] \textbf{ get\+\_\+actor\+\_\+prompts} (self, int session\+\_\+id)
+\begin{DoxyCompactList}\small\item\em Получение промптов актора \end{DoxyCompactList}\item 
+bool \textbf{ is\+\_\+new\+\_\+session\+\_\+actor\+\_\+prompt} (self, int session\+\_\+id)
+\begin{DoxyCompactList}\small\item\em Проверка, является ли сессия новой для промптов актора \end{DoxyCompactList}\item 
+bool \textbf{ is\+\_\+new\+\_\+session\+\_\+gm\+\_\+prompt} (self, int session\+\_\+id)
+\begin{DoxyCompactList}\small\item\em Проверка, является ли сессия новой для промптов мастера игры \end{DoxyCompactList}\item 
+None \textbf{ save\+\_\+image\+\_\+prompt} (self, int session\+\_\+id, str user\+\_\+input, str narrative\+\_\+response, str image\+\_\+prompt)
+\begin{DoxyCompactList}\small\item\em Сохранение промпта для генерации изображения \end{DoxyCompactList}\item 
+List[Tuple[int, str, str, str]] \textbf{ get\+\_\+image\+\_\+prompts} (self, int session\+\_\+id)
+\begin{DoxyCompactList}\small\item\em Получение промптов для генерации изображений \end{DoxyCompactList}\item 
+None \textbf{ save\+\_\+active\+\_\+characters} (self, int session\+\_\+id, int sequence\+\_\+number, List[int] character\+\_\+ids)
+\begin{DoxyCompactList}\small\item\em Сохранение активных персонажей для конкретного номера последовательности в сессии \end{DoxyCompactList}\item 
+List[str] \textbf{ get\+\_\+active\+\_\+characters} (self, int session\+\_\+id, int sequence\+\_\+number)
+\begin{DoxyCompactList}\small\item\em Получение списка активных персонажей для конкретного номера последовательности в сессии \end{DoxyCompactList}\item 
+None \textbf{ update\+\_\+active\+\_\+characters} (self, int session\+\_\+id, int sequence\+\_\+number, List[int] character\+\_\+ids)
+\begin{DoxyCompactList}\small\item\em Обновление списка активных персонажей для конкретного номера последовательности в сессии \end{DoxyCompactList}\item 
+Optional[Tuple[str, str]] \textbf{ get\+\_\+character} (self, int character\+\_\+id)
+\begin{DoxyCompactList}\small\item\em Получение информации о персонаже по ID. \end{DoxyCompactList}\item 
+List[int] \textbf{ get\+\_\+active\+\_\+characters\+\_\+ids} (self, int session\+\_\+id, int sequence\+\_\+number)
+\begin{DoxyCompactList}\small\item\em Получение ID активных персонажей для конкретного номера последовательности в сессии \end{DoxyCompactList}\item 
+Optional[Tuple[str, str]] \textbf{ get\+\_\+user\+\_\+message} (self, int session\+\_\+id, int sequence)
+\begin{DoxyCompactList}\small\item\em Получение конкретного сообщения пользователя по номеру последовательности \end{DoxyCompactList}\item 
+Optional[int] \textbf{ get\+\_\+character\+\_\+id} (self, int session\+\_\+id, str name)
+\begin{DoxyCompactList}\small\item\em Получение ID персонажа по ID сессии и имени \end{DoxyCompactList}\item 
+str \textbf{ get\+\_\+session\+\_\+language} (self, int session\+\_\+id)
+\begin{DoxyCompactList}\small\item\em Получение языка сессии \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Открытые атрибуты}
+\begin{DoxyCompactItemize}
+\item 
+\textbf{ db\+\_\+path} = DATABASE\+\_\+\+NAME
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Защищенные члены}
+\begin{DoxyCompactItemize}
+\item 
+None \textbf{ \+\_\+init\+\_\+database} (self)
+\begin{DoxyCompactList}\small\item\em Инициализация структуры базы данных \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Статические защищенные данные}
+\begin{DoxyCompactItemize}
+\item 
+\textquotesingle{}\textbf{ Database\+Manager}\textquotesingle{} \textbf{ \+\_\+instance} = None
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Подробное описание}
+Менеджер базы данных для управления игровыми сессиями 
+
+Реализует паттерн Singleton для обеспечения единой точки доступа к базе данных. Управляет всеми операциями с базой данных, включая\+:
+\begin{DoxyItemize}
+\item Пользователей и их сессии
+\item Персонажей и их описания
+\item Историю сообщений и диалогов
+\item Промпты для генерации контента
+\item Изображения и их промпты
+\end{DoxyItemize}
+
+\begin{DoxyNote}{Заметки}
+Класс использует SQLite в качестве системы управления базами данных 
+\end{DoxyNote}
+
+
+См. определение в файле \textbf{ Database\+Manager.\+py} строка \textbf{ 8}
+
+
+
+\doxysubsection{Конструктор(ы)}
+\index{src.DatabaseManager.DatabaseManager.DatabaseManager@{src.DatabaseManager.DatabaseManager.DatabaseManager}!\_\_init\_\_@{\_\_init\_\_}}
+\index{\_\_init\_\_@{\_\_init\_\_}!src.DatabaseManager.DatabaseManager.DatabaseManager@{src.DatabaseManager.DatabaseManager.DatabaseManager}}
+\doxysubsubsection{\_\_init\_\_()}
+{\footnotesize\ttfamily \label{classsrc_1_1_database_manager_1_1_database_manager_1_1_database_manager_ac07876128f530806fb845ee3ca550c8a} 
+ None src.\+Database\+Manager.\+Database\+Manager.\+Database\+Manager.\+\_\+\+\_\+init\+\_\+\+\_\+ (\begin{DoxyParamCaption}\item[{}]{self}{}\end{DoxyParamCaption})}
+
+
+
+Инициализация атрибутов экземпляра 
+
+Устанавливает путь к базе данных и инициализирует структуру базы данных 
+
+См. определение в файле \textbf{ Database\+Manager.\+py} строка \textbf{ 38}
+
+
+
+\doxysubsection{Методы}
+\index{src.DatabaseManager.DatabaseManager.DatabaseManager@{src.DatabaseManager.DatabaseManager.DatabaseManager}!\_\_new\_\_@{\_\_new\_\_}}
+\index{\_\_new\_\_@{\_\_new\_\_}!src.DatabaseManager.DatabaseManager.DatabaseManager@{src.DatabaseManager.DatabaseManager.DatabaseManager}}
+\doxysubsubsection{\_\_new\_\_()}
+{\footnotesize\ttfamily \label{classsrc_1_1_database_manager_1_1_database_manager_1_1_database_manager_ae8e9b4a5cf7f9c4a05276052a98528ee} 
+ \textquotesingle{}\textbf{ Database\+Manager}\textquotesingle{} src.\+Database\+Manager.\+Database\+Manager.\+Database\+Manager.\+\_\+\+\_\+new\+\_\+\+\_\+ (\begin{DoxyParamCaption}\item[{}]{cls}{}\end{DoxyParamCaption})}
+
+
+
+Реализация паттерна Singleton. 
+
+\begin{DoxyReturn}{Возвращает}
+\doxyref{Database\+Manager}{стр.}{classsrc_1_1_database_manager_1_1_database_manager_1_1_database_manager} Единственный экземпляр класса 
+\end{DoxyReturn}
+
+
+См. определение в файле \textbf{ Database\+Manager.\+py} строка \textbf{ 26}
+
+\index{src.DatabaseManager.DatabaseManager.DatabaseManager@{src.DatabaseManager.DatabaseManager.DatabaseManager}!\_init\_database@{\_init\_database}}
+\index{\_init\_database@{\_init\_database}!src.DatabaseManager.DatabaseManager.DatabaseManager@{src.DatabaseManager.DatabaseManager.DatabaseManager}}
+\doxysubsubsection{\_init\_database()}
+{\footnotesize\ttfamily \label{classsrc_1_1_database_manager_1_1_database_manager_1_1_database_manager_ab455f7780512cbb276d0725bae1e6df4} 
+ None src.\+Database\+Manager.\+Database\+Manager.\+Database\+Manager.\+\_\+init\+\_\+database (\begin{DoxyParamCaption}\item[{}]{self}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Инициализация структуры базы данных 
+
+Создает все необходимые таблицы, если они не существуют\+:
+\begin{DoxyItemize}
+\item users\+: информация о пользователях
+\item sessions\+: игровые сессии
+\item characters\+: персонажи
+\item active\+\_\+characters\+: активные персонажи в сессии
+\item user\+\_\+messages\+: история сообщений пользователя
+\item master\+\_\+messages\+: история сообщений мастера игры
+\item actor\+\_\+messages\+: история сообщений актора
+\item game\+\_\+master\+\_\+prompts\+: промпты для мастера игры
+\item actor\+\_\+prompts\+: промпты для актора
+\item image\+\_\+prompts\+: промпты для генерации изображений 
+\end{DoxyItemize}
+
+См. определение в файле \textbf{ Database\+Manager.\+py} строка \textbf{ 48}
+
+\index{src.DatabaseManager.DatabaseManager.DatabaseManager@{src.DatabaseManager.DatabaseManager.DatabaseManager}!create\_session@{create\_session}}
+\index{create\_session@{create\_session}!src.DatabaseManager.DatabaseManager.DatabaseManager@{src.DatabaseManager.DatabaseManager.DatabaseManager}}
+\doxysubsubsection{create\_session()}
+{\footnotesize\ttfamily \label{classsrc_1_1_database_manager_1_1_database_manager_1_1_database_manager_a4ef04a04c179b51dd3650ddd7f0a1044} 
+ int src.\+Database\+Manager.\+Database\+Manager.\+Database\+Manager.\+create\+\_\+session (\begin{DoxyParamCaption}\item[{}]{self}{, }\item[{int}]{user\+\_\+id}{, }\item[{str}]{world\+\_\+description}{, }\item[{str}]{player\+\_\+description}{, }\item[{str }]{language}{ = {\ttfamily "{}Russian"{}}}\end{DoxyParamCaption})}
+
+
+
+Создание новой игровой сессии 
+
+
+\begin{DoxyParams}{Аргументы}
+{\em user\+\_\+id} & ID пользователя \\
+\hline
+{\em world\+\_\+description} & Описание игрового мира \\
+\hline
+{\em player\+\_\+description} & Описание игрока \\
+\hline
+{\em language} & Язык сессии (Russian/\+English)\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Возвращает}
+int ID созданной сессии
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Исключения}
+{\em Value\+Error} & если указан неподдерживаемый язык \\
+\hline
+{\em Runtime\+Error} & если не удалось создать сессию \\
+\hline
+\end{DoxyExceptions}
+
+
+См. определение в файле \textbf{ Database\+Manager.\+py} строка \textbf{ 220}
+
+\index{src.DatabaseManager.DatabaseManager.DatabaseManager@{src.DatabaseManager.DatabaseManager.DatabaseManager}!create\_user@{create\_user}}
+\index{create\_user@{create\_user}!src.DatabaseManager.DatabaseManager.DatabaseManager@{src.DatabaseManager.DatabaseManager.DatabaseManager}}
+\doxysubsubsection{create\_user()}
+{\footnotesize\ttfamily \label{classsrc_1_1_database_manager_1_1_database_manager_1_1_database_manager_a90bfa9b37df42c63ceabd1630c901025} 
+ int src.\+Database\+Manager.\+Database\+Manager.\+Database\+Manager.\+create\+\_\+user (\begin{DoxyParamCaption}\item[{}]{self}{}\end{DoxyParamCaption})}
+
+
+
+Создание нового пользователя 
+
+\begin{DoxyReturn}{Возвращает}
+int ID созданного пользователя
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Исключения}
+{\em Runtime\+Error} & если не удалось создать пользователя \\
+\hline
+\end{DoxyExceptions}
+
+
+См. определение в файле \textbf{ Database\+Manager.\+py} строка \textbf{ 192}
+
+\index{src.DatabaseManager.DatabaseManager.DatabaseManager@{src.DatabaseManager.DatabaseManager.DatabaseManager}!delete\_session@{delete\_session}}
+\index{delete\_session@{delete\_session}!src.DatabaseManager.DatabaseManager.DatabaseManager@{src.DatabaseManager.DatabaseManager.DatabaseManager}}
+\doxysubsubsection{delete\_session()}
+{\footnotesize\ttfamily \label{classsrc_1_1_database_manager_1_1_database_manager_1_1_database_manager_a415f0d8b3bef38865370bddc8203e3ff} 
+ None src.\+Database\+Manager.\+Database\+Manager.\+Database\+Manager.\+delete\+\_\+session (\begin{DoxyParamCaption}\item[{}]{self}{, }\item[{int}]{session\+\_\+id}{}\end{DoxyParamCaption})}
+
+
+
+Удаление сессии и всех связанных с ней данных 
+
+
+\begin{DoxyParams}{Аргументы}
+{\em session\+\_\+id} & ID сессии \\
+\hline
+\end{DoxyParams}
+
+
+См. определение в файле \textbf{ Database\+Manager.\+py} строка \textbf{ 436}
+
+\index{src.DatabaseManager.DatabaseManager.DatabaseManager@{src.DatabaseManager.DatabaseManager.DatabaseManager}!delete\_user\_data@{delete\_user\_data}}
+\index{delete\_user\_data@{delete\_user\_data}!src.DatabaseManager.DatabaseManager.DatabaseManager@{src.DatabaseManager.DatabaseManager.DatabaseManager}}
+\doxysubsubsection{delete\_user\_data()}
+{\footnotesize\ttfamily \label{classsrc_1_1_database_manager_1_1_database_manager_1_1_database_manager_a9f15c3a6da37337d517fe72327a261e3} 
+ None src.\+Database\+Manager.\+Database\+Manager.\+Database\+Manager.\+delete\+\_\+user\+\_\+data (\begin{DoxyParamCaption}\item[{}]{self}{, }\item[{int}]{user\+\_\+id}{}\end{DoxyParamCaption})}
+
+
+
+Удаление всех данных пользователя 
+
+
+\begin{DoxyParams}{Аргументы}
+{\em user\+\_\+id} & ID пользователя \\
+\hline
+\end{DoxyParams}
+
+
+См. определение в файле \textbf{ Database\+Manager.\+py} строка \textbf{ 449}
+
+\index{src.DatabaseManager.DatabaseManager.DatabaseManager@{src.DatabaseManager.DatabaseManager.DatabaseManager}!get\_active\_characters@{get\_active\_characters}}
+\index{get\_active\_characters@{get\_active\_characters}!src.DatabaseManager.DatabaseManager.DatabaseManager@{src.DatabaseManager.DatabaseManager.DatabaseManager}}
+\doxysubsubsection{get\_active\_characters()}
+{\footnotesize\ttfamily \label{classsrc_1_1_database_manager_1_1_database_manager_1_1_database_manager_ac0e4345b683038740e4d9720a00fca6d} 
+ List[str] src.\+Database\+Manager.\+Database\+Manager.\+Database\+Manager.\+get\+\_\+active\+\_\+characters (\begin{DoxyParamCaption}\item[{}]{self}{, }\item[{int}]{session\+\_\+id}{, }\item[{int}]{sequence\+\_\+number}{}\end{DoxyParamCaption})}
+
+
+
+Получение списка активных персонажей для конкретного номера последовательности в сессии 
+
+
+\begin{DoxyParams}{Аргументы}
+{\em session\+\_\+id} & ID сессии \\
+\hline
+{\em sequence\+\_\+number} & Номер последовательности промпта мастера\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Возвращает}
+List[str] Список имен активных персонажей
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Исключения}
+{\em Exception} & если произошла ошибка при получении данных \\
+\hline
+\end{DoxyExceptions}
+
+
+См. определение в файле \textbf{ Database\+Manager.\+py} строка \textbf{ 638}
+
+\index{src.DatabaseManager.DatabaseManager.DatabaseManager@{src.DatabaseManager.DatabaseManager.DatabaseManager}!get\_active\_characters\_ids@{get\_active\_characters\_ids}}
+\index{get\_active\_characters\_ids@{get\_active\_characters\_ids}!src.DatabaseManager.DatabaseManager.DatabaseManager@{src.DatabaseManager.DatabaseManager.DatabaseManager}}
+\doxysubsubsection{get\_active\_characters\_ids()}
+{\footnotesize\ttfamily \label{classsrc_1_1_database_manager_1_1_database_manager_1_1_database_manager_ac3ca7f87598cfa981e29de5b60aadadf} 
+ List[int] src.\+Database\+Manager.\+Database\+Manager.\+Database\+Manager.\+get\+\_\+active\+\_\+characters\+\_\+ids (\begin{DoxyParamCaption}\item[{}]{self}{, }\item[{int}]{session\+\_\+id}{, }\item[{int}]{sequence\+\_\+number}{}\end{DoxyParamCaption})}
+
+
+
+Получение ID активных персонажей для конкретного номера последовательности в сессии 
+
+
+\begin{DoxyParams}{Аргументы}
+{\em session\+\_\+id} & ID сессии \\
+\hline
+{\em sequence\+\_\+number} & Номер последовательности промпта мастера\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Возвращает}
+List[int] Список ID активных персонажей
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Исключения}
+{\em Exception} & если произошла ошибка при получении данных \\
+\hline
+\end{DoxyExceptions}
+
+
+См. определение в файле \textbf{ Database\+Manager.\+py} строка \textbf{ 696}
+
+\index{src.DatabaseManager.DatabaseManager.DatabaseManager@{src.DatabaseManager.DatabaseManager.DatabaseManager}!get\_actor\_messages@{get\_actor\_messages}}
+\index{get\_actor\_messages@{get\_actor\_messages}!src.DatabaseManager.DatabaseManager.DatabaseManager@{src.DatabaseManager.DatabaseManager.DatabaseManager}}
+\doxysubsubsection{get\_actor\_messages()}
+{\footnotesize\ttfamily \label{classsrc_1_1_database_manager_1_1_database_manager_1_1_database_manager_a662d9f39b1dea0e44bed824197cb2232} 
+ List[Tuple[int, str, str]] src.\+Database\+Manager.\+Database\+Manager.\+Database\+Manager.\+get\+\_\+actor\+\_\+messages (\begin{DoxyParamCaption}\item[{}]{self}{, }\item[{int}]{session\+\_\+id}{}\end{DoxyParamCaption})}
+
+
+
+Получение истории сообщений актора 
+
+
+\begin{DoxyParams}{Аргументы}
+{\em session\+\_\+id} & ID сессии\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Возвращает}
+List[Tuple[int, str, str]] Список кортежей (sequence\+\_\+number, master\+\_\+prompt, actor\+\_\+response) 
+\end{DoxyReturn}
+
+
+См. определение в файле \textbf{ Database\+Manager.\+py} строка \textbf{ 418}
+
+\index{src.DatabaseManager.DatabaseManager.DatabaseManager@{src.DatabaseManager.DatabaseManager.DatabaseManager}!get\_actor\_prompts@{get\_actor\_prompts}}
+\index{get\_actor\_prompts@{get\_actor\_prompts}!src.DatabaseManager.DatabaseManager.DatabaseManager@{src.DatabaseManager.DatabaseManager.DatabaseManager}}
+\doxysubsubsection{get\_actor\_prompts()}
+{\footnotesize\ttfamily \label{classsrc_1_1_database_manager_1_1_database_manager_1_1_database_manager_a23c74e9358f840a3cdca80aa993758be} 
+ List[Tuple[str, str]] src.\+Database\+Manager.\+Database\+Manager.\+Database\+Manager.\+get\+\_\+actor\+\_\+prompts (\begin{DoxyParamCaption}\item[{}]{self}{, }\item[{int}]{session\+\_\+id}{}\end{DoxyParamCaption})}
+
+
+
+Получение промптов актора 
+
+
+\begin{DoxyParams}{Аргументы}
+{\em session\+\_\+id} & ID сессии\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Возвращает}
+List[Tuple[str, str]] Список кортежей (prompt\+\_\+content, model\+\_\+response) 
+\end{DoxyReturn}
+
+
+См. определение в файле \textbf{ Database\+Manager.\+py} строка \textbf{ 516}
+
+\index{src.DatabaseManager.DatabaseManager.DatabaseManager@{src.DatabaseManager.DatabaseManager.DatabaseManager}!get\_all\_users@{get\_all\_users}}
+\index{get\_all\_users@{get\_all\_users}!src.DatabaseManager.DatabaseManager.DatabaseManager@{src.DatabaseManager.DatabaseManager.DatabaseManager}}
+\doxysubsubsection{get\_all\_users()}
+{\footnotesize\ttfamily \label{classsrc_1_1_database_manager_1_1_database_manager_1_1_database_manager_ae5727ae5eb1a749423299458b67948d8} 
+ List[int] src.\+Database\+Manager.\+Database\+Manager.\+Database\+Manager.\+get\+\_\+all\+\_\+users (\begin{DoxyParamCaption}\item[{}]{self}{}\end{DoxyParamCaption})}
+
+
+
+Получение списка всех пользователей 
+
+\begin{DoxyReturn}{Возвращает}
+List[int] Список ID всех пользователей 
+\end{DoxyReturn}
+
+
+См. определение в файле \textbf{ Database\+Manager.\+py} строка \textbf{ 209}
+
+\index{src.DatabaseManager.DatabaseManager.DatabaseManager@{src.DatabaseManager.DatabaseManager.DatabaseManager}!get\_character@{get\_character}}
+\index{get\_character@{get\_character}!src.DatabaseManager.DatabaseManager.DatabaseManager@{src.DatabaseManager.DatabaseManager.DatabaseManager}}
+\doxysubsubsection{get\_character()}
+{\footnotesize\ttfamily \label{classsrc_1_1_database_manager_1_1_database_manager_1_1_database_manager_ad487ccaff17690e1b0063da99ffacae6} 
+ Optional[Tuple[str, str]] src.\+Database\+Manager.\+Database\+Manager.\+Database\+Manager.\+get\+\_\+character (\begin{DoxyParamCaption}\item[{}]{self}{, }\item[{int}]{character\+\_\+id}{}\end{DoxyParamCaption})}
+
+
+
+Получение информации о персонаже по ID. 
+
+
+\begin{DoxyParams}{Аргументы}
+{\em character\+\_\+id} & ID персонажа\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Возвращает}
+Optional[Tuple[str, str]] Кортеж (name, description) или None если персонаж не найден
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Исключения}
+{\em Exception} & если произошла ошибка при получении данных \\
+\hline
+\end{DoxyExceptions}
+
+
+См. определение в файле \textbf{ Database\+Manager.\+py} строка \textbf{ 673}
+
+\index{src.DatabaseManager.DatabaseManager.DatabaseManager@{src.DatabaseManager.DatabaseManager.DatabaseManager}!get\_character\_id@{get\_character\_id}}
+\index{get\_character\_id@{get\_character\_id}!src.DatabaseManager.DatabaseManager.DatabaseManager@{src.DatabaseManager.DatabaseManager.DatabaseManager}}
+\doxysubsubsection{get\_character\_id()}
+{\footnotesize\ttfamily \label{classsrc_1_1_database_manager_1_1_database_manager_1_1_database_manager_a36029029cb0970d72a9a6ce0bc05b6d3} 
+ Optional[int] src.\+Database\+Manager.\+Database\+Manager.\+Database\+Manager.\+get\+\_\+character\+\_\+id (\begin{DoxyParamCaption}\item[{}]{self}{, }\item[{int}]{session\+\_\+id}{, }\item[{str}]{name}{}\end{DoxyParamCaption})}
+
+
+
+Получение ID персонажа по ID сессии и имени 
+
+
+\begin{DoxyParams}{Аргументы}
+{\em session\+\_\+id} & ID сессии \\
+\hline
+{\em name} & Имя персонажа\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Возвращает}
+Optional[int] ID персонажа или None если персонаж не найден
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Исключения}
+{\em Exception} & если произошла ошибка при получении данных \\
+\hline
+\end{DoxyExceptions}
+
+
+См. определение в файле \textbf{ Database\+Manager.\+py} строка \textbf{ 745}
+
+\index{src.DatabaseManager.DatabaseManager.DatabaseManager@{src.DatabaseManager.DatabaseManager.DatabaseManager}!get\_characters@{get\_characters}}
+\index{get\_characters@{get\_characters}!src.DatabaseManager.DatabaseManager.DatabaseManager@{src.DatabaseManager.DatabaseManager.DatabaseManager}}
+\doxysubsubsection{get\_characters()}
+{\footnotesize\ttfamily \label{classsrc_1_1_database_manager_1_1_database_manager_1_1_database_manager_ad57a9638af3e753cb56ac36905049a59} 
+ List[Tuple[str, str]] src.\+Database\+Manager.\+Database\+Manager.\+Database\+Manager.\+get\+\_\+characters (\begin{DoxyParamCaption}\item[{}]{self}{, }\item[{int}]{session\+\_\+id}{}\end{DoxyParamCaption})}
+
+
+
+Получение списка персонажей сессии 
+
+
+\begin{DoxyParams}{Аргументы}
+{\em session\+\_\+id} & ID сессии\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Возвращает}
+List[Tuple[str, str]] Список кортежей (name, description) 
+\end{DoxyReturn}
+
+
+См. определение в файле \textbf{ Database\+Manager.\+py} строка \textbf{ 299}
+
+\index{src.DatabaseManager.DatabaseManager.DatabaseManager@{src.DatabaseManager.DatabaseManager.DatabaseManager}!get\_game\_master\_prompts@{get\_game\_master\_prompts}}
+\index{get\_game\_master\_prompts@{get\_game\_master\_prompts}!src.DatabaseManager.DatabaseManager.DatabaseManager@{src.DatabaseManager.DatabaseManager.DatabaseManager}}
+\doxysubsubsection{get\_game\_master\_prompts()}
+{\footnotesize\ttfamily \label{classsrc_1_1_database_manager_1_1_database_manager_1_1_database_manager_a9a1872c584c8c411e2915234baeb9eba} 
+ List[Tuple[str, str, str]] src.\+Database\+Manager.\+Database\+Manager.\+Database\+Manager.\+get\+\_\+game\+\_\+master\+\_\+prompts (\begin{DoxyParamCaption}\item[{}]{self}{, }\item[{int}]{session\+\_\+id}{}\end{DoxyParamCaption})}
+
+
+
+Получение промптов мастера игры 
+
+
+\begin{DoxyParams}{Аргументы}
+{\em session\+\_\+id} & ID сессии\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Возвращает}
+List[Tuple[str, str, str]] Список кортежей (prompt\+\_\+type, prompt\+\_\+content, model\+\_\+response) 
+\end{DoxyReturn}
+
+
+См. определение в файле \textbf{ Database\+Manager.\+py} строка \textbf{ 498}
+
+\index{src.DatabaseManager.DatabaseManager.DatabaseManager@{src.DatabaseManager.DatabaseManager.DatabaseManager}!get\_image\_prompts@{get\_image\_prompts}}
+\index{get\_image\_prompts@{get\_image\_prompts}!src.DatabaseManager.DatabaseManager.DatabaseManager@{src.DatabaseManager.DatabaseManager.DatabaseManager}}
+\doxysubsubsection{get\_image\_prompts()}
+{\footnotesize\ttfamily \label{classsrc_1_1_database_manager_1_1_database_manager_1_1_database_manager_af2ed9a550ccd1c8f98ff811f1e2938df} 
+ List[Tuple[int, str, str, str]] src.\+Database\+Manager.\+Database\+Manager.\+Database\+Manager.\+get\+\_\+image\+\_\+prompts (\begin{DoxyParamCaption}\item[{}]{self}{, }\item[{int}]{session\+\_\+id}{}\end{DoxyParamCaption})}
+
+
+
+Получение промптов для генерации изображений 
+
+
+\begin{DoxyParams}{Аргументы}
+{\em session\+\_\+id} & ID сессии\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Возвращает}
+List[Tuple[int, str, str, str]] Список кортежей (sequence\+\_\+number, user\+\_\+input, narrative\+\_\+response, image\+\_\+prompt) 
+\end{DoxyReturn}
+
+
+См. определение в файле \textbf{ Database\+Manager.\+py} строка \textbf{ 591}
+
+\index{src.DatabaseManager.DatabaseManager.DatabaseManager@{src.DatabaseManager.DatabaseManager.DatabaseManager}!get\_master\_messages@{get\_master\_messages}}
+\index{get\_master\_messages@{get\_master\_messages}!src.DatabaseManager.DatabaseManager.DatabaseManager@{src.DatabaseManager.DatabaseManager.DatabaseManager}}
+\doxysubsubsection{get\_master\_messages()}
+{\footnotesize\ttfamily \label{classsrc_1_1_database_manager_1_1_database_manager_1_1_database_manager_acb0c3701f33e33493c5f83e09d6b2582} 
+ List[Tuple[int, str, str, str]] src.\+Database\+Manager.\+Database\+Manager.\+Database\+Manager.\+get\+\_\+master\+\_\+messages (\begin{DoxyParamCaption}\item[{}]{self}{, }\item[{int}]{session\+\_\+id}{}\end{DoxyParamCaption})}
+
+
+
+Получение истории сообщений мастера игры 
+
+
+\begin{DoxyParams}{Аргументы}
+{\em session\+\_\+id} & ID сессии\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Возвращает}
+List[Tuple[int, str, str, str]] Список кортежей (sequence\+\_\+number, user\+\_\+input, master\+\_\+output, actor\+\_\+output) 
+\end{DoxyReturn}
+
+
+См. определение в файле \textbf{ Database\+Manager.\+py} строка \textbf{ 400}
+
+\index{src.DatabaseManager.DatabaseManager.DatabaseManager@{src.DatabaseManager.DatabaseManager.DatabaseManager}!get\_session\_info@{get\_session\_info}}
+\index{get\_session\_info@{get\_session\_info}!src.DatabaseManager.DatabaseManager.DatabaseManager@{src.DatabaseManager.DatabaseManager.DatabaseManager}}
+\doxysubsubsection{get\_session\_info()}
+{\footnotesize\ttfamily \label{classsrc_1_1_database_manager_1_1_database_manager_1_1_database_manager_a8b470f05c518dbf890db72c451494b36} 
+ Optional[Tuple[str, str]] src.\+Database\+Manager.\+Database\+Manager.\+Database\+Manager.\+get\+\_\+session\+\_\+info (\begin{DoxyParamCaption}\item[{}]{self}{, }\item[{int}]{session\+\_\+id}{}\end{DoxyParamCaption})}
+
+
+
+Получение информации о сессии 
+
+
+\begin{DoxyParams}{Аргументы}
+{\em session\+\_\+id} & ID сессии\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Возвращает}
+Optional[Tuple[str, str]] Кортеж (world\+\_\+description, player\+\_\+description) или None если сессия не найдена 
+\end{DoxyReturn}
+
+
+См. определение в файле \textbf{ Database\+Manager.\+py} строка \textbf{ 266}
+
+\index{src.DatabaseManager.DatabaseManager.DatabaseManager@{src.DatabaseManager.DatabaseManager.DatabaseManager}!get\_session\_language@{get\_session\_language}}
+\index{get\_session\_language@{get\_session\_language}!src.DatabaseManager.DatabaseManager.DatabaseManager@{src.DatabaseManager.DatabaseManager.DatabaseManager}}
+\doxysubsubsection{get\_session\_language()}
+{\footnotesize\ttfamily \label{classsrc_1_1_database_manager_1_1_database_manager_1_1_database_manager_a52d0357efb41c804f645c5e42e1560eb} 
+ str src.\+Database\+Manager.\+Database\+Manager.\+Database\+Manager.\+get\+\_\+session\+\_\+language (\begin{DoxyParamCaption}\item[{}]{self}{, }\item[{int}]{session\+\_\+id}{}\end{DoxyParamCaption})}
+
+
+
+Получение языка сессии 
+
+
+\begin{DoxyParams}{Аргументы}
+{\em session\+\_\+id} & ID сессии\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Возвращает}
+str Язык сессии (Russian/\+English)
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Исключения}
+{\em Runtime\+Error} & если сессия не найдена \\
+\hline
+\end{DoxyExceptions}
+
+
+См. определение в файле \textbf{ Database\+Manager.\+py} строка \textbf{ 769}
+
+\index{src.DatabaseManager.DatabaseManager.DatabaseManager@{src.DatabaseManager.DatabaseManager.DatabaseManager}!get\_user\_message@{get\_user\_message}}
+\index{get\_user\_message@{get\_user\_message}!src.DatabaseManager.DatabaseManager.DatabaseManager@{src.DatabaseManager.DatabaseManager.DatabaseManager}}
+\doxysubsubsection{get\_user\_message()}
+{\footnotesize\ttfamily \label{classsrc_1_1_database_manager_1_1_database_manager_1_1_database_manager_abd4dc8956da9fdb1ea64343e4000d363} 
+ Optional[Tuple[str, str]] src.\+Database\+Manager.\+Database\+Manager.\+Database\+Manager.\+get\+\_\+user\+\_\+message (\begin{DoxyParamCaption}\item[{}]{self}{, }\item[{int}]{session\+\_\+id}{, }\item[{int}]{sequence}{}\end{DoxyParamCaption})}
+
+
+
+Получение конкретного сообщения пользователя по номеру последовательности 
+
+
+\begin{DoxyParams}{Аргументы}
+{\em session\+\_\+id} & ID сессии \\
+\hline
+{\em sequence} & Номер последовательности сообщения\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Возвращает}
+Optional[Tuple[str, str]] Кортеж (user\+\_\+input, response) или None если сообщение не найдено
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Исключения}
+{\em Exception} & если произошла ошибка при получении данных \\
+\hline
+\end{DoxyExceptions}
+
+
+См. определение в файле \textbf{ Database\+Manager.\+py} строка \textbf{ 720}
+
+\index{src.DatabaseManager.DatabaseManager.DatabaseManager@{src.DatabaseManager.DatabaseManager.DatabaseManager}!get\_user\_messages@{get\_user\_messages}}
+\index{get\_user\_messages@{get\_user\_messages}!src.DatabaseManager.DatabaseManager.DatabaseManager@{src.DatabaseManager.DatabaseManager.DatabaseManager}}
+\doxysubsubsection{get\_user\_messages()}
+{\footnotesize\ttfamily \label{classsrc_1_1_database_manager_1_1_database_manager_1_1_database_manager_ad86bf1f4095f7ef32b50e3ce2d87bde7} 
+ List[Tuple[int, str, str]] src.\+Database\+Manager.\+Database\+Manager.\+Database\+Manager.\+get\+\_\+user\+\_\+messages (\begin{DoxyParamCaption}\item[{}]{self}{, }\item[{int}]{session\+\_\+id}{}\end{DoxyParamCaption})}
+
+
+
+Получение истории сообщений пользователя 
+
+
+\begin{DoxyParams}{Аргументы}
+{\em session\+\_\+id} & ID сессии\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Возвращает}
+List[Tuple[int, str, str]] Список кортежей (sequence\+\_\+number, user\+\_\+input, response) 
+\end{DoxyReturn}
+
+
+См. определение в файле \textbf{ Database\+Manager.\+py} строка \textbf{ 382}
+
+\index{src.DatabaseManager.DatabaseManager.DatabaseManager@{src.DatabaseManager.DatabaseManager.DatabaseManager}!get\_user\_sessions@{get\_user\_sessions}}
+\index{get\_user\_sessions@{get\_user\_sessions}!src.DatabaseManager.DatabaseManager.DatabaseManager@{src.DatabaseManager.DatabaseManager.DatabaseManager}}
+\doxysubsubsection{get\_user\_sessions()}
+{\footnotesize\ttfamily \label{classsrc_1_1_database_manager_1_1_database_manager_1_1_database_manager_af7ba5da6c9851f8a7572ddd0b100e83a} 
+ List[Tuple[int, str, str, str]] src.\+Database\+Manager.\+Database\+Manager.\+Database\+Manager.\+get\+\_\+user\+\_\+sessions (\begin{DoxyParamCaption}\item[{}]{self}{, }\item[{int}]{user\+\_\+id}{}\end{DoxyParamCaption})}
+
+
+
+Получение списка сессий пользователя 
+
+
+\begin{DoxyParams}{Аргументы}
+{\em user\+\_\+id} & ID пользователя\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Возвращает}
+List[Tuple[int, str, str, str]] Список кортежей (session\+\_\+id, created\+\_\+at, world\+\_\+description, player\+\_\+description) 
+\end{DoxyReturn}
+
+
+См. определение в файле \textbf{ Database\+Manager.\+py} строка \textbf{ 249}
+
+\index{src.DatabaseManager.DatabaseManager.DatabaseManager@{src.DatabaseManager.DatabaseManager.DatabaseManager}!is\_new\_session\_actor\_prompt@{is\_new\_session\_actor\_prompt}}
+\index{is\_new\_session\_actor\_prompt@{is\_new\_session\_actor\_prompt}!src.DatabaseManager.DatabaseManager.DatabaseManager@{src.DatabaseManager.DatabaseManager.DatabaseManager}}
+\doxysubsubsection{is\_new\_session\_actor\_prompt()}
+{\footnotesize\ttfamily \label{classsrc_1_1_database_manager_1_1_database_manager_1_1_database_manager_a89252dc2b29611b424ecb352c99de987} 
+ bool src.\+Database\+Manager.\+Database\+Manager.\+Database\+Manager.\+is\+\_\+new\+\_\+session\+\_\+actor\+\_\+prompt (\begin{DoxyParamCaption}\item[{}]{self}{, }\item[{int}]{session\+\_\+id}{}\end{DoxyParamCaption})}
+
+
+
+Проверка, является ли сессия новой для промптов актора 
+
+
+\begin{DoxyParams}{Аргументы}
+{\em session\+\_\+id} & ID сессии\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Возвращает}
+bool True если сессия новая, False если промпты уже существуют 
+\end{DoxyReturn}
+
+
+См. определение в файле \textbf{ Database\+Manager.\+py} строка \textbf{ 534}
+
+\index{src.DatabaseManager.DatabaseManager.DatabaseManager@{src.DatabaseManager.DatabaseManager.DatabaseManager}!is\_new\_session\_gm\_prompt@{is\_new\_session\_gm\_prompt}}
+\index{is\_new\_session\_gm\_prompt@{is\_new\_session\_gm\_prompt}!src.DatabaseManager.DatabaseManager.DatabaseManager@{src.DatabaseManager.DatabaseManager.DatabaseManager}}
+\doxysubsubsection{is\_new\_session\_gm\_prompt()}
+{\footnotesize\ttfamily \label{classsrc_1_1_database_manager_1_1_database_manager_1_1_database_manager_a062acf7bf40d0d49920cceaa844318b0} 
+ bool src.\+Database\+Manager.\+Database\+Manager.\+Database\+Manager.\+is\+\_\+new\+\_\+session\+\_\+gm\+\_\+prompt (\begin{DoxyParamCaption}\item[{}]{self}{, }\item[{int}]{session\+\_\+id}{}\end{DoxyParamCaption})}
+
+
+
+Проверка, является ли сессия новой для промптов мастера игры 
+
+
+\begin{DoxyParams}{Аргументы}
+{\em session\+\_\+id} & ID сессии\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Возвращает}
+bool True если сессия новая, False если промпты уже существуют 
+\end{DoxyReturn}
+
+
+См. определение в файле \textbf{ Database\+Manager.\+py} строка \textbf{ 551}
+
+\index{src.DatabaseManager.DatabaseManager.DatabaseManager@{src.DatabaseManager.DatabaseManager.DatabaseManager}!save\_active\_characters@{save\_active\_characters}}
+\index{save\_active\_characters@{save\_active\_characters}!src.DatabaseManager.DatabaseManager.DatabaseManager@{src.DatabaseManager.DatabaseManager.DatabaseManager}}
+\doxysubsubsection{save\_active\_characters()}
+{\footnotesize\ttfamily \label{classsrc_1_1_database_manager_1_1_database_manager_1_1_database_manager_a28df3ea877ad1afa4aab83d911b15b62} 
+ None src.\+Database\+Manager.\+Database\+Manager.\+Database\+Manager.\+save\+\_\+active\+\_\+characters (\begin{DoxyParamCaption}\item[{}]{self}{, }\item[{int}]{session\+\_\+id}{, }\item[{int}]{sequence\+\_\+number}{, }\item[{List[int]}]{character\+\_\+ids}{}\end{DoxyParamCaption})}
+
+
+
+Сохранение активных персонажей для конкретного номера последовательности в сессии 
+
+
+\begin{DoxyParams}{Аргументы}
+{\em session\+\_\+id} & ID сессии \\
+\hline
+{\em sequence\+\_\+number} & Номер последовательности промпта мастера \\
+\hline
+{\em character\+\_\+ids} & Список ID персонажей, которые в данный момент активны\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Исключения}
+{\em Exception} & если произошла ошибка при сохранении \\
+\hline
+\end{DoxyExceptions}
+
+
+См. определение в файле \textbf{ Database\+Manager.\+py} строка \textbf{ 609}
+
+\index{src.DatabaseManager.DatabaseManager.DatabaseManager@{src.DatabaseManager.DatabaseManager.DatabaseManager}!save\_actor\_message@{save\_actor\_message}}
+\index{save\_actor\_message@{save\_actor\_message}!src.DatabaseManager.DatabaseManager.DatabaseManager@{src.DatabaseManager.DatabaseManager.DatabaseManager}}
+\doxysubsubsection{save\_actor\_message()}
+{\footnotesize\ttfamily \label{classsrc_1_1_database_manager_1_1_database_manager_1_1_database_manager_a89e3e3073c296d111a67339cbbcc9de5} 
+ None src.\+Database\+Manager.\+Database\+Manager.\+Database\+Manager.\+save\+\_\+actor\+\_\+message (\begin{DoxyParamCaption}\item[{}]{self}{, }\item[{int}]{session\+\_\+id}{, }\item[{str}]{master\+\_\+prompt}{, }\item[{str}]{actor\+\_\+response}{}\end{DoxyParamCaption})}
+
+
+
+Сохранение сообщения актора 
+
+
+\begin{DoxyParams}{Аргументы}
+{\em session\+\_\+id} & ID сессии \\
+\hline
+{\em master\+\_\+prompt} & Промпт мастера игры \\
+\hline
+{\em actor\+\_\+response} & Ответ актора \\
+\hline
+\end{DoxyParams}
+
+
+См. определение в файле \textbf{ Database\+Manager.\+py} строка \textbf{ 360}
+
+\index{src.DatabaseManager.DatabaseManager.DatabaseManager@{src.DatabaseManager.DatabaseManager.DatabaseManager}!save\_actor\_prompt@{save\_actor\_prompt}}
+\index{save\_actor\_prompt@{save\_actor\_prompt}!src.DatabaseManager.DatabaseManager.DatabaseManager@{src.DatabaseManager.DatabaseManager.DatabaseManager}}
+\doxysubsubsection{save\_actor\_prompt()}
+{\footnotesize\ttfamily \label{classsrc_1_1_database_manager_1_1_database_manager_1_1_database_manager_a96f76fb4ab001ccbf497590b0b04281c} 
+ None src.\+Database\+Manager.\+Database\+Manager.\+Database\+Manager.\+save\+\_\+actor\+\_\+prompt (\begin{DoxyParamCaption}\item[{}]{self}{, }\item[{int}]{session\+\_\+id}{, }\item[{str}]{prompt\+\_\+content}{, }\item[{str}]{model\+\_\+response}{}\end{DoxyParamCaption})}
+
+
+
+Сохранение промпта актора 
+
+
+\begin{DoxyParams}{Аргументы}
+{\em session\+\_\+id} & ID сессии \\
+\hline
+{\em prompt\+\_\+content} & Содержимое промпта \\
+\hline
+{\em model\+\_\+response} & Ответ модели \\
+\hline
+\end{DoxyParams}
+
+
+См. определение в файле \textbf{ Database\+Manager.\+py} строка \textbf{ 482}
+
+\index{src.DatabaseManager.DatabaseManager.DatabaseManager@{src.DatabaseManager.DatabaseManager.DatabaseManager}!save\_character@{save\_character}}
+\index{save\_character@{save\_character}!src.DatabaseManager.DatabaseManager.DatabaseManager@{src.DatabaseManager.DatabaseManager.DatabaseManager}}
+\doxysubsubsection{save\_character()}
+{\footnotesize\ttfamily \label{classsrc_1_1_database_manager_1_1_database_manager_1_1_database_manager_a78b9f08ef4c174650284fb7ff55fa201} 
+ None src.\+Database\+Manager.\+Database\+Manager.\+Database\+Manager.\+save\+\_\+character (\begin{DoxyParamCaption}\item[{}]{self}{, }\item[{int}]{session\+\_\+id}{, }\item[{str}]{name}{, }\item[{str}]{description}{}\end{DoxyParamCaption})}
+
+
+
+Сохранение персонажа 
+
+
+\begin{DoxyParams}{Аргументы}
+{\em session\+\_\+id} & ID сессии \\
+\hline
+{\em name} & Имя персонажа \\
+\hline
+{\em description} & Описание персонажа \\
+\hline
+\end{DoxyParams}
+
+
+См. определение в файле \textbf{ Database\+Manager.\+py} строка \textbf{ 283}
+
+\index{src.DatabaseManager.DatabaseManager.DatabaseManager@{src.DatabaseManager.DatabaseManager.DatabaseManager}!save\_game\_master\_prompt@{save\_game\_master\_prompt}}
+\index{save\_game\_master\_prompt@{save\_game\_master\_prompt}!src.DatabaseManager.DatabaseManager.DatabaseManager@{src.DatabaseManager.DatabaseManager.DatabaseManager}}
+\doxysubsubsection{save\_game\_master\_prompt()}
+{\footnotesize\ttfamily \label{classsrc_1_1_database_manager_1_1_database_manager_1_1_database_manager_adbac8da66f7473e585fa1b1b4ab1d9c8} 
+ None src.\+Database\+Manager.\+Database\+Manager.\+Database\+Manager.\+save\+\_\+game\+\_\+master\+\_\+prompt (\begin{DoxyParamCaption}\item[{}]{self}{, }\item[{int}]{session\+\_\+id}{, }\item[{str}]{prompt\+\_\+type}{, }\item[{str}]{prompt\+\_\+content}{, }\item[{str}]{model\+\_\+response}{}\end{DoxyParamCaption})}
+
+
+
+Сохранение промпта мастера игры 
+
+
+\begin{DoxyParams}{Аргументы}
+{\em session\+\_\+id} & ID сессии \\
+\hline
+{\em prompt\+\_\+type} & Тип промпта \\
+\hline
+{\em prompt\+\_\+content} & Содержимое промпта \\
+\hline
+{\em model\+\_\+response} & Ответ модели \\
+\hline
+\end{DoxyParams}
+
+
+См. определение в файле \textbf{ Database\+Manager.\+py} строка \textbf{ 465}
+
+\index{src.DatabaseManager.DatabaseManager.DatabaseManager@{src.DatabaseManager.DatabaseManager.DatabaseManager}!save\_image\_prompt@{save\_image\_prompt}}
+\index{save\_image\_prompt@{save\_image\_prompt}!src.DatabaseManager.DatabaseManager.DatabaseManager@{src.DatabaseManager.DatabaseManager.DatabaseManager}}
+\doxysubsubsection{save\_image\_prompt()}
+{\footnotesize\ttfamily \label{classsrc_1_1_database_manager_1_1_database_manager_1_1_database_manager_a6bdafff6a250fc4aa977fed2611b6710} 
+ None src.\+Database\+Manager.\+Database\+Manager.\+Database\+Manager.\+save\+\_\+image\+\_\+prompt (\begin{DoxyParamCaption}\item[{}]{self}{, }\item[{int}]{session\+\_\+id}{, }\item[{str}]{user\+\_\+input}{, }\item[{str}]{narrative\+\_\+response}{, }\item[{str}]{image\+\_\+prompt}{}\end{DoxyParamCaption})}
+
+
+
+Сохранение промпта для генерации изображения 
+
+
+\begin{DoxyParams}{Аргументы}
+{\em session\+\_\+id} & ID сессии \\
+\hline
+{\em user\+\_\+input} & Ввод пользователя \\
+\hline
+{\em narrative\+\_\+response} & Нарративный ответ \\
+\hline
+{\em image\+\_\+prompt} & Промпт для генерации изображения \\
+\hline
+\end{DoxyParams}
+
+
+См. определение в файле \textbf{ Database\+Manager.\+py} строка \textbf{ 568}
+
+\index{src.DatabaseManager.DatabaseManager.DatabaseManager@{src.DatabaseManager.DatabaseManager.DatabaseManager}!save\_master\_message@{save\_master\_message}}
+\index{save\_master\_message@{save\_master\_message}!src.DatabaseManager.DatabaseManager.DatabaseManager@{src.DatabaseManager.DatabaseManager.DatabaseManager}}
+\doxysubsubsection{save\_master\_message()}
+{\footnotesize\ttfamily \label{classsrc_1_1_database_manager_1_1_database_manager_1_1_database_manager_a6fce88139b93dc797e02b7b93777e3ac} 
+ None src.\+Database\+Manager.\+Database\+Manager.\+Database\+Manager.\+save\+\_\+master\+\_\+message (\begin{DoxyParamCaption}\item[{}]{self}{, }\item[{int}]{session\+\_\+id}{, }\item[{str}]{user\+\_\+input}{, }\item[{str}]{master\+\_\+output}{, }\item[{str}]{actor\+\_\+output}{}\end{DoxyParamCaption})}
+
+
+
+Сохранение сообщения мастера игры 
+
+
+\begin{DoxyParams}{Аргументы}
+{\em session\+\_\+id} & ID сессии \\
+\hline
+{\em user\+\_\+input} & Ввод пользователя \\
+\hline
+{\em master\+\_\+output} & Вывод мастера игры \\
+\hline
+{\em actor\+\_\+output} & Вывод актора \\
+\hline
+\end{DoxyParams}
+
+
+См. определение в файле \textbf{ Database\+Manager.\+py} строка \textbf{ 337}
+
+\index{src.DatabaseManager.DatabaseManager.DatabaseManager@{src.DatabaseManager.DatabaseManager.DatabaseManager}!save\_user\_message@{save\_user\_message}}
+\index{save\_user\_message@{save\_user\_message}!src.DatabaseManager.DatabaseManager.DatabaseManager@{src.DatabaseManager.DatabaseManager.DatabaseManager}}
+\doxysubsubsection{save\_user\_message()}
+{\footnotesize\ttfamily \label{classsrc_1_1_database_manager_1_1_database_manager_1_1_database_manager_a7ca1b98dcdd0b87151292b22868f1abd} 
+ None src.\+Database\+Manager.\+Database\+Manager.\+Database\+Manager.\+save\+\_\+user\+\_\+message (\begin{DoxyParamCaption}\item[{}]{self}{, }\item[{int}]{session\+\_\+id}{, }\item[{str}]{user\+\_\+input}{, }\item[{str}]{response}{}\end{DoxyParamCaption})}
+
+
+
+Сохранение сообщения пользователя 
+
+
+\begin{DoxyParams}{Аргументы}
+{\em session\+\_\+id} & ID сессии \\
+\hline
+{\em user\+\_\+input} & Ввод пользователя \\
+\hline
+{\em response} & Ответ системы \\
+\hline
+\end{DoxyParams}
+
+
+См. определение в файле \textbf{ Database\+Manager.\+py} строка \textbf{ 315}
+
+\index{src.DatabaseManager.DatabaseManager.DatabaseManager@{src.DatabaseManager.DatabaseManager.DatabaseManager}!update\_active\_characters@{update\_active\_characters}}
+\index{update\_active\_characters@{update\_active\_characters}!src.DatabaseManager.DatabaseManager.DatabaseManager@{src.DatabaseManager.DatabaseManager.DatabaseManager}}
+\doxysubsubsection{update\_active\_characters()}
+{\footnotesize\ttfamily \label{classsrc_1_1_database_manager_1_1_database_manager_1_1_database_manager_a7e4425052cdd6ee6ba50c65ce565e010} 
+ None src.\+Database\+Manager.\+Database\+Manager.\+Database\+Manager.\+update\+\_\+active\+\_\+characters (\begin{DoxyParamCaption}\item[{}]{self}{, }\item[{int}]{session\+\_\+id}{, }\item[{int}]{sequence\+\_\+number}{, }\item[{List[int]}]{character\+\_\+ids}{}\end{DoxyParamCaption})}
+
+
+
+Обновление списка активных персонажей для конкретного номера последовательности в сессии 
+
+
+\begin{DoxyParams}{Аргументы}
+{\em session\+\_\+id} & ID сессии \\
+\hline
+{\em sequence\+\_\+number} & Номер последовательности промпта мастера \\
+\hline
+{\em character\+\_\+ids} & Список ID персонажей, которые в данный момент активны \\
+\hline
+\end{DoxyParams}
+
+
+См. определение в файле \textbf{ Database\+Manager.\+py} строка \textbf{ 663}
+
+
+
+\doxysubsection{Данные класса}
+\index{src.DatabaseManager.DatabaseManager.DatabaseManager@{src.DatabaseManager.DatabaseManager.DatabaseManager}!\_instance@{\_instance}}
+\index{\_instance@{\_instance}!src.DatabaseManager.DatabaseManager.DatabaseManager@{src.DatabaseManager.DatabaseManager.DatabaseManager}}
+\doxysubsubsection{\_instance}
+{\footnotesize\ttfamily \label{classsrc_1_1_database_manager_1_1_database_manager_1_1_database_manager_a7ad3dcb044e31b90bf31806853bfc837} 
+\textquotesingle{}\textbf{ Database\+Manager}\textquotesingle{} src.\+Database\+Manager.\+Database\+Manager.\+Database\+Manager.\+\_\+instance = None\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [protected]}}
+
+
+
+См. определение в файле \textbf{ Database\+Manager.\+py} строка \textbf{ 23}
+
+\index{src.DatabaseManager.DatabaseManager.DatabaseManager@{src.DatabaseManager.DatabaseManager.DatabaseManager}!db\_path@{db\_path}}
+\index{db\_path@{db\_path}!src.DatabaseManager.DatabaseManager.DatabaseManager@{src.DatabaseManager.DatabaseManager.DatabaseManager}}
+\doxysubsubsection{db\_path}
+{\footnotesize\ttfamily \label{classsrc_1_1_database_manager_1_1_database_manager_1_1_database_manager_a0d4c59d10e40d5663df4c8308e9e9d15} 
+src.\+Database\+Manager.\+Database\+Manager.\+Database\+Manager.\+db\+\_\+path = DATABASE\+\_\+\+NAME}
+
+
+
+См. определение в файле \textbf{ Database\+Manager.\+py} строка \textbf{ 45}
+
+
+
+Объявления и описания членов класса находятся в файле\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/kir/\+Desktop/py/\+API/src/\+Database\+Manager/Database\+Manager.\+py\end{DoxyCompactItemize}

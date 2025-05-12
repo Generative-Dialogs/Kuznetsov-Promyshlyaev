@@ -1,0 +1,293 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.13.2" xml:lang="ru">
+  <compounddef id="classsrc_1_1_actor_1_1_actor_1_1_actor" kind="class" language="Python" prot="public">
+    <compoundname>src::Actor::Actor::Actor</compoundname>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classsrc_1_1_actor_1_1_actor_1_1_actor_1a02cd4b4f8cabdc862915f21a5a09e2f6" prot="private" static="no" mutable="no">
+        <type></type>
+        <definition>src.Actor.Actor.Actor::__game_master</definition>
+        <argsstring></argsstring>
+        <name>__game_master</name>
+        <qualifiedname>src.Actor.Actor.Actor.__game_master</qualifiedname>
+        <initializer>=  game_master</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/kir/Desktop/py/API/src/Actor/Actor.py" line="35" column="1" bodyfile="C:/Users/kir/Desktop/py/API/src/Actor/Actor.py" bodystart="35" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classsrc_1_1_actor_1_1_actor_1_1_actor_1a555c09b922592195dbe5d6046e8c59bc" prot="private" static="no" mutable="no">
+        <type></type>
+        <definition>src.Actor.Actor.Actor::__session_id</definition>
+        <argsstring></argsstring>
+        <name>__session_id</name>
+        <qualifiedname>src.Actor.Actor.Actor.__session_id</qualifiedname>
+        <initializer>=  session_id</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/kir/Desktop/py/API/src/Actor/Actor.py" line="36" column="1" bodyfile="C:/Users/kir/Desktop/py/API/src/Actor/Actor.py" bodystart="36" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classsrc_1_1_actor_1_1_actor_1_1_actor_1a9ee4717958973cf596c6fe1b9b68bd6f" prot="private" static="no" mutable="no">
+        <type>str</type>
+        <definition>str src.Actor.Actor.Actor::__language</definition>
+        <argsstring></argsstring>
+        <name>__language</name>
+        <qualifiedname>src.Actor.Actor.Actor.__language</qualifiedname>
+        <initializer>=  language</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/kir/Desktop/py/API/src/Actor/Actor.py" line="37" column="1" bodyfile="C:/Users/kir/Desktop/py/API/src/Actor/Actor.py" bodystart="37" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classsrc_1_1_actor_1_1_actor_1_1_actor_1af49f26ff10c887f0648b90254cfa170e" prot="private" static="no" mutable="no">
+        <type></type>
+        <definition>src.Actor.Actor.Actor::__messageGenerator</definition>
+        <argsstring></argsstring>
+        <name>__messageGenerator</name>
+        <qualifiedname>src.Actor.Actor.Actor.__messageGenerator</qualifiedname>
+        <initializer>=  <ref refid="classsrc_1_1_message_generator_1_1_message_generator_open_router_1_1_message_generator_open_router" kindref="compound">MessageGeneratorOpenRouter</ref>()</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/kir/Desktop/py/API/src/Actor/Actor.py" line="38" column="1" bodyfile="C:/Users/kir/Desktop/py/API/src/Actor/Actor.py" bodystart="38" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classsrc_1_1_actor_1_1_actor_1_1_actor_1a742d0360a74e41c074f8366f85bd82b0" prot="private" static="no" mutable="no">
+        <type>dict</type>
+        <definition>dict src.Actor.Actor.Actor::__active_characters</definition>
+        <argsstring></argsstring>
+        <name>__active_characters</name>
+        <qualifiedname>src.Actor.Actor.Actor.__active_characters</qualifiedname>
+        <initializer>=  {}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/kir/Desktop/py/API/src/Actor/Actor.py" line="39" column="1" bodyfile="C:/Users/kir/Desktop/py/API/src/Actor/Actor.py" bodystart="39" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classsrc_1_1_actor_1_1_actor_1_1_actor_1a0608dc0a8d05e278fd85449d79635dc3" prot="private" static="no" mutable="no">
+        <type></type>
+        <definition>src.Actor.Actor.Actor::__db</definition>
+        <argsstring></argsstring>
+        <name>__db</name>
+        <qualifiedname>src.Actor.Actor.Actor.__db</qualifiedname>
+        <initializer>=  <ref refid="classsrc_1_1_database_manager_1_1_database_manager_1_1_database_manager" kindref="compound">DatabaseManager</ref>()</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/kir/Desktop/py/API/src/Actor/Actor.py" line="40" column="1" bodyfile="C:/Users/kir/Desktop/py/API/src/Actor/Actor.py" bodystart="40" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classsrc_1_1_actor_1_1_actor_1_1_actor_1aa8ef3f312997a013b56e9512422c2ef6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>None</type>
+        <definition> None src.Actor.Actor.Actor.__init__</definition>
+        <argsstring>(self, ProtocolGameMaster game_master, int session_id, str language=&quot;English&quot;, bool fast_flg=True)</argsstring>
+        <name>__init__</name>
+        <qualifiedname>src.Actor.Actor.Actor.__init__</qualifiedname>
+        <param>
+          <type>self</type>
+          <defname>self</defname>
+        </param>
+        <param>
+          <type><ref refid="classsrc_1_1_game_master_1_1_protocol_game_master_1_1_protocol_game_master" kindref="compound">ProtocolGameMaster</ref></type>
+          <declname>game_master</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>session_id</declname>
+        </param>
+        <param>
+          <type>str</type>
+          <declname>language</declname>
+          <defval>&quot;English&quot;</defval>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>fast_flg</declname>
+          <defval>True</defval>
+        </param>
+        <briefdescription>
+<para>Инициализация актора </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>game_master</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Экземпляр мастера игры </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>session_id</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>ID игровой сессии </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>language</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Язык генерации описаний (по умолчанию &quot;English&quot;) </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>fast_flg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Флаг быстрого режима инициализации</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+Создает нового актора с заданными параметрами и инициализирует необходимые компоненты для генерации описаний. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/kir/Desktop/py/API/src/Actor/Actor.py" line="22" column="1" bodyfile="C:/Users/kir/Desktop/py/API/src/Actor/Actor.py" bodystart="22" bodyend="73"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrc_1_1_actor_1_1_actor_1_1_actor_1a9d4e45216b2ba0b276ae82a62e7fa54b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>None</type>
+        <definition> None src.Actor.Actor.Actor.update_active_characters</definition>
+        <argsstring>(self, Dict[str, str] characters)</argsstring>
+        <name>update_active_characters</name>
+        <qualifiedname>src.Actor.Actor.Actor.update_active_characters</qualifiedname>
+        <param>
+          <type>self</type>
+          <defname>self</defname>
+        </param>
+        <param>
+          <type>Dict</type>
+          <declname>characters</declname>
+          <array>[str, str]</array>
+        </param>
+        <briefdescription>
+<para>Обновление списка активных персонажей </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>characters</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Словарь с именами и описаниями активных персонажей</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+Обновляет список персонажей, которые в данный момент присутствуют в сцене и могут участвовать в действиях. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/kir/Desktop/py/API/src/Actor/Actor.py" line="74" column="1" bodyfile="C:/Users/kir/Desktop/py/API/src/Actor/Actor.py" bodystart="74" bodyend="85"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrc_1_1_actor_1_1_actor_1_1_actor_1a34ab83bb9801246351209a2a31f4fb06" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>str</type>
+        <definition> str src.Actor.Actor.Actor.get_detailed_action</definition>
+        <argsstring>(self, str game_master_output, str user_input)</argsstring>
+        <name>get_detailed_action</name>
+        <qualifiedname>src.Actor.Actor.Actor.get_detailed_action</qualifiedname>
+        <param>
+          <type>self</type>
+          <defname>self</defname>
+        </param>
+        <param>
+          <type>str</type>
+          <declname>game_master_output</declname>
+        </param>
+        <param>
+          <type>str</type>
+          <declname>user_input</declname>
+        </param>
+        <briefdescription>
+<para>Получение детализированного описания действия </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>game_master_output</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Выходные данные мастера игры </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>user_input</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Ввод пользователя</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>str Детализированное описание действия</para>
+</simplesect>
+Генерирует подробное нарративное описание действия на основе команд мастера игры и контекста активных персонажей. Учитывает язык генерации и сохраняет историю сообщений. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/kir/Desktop/py/API/src/Actor/Actor.py" line="86" column="1" bodyfile="C:/Users/kir/Desktop/py/API/src/Actor/Actor.py" bodystart="86" bodyend="130"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrc_1_1_actor_1_1_actor_1_1_actor_1a338c52fc8f731dbf7695b5c7a8c9160a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>List[Dict[str, str]]</type>
+        <definition> List[Dict[str, str]] src.Actor.Actor.Actor.get_message_history</definition>
+        <argsstring>(self)</argsstring>
+        <name>get_message_history</name>
+        <qualifiedname>src.Actor.Actor.Actor.get_message_history</qualifiedname>
+        <param>
+          <type>self</type>
+          <defname>self</defname>
+        </param>
+        <briefdescription>
+<para>Получение истории сообщений </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>List[Dict[str, str]] Список словарей с историей сообщений</para>
+</simplesect>
+Возвращает полную историю сообщений, включая системные сообщения, сообщения пользователя и ответы актора. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/kir/Desktop/py/API/src/Actor/Actor.py" line="131" column="1" bodyfile="C:/Users/kir/Desktop/py/API/src/Actor/Actor.py" bodystart="131" bodyend="142"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>Реализация актора в игровой системе </para>
+    </briefdescription>
+    <detaileddescription>
+<para>Класс отвечает за генерацию детализированных описаний действий и событий в игре. Преобразует команды мастера игры в нарративные описания с учетом контекста и активных персонажей. </para>
+    </detaileddescription>
+    <location file="C:/Users/kir/Desktop/py/API/src/Actor/Actor.py" line="12" column="1" bodyfile="C:/Users/kir/Desktop/py/API/src/Actor/Actor.py" bodystart="12" bodyend="142"/>
+    <listofallmembers>
+      <member refid="classsrc_1_1_actor_1_1_actor_1_1_actor_1a742d0360a74e41c074f8366f85bd82b0" prot="private" virt="non-virtual"><scope>src::Actor::Actor::Actor</scope><name>__active_characters</name></member>
+      <member refid="classsrc_1_1_actor_1_1_actor_1_1_actor_1a0608dc0a8d05e278fd85449d79635dc3" prot="private" virt="non-virtual"><scope>src::Actor::Actor::Actor</scope><name>__db</name></member>
+      <member refid="classsrc_1_1_actor_1_1_actor_1_1_actor_1a02cd4b4f8cabdc862915f21a5a09e2f6" prot="private" virt="non-virtual"><scope>src::Actor::Actor::Actor</scope><name>__game_master</name></member>
+      <member refid="classsrc_1_1_actor_1_1_actor_1_1_actor_1aa8ef3f312997a013b56e9512422c2ef6" prot="public" virt="non-virtual"><scope>src::Actor::Actor::Actor</scope><name>__init__</name></member>
+      <member refid="classsrc_1_1_actor_1_1_actor_1_1_actor_1a9ee4717958973cf596c6fe1b9b68bd6f" prot="private" virt="non-virtual"><scope>src::Actor::Actor::Actor</scope><name>__language</name></member>
+      <member refid="classsrc_1_1_actor_1_1_actor_1_1_actor_1af49f26ff10c887f0648b90254cfa170e" prot="private" virt="non-virtual"><scope>src::Actor::Actor::Actor</scope><name>__messageGenerator</name></member>
+      <member refid="classsrc_1_1_actor_1_1_actor_1_1_actor_1a555c09b922592195dbe5d6046e8c59bc" prot="private" virt="non-virtual"><scope>src::Actor::Actor::Actor</scope><name>__session_id</name></member>
+      <member refid="classsrc_1_1_actor_1_1_actor_1_1_actor_1a34ab83bb9801246351209a2a31f4fb06" prot="public" virt="non-virtual"><scope>src::Actor::Actor::Actor</scope><name>get_detailed_action</name></member>
+      <member refid="classsrc_1_1_actor_1_1_actor_1_1_actor_1a338c52fc8f731dbf7695b5c7a8c9160a" prot="public" virt="non-virtual"><scope>src::Actor::Actor::Actor</scope><name>get_message_history</name></member>
+      <member refid="classsrc_1_1_actor_1_1_actor_1_1_actor_1a9d4e45216b2ba0b276ae82a62e7fa54b" prot="public" virt="non-virtual"><scope>src::Actor::Actor::Actor</scope><name>update_active_characters</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

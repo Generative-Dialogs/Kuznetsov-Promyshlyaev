@@ -1,0 +1,319 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.13.2" xml:lang="ru">
+  <compounddef id="classsrc_1_1_message_generator_1_1_message_generator_deep_seek_1_1_message_generator_deep_seek" kind="class" language="Python" prot="public">
+    <compoundname>src::MessageGenerator::MessageGeneratorDeepSeek::MessageGeneratorDeepSeek</compoundname>
+    <basecompoundref refid="classsrc_1_1_message_generator_1_1_protocol_message_generator_1_1_protocol_message_generator" prot="public" virt="non-virtual">src.MessageGenerator.ProtocolMessageGenerator.ProtocolMessageGenerator</basecompoundref>
+    <sectiondef kind="private-static-attrib">
+      <memberdef kind="variable" id="classsrc_1_1_message_generator_1_1_message_generator_deep_seek_1_1_message_generator_deep_seek_1a872e2504daca8acb5364b4aa04af85ea" prot="private" static="yes" mutable="no">
+        <type>List</type>
+        <definition>List src.MessageGenerator.MessageGeneratorDeepSeek.MessageGeneratorDeepSeek::__messages</definition>
+        <argsstring></argsstring>
+        <name>__messages</name>
+        <qualifiedname>src.MessageGenerator.MessageGeneratorDeepSeek.MessageGeneratorDeepSeek.__messages</qualifiedname>
+        <initializer>[Dict[str, str]]</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/kir/Desktop/py/API/src/MessageGenerator/MessageGeneratorDeepSeek.py" line="17" column="1" bodyfile="C:/Users/kir/Desktop/py/API/src/MessageGenerator/MessageGeneratorDeepSeek.py" bodystart="17" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classsrc_1_1_message_generator_1_1_message_generator_deep_seek_1_1_message_generator_deep_seek_1af4a1185524ecfc334f2b62e040e6352d" prot="private" static="no" mutable="no">
+        <type></type>
+        <definition>src.MessageGenerator.MessageGeneratorDeepSeek.MessageGeneratorDeepSeek::__client</definition>
+        <argsstring></argsstring>
+        <name>__client</name>
+        <qualifiedname>src.MessageGenerator.MessageGeneratorDeepSeek.MessageGeneratorDeepSeek.__client</qualifiedname>
+        <initializer>=  OpenAI(api_key=os.getenv(&quot;DeepSeek_API_KEY&quot;), base_url=&quot;https://api.deepseek.com&quot;)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/kir/Desktop/py/API/src/MessageGenerator/MessageGeneratorDeepSeek.py" line="27" column="1" bodyfile="C:/Users/kir/Desktop/py/API/src/MessageGenerator/MessageGeneratorDeepSeek.py" bodystart="27" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classsrc_1_1_message_generator_1_1_message_generator_deep_seek_1_1_message_generator_deep_seek_1aa7d215f6838e51f144fcd615061b8822" prot="private" static="no" mutable="no">
+        <type></type>
+        <definition>src.MessageGenerator.MessageGeneratorDeepSeek.MessageGeneratorDeepSeek::__model</definition>
+        <argsstring></argsstring>
+        <name>__model</name>
+        <qualifiedname>src.MessageGenerator.MessageGeneratorDeepSeek.MessageGeneratorDeepSeek.__model</qualifiedname>
+        <initializer>=  model</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/kir/Desktop/py/API/src/MessageGenerator/MessageGeneratorDeepSeek.py" line="29" column="1" bodyfile="C:/Users/kir/Desktop/py/API/src/MessageGenerator/MessageGeneratorDeepSeek.py" bodystart="29" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classsrc_1_1_message_generator_1_1_message_generator_deep_seek_1_1_message_generator_deep_seek_1ac67faa02a6bb34a7fd0b7d25554c20ef" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>None</type>
+        <definition> None src.MessageGenerator.MessageGeneratorDeepSeek.MessageGeneratorDeepSeek.__init__</definition>
+        <argsstring>(self, str model=&apos;deepseek-chat&apos;)</argsstring>
+        <name>__init__</name>
+        <qualifiedname>src.MessageGenerator.MessageGeneratorDeepSeek.MessageGeneratorDeepSeek.__init__</qualifiedname>
+        <param>
+          <type>self</type>
+          <defname>self</defname>
+        </param>
+        <param>
+          <type>str</type>
+          <declname>model</declname>
+          <defval>&apos;deepseek-chat&apos;</defval>
+        </param>
+        <briefdescription>
+<para>Инициализация генератора сообщений </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>model</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Название модели для генерации (по умолчанию &apos;deepseek-chat&apos;) </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/kir/Desktop/py/API/src/MessageGenerator/MessageGeneratorDeepSeek.py" line="20" column="1" bodyfile="C:/Users/kir/Desktop/py/API/src/MessageGenerator/MessageGeneratorDeepSeek.py" bodystart="20" bodyend="30"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrc_1_1_message_generator_1_1_message_generator_deep_seek_1_1_message_generator_deep_seek_1a68531f3d43ffeb6363d6efbf434048d4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>str</type>
+        <definition> str src.MessageGenerator.MessageGeneratorDeepSeek.MessageGeneratorDeepSeek.generate</definition>
+        <argsstring>(self, str input_message, Optional[str] model=None)</argsstring>
+        <name>generate</name>
+        <qualifiedname>src.MessageGenerator.MessageGeneratorDeepSeek.MessageGeneratorDeepSeek.generate</qualifiedname>
+        <reimplements refid="classsrc_1_1_message_generator_1_1_protocol_message_generator_1_1_protocol_message_generator_1a3b2d9e3f4f31cce6400c8fe8b5329bf4">generate</reimplements>
+        <param>
+          <type>self</type>
+          <defname>self</defname>
+        </param>
+        <param>
+          <type>str</type>
+          <declname>input_message</declname>
+        </param>
+        <param>
+          <type>Optional</type>
+          <declname>model</declname>
+          <array>[str]</array>
+          <defval>None</defval>
+        </param>
+        <briefdescription>
+<para>Генерация ответа с использованием DeepSeek API. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>input_message</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Входное сообщение для обработки </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>model</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Название модели для генерации (опционально)</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>str Сгенерированный ответ </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/kir/Desktop/py/API/src/MessageGenerator/MessageGeneratorDeepSeek.py" line="31" column="1" bodyfile="C:/Users/kir/Desktop/py/API/src/MessageGenerator/MessageGeneratorDeepSeek.py" bodystart="31" bodyend="57"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrc_1_1_message_generator_1_1_message_generator_deep_seek_1_1_message_generator_deep_seek_1a92cd7430f9c81a8f5b6de9b0b4724111" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>None</type>
+        <definition> None src.MessageGenerator.MessageGeneratorDeepSeek.MessageGeneratorDeepSeek.add_user_message</definition>
+        <argsstring>(self, str message_content)</argsstring>
+        <name>add_user_message</name>
+        <qualifiedname>src.MessageGenerator.MessageGeneratorDeepSeek.MessageGeneratorDeepSeek.add_user_message</qualifiedname>
+        <reimplements refid="classsrc_1_1_message_generator_1_1_protocol_message_generator_1_1_protocol_message_generator_1acecf0dcf2a5261a36c56da5ab6e253e3">add_user_message</reimplements>
+        <param>
+          <type>self</type>
+          <defname>self</defname>
+        </param>
+        <param>
+          <type>str</type>
+          <declname>message_content</declname>
+        </param>
+        <briefdescription>
+<para>Добавление сообщения пользователя в историю </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>message_content</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Текст сообщения пользователя </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/kir/Desktop/py/API/src/MessageGenerator/MessageGeneratorDeepSeek.py" line="58" column="1" bodyfile="C:/Users/kir/Desktop/py/API/src/MessageGenerator/MessageGeneratorDeepSeek.py" bodystart="58" bodyend="69"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrc_1_1_message_generator_1_1_message_generator_deep_seek_1_1_message_generator_deep_seek_1a4ad1e859f543ce3e1cce49b8a1ffc7c0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>None</type>
+        <definition> None src.MessageGenerator.MessageGeneratorDeepSeek.MessageGeneratorDeepSeek.add_ai_message</definition>
+        <argsstring>(self, str message_content)</argsstring>
+        <name>add_ai_message</name>
+        <qualifiedname>src.MessageGenerator.MessageGeneratorDeepSeek.MessageGeneratorDeepSeek.add_ai_message</qualifiedname>
+        <reimplements refid="classsrc_1_1_message_generator_1_1_protocol_message_generator_1_1_protocol_message_generator_1afaffcee2207244df4fa8b5b398196062">add_ai_message</reimplements>
+        <param>
+          <type>self</type>
+          <defname>self</defname>
+        </param>
+        <param>
+          <type>str</type>
+          <declname>message_content</declname>
+        </param>
+        <briefdescription>
+<para>Добавление сообщения ИИ в историю </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>message_content</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Текст сообщения ИИ </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/kir/Desktop/py/API/src/MessageGenerator/MessageGeneratorDeepSeek.py" line="70" column="1" bodyfile="C:/Users/kir/Desktop/py/API/src/MessageGenerator/MessageGeneratorDeepSeek.py" bodystart="70" bodyend="81"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrc_1_1_message_generator_1_1_message_generator_deep_seek_1_1_message_generator_deep_seek_1a36703bcdba3a8acfd2875370a2f43215" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>None</type>
+        <definition> None src.MessageGenerator.MessageGeneratorDeepSeek.MessageGeneratorDeepSeek.add_system_message</definition>
+        <argsstring>(self, str message_content)</argsstring>
+        <name>add_system_message</name>
+        <qualifiedname>src.MessageGenerator.MessageGeneratorDeepSeek.MessageGeneratorDeepSeek.add_system_message</qualifiedname>
+        <reimplements refid="classsrc_1_1_message_generator_1_1_protocol_message_generator_1_1_protocol_message_generator_1a05e18c9670112887e7fd920ad79caf14">add_system_message</reimplements>
+        <param>
+          <type>self</type>
+          <defname>self</defname>
+        </param>
+        <param>
+          <type>str</type>
+          <declname>message_content</declname>
+        </param>
+        <briefdescription>
+<para>Добавление системного сообщения в историю </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>message_content</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Текст системного сообщения </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/kir/Desktop/py/API/src/MessageGenerator/MessageGeneratorDeepSeek.py" line="82" column="1" bodyfile="C:/Users/kir/Desktop/py/API/src/MessageGenerator/MessageGeneratorDeepSeek.py" bodystart="82" bodyend="93"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrc_1_1_message_generator_1_1_message_generator_deep_seek_1_1_message_generator_deep_seek_1ad3dc50b0d644789063eede934d586d7e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>List[Dict[str, str]]</type>
+        <definition> List[Dict[str, str]] src.MessageGenerator.MessageGeneratorDeepSeek.MessageGeneratorDeepSeek.get_message_history</definition>
+        <argsstring>(self)</argsstring>
+        <name>get_message_history</name>
+        <qualifiedname>src.MessageGenerator.MessageGeneratorDeepSeek.MessageGeneratorDeepSeek.get_message_history</qualifiedname>
+        <reimplements refid="classsrc_1_1_message_generator_1_1_protocol_message_generator_1_1_protocol_message_generator_1a854ce7a11bf37223a2b51f465a0a7638">get_message_history</reimplements>
+        <param>
+          <type>self</type>
+          <defname>self</defname>
+        </param>
+        <briefdescription>
+<para>Получение истории сообщений </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>List[Dict[str, str]] Список сообщений в формате словарей </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/kir/Desktop/py/API/src/MessageGenerator/MessageGeneratorDeepSeek.py" line="94" column="1" bodyfile="C:/Users/kir/Desktop/py/API/src/MessageGenerator/MessageGeneratorDeepSeek.py" bodystart="94" bodyend="101"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>Генератор сообщений с использованием DeepSeek API. </para>
+    </briefdescription>
+    <detaileddescription>
+<para>Реализует интерфейс <ref refid="classsrc_1_1_message_generator_1_1_protocol_message_generator_1_1_protocol_message_generator" kindref="compound">ProtocolMessageGenerator</ref> для генерации сообщений через DeepSeek API, предоставляющий доступ к специализированным языковым моделям. </para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="3">
+        <label>Protocol</label>
+      </node>
+      <node id="1">
+        <label>src.MessageGenerator.MessageGeneratorDeepSeek.MessageGeneratorDeepSeek</label>
+        <link refid="classsrc_1_1_message_generator_1_1_message_generator_deep_seek_1_1_message_generator_deep_seek"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>src.MessageGenerator.ProtocolMessageGenerator.ProtocolMessageGenerator</label>
+        <link refid="classsrc_1_1_message_generator_1_1_protocol_message_generator_1_1_protocol_message_generator"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="3">
+        <label>Protocol</label>
+      </node>
+      <node id="1">
+        <label>src.MessageGenerator.MessageGeneratorDeepSeek.MessageGeneratorDeepSeek</label>
+        <link refid="classsrc_1_1_message_generator_1_1_message_generator_deep_seek_1_1_message_generator_deep_seek"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>src.MessageGenerator.ProtocolMessageGenerator.ProtocolMessageGenerator</label>
+        <link refid="classsrc_1_1_message_generator_1_1_protocol_message_generator_1_1_protocol_message_generator"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="C:/Users/kir/Desktop/py/API/src/MessageGenerator/MessageGeneratorDeepSeek.py" line="8" column="1" bodyfile="C:/Users/kir/Desktop/py/API/src/MessageGenerator/MessageGeneratorDeepSeek.py" bodystart="8" bodyend="101"/>
+    <listofallmembers>
+      <member refid="classsrc_1_1_message_generator_1_1_message_generator_deep_seek_1_1_message_generator_deep_seek_1af4a1185524ecfc334f2b62e040e6352d" prot="private" virt="non-virtual"><scope>src::MessageGenerator::MessageGeneratorDeepSeek::MessageGeneratorDeepSeek</scope><name>__client</name></member>
+      <member refid="classsrc_1_1_message_generator_1_1_message_generator_deep_seek_1_1_message_generator_deep_seek_1ac67faa02a6bb34a7fd0b7d25554c20ef" prot="public" virt="non-virtual"><scope>src::MessageGenerator::MessageGeneratorDeepSeek::MessageGeneratorDeepSeek</scope><name>__init__</name></member>
+      <member refid="classsrc_1_1_message_generator_1_1_message_generator_deep_seek_1_1_message_generator_deep_seek_1a872e2504daca8acb5364b4aa04af85ea" prot="private" virt="non-virtual"><scope>src::MessageGenerator::MessageGeneratorDeepSeek::MessageGeneratorDeepSeek</scope><name>__messages</name></member>
+      <member refid="classsrc_1_1_message_generator_1_1_message_generator_deep_seek_1_1_message_generator_deep_seek_1aa7d215f6838e51f144fcd615061b8822" prot="private" virt="non-virtual"><scope>src::MessageGenerator::MessageGeneratorDeepSeek::MessageGeneratorDeepSeek</scope><name>__model</name></member>
+      <member refid="classsrc_1_1_message_generator_1_1_message_generator_deep_seek_1_1_message_generator_deep_seek_1a4ad1e859f543ce3e1cce49b8a1ffc7c0" prot="public" virt="non-virtual"><scope>src::MessageGenerator::MessageGeneratorDeepSeek::MessageGeneratorDeepSeek</scope><name>add_ai_message</name></member>
+      <member refid="classsrc_1_1_message_generator_1_1_message_generator_deep_seek_1_1_message_generator_deep_seek_1a36703bcdba3a8acfd2875370a2f43215" prot="public" virt="non-virtual"><scope>src::MessageGenerator::MessageGeneratorDeepSeek::MessageGeneratorDeepSeek</scope><name>add_system_message</name></member>
+      <member refid="classsrc_1_1_message_generator_1_1_message_generator_deep_seek_1_1_message_generator_deep_seek_1a92cd7430f9c81a8f5b6de9b0b4724111" prot="public" virt="non-virtual"><scope>src::MessageGenerator::MessageGeneratorDeepSeek::MessageGeneratorDeepSeek</scope><name>add_user_message</name></member>
+      <member refid="classsrc_1_1_message_generator_1_1_message_generator_deep_seek_1_1_message_generator_deep_seek_1a68531f3d43ffeb6363d6efbf434048d4" prot="public" virt="non-virtual"><scope>src::MessageGenerator::MessageGeneratorDeepSeek::MessageGeneratorDeepSeek</scope><name>generate</name></member>
+      <member refid="classsrc_1_1_message_generator_1_1_message_generator_deep_seek_1_1_message_generator_deep_seek_1ad3dc50b0d644789063eede934d586d7e" prot="public" virt="non-virtual"><scope>src::MessageGenerator::MessageGeneratorDeepSeek::MessageGeneratorDeepSeek</scope><name>get_message_history</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

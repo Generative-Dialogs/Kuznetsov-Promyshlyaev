@@ -1,0 +1,15 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.13.2" xml:lang="ru">
+  <compounddef id="_va_l_l_e-test_8py" kind="file" language="Python">
+    <compoundname>VaLLE-test.py</compoundname>
+    <innernamespace refid="namespace_va_l_l_e-test">VaLLE-test</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="normal"></highlight></codeline>
+    </programlisting>
+    <location file="C:/Users/kir/Desktop/py/API/src/TTS/VaLLE-test.py"/>
+  </compounddef>
+</doxygen>

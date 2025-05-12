@@ -1,0 +1,31 @@
+{% extends 'game/base.html' %}
+
+{% block content %}
+<div class="max-w-4xl mx-auto text-center">
+    <h1 class="text-4xl font-bold text-gray-800 mb-8">Welcome to RogueGPT</h1>
+    <p class="text-xl text-gray-600 mb-12">Create immersive RPG experiences with AI-powered characters and worlds.</p>
+    
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
+        <div class="bg-white p-6 rounded-lg shadow-md">
+            <h2 class="text-2xl font-semibold text-gray-800 mb-4">Create Worlds</h2>
+            <p class="text-gray-600">Design unique fantasy worlds with rich descriptions and characters.</p>
+        </div>
+        <div class="bg-white p-6 rounded-lg shadow-md">
+            <h2 class="text-2xl font-semibold text-gray-800 mb-4">Chat with AI</h2>
+            <p class="text-gray-600">Engage in dynamic conversations with AI-powered characters in your world.</p>
+        </div>
+    </div>
+    
+    {% if not user.is_authenticated %}
+    <div class="space-x-4">
+        <a href="{% url 'register' %}" class="bg-blue-500 text-white px-6 py-3 rounded-lg hover:bg-blue-600">Get Started</a>
+        <a href="{% url 'login' %}" class="bg-gray-200 text-gray-800 px-6 py-3 rounded-lg hover:bg-gray-300">Login</a>
+    </div>
+    {% else %}
+    <div class="space-x-4">
+        <a href="{% url 'session_list' %}" class="bg-blue-500 text-white px-6 py-3 rounded-lg hover:bg-blue-600">My Sessions</a>
+        <a href="{% url 'create_session' %}" class="bg-green-500 text-white px-6 py-3 rounded-lg hover:bg-green-600">New Session</a>
+    </div>
+    {% endif %}
+</div>
+{% endblock %} 

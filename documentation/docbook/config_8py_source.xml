@@ -1,0 +1,8 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_config_8py_source" xml:lang="ru">
+<title>config.py</title>
+<indexterm><primary>C:/Users/kir/Desktop/py/API/src/config.py</primary></indexterm>
+<programlisting linenumbering="unnumbered"><anchor xml:id="_config_8py_source_1l00001"/>00001 
+<anchor xml:id="_config_8py_source_1l00002"/>00002 DATABASE_NAME&#32;=&#32;<emphasis role="stringliteral">&quot;main.db&quot;</emphasis>&#32;
+<anchor xml:id="_config_8py_source_1l00003"/>00003 IMAGE_OUTPUT_DIR&#32;=&#32;<emphasis role="stringliteral">&apos;images&apos;</emphasis>
+</programlisting></section>

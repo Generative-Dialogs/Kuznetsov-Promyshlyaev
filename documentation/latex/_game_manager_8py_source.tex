@@ -1,0 +1,134 @@
+\doxysection{Game\+Manager.\+py}
+\label{_game_manager_8py_source}\index{C:/Users/kir/Desktop/py/API/src/GameManager/GameManager.py@{C:/Users/kir/Desktop/py/API/src/GameManager/GameManager.py}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{keyword}{from}\ typing\ \textcolor{keyword}{import}\ Optional,\ Tuple,\ List}
+\DoxyCodeLine{00002\ \textcolor{keyword}{from}\ src.GameMaster.GameMaster\ \textcolor{keyword}{import}\ GameMaster}
+\DoxyCodeLine{00003\ \textcolor{keyword}{from}\ src.ImageManager.ImageManager\ \textcolor{keyword}{import}\ ImageManager}
+\DoxyCodeLine{00004\ \textcolor{keyword}{from}\ src.DatabaseManager.DatabaseManager\ \textcolor{keyword}{import}\ DatabaseManager}
+\DoxyCodeLine{00005\ \textcolor{keyword}{from}\ src.Actor.Actor\ \textcolor{keyword}{import}\ Actor}
+\DoxyCodeLine{00006\ \textcolor{keyword}{from}\ src.ImagePromptGenerator.ImagePromptGenerator\ \textcolor{keyword}{import}\ ImagePromptGenerator}
+\DoxyCodeLine{00007\ \textcolor{keyword}{from}\ src.ImageGenerator.ImageGeneratorGoogle\ \textcolor{keyword}{import}\ ImageGeneratorGoogle}
+\DoxyCodeLine{00008\ \textcolor{keyword}{from}\ src.STT.STT\ \textcolor{keyword}{import}\ STT}
+\DoxyCodeLine{00009\ \textcolor{keyword}{import}\ logging}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00012\ \textcolor{keyword}{class\ }GameManager:}
+\DoxyCodeLine{00013\ \ \ \ \ \textcolor{stringliteral}{"{}"{}"{}!}}
+\DoxyCodeLine{00014\ \textcolor{stringliteral}{\ \ \ \ @brief\ Менеджер\ игрового\ процесса}}
+\DoxyCodeLine{00015\ \textcolor{stringliteral}{\ \ \ \ }}
+\DoxyCodeLine{00016\ \textcolor{stringliteral}{\ \ \ \ @details}}
+\DoxyCodeLine{00017\ \textcolor{stringliteral}{\ \ \ \ Координирует\ взаимодействие\ между\ различными\ компонентами\ игры:}}
+\DoxyCodeLine{00018\ \textcolor{stringliteral}{\ \ \ \ -\/\ Мастер\ игры\ (GameMaster)}}
+\DoxyCodeLine{00019\ \textcolor{stringliteral}{\ \ \ \ -\/\ Менеджер\ изображений\ (ImageManager)}}
+\DoxyCodeLine{00020\ \textcolor{stringliteral}{\ \ \ \ -\/\ База\ данных\ (DatabaseManager)}}
+\DoxyCodeLine{00021\ \textcolor{stringliteral}{\ \ \ \ -\/\ Актор\ (Actor)}}
+\DoxyCodeLine{00022\ \textcolor{stringliteral}{\ \ \ \ }}
+\DoxyCodeLine{00023\ \textcolor{stringliteral}{\ \ \ \ Отвечает\ за\ обработку\ пользовательского\ ввода\ и\ генерацию\ ответов,}}
+\DoxyCodeLine{00024\ \textcolor{stringliteral}{\ \ \ \ включая\ текстовые\ описания\ и\ изображения.}}
+\DoxyCodeLine{00025\ \textcolor{stringliteral}{\ \ \ \ "{}"{}"{}}}
+\DoxyCodeLine{00026\ \ \ \ \ }
+\DoxyCodeLine{00027\ \ \ \ \ \textcolor{keyword}{def\ }\_\_init\_\_(self,\ session\_id:\ int)\ -\/>\ \textcolor{keywordtype}{None}:}
+\DoxyCodeLine{00028\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}"{}"{}!}}
+\DoxyCodeLine{00029\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ @brief\ Инициализация\ менеджера\ игры}}
+\DoxyCodeLine{00030\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ }}
+\DoxyCodeLine{00031\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ @param\ session\_id\ ID\ игровой\ сессии}}
+\DoxyCodeLine{00032\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ }}
+\DoxyCodeLine{00033\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ @details}}
+\DoxyCodeLine{00034\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ Создает\ новый\ экземпляр\ менеджера\ игры\ и\ инициализирует}}
+\DoxyCodeLine{00035\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ все\ необходимые\ компоненты\ для\ работы\ игровой\ сессии.}}
+\DoxyCodeLine{00036\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ "{}"{}"{}}}
+\DoxyCodeLine{00037\ \ \ \ \ \ \ \ \ self.\_\_session\_id\ =\ session\_id}
+\DoxyCodeLine{00038\ \ \ \ \ \ \ \ \ self.\_\_db\ =\ DatabaseManager()}
+\DoxyCodeLine{00039\ \ \ \ \ \ \ \ \ self.\_\_language\ =\ self.\_\_db.get\_session\_language(session\_id)}
+\DoxyCodeLine{00040\ \ \ \ \ \ \ \ \ self.\_\_game\_master\ =\ GameMaster(session\_id,\ language=self.\_\_language)}
+\DoxyCodeLine{00041\ \ \ \ \ \ \ \ \ self.\_\_image\_manager\ =\ ImageManager(session\_id)}
+\DoxyCodeLine{00042\ \ \ \ \ \ \ \ \ self.\_\_stt\ =\ STT()}
+\DoxyCodeLine{00043\ }
+\DoxyCodeLine{00044\ \ \ \ \ \textcolor{keyword}{def\ }process\_audio\_input(self,\ audio\_path:\ str,\ generate\_image:\ bool\ =\ \textcolor{keyword}{True})\ -\/>\ Tuple[str,\ Optional[str]]:}
+\DoxyCodeLine{00045\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}"{}"{}!}}
+\DoxyCodeLine{00046\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ @brief\ Обработка\ аудио\ ввода\ от\ пользователя}}
+\DoxyCodeLine{00047\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ }}
+\DoxyCodeLine{00048\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ @param\ audio\_path\ Путь\ к\ аудиофайлу}}
+\DoxyCodeLine{00049\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ @param\ generate\_image\ Флаг\ генерации\ изображения\ (по\ умолчанию\ True)}}
+\DoxyCodeLine{00050\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ }}
+\DoxyCodeLine{00051\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ @return\ Tuple[str,\ Optional[str]]\ Кортеж\ из:}}
+\DoxyCodeLine{00052\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ -\/\ Текстового\ ответа\ от\ мастера\ игры}}
+\DoxyCodeLine{00053\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ -\/\ Пути\ к\ сгенерированному\ изображению\ (если\ успешно\ и\ generate\_image=True)\ или\ None}}
+\DoxyCodeLine{00054\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ }}
+\DoxyCodeLine{00055\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ @details}}
+\DoxyCodeLine{00056\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ Преобразует\ аудио\ в\ текст\ с\ помощью\ STT\ и\ обрабатывает\ полученный\ текст}}
+\DoxyCodeLine{00057\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ через\ process\_input.\ Использует\ язык\ сессии\ для\ распознавания\ речи.}}
+\DoxyCodeLine{00058\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ "{}"{}"{}}}
+\DoxyCodeLine{00059\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{try}:}
+\DoxyCodeLine{00060\ \ \ \ \ \ \ \ \ \ \ \ \ self.\_\_stt.set\_language(self.\_\_language)}
+\DoxyCodeLine{00061\ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00062\ \ \ \ \ \ \ \ \ \ \ \ \ text\_input\ =\ self.\_\_stt.audio\_to\_text(audio\_path)}
+\DoxyCodeLine{00063\ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00064\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ \textcolor{keywordflow}{not}\ text\_input\ \textcolor{keywordflow}{or}\ text\_input\ ==\ \textcolor{stringliteral}{"{}Речь\ не\ распознана"{}}:}
+\DoxyCodeLine{00065\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{stringliteral}{"{}Извините,\ не\ удалось\ распознать\ речь.\ Пожалуйста,\ попробуйте\ еще\ раз."{}},\ \textcolor{keywordtype}{None}}
+\DoxyCodeLine{00066\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00067\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ self.process\_input(text\_input,\ generate\_image)}
+\DoxyCodeLine{00068\ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00069\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{except}\ Exception\ \textcolor{keyword}{as}\ e:}
+\DoxyCodeLine{00070\ \ \ \ \ \ \ \ \ \ \ \ \ logging.error(f\textcolor{stringliteral}{"{}Error\ processing\ audio\ input:\ \{str(e)\}"{}})}
+\DoxyCodeLine{00071\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ f\textcolor{stringliteral}{"{}Произошла\ ошибка\ при\ обработке\ аудио:\ \{str(e)\}"{}},\ \textcolor{keywordtype}{None}}
+\DoxyCodeLine{00072\ }
+\DoxyCodeLine{00073\ \ \ \ \ \textcolor{keyword}{def\ }process\_input(self,\ user\_input:\ str,\ generate\_image:\ bool\ =\ \textcolor{keyword}{True})\ -\/>\ Tuple[str,\ Optional[str]]:}
+\DoxyCodeLine{00074\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}"{}"{}!}}
+\DoxyCodeLine{00075\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ @brief\ Обработка\ пользовательского\ ввода}}
+\DoxyCodeLine{00076\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ }}
+\DoxyCodeLine{00077\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ @param\ user\_input\ Ввод\ пользователя}}
+\DoxyCodeLine{00078\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ @param\ generate\_image\ Флаг\ генерации\ изображения\ (по\ умолчанию\ True)}}
+\DoxyCodeLine{00079\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ }}
+\DoxyCodeLine{00080\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ @return\ Tuple[str,\ Optional[str]]\ Кортеж\ из:}}
+\DoxyCodeLine{00081\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ -\/\ Текстового\ ответа\ от\ мастера\ игры}}
+\DoxyCodeLine{00082\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ -\/\ Пути\ к\ сгенерированному\ изображению\ (если\ успешно\ и\ generate\_image=True)\ или\ None}}
+\DoxyCodeLine{00083\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ }}
+\DoxyCodeLine{00084\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ @details}}
+\DoxyCodeLine{00085\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ Обрабатывает\ пользовательский\ ввод,\ генерирует\ ответ\ и,}}
+\DoxyCodeLine{00086\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ при\ необходимости,\ создает\ изображение\ для\ текущей\ сцены.}}
+\DoxyCodeLine{00087\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ "{}"{}"{}}}
+\DoxyCodeLine{00088\ \ \ \ \ \ \ \ \ \textcolor{comment}{\#\ Get\ actor's\ response\ first}}
+\DoxyCodeLine{00089\ \ \ \ \ \ \ \ \ text\_response\ =\ self.\_\_game\_master.generate\_answer(user\_input)}
+\DoxyCodeLine{00090\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00091\ \ \ \ \ \ \ \ \ image\_prompts\ =\ self.\_\_db.get\_image\_prompts(self.\_\_session\_id)}
+\DoxyCodeLine{00092\ \ \ \ \ \ \ \ \ current\_sequence\ =\ len(image\_prompts)}
+\DoxyCodeLine{00093\ \ \ \ \ \ \ \ \ character\_ids\ =\ self.\_\_db.get\_active\_characters\_ids(self.\_\_session\_id,\ current\_sequence)}
+\DoxyCodeLine{00094\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00095\ \ \ \ \ \ \ \ \ image\_path\ =\ \textcolor{keywordtype}{None}}
+\DoxyCodeLine{00096\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ generate\_image:}
+\DoxyCodeLine{00097\ \ \ \ \ \ \ \ \ \ \ \ \ image\_path\ =\ self.\_\_image\_manager.generate\_and\_save\_image(user\_input,\ text\_response,\ character\_ids)}
+\DoxyCodeLine{00098\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00099\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ text\_response,\ image\_path\ }
+\DoxyCodeLine{00100\ }
+\DoxyCodeLine{00101\ \ \ \ \ \textcolor{keyword}{def\ }generate\_image(self,\ sequence:\ int)\ -\/>\ Optional[str]:}
+\DoxyCodeLine{00102\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}"{}"{}!}}
+\DoxyCodeLine{00103\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ @brief\ Генерация\ изображения\ для\ сообщения}}
+\DoxyCodeLine{00104\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ }}
+\DoxyCodeLine{00105\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ @param\ sequence\ Номер\ последовательности\ сообщения}}
+\DoxyCodeLine{00106\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ }}
+\DoxyCodeLine{00107\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ @return\ Optional[str]\ Путь\ к\ сгенерированному\ изображению\ или\ None\ в\ случае\ ошибки}}
+\DoxyCodeLine{00108\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ }}
+\DoxyCodeLine{00109\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ @details}}
+\DoxyCodeLine{00110\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ Генерирует\ изображение\ для\ указанного\ сообщения,\ используя}}
+\DoxyCodeLine{00111\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ данные\ из\ базы\ данных\ и\ активных\ персонажей.}}
+\DoxyCodeLine{00112\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ "{}"{}"{}}}
+\DoxyCodeLine{00113\ \ \ \ \ \ \ \ \ message\_data\ =\ self.\_\_db.get\_user\_message(self.\_\_session\_id,\ sequence)}
+\DoxyCodeLine{00114\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ \textcolor{keywordflow}{not}\ message\_data:}
+\DoxyCodeLine{00115\ \ \ \ \ \ \ \ \ \ \ \ \ logging.error(f\textcolor{stringliteral}{"{}No\ message\ found\ for\ sequence\ \{sequence\}"{}})}
+\DoxyCodeLine{00116\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keywordtype}{None}}
+\DoxyCodeLine{00117\ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00118\ \ \ \ \ \ \ \ \ user\_input,\ actor\_output\ =\ message\_data}
+\DoxyCodeLine{00119\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00120\ \ \ \ \ \ \ \ \ character\_ids\ =\ self.\_\_db.get\_active\_characters\_ids(self.\_\_session\_id,\ sequence)}
+\DoxyCodeLine{00121\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00122\ \ \ \ \ \ \ \ \ image\_path\ =\ self.\_\_image\_manager.generate\_and\_save\_image(user\_input,\ actor\_output,\ character\_ids)}
+\DoxyCodeLine{00123\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ image\_path:}
+\DoxyCodeLine{00124\ \ \ \ \ \ \ \ \ \ \ \ \ logging.info(f\textcolor{stringliteral}{"{}Image\ generated\ and\ saved\ to:\ \{image\_path\}"{}})}
+\DoxyCodeLine{00125\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ image\_path}
+\DoxyCodeLine{00126\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{00127\ \ \ \ \ \ \ \ \ \ \ \ \ logging.error(\textcolor{stringliteral}{"{}Failed\ to\ generate\ image"{}})}
+\DoxyCodeLine{00128\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keywordtype}{None}}
+
+\end{DoxyCode}

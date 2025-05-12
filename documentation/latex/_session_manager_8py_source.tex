@@ -1,0 +1,79 @@
+\doxysection{Session\+Manager.\+py}
+\label{_session_manager_8py_source}\index{C:/Users/kir/Desktop/py/API/src/SessionManager/SessionManager.py@{C:/Users/kir/Desktop/py/API/src/SessionManager/SessionManager.py}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{keyword}{from}\ typing\ \textcolor{keyword}{import}\ Optional,\ Dict,\ List,\ Tuple,\ Any}
+\DoxyCodeLine{00002\ \textcolor{keyword}{from}\ src.GameMaster.GameMaster\ \textcolor{keyword}{import}\ GameMaster}
+\DoxyCodeLine{00003\ \textcolor{keyword}{from}\ src.DatabaseManager.DatabaseManager\ \textcolor{keyword}{import}\ DatabaseManager}
+\DoxyCodeLine{00004\ \textcolor{keyword}{from}\ src.Actor.Actor\ \textcolor{keyword}{import}\ Actor}
+\DoxyCodeLine{00005\ \textcolor{keyword}{from}\ src.config\ \textcolor{keyword}{import}\ DATABASE\_NAME}
+\DoxyCodeLine{00006\ }
+\DoxyCodeLine{00007\ \textcolor{keyword}{class\ }SessionManager:}
+\DoxyCodeLine{00008\ \ \ \ \ \textcolor{stringliteral}{"{}"{}"{}!}}
+\DoxyCodeLine{00009\ \textcolor{stringliteral}{\ \ \ \ @brief\ Менеджер\ игровых\ сессий}}
+\DoxyCodeLine{00010\ \textcolor{stringliteral}{\ \ \ \ }}
+\DoxyCodeLine{00011\ \textcolor{stringliteral}{\ \ \ \ @details}}
+\DoxyCodeLine{00012\ \textcolor{stringliteral}{\ \ \ \ Класс\ отвечает\ за:}}
+\DoxyCodeLine{00013\ \textcolor{stringliteral}{\ \ \ \ -\/\ Создание\ и\ управление\ игровыми\ сессиями}}
+\DoxyCodeLine{00014\ \textcolor{stringliteral}{\ \ \ \ -\/\ Управление\ пользователями}}
+\DoxyCodeLine{00015\ \textcolor{stringliteral}{\ \ \ \ -\/\ Взаимодействие\ с\ базой\ данных\ для\ хранения\ информации\ о\ сессиях}}
+\DoxyCodeLine{00016\ \textcolor{stringliteral}{\ \ \ \ "{}"{}"{}}}
+\DoxyCodeLine{00017\ \ \ \ \ \textcolor{keyword}{def\ }\_\_init\_\_(self)\ -\/>\ None:}
+\DoxyCodeLine{00018\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}"{}"{}!}}
+\DoxyCodeLine{00019\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ @brief\ Инициализация\ менеджера\ сессий}}
+\DoxyCodeLine{00020\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ "{}"{}"{}}}
+\DoxyCodeLine{00021\ \ \ \ \ \ \ \ \ self.db\ =\ DatabaseManager()}
+\DoxyCodeLine{00022\ \ \ \ \ \ \ \ \ self.active\_sessions:\ Dict[int,\ GameMaster]\ =\ \{\}}
+\DoxyCodeLine{00023\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00024\ \ \ \ \ \textcolor{keyword}{def\ }create\_user(self)\ -\/>\ int:}
+\DoxyCodeLine{00025\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}"{}"{}!}}
+\DoxyCodeLine{00026\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ @brief\ Создание\ нового\ пользователя}}
+\DoxyCodeLine{00027\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ }}
+\DoxyCodeLine{00028\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ @return\ int\ ID\ созданного\ пользователя}}
+\DoxyCodeLine{00029\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ "{}"{}"{}}}
+\DoxyCodeLine{00030\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ self.db.create\_user()}
+\DoxyCodeLine{00031\ }
+\DoxyCodeLine{00032\ \ \ \ \ \textcolor{keyword}{def\ }start\_session(self,\ session\_id:\ int)\ -\/>\ GameMaster:}
+\DoxyCodeLine{00033\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}"{}"{}!}}
+\DoxyCodeLine{00034\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ @brief\ Запуск\ или\ возобновление\ игровой\ сессии}}
+\DoxyCodeLine{00035\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ }}
+\DoxyCodeLine{00036\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ @param\ session\_id\ ID\ сессии}}
+\DoxyCodeLine{00037\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ }}
+\DoxyCodeLine{00038\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ @return\ GameMaster\ Объект\ мастера\ игры\ для\ управления\ сессией}}
+\DoxyCodeLine{00039\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ }}
+\DoxyCodeLine{00040\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ @throws\ ValueError\ если\ сессия\ не\ найдена}}
+\DoxyCodeLine{00041\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ "{}"{}"{}}}
+\DoxyCodeLine{00042\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00043\ \ \ \ \ \ \ \ \ \textcolor{comment}{\#\ Get\ session\ info}}
+\DoxyCodeLine{00044\ \ \ \ \ \ \ \ \ session\_info\ =\ self.db.get\_session\_info(session\_id)}
+\DoxyCodeLine{00045\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ session\_info\ \textcolor{keywordflow}{is}\ \textcolor{keywordtype}{None}:}
+\DoxyCodeLine{00046\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{raise}\ ValueError(f\textcolor{stringliteral}{"{}Session\ \{session\_id\}\ not\ found"{}})}
+\DoxyCodeLine{00047\ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00048\ \ \ \ \ \ \ \ \ world\_description,\ player\_description\ =\ session\_info}
+\DoxyCodeLine{00049\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00050\ \ \ \ \ \ \ \ \ \textcolor{comment}{\#\ Create\ game\ master}}
+\DoxyCodeLine{00051\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ GameMaster(}
+\DoxyCodeLine{00052\ \ \ \ \ \ \ \ \ \ \ \ \ session\_id=session\_id,}
+\DoxyCodeLine{00053\ \ \ \ \ \ \ \ \ \ \ \ \ world\_description=world\_description,}
+\DoxyCodeLine{00054\ \ \ \ \ \ \ \ \ \ \ \ \ player\_description=player\_description}
+\DoxyCodeLine{00055\ \ \ \ \ \ \ \ \ )}
+\DoxyCodeLine{00056\ }
+\DoxyCodeLine{00057\ \ \ \ \ \textcolor{keyword}{def\ }get\_session(self,\ session\_id:\ int)\ -\/>\ Optional[GameMaster]:}
+\DoxyCodeLine{00058\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}"{}"{}!}}
+\DoxyCodeLine{00059\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ @brief\ Получение\ активной\ игровой\ сессии}}
+\DoxyCodeLine{00060\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ }}
+\DoxyCodeLine{00061\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ @param\ session\_id\ ID\ сессии}}
+\DoxyCodeLine{00062\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ }}
+\DoxyCodeLine{00063\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ @return\ Optional[GameMaster]\ Объект\ мастера\ игры\ или\ None,\ если\ сессия\ не\ найдена}}
+\DoxyCodeLine{00064\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ "{}"{}"{}}}
+\DoxyCodeLine{00065\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ self.active\_sessions.get(session\_id)}
+\DoxyCodeLine{00066\ }
+\DoxyCodeLine{00067\ \ \ \ \ \textcolor{keyword}{def\ }delete\_user(self,\ user\_id:\ int)\ -\/>\ \textcolor{keywordtype}{None}:}
+\DoxyCodeLine{00068\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}"{}"{}!}}
+\DoxyCodeLine{00069\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ @brief\ Удаление\ всех\ данных\ пользователя}}
+\DoxyCodeLine{00070\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ }}
+\DoxyCodeLine{00071\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ @param\ user\_id\ ID\ пользователя}}
+\DoxyCodeLine{00072\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ "{}"{}"{}}}
+\DoxyCodeLine{00073\ \ \ \ \ \ \ \ \ self.db.delete\_user\_data(user\_id)\ }
+
+\end{DoxyCode}

@@ -1,0 +1,322 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ru">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.13.2"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>My Project: Исходный файл C:/Users/kir/Desktop/py/API/src/STT/STT.py</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+  $(function() { init_search(); });
+/* @license-end */
+</script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">My Project
+   </div>
+  </td>
+    <td>        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <span id="MSearchSelect"                onmouseover="return searchBox.OnSearchSelectShow()"                onmouseout="return searchBox.OnSearchSelectHide()">&#160;</span>
+          <input type="text" id="MSearchField" value="" placeholder="Поиск" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.svg" alt=""/></a>
+          </span>
+        </div>
+</td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Создано системой Doxygen 1.13.2 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() { codefold.init(0); });
+/* @license-end */
+</script>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function(){initNavTree('_s_t_t_8py_source.html',''); initResizable(true); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Загрузка...</div>
+<div class="SRStatus" id="Searching">Поиск...</div>
+<div class="SRStatus" id="NoMatches">Не найдено</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">STT.py</div></div>
+</div><!--header-->
+<div class="contents">
+<div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="keyword">import</span> speech_recognition <span class="keyword">as</span> sr  <span class="comment"># type: ignore</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="keyword">from</span> typing <span class="keyword">import</span> Optional, Dict</div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="keyword">import</span> numpy <span class="keyword">as</span> np</div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="keyword">from</span> pydub <span class="keyword">import</span> AudioSegment  <span class="comment"># type: ignore</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="keyword">import</span> os</div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span> </div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span> </div>
+<div class="foldopen" id="foldopen00008" data-start="" data-end="">
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno"><a class="line" href="class_s_t_t_1_1_s_t_t.html">    8</a></span><span class="keyword">class </span><a class="code hl_class" href="class_s_t_t_1_1_s_t_t.html">STT</a>:</div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span>    <span class="stringliteral">&quot;&quot;&quot;!</span></div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="stringliteral">    @brief Класс для распознавания речи (Speech-to-Text)</span></div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="stringliteral">    </span></div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="stringliteral">    @details</span></div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="stringliteral">    Реализует паттерн Singleton для обеспечения единой точки доступа</span></div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="stringliteral">    к функционалу распознавания речи. Использует библиотеку speech_recognition</span></div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="stringliteral">    для преобразования аудио в текст.</span></div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="stringliteral">    </span></div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="stringliteral">    @note Поддерживает русский и английский языки для распознавания</span></div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span><span class="stringliteral">    &quot;&quot;&quot;</span></div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>    __instance: Optional[<span class="stringliteral">&#39;STT&#39;</span>] = <span class="keywordtype">None</span></div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>    __recognizer: Optional[sr.Recognizer] = <span class="keywordtype">None</span></div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>    __silence_duration_ms: int = 2000  <span class="comment"># 2 секунды тишины в начале</span></div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>    __energy_threshold: float = 300  <span class="comment"># Порог энергии для определения речи</span></div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>    __pause_threshold: float = 0.8  <span class="comment"># Порог паузы между словами</span></div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>    __dynamic_energy_threshold: bool = <span class="keyword">True</span>  <span class="comment"># Динамическая настройка порога энергии</span></div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>    </div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>    <span class="comment"># Словарь соответствия языков и их кодов</span></div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>    __language_codes: Dict[str, str] = {</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>        <span class="stringliteral">&quot;Russian&quot;</span>: <span class="stringliteral">&quot;ru-RU&quot;</span>,</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>        <span class="stringliteral">&quot;English&quot;</span>: <span class="stringliteral">&quot;en-US&quot;</span>,</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>        <span class="stringliteral">&quot;ru-RU&quot;</span>: <span class="stringliteral">&quot;ru-RU&quot;</span>,</div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>        <span class="stringliteral">&quot;en-US&quot;</span>: <span class="stringliteral">&quot;en-US&quot;</span></div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>    }</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>    </div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>    <span class="comment"># Текущий язык распознавания</span></div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>    __current_language: str = <span class="stringliteral">&quot;Russian&quot;</span></div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span> </div>
+<div class="foldopen" id="foldopen00037" data-start="" data-end="">
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno"><a class="line" href="class_s_t_t_1_1_s_t_t.html#a00806fedb423f01c5e88d7b05428ed42">   37</a></span>    <span class="keyword">def </span><a class="code hl_function" href="class_s_t_t_1_1_s_t_t.html#a00806fedb423f01c5e88d7b05428ed42">__new__</a>(cls) -&gt; &#39;STT&#39;:</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>        <span class="stringliteral">&quot;&quot;&quot;!</span></div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span><span class="stringliteral">        @brief Создание единственного экземпляра класса</span></div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span><span class="stringliteral">        </span></div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span><span class="stringliteral">        @return STT Единственный экземпляр класса STT</span></div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span><span class="stringliteral">        &quot;&quot;&quot;</span></div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>        <span class="keywordflow">if</span> cls.<a class="code hl_variable" href="class_s_t_t_1_1_s_t_t.html#a135af9a06c5abce11d9f7d6dc11b66e4">__instance</a> <span class="keywordflow">is</span> <span class="keywordtype">None</span>:</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>            cls.<a class="code hl_variable" href="class_s_t_t_1_1_s_t_t.html#a135af9a06c5abce11d9f7d6dc11b66e4">__instance</a> = super(STT, cls).<a class="code hl_function" href="class_s_t_t_1_1_s_t_t.html#a00806fedb423f01c5e88d7b05428ed42">__new__</a>(cls)</div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>            cls.<a class="code hl_variable" href="class_s_t_t_1_1_s_t_t.html#a18d65b38e82a8a6d2332dcb77448c334">__recognizer</a> = sr.Recognizer()</div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>        <span class="keywordflow">return</span> cls.<a class="code hl_variable" href="class_s_t_t_1_1_s_t_t.html#a135af9a06c5abce11d9f7d6dc11b66e4">__instance</a></div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span> </div>
+</div>
+<div class="foldopen" id="foldopen00048" data-start="" data-end="">
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno"><a class="line" href="class_s_t_t_1_1_s_t_t.html#afd1233e0d05b742a70ac41d656c39d7a">   48</a></span>    <span class="keyword">def </span><a class="code hl_function" href="class_s_t_t_1_1_s_t_t.html#afd1233e0d05b742a70ac41d656c39d7a">__init__</a>(self) -&gt; None:</div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>        <span class="stringliteral">&quot;&quot;&quot;!</span></div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span><span class="stringliteral">        @brief Инициализация распознавателя речи</span></div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span><span class="stringliteral">        </span></div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span><span class="stringliteral">        @note Метод выполняется только при первом создании экземпляра</span></div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span><span class="stringliteral">        &quot;&quot;&quot;</span></div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>        <span class="keywordflow">if</span> self.<a class="code hl_variable" href="class_s_t_t_1_1_s_t_t.html#a18d65b38e82a8a6d2332dcb77448c334">__recognizer</a> <span class="keywordflow">is</span> <span class="keywordtype">None</span>:</div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>            self.<a class="code hl_variable" href="class_s_t_t_1_1_s_t_t.html#a18d65b38e82a8a6d2332dcb77448c334">__recognizer</a> = sr.Recognizer()</div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>            <span class="comment"># Настройка параметров распознавателя</span></div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>            self.<a class="code hl_variable" href="class_s_t_t_1_1_s_t_t.html#a18d65b38e82a8a6d2332dcb77448c334">__recognizer</a>.energy_threshold = self.<a class="code hl_variable" href="class_s_t_t_1_1_s_t_t.html#a0eb5f46b9bbcfad3f8c5ea052d9d75dc">__energy_threshold</a></div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>            self.<a class="code hl_variable" href="class_s_t_t_1_1_s_t_t.html#a18d65b38e82a8a6d2332dcb77448c334">__recognizer</a>.pause_threshold = self.<a class="code hl_variable" href="class_s_t_t_1_1_s_t_t.html#a2f168079f8932bca18ff8ea847b01072">__pause_threshold</a></div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>            self.<a class="code hl_variable" href="class_s_t_t_1_1_s_t_t.html#a18d65b38e82a8a6d2332dcb77448c334">__recognizer</a>.dynamic_energy_threshold = self.<a class="code hl_variable" href="class_s_t_t_1_1_s_t_t.html#a96f1b5f438df84284f82933791420440">__dynamic_energy_threshold</a></div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span> </div>
+</div>
+<div class="foldopen" id="foldopen00061" data-start="" data-end="">
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno"><a class="line" href="class_s_t_t_1_1_s_t_t.html#a26c6ff8183dcc74ae777214092921ddf">   61</a></span>    <span class="keyword">def </span><a class="code hl_function" href="class_s_t_t_1_1_s_t_t.html#a26c6ff8183dcc74ae777214092921ddf">set_language</a>(self, language: str) -&gt; <span class="keywordtype">None</span>:</div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>        <span class="stringliteral">&quot;&quot;&quot;!</span></div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span><span class="stringliteral">        @brief Установка языка распознавания</span></div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span><span class="stringliteral">        </span></div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span><span class="stringliteral">        @param language Язык для распознавания (Russian/English или ru-RU/en-US)</span></div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span><span class="stringliteral">        </span></div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span><span class="stringliteral">        @throws ValueError если указанный язык не поддерживается</span></div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span><span class="stringliteral">        &quot;&quot;&quot;</span></div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>        <span class="keywordflow">if</span> language <span class="keywordflow">not</span> <span class="keywordflow">in</span> self.<a class="code hl_variable" href="class_s_t_t_1_1_s_t_t.html#add1948143ef0071a4e01484adf81ab04">__language_codes</a>:</div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>            <span class="keywordflow">raise</span> ValueError(f<span class="stringliteral">&quot;Неподдерживаемый язык: {language}. Поддерживаемые языки: {&#39;, &#39;.join(self.__language_codes.keys())}&quot;</span>)</div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>        self.<a class="code hl_variable" href="class_s_t_t_1_1_s_t_t.html#a4ca8df1cdc6958d6ee4897155e8f95f6">__current_language</a> = language</div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span> </div>
+</div>
+<div class="foldopen" id="foldopen00073" data-start="" data-end="">
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno"><a class="line" href="class_s_t_t_1_1_s_t_t.html#a2834cb4380855d9beb3d8a70ac675523">   73</a></span>    <span class="keyword">def </span><a class="code hl_function" href="class_s_t_t_1_1_s_t_t.html#a2834cb4380855d9beb3d8a70ac675523">get_language</a>(self) -&gt; str:</div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>        <span class="stringliteral">&quot;&quot;&quot;!</span></div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span><span class="stringliteral">        @brief Получение текущего языка распознавания</span></div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span><span class="stringliteral">        </span></div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span><span class="stringliteral">        @return str Текущий язык распознавания</span></div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span><span class="stringliteral">        &quot;&quot;&quot;</span></div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>        <span class="keywordflow">return</span> self.<a class="code hl_variable" href="class_s_t_t_1_1_s_t_t.html#a4ca8df1cdc6958d6ee4897155e8f95f6">__current_language</a></div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span> </div>
+</div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>    <span class="keyword">def </span>__add_silence_padding(self, audio_path: str) -&gt; str:</div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>        <span class="stringliteral">&quot;&quot;&quot;!</span></div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span><span class="stringliteral">        @brief Добавление тишины в начало аудиофайла</span></div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span><span class="stringliteral">        </span></div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span><span class="stringliteral">        @param audio_path Путь к исходному аудиофайлу</span></div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span><span class="stringliteral">        </span></div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span><span class="stringliteral">        @return str Путь к новому аудиофайлу с добавленной тишиной</span></div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span><span class="stringliteral">        &quot;&quot;&quot;</span></div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span>        <span class="keywordflow">try</span>:</div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>            <span class="comment"># Загрузка аудиофайла</span></div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>            audio = AudioSegment.from_file(audio_path)</div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span>            </div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span>            <span class="comment"># Создание тишины</span></div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span>            silence = AudioSegment.silent(duration=self.<a class="code hl_variable" href="class_s_t_t_1_1_s_t_t.html#a31995431a1081b0e1fa5e22634677c63">__silence_duration_ms</a>)</div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span>            </div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span>            <span class="comment"># Добавление тишины в начало</span></div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span>            audio_with_silence = silence + audio</div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span>            </div>
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span>            <span class="comment"># Создание временного файла</span></div>
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span>            temp_path = audio_path.replace(<span class="stringliteral">&#39;.wav&#39;</span>, <span class="stringliteral">&#39;_with_silence.wav&#39;</span>)</div>
+<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span>            audio_with_silence.export(temp_path, format=<span class="stringliteral">&quot;wav&quot;</span>)</div>
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span>            </div>
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span>            <span class="keywordflow">return</span> temp_path</div>
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span>        <span class="keywordflow">except</span> Exception <span class="keyword">as</span> e:</div>
+<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span>            print(f<span class="stringliteral">&quot;Ошибка при добавлении тишины: {str(e)}&quot;</span>)</div>
+<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span>            <span class="keywordflow">return</span> audio_path</div>
+<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span> </div>
+<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span>    <span class="keyword">def </span>__cleanup_temp_file(self, temp_path: str) -&gt; <span class="keywordtype">None</span>:</div>
+<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span>        <span class="stringliteral">&quot;&quot;&quot;!</span></div>
+<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span><span class="stringliteral">        @brief Удаление временного файла</span></div>
+<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span><span class="stringliteral">        </span></div>
+<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span><span class="stringliteral">        @param temp_path Путь к временному файлу</span></div>
+<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span><span class="stringliteral">        &quot;&quot;&quot;</span></div>
+<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span>        <span class="keywordflow">try</span>:</div>
+<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span>            <span class="keywordflow">if</span> os.path.exists(temp_path) <span class="keywordflow">and</span> <span class="stringliteral">&#39;_with_silence.wav&#39;</span> <span class="keywordflow">in</span> temp_path:</div>
+<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span>                os.remove(temp_path)</div>
+<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span>        <span class="keywordflow">except</span> Exception <span class="keyword">as</span> e:</div>
+<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span>            print(f<span class="stringliteral">&quot;Ошибка при удалении временного файла: {str(e)}&quot;</span>)</div>
+<div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span> </div>
+<div class="foldopen" id="foldopen00120" data-start="" data-end="">
+<div class="line"><a id="l00120" name="l00120"></a><span class="lineno"><a class="line" href="class_s_t_t_1_1_s_t_t.html#ab26c7c8dcf0c6c835b4f596cac106d9b">  120</a></span>    <span class="keyword">def </span><a class="code hl_function" href="class_s_t_t_1_1_s_t_t.html#ab26c7c8dcf0c6c835b4f596cac106d9b">audio_to_text</a>(self, audio_path: str) -&gt; str:</div>
+<div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span>        <span class="stringliteral">&quot;&quot;&quot;!</span></div>
+<div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span><span class="stringliteral">        @brief Преобразование аудиофайла в текст</span></div>
+<div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span><span class="stringliteral">        </span></div>
+<div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span><span class="stringliteral">        @param audio_path Путь к аудиофайлу для распознавания</span></div>
+<div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span><span class="stringliteral">        </span></div>
+<div class="line"><a id="l00126" name="l00126"></a><span class="lineno">  126</span><span class="stringliteral">        @return str Распознанный текст или сообщение об ошибке</span></div>
+<div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span><span class="stringliteral">        </span></div>
+<div class="line"><a id="l00128" name="l00128"></a><span class="lineno">  128</span><span class="stringliteral">        @throws sr.UnknownValueError если речь не может быть распознана</span></div>
+<div class="line"><a id="l00129" name="l00129"></a><span class="lineno">  129</span><span class="stringliteral">        @throws sr.RequestError если возникла ошибка при подключении к API</span></div>
+<div class="line"><a id="l00130" name="l00130"></a><span class="lineno">  130</span><span class="stringliteral">        &quot;&quot;&quot;</span></div>
+<div class="line"><a id="l00131" name="l00131"></a><span class="lineno">  131</span>        temp_path = <span class="keywordtype">None</span></div>
+<div class="line"><a id="l00132" name="l00132"></a><span class="lineno">  132</span>        <span class="keywordflow">try</span>:</div>
+<div class="line"><a id="l00133" name="l00133"></a><span class="lineno">  133</span>            <span class="comment"># Добавляем тишину в начало файла</span></div>
+<div class="line"><a id="l00134" name="l00134"></a><span class="lineno">  134</span>            temp_path = self.<a class="code hl_function" href="class_s_t_t_1_1_s_t_t.html#a06e540126c6521cfacfcb842adfcd347">__add_silence_padding</a>(audio_path)</div>
+<div class="line"><a id="l00135" name="l00135"></a><span class="lineno">  135</span>            </div>
+<div class="line"><a id="l00136" name="l00136"></a><span class="lineno">  136</span>            <span class="keywordflow">if</span> self.<a class="code hl_variable" href="class_s_t_t_1_1_s_t_t.html#a18d65b38e82a8a6d2332dcb77448c334">__recognizer</a> <span class="keywordflow">is</span> <span class="keywordtype">None</span>:</div>
+<div class="line"><a id="l00137" name="l00137"></a><span class="lineno">  137</span>                <span class="keywordflow">return</span> <span class="stringliteral">&quot;Ошибка: распознаватель речи не инициализирован&quot;</span></div>
+<div class="line"><a id="l00138" name="l00138"></a><span class="lineno">  138</span>                </div>
+<div class="line"><a id="l00139" name="l00139"></a><span class="lineno">  139</span>            <span class="keyword">with</span> sr.AudioFile(temp_path) <span class="keyword">as</span> source:</div>
+<div class="line"><a id="l00140" name="l00140"></a><span class="lineno">  140</span>                <span class="comment"># Настройка распознавателя для уменьшения шума</span></div>
+<div class="line"><a id="l00141" name="l00141"></a><span class="lineno">  141</span>                self.<a class="code hl_variable" href="class_s_t_t_1_1_s_t_t.html#a18d65b38e82a8a6d2332dcb77448c334">__recognizer</a>.adjust_for_ambient_noise(source, duration=0.5)</div>
+<div class="line"><a id="l00142" name="l00142"></a><span class="lineno">  142</span>                audio_data = self.<a class="code hl_variable" href="class_s_t_t_1_1_s_t_t.html#a18d65b38e82a8a6d2332dcb77448c334">__recognizer</a>.record(source)</div>
+<div class="line"><a id="l00143" name="l00143"></a><span class="lineno">  143</span>                </div>
+<div class="line"><a id="l00144" name="l00144"></a><span class="lineno">  144</span>                <span class="comment"># Получаем код языка для Google Speech Recognition</span></div>
+<div class="line"><a id="l00145" name="l00145"></a><span class="lineno">  145</span>                language_code = self.<a class="code hl_variable" href="class_s_t_t_1_1_s_t_t.html#add1948143ef0071a4e01484adf81ab04">__language_codes</a>[self.<a class="code hl_variable" href="class_s_t_t_1_1_s_t_t.html#a4ca8df1cdc6958d6ee4897155e8f95f6">__current_language</a>]</div>
+<div class="line"><a id="l00146" name="l00146"></a><span class="lineno">  146</span>                </div>
+<div class="line"><a id="l00147" name="l00147"></a><span class="lineno">  147</span>                <span class="comment"># Сначала пробуем использовать Google Speech Recognition</span></div>
+<div class="line"><a id="l00148" name="l00148"></a><span class="lineno">  148</span>                <span class="keywordflow">try</span>:</div>
+<div class="line"><a id="l00149" name="l00149"></a><span class="lineno">  149</span>                    text = self.<a class="code hl_variable" href="class_s_t_t_1_1_s_t_t.html#a18d65b38e82a8a6d2332dcb77448c334">__recognizer</a>.recognize_google(audio_data, language=language_code)</div>
+<div class="line"><a id="l00150" name="l00150"></a><span class="lineno">  150</span>                    <span class="keywordflow">return</span> str(text)</div>
+<div class="line"><a id="l00151" name="l00151"></a><span class="lineno">  151</span>                <span class="keywordflow">except</span> (sr.UnknownValueError, sr.RequestError):</div>
+<div class="line"><a id="l00152" name="l00152"></a><span class="lineno">  152</span>                    <span class="comment"># Если Google не сработал, пробуем Sphinx</span></div>
+<div class="line"><a id="l00153" name="l00153"></a><span class="lineno">  153</span>                    <span class="keywordflow">try</span>:</div>
+<div class="line"><a id="l00154" name="l00154"></a><span class="lineno">  154</span>                        text = self.<a class="code hl_variable" href="class_s_t_t_1_1_s_t_t.html#a18d65b38e82a8a6d2332dcb77448c334">__recognizer</a>.recognize_sphinx(audio_data, language=language_code)</div>
+<div class="line"><a id="l00155" name="l00155"></a><span class="lineno">  155</span>                        <span class="keywordflow">return</span> str(text)</div>
+<div class="line"><a id="l00156" name="l00156"></a><span class="lineno">  156</span>                    <span class="keywordflow">except</span> (sr.UnknownValueError, sr.RequestError):</div>
+<div class="line"><a id="l00157" name="l00157"></a><span class="lineno">  157</span>                        <span class="keywordflow">return</span> <span class="stringliteral">&quot;Речь не распознана&quot;</span></div>
+<div class="line"><a id="l00158" name="l00158"></a><span class="lineno">  158</span>        <span class="keywordflow">except</span> Exception <span class="keyword">as</span> e:</div>
+<div class="line"><a id="l00159" name="l00159"></a><span class="lineno">  159</span>            <span class="keywordflow">return</span> f<span class="stringliteral">&quot;Ошибка при обработке аудио: {str(e)}&quot;</span></div>
+<div class="line"><a id="l00160" name="l00160"></a><span class="lineno">  160</span>        <span class="keywordflow">finally</span>:</div>
+<div class="line"><a id="l00161" name="l00161"></a><span class="lineno">  161</span>            <span class="comment"># Удаляем временный файл</span></div>
+<div class="line"><a id="l00162" name="l00162"></a><span class="lineno">  162</span>            <span class="keywordflow">if</span> temp_path:</div>
+<div class="line"><a id="l00163" name="l00163"></a><span class="lineno">  163</span>                self.<a class="code hl_function" href="class_s_t_t_1_1_s_t_t.html#a6c0c83ad8bd5648101d8cd0d2207282f">__cleanup_temp_file</a>(temp_path)</div>
+<div class="line"><a id="l00164" name="l00164"></a><span class="lineno">  164</span> </div>
+<div class="line"><a id="l00165" name="l00165"></a><span class="lineno">  165</span> </div>
+<div class="line"><a id="l00166" name="l00166"></a><span class="lineno">  166</span><span class="comment"># Пример использования</span></div>
+</div>
+</div>
+<div class="line"><a id="l00167" name="l00167"></a><span class="lineno">  167</span><span class="keywordflow">if</span> __name__ == <span class="stringliteral">&quot;__main__&quot;</span>:</div>
+<div class="line"><a id="l00168" name="l00168"></a><span class="lineno">  168</span>    stt = <a class="code hl_class" href="class_s_t_t_1_1_s_t_t.html">STT</a>()</div>
+<div class="line"><a id="l00169" name="l00169"></a><span class="lineno">  169</span>    </div>
+<div class="line"><a id="l00170" name="l00170"></a><span class="lineno">  170</span>    <span class="comment"># Установка языка (можно использовать &quot;Russian&quot;/&quot;English&quot; или &quot;ru-RU&quot;/&quot;en-US&quot;)</span></div>
+<div class="line"><a id="l00171" name="l00171"></a><span class="lineno">  171</span>    stt.set_language(<span class="stringliteral">&quot;Russian&quot;</span>)</div>
+<div class="line"><a id="l00172" name="l00172"></a><span class="lineno">  172</span>    </div>
+<div class="line"><a id="l00173" name="l00173"></a><span class="lineno">  173</span>    <span class="keywordflow">for</span> i <span class="keywordflow">in</span> range(1, 5+1):</div>
+<div class="line"><a id="l00174" name="l00174"></a><span class="lineno">  174</span>        audio_file = f<span class="stringliteral">&quot;Audio/test/{i}.wav&quot;</span></div>
+<div class="line"><a id="l00175" name="l00175"></a><span class="lineno">  175</span>        result = stt.audio_to_text(audio_file)</div>
+<div class="line"><a id="l00176" name="l00176"></a><span class="lineno">  176</span>        print(f<span class="stringliteral">&quot;Файл {i}: {result}&quot;</span>)</div>
+<div class="ttc" id="aclass_s_t_t_1_1_s_t_t_html"><div class="ttname"><a href="class_s_t_t_1_1_s_t_t.html">STT.STT</a></div><div class="ttdoc">Класс для распознавания речи (Speech-to-Text)</div><div class="ttdef"><b>Определения</b> <a href="#l00008">STT.py:8</a></div></div>
+<div class="ttc" id="aclass_s_t_t_1_1_s_t_t_html_a00806fedb423f01c5e88d7b05428ed42"><div class="ttname"><a href="class_s_t_t_1_1_s_t_t.html#a00806fedb423f01c5e88d7b05428ed42">STT.STT.__new__</a></div><div class="ttdeci"> &#39;STT&#39; __new__(cls)</div><div class="ttdoc">Создание единственного экземпляра класса</div><div class="ttdef"><b>Определения</b> <a href="#l00037">STT.py:37</a></div></div>
+<div class="ttc" id="aclass_s_t_t_1_1_s_t_t_html_a06e540126c6521cfacfcb842adfcd347"><div class="ttname"><a href="class_s_t_t_1_1_s_t_t.html#a06e540126c6521cfacfcb842adfcd347">STT.STT.__add_silence_padding</a></div><div class="ttdeci">str __add_silence_padding(self, str audio_path)</div><div class="ttdef"><b>Определения</b> <a href="#l00081">STT.py:81</a></div></div>
+<div class="ttc" id="aclass_s_t_t_1_1_s_t_t_html_a0eb5f46b9bbcfad3f8c5ea052d9d75dc"><div class="ttname"><a href="class_s_t_t_1_1_s_t_t.html#a0eb5f46b9bbcfad3f8c5ea052d9d75dc">STT.STT.__energy_threshold</a></div><div class="ttdeci">float __energy_threshold</div><div class="ttdef"><b>Определения</b> <a href="#l00022">STT.py:22</a></div></div>
+<div class="ttc" id="aclass_s_t_t_1_1_s_t_t_html_a135af9a06c5abce11d9f7d6dc11b66e4"><div class="ttname"><a href="class_s_t_t_1_1_s_t_t.html#a135af9a06c5abce11d9f7d6dc11b66e4">STT.STT.__instance</a></div><div class="ttdeci">Optional __instance</div><div class="ttdef"><b>Определения</b> <a href="#l00019">STT.py:19</a></div></div>
+<div class="ttc" id="aclass_s_t_t_1_1_s_t_t_html_a18d65b38e82a8a6d2332dcb77448c334"><div class="ttname"><a href="class_s_t_t_1_1_s_t_t.html#a18d65b38e82a8a6d2332dcb77448c334">STT.STT.__recognizer</a></div><div class="ttdeci">Optional __recognizer</div><div class="ttdef"><b>Определения</b> <a href="#l00020">STT.py:20</a></div></div>
+<div class="ttc" id="aclass_s_t_t_1_1_s_t_t_html_a26c6ff8183dcc74ae777214092921ddf"><div class="ttname"><a href="class_s_t_t_1_1_s_t_t.html#a26c6ff8183dcc74ae777214092921ddf">STT.STT.set_language</a></div><div class="ttdeci">None set_language(self, str language)</div><div class="ttdoc">Установка языка распознавания</div><div class="ttdef"><b>Определения</b> <a href="#l00061">STT.py:61</a></div></div>
+<div class="ttc" id="aclass_s_t_t_1_1_s_t_t_html_a2834cb4380855d9beb3d8a70ac675523"><div class="ttname"><a href="class_s_t_t_1_1_s_t_t.html#a2834cb4380855d9beb3d8a70ac675523">STT.STT.get_language</a></div><div class="ttdeci">str get_language(self)</div><div class="ttdoc">Получение текущего языка распознавания</div><div class="ttdef"><b>Определения</b> <a href="#l00073">STT.py:73</a></div></div>
+<div class="ttc" id="aclass_s_t_t_1_1_s_t_t_html_a2f168079f8932bca18ff8ea847b01072"><div class="ttname"><a href="class_s_t_t_1_1_s_t_t.html#a2f168079f8932bca18ff8ea847b01072">STT.STT.__pause_threshold</a></div><div class="ttdeci">float __pause_threshold</div><div class="ttdef"><b>Определения</b> <a href="#l00023">STT.py:23</a></div></div>
+<div class="ttc" id="aclass_s_t_t_1_1_s_t_t_html_a31995431a1081b0e1fa5e22634677c63"><div class="ttname"><a href="class_s_t_t_1_1_s_t_t.html#a31995431a1081b0e1fa5e22634677c63">STT.STT.__silence_duration_ms</a></div><div class="ttdeci">int __silence_duration_ms</div><div class="ttdef"><b>Определения</b> <a href="#l00021">STT.py:21</a></div></div>
+<div class="ttc" id="aclass_s_t_t_1_1_s_t_t_html_a4ca8df1cdc6958d6ee4897155e8f95f6"><div class="ttname"><a href="class_s_t_t_1_1_s_t_t.html#a4ca8df1cdc6958d6ee4897155e8f95f6">STT.STT.__current_language</a></div><div class="ttdeci">str __current_language</div><div class="ttdef"><b>Определения</b> <a href="#l00035">STT.py:35</a></div></div>
+<div class="ttc" id="aclass_s_t_t_1_1_s_t_t_html_a6c0c83ad8bd5648101d8cd0d2207282f"><div class="ttname"><a href="class_s_t_t_1_1_s_t_t.html#a6c0c83ad8bd5648101d8cd0d2207282f">STT.STT.__cleanup_temp_file</a></div><div class="ttdeci">None __cleanup_temp_file(self, str temp_path)</div><div class="ttdef"><b>Определения</b> <a href="#l00108">STT.py:108</a></div></div>
+<div class="ttc" id="aclass_s_t_t_1_1_s_t_t_html_a96f1b5f438df84284f82933791420440"><div class="ttname"><a href="class_s_t_t_1_1_s_t_t.html#a96f1b5f438df84284f82933791420440">STT.STT.__dynamic_energy_threshold</a></div><div class="ttdeci">bool __dynamic_energy_threshold</div><div class="ttdef"><b>Определения</b> <a href="#l00024">STT.py:24</a></div></div>
+<div class="ttc" id="aclass_s_t_t_1_1_s_t_t_html_ab26c7c8dcf0c6c835b4f596cac106d9b"><div class="ttname"><a href="class_s_t_t_1_1_s_t_t.html#ab26c7c8dcf0c6c835b4f596cac106d9b">STT.STT.audio_to_text</a></div><div class="ttdeci">str audio_to_text(self, str audio_path)</div><div class="ttdoc">Преобразование аудиофайла в текст</div><div class="ttdef"><b>Определения</b> <a href="#l00120">STT.py:120</a></div></div>
+<div class="ttc" id="aclass_s_t_t_1_1_s_t_t_html_add1948143ef0071a4e01484adf81ab04"><div class="ttname"><a href="class_s_t_t_1_1_s_t_t.html#add1948143ef0071a4e01484adf81ab04">STT.STT.__language_codes</a></div><div class="ttdeci">dict __language_codes</div><div class="ttdef"><b>Определения</b> <a href="#l00027">STT.py:27</a></div></div>
+<div class="ttc" id="aclass_s_t_t_1_1_s_t_t_html_afd1233e0d05b742a70ac41d656c39d7a"><div class="ttname"><a href="class_s_t_t_1_1_s_t_t.html#afd1233e0d05b742a70ac41d656c39d7a">STT.STT.__init__</a></div><div class="ttdeci">None __init__(self)</div><div class="ttdoc">Инициализация распознавателя речи</div><div class="ttdef"><b>Определения</b> <a href="#l00048">STT.py:48</a></div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_15fe2cec17dffb22c04117b383426cd3.html">py</a></li><li class="navelem"><a class="el" href="dir_1bacb7a041c5d8e8f278a4dfcf4ef5b7.html">API</a></li><li class="navelem"><a class="el" href="dir_ba9bc6bf1fb8c5cfdc0d21d8ec27424e.html">src</a></li><li class="navelem"><a class="el" href="dir_9d40df8cf3d2146dc53d2148906060ce.html">STT</a></li><li class="navelem"><b>STT.py</b></li>
+    <li class="footer">Создано системой <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.13.2 </li>
+  </ul>
+</div>
+</body>
+</html>

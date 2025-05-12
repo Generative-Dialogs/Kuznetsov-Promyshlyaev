@@ -1,0 +1,195 @@
+{% extends 'game/base.html' %}
+{% load static %}
+
+{% block extra_head %}
+<style>
+    .chat-container {
+        height: calc(100vh - 200px);
+        overflow-y: auto;
+    }
+    .message {
+        margin-bottom: 1rem;
+    }
+    .user-message {
+        background-color: #E3F2FD;
+        padding: 1rem;
+        border-radius: 1rem;
+        margin-left: 2rem;
+    }
+    .bot-message {
+        background-color: #F5F5F5;
+        padding: 1rem;
+        border-radius: 1rem;
+        margin-right: 2rem;
+    }
+    .message-image {
+        max-width: 100%;
+        max-height: 300px;
+        margin-top: 1rem;
+        border-radius: 0.5rem;
+    }
+    .message-audio {
+        margin-top: 1rem;
+        width: 100%;
+    }
+    .message-audio audio {
+        width: 100%;
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="max-w-4xl mx-auto">
+    <div class="bg-white shadow-md rounded-lg mb-4">
+        <div class="p-4 border-b">
+            <div class="relative">
+                <div class="flex items-center">
+                    <h2 class="text-2xl font-bold text-gray-800">{{ session.title }}</h2>
+                    <div class="ml-2 relative">
+                        <button id="info-button" class="text-gray-500 hover:text-gray-700 focus:outline-none">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                                <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd" />
+                            </svg>
+                        </button>
+                        <div id="info-tooltip" class="hidden absolute left-0 mt-2 p-4 bg-white border border-gray-200 rounded shadow-lg z-10" style="width: 650px !important;">
+                            <h3 class="font-bold text-gray-800 mb-2">World Description:</h3>
+                            <p class="text-gray-700 mb-4">{{ session.world_description }}</p>
+                            <h3 class="font-bold text-gray-800 mb-2">Player Description:</h3>
+                            <p class="text-gray-700">{{ session.player_description }}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="mt-4 flex space-x-4">
+                <label class="inline-flex items-center">
+                    <input type="checkbox" id="generate-image" class="form-checkbox h-5 w-5 text-blue-600" checked>
+                    <span class="ml-2 text-gray-700">Generate image</span>
+                </label>
+                <label class="inline-flex items-center">
+                    <input type="checkbox" id="generate-audio" class="form-checkbox h-5 w-5 text-blue-600" checked>
+                    <span class="ml-2 text-gray-700">Generate audio</span>
+                </label>
+            </div>
+        </div>
+        
+        <div class="chat-container p-4" id="chat-messages">
+            {% for message in messages %}
+            <div class="message">
+                <div class="user-message">
+                    <p class="text-gray-800">{{ message.user_message }}</p>
+                </div>
+                <div class="bot-message mt-2">
+                    <p class="text-gray-800">{{ message.bot_response }}</p>
+                    {% if message.image_path %}
+                    <img src="/{{ message.image_path }}" alt="Generated image" class="message-image">
+                    {% endif %}
+                    {% if message.sound_path %}
+                    <div class="message-audio">
+                        <audio controls>
+                            <source src="/{{ message.sound_path }}" type="audio/mpeg">
+                            Your browser does not support the audio element.
+                        </audio>
+                    </div>
+                    {% endif %}
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        
+        <div class="p-4 border-t">
+            <form id="message-form" class="flex">
+                <input type="text" id="message-input" 
+                       class="flex-1 border rounded-l-lg py-2 px-4 focus:outline-none focus:border-blue-500"
+                       placeholder="Type your message...">
+                <button type="submit" 
+                        class="bg-blue-500 text-white px-4 py-2 rounded-r-lg hover:bg-blue-600 focus:outline-none">
+                    Send
+                </button>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+    $(document).ready(function() {
+        const chatMessages = $('#chat-messages');
+        const messageForm = $('#message-form');
+        const messageInput = $('#message-input');
+        const generateImage = $('#generate-image');
+        const generateAudio = $('#generate-audio');
+        
+        // Scroll to bottom of chat
+        chatMessages.scrollTop(chatMessages[0].scrollHeight);
+        
+        messageForm.on('submit', function(e) {
+            e.preventDefault();
+            
+            const message = messageInput.val().trim();
+            if (!message) return;
+            
+            // Add user message to chat
+            chatMessages.append(`
+                <div class="message">
+                    <div class="user-message">
+                        <p class="text-gray-800">${message}</p>
+                    </div>
+                </div>
+            `);
+            
+            // Clear input
+            messageInput.val('');
+            
+            // Scroll to bottom
+            chatMessages.scrollTop(chatMessages[0].scrollHeight);
+            
+            // Send message to server with checkbox values
+            $.post(`/chat/{{ session.id }}/send/`, {
+                message: message,
+                generate_image: generateImage.prop('checked'),
+                generate_audio: generateAudio.prop('checked'),
+                csrfmiddlewaretoken: '{{ csrf_token }}'
+            })
+            .done(function(response) {
+                // Add bot response to chat
+                chatMessages.append(`
+                    <div class="message">
+                        <div class="bot-message">
+                            <p class="text-gray-800">${response.bot_response}</p>
+                            ${response.image_path ? `<img src="/${response.image_path}" alt="Generated image" class="message-image">` : ''}
+                            ${response.sound_path ? `
+                                <div class="message-audio">
+                                    <audio controls>
+                                        <source src="/${response.sound_path}" type="audio/mpeg">
+                                        Your browser does not support the audio element.
+                                    </audio>
+                                </div>
+                            ` : ''}
+                        </div>
+                    </div>
+                `);
+                
+                // Scroll to bottom
+                chatMessages.scrollTop(chatMessages[0].scrollHeight);
+            })
+            .fail(function() {
+                alert('Error sending message. Please try again.');
+            });
+        });
+    });
+
+    document.addEventListener('DOMContentLoaded', function() {
+        const infoButton = document.getElementById('info-button');
+        const infoTooltip = document.getElementById('info-tooltip');
+        
+        infoButton.addEventListener('mouseenter', function() {
+            infoTooltip.classList.remove('hidden');
+        });
+        
+        infoButton.addEventListener('mouseleave', function() {
+            infoTooltip.classList.add('hidden');
+        });
+    });
+</script>
+{% endblock %} 

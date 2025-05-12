@@ -1,0 +1,232 @@
+.TH "src.GameMaster.GameMaster.GameMaster" 3 "My Project" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+src.GameMaster.GameMaster.GameMaster \- Класс, управляющий игровым процессом и взаимодействием с игроком  
+
+.SH SYNOPSIS
+.br
+.PP
+.SS "Открытые члены"
+
+.in +1c
+.ti -1c
+.RI "None \fB__init__\fP (self, int session_id, Optional[str] world_description=None, Optional[str] player_description=None, bool fast_flg=True, str language='English', bool generate_character_images=True)"
+.br
+.RI "Инициализация мастера игры "
+.ti -1c
+.RI "str \fBgenerate_answer\fP (self, str message)"
+.br
+.RI "Генерация ответа на сообщение игрока "
+.ti -1c
+.RI "Tuple[List[\fBCommandData\fP], str] \fBgenerate_instruction\fP (self, str message)"
+.br
+.RI "Генерация инструкций на основе сообщения "
+.ti -1c
+.RI "Tuple[Optional[List[\fBCommandData\fP]], str] \fBvalidate_and_parse\fP (self, str input_text)"
+.br
+.RI "Валидация и парсинг входного текста "
+.ti -1c
+.RI "Tuple[str, Set[str]] \fBparse_commands\fP (self, List[\fBCommandData\fP] commands)"
+.br
+.RI "Обработка списка команд "
+.in -1c
+.SS "Открытые атрибуты"
+
+.in +1c
+.ti -1c
+.RI "\fBsession_id\fP = session_id"
+.br
+.ti -1c
+.RI "\fBdb\fP = \fBDatabaseManager\fP()"
+.br
+.ti -1c
+.RI "\fBgenerate_character_images\fP = generate_character_images"
+.br
+.ti -1c
+.RI "\fBworld_description\fP = world_description"
+.br
+.ti -1c
+.RI "\fBplayer_description\fP = player_description"
+.br
+.ti -1c
+.RI "\fBProtocolMessageGenerator\fP \fBmessageGenerator\fP = \fBMessageGeneratorOpenRouter\fP()"
+.br
+.ti -1c
+.RI "dict \fBcharacters\fP = {}"
+.br
+.in -1c
+.SH "Подробное описание"
+.PP 
+Класс, управляющий игровым процессом и взаимодействием с игроком 
+
+Отвечает за:
+.IP "\(bu" 2
+Генерацию ответов на действия игрока
+.IP "\(bu" 2
+Управление игровыми персонажами
+.IP "\(bu" 2
+Поддержание целостности игрового мира
+.IP "\(bu" 2
+Генерацию изображений
+.IP "\(bu" 2
+Взаимодействие с базой данных
+.PP
+
+.PP
+\fBЗаметки\fP
+.RS 4
+Реализует паттерн Singleton для обеспечения единой точки управления игровым процессом 
+.RE
+.PP
+
+.PP
+См\&. определение в файле \fBGameMaster\&.py\fP строка \fB29\fP
+.SH "Конструктор(ы)"
+.PP 
+.SS " None src\&.GameMaster\&.GameMaster\&.GameMaster\&.__init__ ( self, int session_id, Optional[str]  world_description = \fRNone\fP, Optional[str]  player_description = \fRNone\fP, bool  fast_flg = \fRTrue\fP, str  language = \fR'English'\fP, bool  generate_character_images = \fRTrue\fP)"
+
+.PP
+Инициализация мастера игры 
+.PP
+\fBАргументы\fP
+.RS 4
+\fIsession_id\fP ID игровой сессии 
+.br
+\fIworld_description\fP Описание игрового мира (опционально) 
+.br
+\fIplayer_description\fP Описание игрового персонажа (опционально) 
+.br
+\fIfast_flg\fP Флаг быстрого режима (опционально) 
+.br
+\fIlanguage\fP Язык игры (опционально) 
+.br
+\fIgenerate_character_images\fP Флаг генерации изображений персонажей (опционально) 
+.RE
+.PP
+
+.PP
+См\&. определение в файле \fBGameMaster\&.py\fP строка \fB43\fP
+.SH "Методы"
+.PP 
+.SS " str src\&.GameMaster\&.GameMaster\&.GameMaster\&.generate_answer ( self, str message)"
+
+.PP
+Генерация ответа на сообщение игрока 
+.PP
+\fBАргументы\fP
+.RS 4
+\fImessage\fP Сообщение игрока
+.RE
+.PP
+\fBВозвращает\fP
+.RS 4
+str Ответ системы
+.RE
+.PP
+\fBИсключения\fP
+.RS 4
+\fI\fBPlayerDeathException\fP\fP если игровой персонаж умирает 
+.RE
+.PP
+
+.PP
+См\&. определение в файле \fBGameMaster\&.py\fP строка \fB139\fP
+.SS " Tuple[List[\fBCommandData\fP], str] src\&.GameMaster\&.GameMaster\&.GameMaster\&.generate_instruction ( self, str message)"
+
+.PP
+Генерация инструкций на основе сообщения 
+.PP
+\fBАргументы\fP
+.RS 4
+\fImessage\fP Сообщение для обработки
+.RE
+.PP
+\fBВозвращает\fP
+.RS 4
+Tuple[List[\fBCommandData\fP], str] Кортеж из списка команд и текстового вывода
+.RE
+.PP
+\fBЗаметки\fP
+.RS 4
+Метод может выполнять повторные попытки генерации при некорректном формате 
+.RE
+.PP
+
+.PP
+См\&. определение в файле \fBGameMaster\&.py\fP строка \fB188\fP
+.SS " Tuple[str, Set[str]] src\&.GameMaster\&.GameMaster\&.GameMaster\&.parse_commands ( self, List[\fBCommandData\fP] commands)"
+
+.PP
+Обработка списка команд 
+.PP
+\fBАргументы\fP
+.RS 4
+\fIcommands\fP Список команд для обработки
+.RE
+.PP
+\fBВозвращает\fP
+.RS 4
+Tuple[str, Set[str]] Кортеж из текстового вывода и множества имен активных персонажей
+.RE
+.PP
+\fBИсключения\fP
+.RS 4
+\fI\fBPlayerDeathException\fP\fP если встречена команда смерти игрока 
+.RE
+.PP
+
+.PP
+См\&. определение в файле \fBGameMaster\&.py\fP строка \fB279\fP
+.SS " Tuple[Optional[List[\fBCommandData\fP]], str] src\&.GameMaster\&.GameMaster\&.GameMaster\&.validate_and_parse ( self, str input_text)"
+
+.PP
+Валидация и парсинг входного текста 
+.PP
+\fBАргументы\fP
+.RS 4
+\fIinput_text\fP Текст для валидации и парсинга
+.RE
+.PP
+\fBВозвращает\fP
+.RS 4
+Tuple[Optional[List[\fBCommandData\fP]], str] Кортеж из списка команд (или None) и сообщения об ошибке 
+.RE
+.PP
+
+.PP
+См\&. определение в файле \fBGameMaster\&.py\fP строка \fB209\fP
+.SH "Данные класса"
+.PP 
+.SS "dict src\&.GameMaster\&.GameMaster\&.GameMaster\&.characters = {}"
+
+.PP
+См\&. определение в файле \fBGameMaster\&.py\fP строка \fB70\fP
+.SS "src\&.GameMaster\&.GameMaster\&.GameMaster\&.db = \fBDatabaseManager\fP()"
+
+.PP
+См\&. определение в файле \fBGameMaster\&.py\fP строка \fB58\fP
+.SS "src\&.GameMaster\&.GameMaster\&.GameMaster\&.generate_character_images = generate_character_images"
+
+.PP
+См\&. определение в файле \fBGameMaster\&.py\fP строка \fB59\fP
+.SS "\fBProtocolMessageGenerator\fP src\&.GameMaster\&.GameMaster\&.GameMaster\&.messageGenerator = \fBMessageGeneratorOpenRouter\fP()"
+
+.PP
+См\&. определение в файле \fBGameMaster\&.py\fP строка \fB69\fP
+.SS "src\&.GameMaster\&.GameMaster\&.GameMaster\&.player_description = player_description"
+
+.PP
+См\&. определение в файле \fBGameMaster\&.py\fP строка \fB67\fP
+.SS "src\&.GameMaster\&.GameMaster\&.GameMaster\&.session_id = session_id"
+
+.PP
+См\&. определение в файле \fBGameMaster\&.py\fP строка \fB57\fP
+.SS "src\&.GameMaster\&.GameMaster\&.GameMaster\&.world_description = world_description"
+
+.PP
+См\&. определение в файле \fBGameMaster\&.py\fP строка \fB66\fP
+
+.SH "Автор"
+.PP 
+Автоматически создано Doxygen для My Project из исходного текста\&.

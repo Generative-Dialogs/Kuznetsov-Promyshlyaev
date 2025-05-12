@@ -1,0 +1,29 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.13.2" xml:lang="ru">
+  <compounddef id="_world_decription_8py" kind="file" language="Python">
+    <compoundname>WorldDecription.py</compoundname>
+    <innernamespace refid="namespacesrc">src</innernamespace>
+    <innernamespace refid="namespacesrc_1_1_descriptions">src::Descriptions</innernamespace>
+    <innernamespace refid="namespacesrc_1_1_descriptions_1_1_world_decription">src::Descriptions::WorldDecription</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="normal">base_world_description<sp/>=<sp/></highlight><highlight class="stringliteral">&apos;&apos;&apos;</highlight></codeline>
+<codeline lineno="2"><highlight class="stringliteral">Imagine<sp/>a<sp/>world<sp/>where<sp/>magic<sp/>and<sp/>chivalry<sp/>coexist<sp/>with<sp/>the<sp/>dangers<sp/>of<sp/>the<sp/>wild<sp/>and<sp/>the<sp/>intrigues<sp/>of<sp/>human<sp/>kingdoms.<sp/>In<sp/>this<sp/>world:</highlight></codeline>
+<codeline lineno="3"><highlight class="stringliteral"></highlight></codeline>
+<codeline lineno="4"><highlight class="stringliteral">Landscapes:<sp/>Vast<sp/>forests<sp/>hiding<sp/>ancient<sp/>ruins<sp/>and<sp/>magical<sp/>creatures;<sp/>mountain<sp/>ranges<sp/>where<sp/>dragons<sp/>nest;<sp/>endless<sp/>fields<sp/>and<sp/>fertile<sp/>valleys<sp/>crossed<sp/>by<sp/>winding<sp/>rivers.<sp/>There<sp/>are<sp/>bustling<sp/>ports<sp/>scattered<sp/>along<sp/>the<sp/>coasts,<sp/>where<sp/>cultures<sp/>of<sp/>different<sp/>nations<sp/>collide.</highlight></codeline>
+<codeline lineno="5"><highlight class="stringliteral">Cities:<sp/>Stone<sp/>fortresses<sp/>with<sp/>high<sp/>towers<sp/>surrounded<sp/>by<sp/>wooden<sp/>houses<sp/>of<sp/>artisans.<sp/>The<sp/>narrow<sp/>streets<sp/>are<sp/>full<sp/>of<sp/>merchants,<sp/>minstrels<sp/>and<sp/>secret<sp/>agents.<sp/>In<sp/>the<sp/>center<sp/>are<sp/>castles<sp/>where<sp/>monarchs<sp/>and<sp/>their<sp/>court<sp/>magicians<sp/>rule.</highlight></codeline>
+<codeline lineno="6"><highlight class="stringliteral">Society:<sp/>Feudal<sp/>structure<sp/>–<sp/>kings,<sp/>vassals,<sp/>knights<sp/>and<sp/>peasants.<sp/>However,<sp/>magicians,<sp/>alchemists,<sp/>and<sp/>priests<sp/>occupy<sp/>a<sp/>special<sp/>place,<sp/>sometimes<sp/>surpassing<sp/>the<sp/>influence<sp/>of<sp/>aristocrats.</highlight></codeline>
+<codeline lineno="7"><highlight class="stringliteral">Magic:<sp/>The<sp/>forces<sp/>of<sp/>nature<sp/>obey<sp/>the<sp/>will<sp/>of<sp/>magicians.<sp/>Magical<sp/>artifacts<sp/>are<sp/>hidden<sp/>in<sp/>ancient<sp/>ruins<sp/>guarded<sp/>by<sp/>monsters.<sp/>Spells<sp/>require<sp/>sacrifices<sp/>or<sp/>rare<sp/>ingredients<sp/>that<sp/>desperate<sp/>adventurers<sp/>seek.</highlight></codeline>
+<codeline lineno="8"><highlight class="stringliteral">Conflicts:<sp/>Wars<sp/>between<sp/>kingdoms<sp/>for<sp/>resources<sp/>and<sp/>power,<sp/>uprisings<sp/>of<sp/>oppressed<sp/>peasants,<sp/>the<sp/>struggle<sp/>of<sp/>churches<sp/>with<sp/>magicians,<sp/>ancient<sp/>prophecies<sp/>foreshadowing<sp/>disasters.</highlight></codeline>
+<codeline lineno="9"><highlight class="stringliteral">Creatures:<sp/>Humans,<sp/>elves,<sp/>dwarves,<sp/>orcs,<sp/>and<sp/>semi-fantastic<sp/>races<sp/>such<sp/>as<sp/>animal<sp/>and<sp/>human<sp/>hybrids.<sp/>Dangerous<sp/>creatures<sp/>such<sp/>as<sp/>griffins,<sp/>minotaurs,<sp/>hydra<sp/>and<sp/>forest<sp/>spirits<sp/>live<sp/>in<sp/>the<sp/>wild.</highlight></codeline>
+<codeline lineno="10"><highlight class="stringliteral">Technology:<sp/>Based<sp/>on<sp/>the<sp/>real<sp/>Middle<sp/>Ages,<sp/>but<sp/>with<sp/>the<sp/>addition<sp/>of<sp/>magic:<sp/>enchanted<sp/>weapons,<sp/>flying<sp/>ships,<sp/>alchemical<sp/>potions<sp/>and<sp/>magic<sp/>clocks.</highlight></codeline>
+<codeline lineno="11"><highlight class="stringliteral">Culture:<sp/>Bard<sp/>songs<sp/>tell<sp/>of<sp/>heroic<sp/>deeds,<sp/>knight<sp/>tournaments<sp/>celebrate<sp/>valor,<sp/>and<sp/>ancient<sp/>legends<sp/>warn<sp/>of<sp/>the<sp/>dangers<sp/>of<sp/>greed<sp/>and<sp/>pride.</highlight></codeline>
+<codeline lineno="12"><highlight class="stringliteral">&apos;&apos;&apos;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight></codeline>
+    </programlisting>
+    <location file="C:/Users/kir/Desktop/py/API/src/Descriptions/WorldDecription.py"/>
+  </compounddef>
+</doxygen>

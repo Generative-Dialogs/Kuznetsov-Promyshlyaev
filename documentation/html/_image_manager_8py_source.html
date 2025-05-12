@@ -1,0 +1,250 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ru">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.13.2"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>My Project: Исходный файл C:/Users/kir/Desktop/py/API/src/ImageManager/ImageManager.py</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+  $(function() { init_search(); });
+/* @license-end */
+</script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">My Project
+   </div>
+  </td>
+    <td>        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <span id="MSearchSelect"                onmouseover="return searchBox.OnSearchSelectShow()"                onmouseout="return searchBox.OnSearchSelectHide()">&#160;</span>
+          <input type="text" id="MSearchField" value="" placeholder="Поиск" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.svg" alt=""/></a>
+          </span>
+        </div>
+</td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Создано системой Doxygen 1.13.2 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() { codefold.init(0); });
+/* @license-end */
+</script>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function(){initNavTree('_image_manager_8py_source.html',''); initResizable(true); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Загрузка...</div>
+<div class="SRStatus" id="Searching">Поиск...</div>
+<div class="SRStatus" id="NoMatches">Не найдено</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">ImageManager.py</div></div>
+</div><!--header-->
+<div class="contents">
+<div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="keyword">import</span> os</div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="keyword">import</span> shutil</div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="keyword">from</span> typing <span class="keyword">import</span> Optional, Any, List</div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="keyword">import</span> logging</div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="keyword">from</span> <a class="code hl_namespace" href="namespacesrc_1_1_database_manager_1_1_database_manager.html">src.DatabaseManager.DatabaseManager</a> <span class="keyword">import</span> DatabaseManager</div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="keyword">from</span> <a class="code hl_namespace" href="namespacesrc_1_1_image_generator_1_1_image_generator_protocol.html">src.ImageGenerator.ImageGeneratorProtocol</a> <span class="keyword">import</span> ImageGeneratorProtocol</div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="keyword">from</span> <a class="code hl_namespace" href="namespacesrc_1_1_image_generator_1_1_image_generator_google.html">src.ImageGenerator.ImageGeneratorGoogle</a> <span class="keyword">import</span> ImageGeneratorGoogle</div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="keyword">from</span> <a class="code hl_namespace" href="namespacesrc_1_1_image_prompt_generator_1_1_image_prompt_generator.html">src.ImagePromptGenerator.ImagePromptGenerator</a> <span class="keyword">import</span> ImagePromptGenerator</div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="keyword">from</span> <a class="code hl_namespace" href="namespacesrc_1_1_game_master_1_1_game_master_promts.html">src.GameMaster.GameMasterPromts</a> <span class="keyword">import</span> off_topic_message_eng, off_topic_message_ru</div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="keyword">from</span> <a class="code hl_namespace" href="namespacesrc_1_1config.html">src.config</a> <span class="keyword">import</span> IMAGE_OUTPUT_DIR</div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span> </div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span>error_image_path = <span class="stringliteral">&#39;src/ImageManager/error.png&#39;</span></div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span> </div>
+<div class="foldopen" id="foldopen00014" data-start="" data-end="">
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno"><a class="line" href="classsrc_1_1_image_manager_1_1_image_manager_1_1_image_manager.html">   14</a></span><span class="keyword">class </span><a class="code hl_class" href="classsrc_1_1_image_manager_1_1_image_manager_1_1_image_manager.html">ImageManager</a>:</div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span>    <span class="stringliteral">&quot;&quot;&quot;!</span></div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="stringliteral">    @brief Менеджер для управления генерацией и хранением изображений</span></div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="stringliteral">    </span></div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span><span class="stringliteral">    @details</span></div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span><span class="stringliteral">    Класс отвечает за:</span></div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span><span class="stringliteral">    - Генерацию портретов персонажей</span></div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span><span class="stringliteral">    - Создание изображений сцен</span></div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span><span class="stringliteral">    - Управление файлами изображений</span></div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><span class="stringliteral">    - Взаимодействие с базой данных для хранения информации об изображениях</span></div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span><span class="stringliteral">    &quot;&quot;&quot;</span></div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>    __session_id: int</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>    __db: DatabaseManager</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>    __image_generator: ImageGeneratorProtocol</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>    __prompt_generator: ImagePromptGenerator</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span> </div>
+<div class="foldopen" id="foldopen00030" data-start="" data-end="">
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno"><a class="line" href="classsrc_1_1_image_manager_1_1_image_manager_1_1_image_manager.html#adf109f7e341a2ada404f984e7ad2d986">   30</a></span>    <span class="keyword">def </span><a class="code hl_function" href="classsrc_1_1_image_manager_1_1_image_manager_1_1_image_manager.html#adf109f7e341a2ada404f984e7ad2d986">__init__</a>(self, session_id: int) -&gt; <span class="keywordtype">None</span>:</div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>        <span class="stringliteral">&quot;&quot;&quot;!</span></div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span><span class="stringliteral">        @brief Инициализация менеджера изображений</span></div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span><span class="stringliteral">        </span></div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span><span class="stringliteral">        @param session_id ID сессии для организации файлов изображений</span></div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span><span class="stringliteral">        &quot;&quot;&quot;</span></div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>        self.<a class="code hl_variable" href="classsrc_1_1_image_manager_1_1_image_manager_1_1_image_manager.html#a3465ec8f770e1d18ac5dd5b9b8fbc456">__session_id</a> = session_id</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>        self.<a class="code hl_variable" href="classsrc_1_1_image_manager_1_1_image_manager_1_1_image_manager.html#ae9ba57ed0c65ba1f56460d0cc94affff">__db</a> = <a class="code hl_class" href="classsrc_1_1_database_manager_1_1_database_manager_1_1_database_manager.html">DatabaseManager</a>()</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>        self.<a class="code hl_variable" href="classsrc_1_1_image_manager_1_1_image_manager_1_1_image_manager.html#ae507231a3f50da5695b2a08c271c5f6e">__image_generator</a> = <a class="code hl_class" href="classsrc_1_1_image_generator_1_1_image_generator_google_1_1_image_generator_google.html">ImageGeneratorGoogle</a>(session_id)</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>        self.<a class="code hl_variable" href="classsrc_1_1_image_manager_1_1_image_manager_1_1_image_manager.html#a72ef9f21452a12537f50d12508c1e900">__prompt_generator</a> = <a class="code hl_class" href="classsrc_1_1_image_prompt_generator_1_1_image_prompt_generator_1_1_image_prompt_generator.html">ImagePromptGenerator</a>(session_id)</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span> </div>
+</div>
+<div class="foldopen" id="foldopen00041" data-start="" data-end="">
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno"><a class="line" href="classsrc_1_1_image_manager_1_1_image_manager_1_1_image_manager.html#a3d93b2b2a90ff5fecaab453bbd9f2b22">   41</a></span>    <span class="keyword">def </span><a class="code hl_function" href="classsrc_1_1_image_manager_1_1_image_manager_1_1_image_manager.html#a3d93b2b2a90ff5fecaab453bbd9f2b22">generate_character_portrait</a>(self, character_name: str, character_description: str) -&gt; Optional[str]:</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>        <span class="stringliteral">&quot;&quot;&quot;!</span></div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span><span class="stringliteral">        @brief Генерация портрета персонажа</span></div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span><span class="stringliteral">        </span></div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span><span class="stringliteral">        @param character_name Имя персонажа</span></div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span><span class="stringliteral">        @param character_description Описание персонажа</span></div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span><span class="stringliteral">        </span></div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span><span class="stringliteral">        @return Optional[str] Путь к сохраненному портрету или None в случае ошибки</span></div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span><span class="stringliteral">        &quot;&quot;&quot;</span></div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>        <span class="keywordflow">try</span>:</div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>            <span class="comment"># Create character directory if it doesn&#39;t exist</span></div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>            character_dir = os.path.join(IMAGE_OUTPUT_DIR, str(self.<a class="code hl_variable" href="classsrc_1_1_image_manager_1_1_image_manager_1_1_image_manager.html#a3465ec8f770e1d18ac5dd5b9b8fbc456">__session_id</a>), <span class="stringliteral">&quot;characters&quot;</span>)</div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>            os.makedirs(character_dir, exist_ok=<span class="keyword">True</span>)</div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>            </div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>            <span class="comment"># Create prompt for character portrait</span></div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>            prompt = f<span class="stringliteral">&quot;Create a portrait of {character_name}. {character_description}. The character should be centered on a neutral background. The style is Gloomy classical painting style with dramatic chiaroscuro, muted dark tones (charcoal black, deep navy, antique gold), Baroque/Romantic-era aesthetics, weathered oil texture, cracked varnish aging, somber atmospheric lighting, Goya-esque melancholy, Caravaggio-inspired contrasts, Turner-like stormy ambiance, haunting ethereal undertones, detailed brushwork on textures (stone, fabric), cold palette with crimson accents, gothic decay motifs, and misty spectral ambiance.&quot;</span></div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>            </div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>            <span class="comment"># Generate image</span></div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>            image_path = os.path.join(character_dir, f<span class="stringliteral">&quot;{character_name}.png&quot;</span>)</div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>            <span class="keywordflow">return</span> self.<a class="code hl_variable" href="classsrc_1_1_image_manager_1_1_image_manager_1_1_image_manager.html#ae507231a3f50da5695b2a08c271c5f6e">__image_generator</a>.generate_image_response(prompt, image_path)</div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>                </div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>        <span class="keywordflow">except</span> Exception <span class="keyword">as</span> e:</div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>            logging.error(f<span class="stringliteral">&quot;Error generating character portrait: {str(e)}&quot;</span>)</div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>            <span class="keywordflow">return</span> <span class="keywordtype">None</span></div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span> </div>
+</div>
+<div class="foldopen" id="foldopen00066" data-start="" data-end="">
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno"><a class="line" href="classsrc_1_1_image_manager_1_1_image_manager_1_1_image_manager.html#ac9ee1fea0ddc63d7373be64fc1924487">   66</a></span>    <span class="keyword">def </span><a class="code hl_function" href="classsrc_1_1_image_manager_1_1_image_manager_1_1_image_manager.html#ac9ee1fea0ddc63d7373be64fc1924487">generate_and_save_image</a>(self, user_input: str, actor_output: str, character_ids: List[int]) -&gt; Optional[str]:</div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>        <span class="stringliteral">&quot;&quot;&quot;!</span></div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span><span class="stringliteral">        @brief Генерация и сохранение изображения сцены</span></div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span><span class="stringliteral">        </span></div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span><span class="stringliteral">        @param user_input Ввод пользователя</span></div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span><span class="stringliteral">        @param actor_output Описание сцены от актора</span></div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span><span class="stringliteral">        @param character_ids Список ID персонажей, участвующих в сцене</span></div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span><span class="stringliteral">        </span></div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span><span class="stringliteral">        @return Optional[str] Путь к сохраненному изображению или None в случае ошибки</span></div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span><span class="stringliteral">        &quot;&quot;&quot;</span></div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>        <span class="keywordflow">if</span> actor_output <span class="keywordflow">in</span> [off_topic_message_ru, off_topic_message_eng]:</div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>            self.<a class="code hl_variable" href="classsrc_1_1_image_manager_1_1_image_manager_1_1_image_manager.html#ae9ba57ed0c65ba1f56460d0cc94affff">__db</a>.save_image_prompt(self.<a class="code hl_variable" href="classsrc_1_1_image_manager_1_1_image_manager_1_1_image_manager.html#a3465ec8f770e1d18ac5dd5b9b8fbc456">__session_id</a>, user_input, actor_output, off_topic_message_eng)</div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>            image_prompts = self.<a class="code hl_variable" href="classsrc_1_1_image_manager_1_1_image_manager_1_1_image_manager.html#ae9ba57ed0c65ba1f56460d0cc94affff">__db</a>.get_image_prompts(self.<a class="code hl_variable" href="classsrc_1_1_image_manager_1_1_image_manager_1_1_image_manager.html#a3465ec8f770e1d18ac5dd5b9b8fbc456">__session_id</a>)</div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>            next_sequence = len(image_prompts)            </div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span> </div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>            target_path = f<span class="stringliteral">&quot;{IMAGE_OUTPUT_DIR}/{self.__session_id}/{next_sequence}.png&quot;</span></div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>            shutil.copy2(error_image_path, target_path)</div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>            </div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>            <span class="keywordflow">return</span> target_path</div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span> </div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>        <span class="comment"># Generate prompt with character information</span></div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>        image_prompt = self.<a class="code hl_variable" href="classsrc_1_1_image_manager_1_1_image_manager_1_1_image_manager.html#a72ef9f21452a12537f50d12508c1e900">__prompt_generator</a>.generate_prompt(user_input, actor_output, character_ids)</div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>        </div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span>        <span class="comment"># Get the next sequence number from database</span></div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>        image_prompts = self.<a class="code hl_variable" href="classsrc_1_1_image_manager_1_1_image_manager_1_1_image_manager.html#ae9ba57ed0c65ba1f56460d0cc94affff">__db</a>.get_image_prompts(self.<a class="code hl_variable" href="classsrc_1_1_image_manager_1_1_image_manager_1_1_image_manager.html#a3465ec8f770e1d18ac5dd5b9b8fbc456">__session_id</a>)</div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>        next_sequence = len(image_prompts)</div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span>        </div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span>        <span class="comment"># Get character image paths</span></div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span>        character_images = []</div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span>        <span class="keywordflow">for</span> char_id <span class="keywordflow">in</span> character_ids:</div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span>            character = self.<a class="code hl_variable" href="classsrc_1_1_image_manager_1_1_image_manager_1_1_image_manager.html#ae9ba57ed0c65ba1f56460d0cc94affff">__db</a>.get_character(char_id)</div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span>            <span class="keywordflow">if</span> character:</div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span>                name, _ = character</div>
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span>                char_image_path = os.path.join(IMAGE_OUTPUT_DIR, str(self.<a class="code hl_variable" href="classsrc_1_1_image_manager_1_1_image_manager_1_1_image_manager.html#a3465ec8f770e1d18ac5dd5b9b8fbc456">__session_id</a>), <span class="stringliteral">&quot;characters&quot;</span>, f<span class="stringliteral">&quot;{name}.png&quot;</span>)</div>
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span>                <span class="keywordflow">if</span> os.path.exists(char_image_path):</div>
+<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span>                    character_images.append(char_image_path)</div>
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span>        </div>
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span>        <span class="comment"># Generate and save image</span></div>
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span>        target_path = os.path.join(IMAGE_OUTPUT_DIR, str(self.<a class="code hl_variable" href="classsrc_1_1_image_manager_1_1_image_manager_1_1_image_manager.html#a3465ec8f770e1d18ac5dd5b9b8fbc456">__session_id</a>), f<span class="stringliteral">&quot;{next_sequence}.png&quot;</span>)</div>
+<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span>        <span class="keywordflow">if</span> image_prompt <span class="keywordflow">is</span> <span class="keywordtype">None</span>:</div>
+<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span>            <span class="keywordflow">return</span> <span class="keywordtype">None</span></div>
+<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span>        <span class="keywordflow">return</span> self.<a class="code hl_variable" href="classsrc_1_1_image_manager_1_1_image_manager_1_1_image_manager.html#ae507231a3f50da5695b2a08c271c5f6e">__image_generator</a>.generate_image_response(image_prompt, target_path, character_images) </div>
+</div>
+</div>
+<div class="ttc" id="aclasssrc_1_1_database_manager_1_1_database_manager_1_1_database_manager_html"><div class="ttname"><a href="classsrc_1_1_database_manager_1_1_database_manager_1_1_database_manager.html">src.DatabaseManager.DatabaseManager.DatabaseManager</a></div><div class="ttdoc">Менеджер базы данных для управления игровыми сессиями</div><div class="ttdef"><b>Определения</b> <a href="_database_manager_8py_source.html#l00008">DatabaseManager.py:8</a></div></div>
+<div class="ttc" id="aclasssrc_1_1_image_generator_1_1_image_generator_google_1_1_image_generator_google_html"><div class="ttname"><a href="classsrc_1_1_image_generator_1_1_image_generator_google_1_1_image_generator_google.html">src.ImageGenerator.ImageGeneratorGoogle.ImageGeneratorGoogle</a></div><div class="ttdoc">Класс для генерации изображений с использованием Google Gemini API.</div><div class="ttdef"><b>Определения</b> <a href="_image_generator_google_8py_source.html#l00013">ImageGeneratorGoogle.py:13</a></div></div>
+<div class="ttc" id="aclasssrc_1_1_image_manager_1_1_image_manager_1_1_image_manager_html"><div class="ttname"><a href="classsrc_1_1_image_manager_1_1_image_manager_1_1_image_manager.html">src.ImageManager.ImageManager.ImageManager</a></div><div class="ttdoc">Менеджер для управления генерацией и хранением изображений</div><div class="ttdef"><b>Определения</b> <a href="#l00014">ImageManager.py:14</a></div></div>
+<div class="ttc" id="aclasssrc_1_1_image_manager_1_1_image_manager_1_1_image_manager_html_a3465ec8f770e1d18ac5dd5b9b8fbc456"><div class="ttname"><a href="classsrc_1_1_image_manager_1_1_image_manager_1_1_image_manager.html#a3465ec8f770e1d18ac5dd5b9b8fbc456">src.ImageManager.ImageManager.ImageManager.__session_id</a></div><div class="ttdeci">__session_id</div><div class="ttdef"><b>Определения</b> <a href="#l00036">ImageManager.py:36</a></div></div>
+<div class="ttc" id="aclasssrc_1_1_image_manager_1_1_image_manager_1_1_image_manager_html_a3d93b2b2a90ff5fecaab453bbd9f2b22"><div class="ttname"><a href="classsrc_1_1_image_manager_1_1_image_manager_1_1_image_manager.html#a3d93b2b2a90ff5fecaab453bbd9f2b22">src.ImageManager.ImageManager.ImageManager.generate_character_portrait</a></div><div class="ttdeci">Optional[str] generate_character_portrait(self, str character_name, str character_description)</div><div class="ttdoc">Генерация портрета персонажа</div><div class="ttdef"><b>Определения</b> <a href="#l00041">ImageManager.py:41</a></div></div>
+<div class="ttc" id="aclasssrc_1_1_image_manager_1_1_image_manager_1_1_image_manager_html_a72ef9f21452a12537f50d12508c1e900"><div class="ttname"><a href="classsrc_1_1_image_manager_1_1_image_manager_1_1_image_manager.html#a72ef9f21452a12537f50d12508c1e900">src.ImageManager.ImageManager.ImageManager.__prompt_generator</a></div><div class="ttdeci">__prompt_generator</div><div class="ttdef"><b>Определения</b> <a href="#l00039">ImageManager.py:39</a></div></div>
+<div class="ttc" id="aclasssrc_1_1_image_manager_1_1_image_manager_1_1_image_manager_html_ac9ee1fea0ddc63d7373be64fc1924487"><div class="ttname"><a href="classsrc_1_1_image_manager_1_1_image_manager_1_1_image_manager.html#ac9ee1fea0ddc63d7373be64fc1924487">src.ImageManager.ImageManager.ImageManager.generate_and_save_image</a></div><div class="ttdeci">Optional[str] generate_and_save_image(self, str user_input, str actor_output, List[int] character_ids)</div><div class="ttdoc">Генерация и сохранение изображения сцены</div><div class="ttdef"><b>Определения</b> <a href="#l00066">ImageManager.py:66</a></div></div>
+<div class="ttc" id="aclasssrc_1_1_image_manager_1_1_image_manager_1_1_image_manager_html_adf109f7e341a2ada404f984e7ad2d986"><div class="ttname"><a href="classsrc_1_1_image_manager_1_1_image_manager_1_1_image_manager.html#adf109f7e341a2ada404f984e7ad2d986">src.ImageManager.ImageManager.ImageManager.__init__</a></div><div class="ttdeci">None __init__(self, int session_id)</div><div class="ttdoc">Инициализация менеджера изображений</div><div class="ttdef"><b>Определения</b> <a href="#l00030">ImageManager.py:30</a></div></div>
+<div class="ttc" id="aclasssrc_1_1_image_manager_1_1_image_manager_1_1_image_manager_html_ae507231a3f50da5695b2a08c271c5f6e"><div class="ttname"><a href="classsrc_1_1_image_manager_1_1_image_manager_1_1_image_manager.html#ae507231a3f50da5695b2a08c271c5f6e">src.ImageManager.ImageManager.ImageManager.__image_generator</a></div><div class="ttdeci">__image_generator</div><div class="ttdef"><b>Определения</b> <a href="#l00038">ImageManager.py:38</a></div></div>
+<div class="ttc" id="aclasssrc_1_1_image_manager_1_1_image_manager_1_1_image_manager_html_ae9ba57ed0c65ba1f56460d0cc94affff"><div class="ttname"><a href="classsrc_1_1_image_manager_1_1_image_manager_1_1_image_manager.html#ae9ba57ed0c65ba1f56460d0cc94affff">src.ImageManager.ImageManager.ImageManager.__db</a></div><div class="ttdeci">__db</div><div class="ttdef"><b>Определения</b> <a href="#l00037">ImageManager.py:37</a></div></div>
+<div class="ttc" id="aclasssrc_1_1_image_prompt_generator_1_1_image_prompt_generator_1_1_image_prompt_generator_html"><div class="ttname"><a href="classsrc_1_1_image_prompt_generator_1_1_image_prompt_generator_1_1_image_prompt_generator.html">src.ImagePromptGenerator.ImagePromptGenerator.ImagePromptGenerator</a></div><div class="ttdoc">Генератор промптов для создания изображений</div><div class="ttdef"><b>Определения</b> <a href="_image_prompt_generator_8py_source.html#l00008">ImagePromptGenerator.py:8</a></div></div>
+<div class="ttc" id="anamespacesrc_1_1_database_manager_1_1_database_manager_html"><div class="ttname"><a href="namespacesrc_1_1_database_manager_1_1_database_manager.html">src.DatabaseManager.DatabaseManager</a></div><div class="ttdef"><b>Определения</b> <a href="_database_manager_8py_source.html#l00001">DatabaseManager.py:1</a></div></div>
+<div class="ttc" id="anamespacesrc_1_1_game_master_1_1_game_master_promts_html"><div class="ttname"><a href="namespacesrc_1_1_game_master_1_1_game_master_promts.html">src.GameMaster.GameMasterPromts</a></div><div class="ttdef"><b>Определения</b> <a href="_game_master_promts_8py_source.html#l00001">GameMasterPromts.py:1</a></div></div>
+<div class="ttc" id="anamespacesrc_1_1_image_generator_1_1_image_generator_google_html"><div class="ttname"><a href="namespacesrc_1_1_image_generator_1_1_image_generator_google.html">src.ImageGenerator.ImageGeneratorGoogle</a></div><div class="ttdef"><b>Определения</b> <a href="_image_generator_google_8py_source.html#l00001">ImageGeneratorGoogle.py:1</a></div></div>
+<div class="ttc" id="anamespacesrc_1_1_image_generator_1_1_image_generator_protocol_html"><div class="ttname"><a href="namespacesrc_1_1_image_generator_1_1_image_generator_protocol.html">src.ImageGenerator.ImageGeneratorProtocol</a></div><div class="ttdef"><b>Определения</b> <a href="_image_generator_protocol_8py_source.html#l00001">ImageGeneratorProtocol.py:1</a></div></div>
+<div class="ttc" id="anamespacesrc_1_1_image_prompt_generator_1_1_image_prompt_generator_html"><div class="ttname"><a href="namespacesrc_1_1_image_prompt_generator_1_1_image_prompt_generator.html">src.ImagePromptGenerator.ImagePromptGenerator</a></div><div class="ttdef"><b>Определения</b> <a href="_image_prompt_generator_8py_source.html#l00001">ImagePromptGenerator.py:1</a></div></div>
+<div class="ttc" id="anamespacesrc_1_1config_html"><div class="ttname"><a href="namespacesrc_1_1config.html">src.config</a></div><div class="ttdef"><b>Определения</b> <a href="config_8py_source.html#l00001">config.py:1</a></div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_15fe2cec17dffb22c04117b383426cd3.html">py</a></li><li class="navelem"><a class="el" href="dir_1bacb7a041c5d8e8f278a4dfcf4ef5b7.html">API</a></li><li class="navelem"><a class="el" href="dir_ba9bc6bf1fb8c5cfdc0d21d8ec27424e.html">src</a></li><li class="navelem"><a class="el" href="dir_924bfd6db5f3fcf53470265e6fc53f62.html">ImageManager</a></li><li class="navelem"><b>ImageManager.py</b></li>
+    <li class="footer">Создано системой <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.13.2 </li>
+  </ul>
+</div>
+</body>
+</html>

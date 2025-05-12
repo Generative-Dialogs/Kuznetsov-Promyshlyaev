@@ -1,0 +1,113 @@
+\doxysection{Image\+Manager.\+py}
+\label{_image_manager_8py_source}\index{C:/Users/kir/Desktop/py/API/src/ImageManager/ImageManager.py@{C:/Users/kir/Desktop/py/API/src/ImageManager/ImageManager.py}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{keyword}{import}\ os}
+\DoxyCodeLine{00002\ \textcolor{keyword}{import}\ shutil}
+\DoxyCodeLine{00003\ \textcolor{keyword}{from}\ typing\ \textcolor{keyword}{import}\ Optional,\ Any,\ List}
+\DoxyCodeLine{00004\ \textcolor{keyword}{import}\ logging}
+\DoxyCodeLine{00005\ \textcolor{keyword}{from}\ src.DatabaseManager.DatabaseManager\ \textcolor{keyword}{import}\ DatabaseManager}
+\DoxyCodeLine{00006\ \textcolor{keyword}{from}\ src.ImageGenerator.ImageGeneratorProtocol\ \textcolor{keyword}{import}\ ImageGeneratorProtocol}
+\DoxyCodeLine{00007\ \textcolor{keyword}{from}\ src.ImageGenerator.ImageGeneratorGoogle\ \textcolor{keyword}{import}\ ImageGeneratorGoogle}
+\DoxyCodeLine{00008\ \textcolor{keyword}{from}\ src.ImagePromptGenerator.ImagePromptGenerator\ \textcolor{keyword}{import}\ ImagePromptGenerator}
+\DoxyCodeLine{00009\ \textcolor{keyword}{from}\ src.GameMaster.GameMasterPromts\ \textcolor{keyword}{import}\ off\_topic\_message\_eng,\ off\_topic\_message\_ru}
+\DoxyCodeLine{00010\ \textcolor{keyword}{from}\ src.config\ \textcolor{keyword}{import}\ IMAGE\_OUTPUT\_DIR}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00012\ error\_image\_path\ =\ \textcolor{stringliteral}{'src/ImageManager/error.png'}}
+\DoxyCodeLine{00013\ }
+\DoxyCodeLine{00014\ \textcolor{keyword}{class\ }ImageManager:}
+\DoxyCodeLine{00015\ \ \ \ \ \textcolor{stringliteral}{"{}"{}"{}!}}
+\DoxyCodeLine{00016\ \textcolor{stringliteral}{\ \ \ \ @brief\ Менеджер\ для\ управления\ генерацией\ и\ хранением\ изображений}}
+\DoxyCodeLine{00017\ \textcolor{stringliteral}{\ \ \ \ }}
+\DoxyCodeLine{00018\ \textcolor{stringliteral}{\ \ \ \ @details}}
+\DoxyCodeLine{00019\ \textcolor{stringliteral}{\ \ \ \ Класс\ отвечает\ за:}}
+\DoxyCodeLine{00020\ \textcolor{stringliteral}{\ \ \ \ -\/\ Генерацию\ портретов\ персонажей}}
+\DoxyCodeLine{00021\ \textcolor{stringliteral}{\ \ \ \ -\/\ Создание\ изображений\ сцен}}
+\DoxyCodeLine{00022\ \textcolor{stringliteral}{\ \ \ \ -\/\ Управление\ файлами\ изображений}}
+\DoxyCodeLine{00023\ \textcolor{stringliteral}{\ \ \ \ -\/\ Взаимодействие\ с\ базой\ данных\ для\ хранения\ информации\ об\ изображениях}}
+\DoxyCodeLine{00024\ \textcolor{stringliteral}{\ \ \ \ "{}"{}"{}}}
+\DoxyCodeLine{00025\ \ \ \ \ \_\_session\_id:\ int}
+\DoxyCodeLine{00026\ \ \ \ \ \_\_db:\ DatabaseManager}
+\DoxyCodeLine{00027\ \ \ \ \ \_\_image\_generator:\ ImageGeneratorProtocol}
+\DoxyCodeLine{00028\ \ \ \ \ \_\_prompt\_generator:\ ImagePromptGenerator}
+\DoxyCodeLine{00029\ }
+\DoxyCodeLine{00030\ \ \ \ \ \textcolor{keyword}{def\ }\_\_init\_\_(self,\ session\_id:\ int)\ -\/>\ \textcolor{keywordtype}{None}:}
+\DoxyCodeLine{00031\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}"{}"{}!}}
+\DoxyCodeLine{00032\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ @brief\ Инициализация\ менеджера\ изображений}}
+\DoxyCodeLine{00033\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ }}
+\DoxyCodeLine{00034\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ @param\ session\_id\ ID\ сессии\ для\ организации\ файлов\ изображений}}
+\DoxyCodeLine{00035\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ "{}"{}"{}}}
+\DoxyCodeLine{00036\ \ \ \ \ \ \ \ \ self.\_\_session\_id\ =\ session\_id}
+\DoxyCodeLine{00037\ \ \ \ \ \ \ \ \ self.\_\_db\ =\ DatabaseManager()}
+\DoxyCodeLine{00038\ \ \ \ \ \ \ \ \ self.\_\_image\_generator\ =\ ImageGeneratorGoogle(session\_id)}
+\DoxyCodeLine{00039\ \ \ \ \ \ \ \ \ self.\_\_prompt\_generator\ =\ ImagePromptGenerator(session\_id)}
+\DoxyCodeLine{00040\ }
+\DoxyCodeLine{00041\ \ \ \ \ \textcolor{keyword}{def\ }generate\_character\_portrait(self,\ character\_name:\ str,\ character\_description:\ str)\ -\/>\ Optional[str]:}
+\DoxyCodeLine{00042\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}"{}"{}!}}
+\DoxyCodeLine{00043\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ @brief\ Генерация\ портрета\ персонажа}}
+\DoxyCodeLine{00044\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ }}
+\DoxyCodeLine{00045\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ @param\ character\_name\ Имя\ персонажа}}
+\DoxyCodeLine{00046\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ @param\ character\_description\ Описание\ персонажа}}
+\DoxyCodeLine{00047\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ }}
+\DoxyCodeLine{00048\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ @return\ Optional[str]\ Путь\ к\ сохраненному\ портрету\ или\ None\ в\ случае\ ошибки}}
+\DoxyCodeLine{00049\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ "{}"{}"{}}}
+\DoxyCodeLine{00050\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{try}:}
+\DoxyCodeLine{00051\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{\#\ Create\ character\ directory\ if\ it\ doesn't\ exist}}
+\DoxyCodeLine{00052\ \ \ \ \ \ \ \ \ \ \ \ \ character\_dir\ =\ os.path.join(IMAGE\_OUTPUT\_DIR,\ str(self.\_\_session\_id),\ \textcolor{stringliteral}{"{}characters"{}})}
+\DoxyCodeLine{00053\ \ \ \ \ \ \ \ \ \ \ \ \ os.makedirs(character\_dir,\ exist\_ok=\textcolor{keyword}{True})}
+\DoxyCodeLine{00054\ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00055\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{\#\ Create\ prompt\ for\ character\ portrait}}
+\DoxyCodeLine{00056\ \ \ \ \ \ \ \ \ \ \ \ \ prompt\ =\ f\textcolor{stringliteral}{"{}Create\ a\ portrait\ of\ \{character\_name\}.\ \{character\_description\}.\ The\ character\ should\ be\ centered\ on\ a\ neutral\ background.\ The\ style\ is\ Gloomy\ classical\ painting\ style\ with\ dramatic\ chiaroscuro,\ muted\ dark\ tones\ (charcoal\ black,\ deep\ navy,\ antique\ gold),\ Baroque/Romantic-\/era\ aesthetics,\ weathered\ oil\ texture,\ cracked\ varnish\ aging,\ somber\ atmospheric\ lighting,\ Goya-\/esque\ melancholy,\ Caravaggio-\/inspired\ contrasts,\ Turner-\/like\ stormy\ ambiance,\ haunting\ ethereal\ undertones,\ detailed\ brushwork\ on\ textures\ (stone,\ fabric),\ cold\ palette\ with\ crimson\ accents,\ gothic\ decay\ motifs,\ and\ misty\ spectral\ ambiance."{}}}
+\DoxyCodeLine{00057\ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00058\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{\#\ Generate\ image}}
+\DoxyCodeLine{00059\ \ \ \ \ \ \ \ \ \ \ \ \ image\_path\ =\ os.path.join(character\_dir,\ f\textcolor{stringliteral}{"{}\{character\_name\}.png"{}})}
+\DoxyCodeLine{00060\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ self.\_\_image\_generator.generate\_image\_response(prompt,\ image\_path)}
+\DoxyCodeLine{00061\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00062\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{except}\ Exception\ \textcolor{keyword}{as}\ e:}
+\DoxyCodeLine{00063\ \ \ \ \ \ \ \ \ \ \ \ \ logging.error(f\textcolor{stringliteral}{"{}Error\ generating\ character\ portrait:\ \{str(e)\}"{}})}
+\DoxyCodeLine{00064\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keywordtype}{None}}
+\DoxyCodeLine{00065\ }
+\DoxyCodeLine{00066\ \ \ \ \ \textcolor{keyword}{def\ }generate\_and\_save\_image(self,\ user\_input:\ str,\ actor\_output:\ str,\ character\_ids:\ List[int])\ -\/>\ Optional[str]:}
+\DoxyCodeLine{00067\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}"{}"{}!}}
+\DoxyCodeLine{00068\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ @brief\ Генерация\ и\ сохранение\ изображения\ сцены}}
+\DoxyCodeLine{00069\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ }}
+\DoxyCodeLine{00070\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ @param\ user\_input\ Ввод\ пользователя}}
+\DoxyCodeLine{00071\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ @param\ actor\_output\ Описание\ сцены\ от\ актора}}
+\DoxyCodeLine{00072\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ @param\ character\_ids\ Список\ ID\ персонажей,\ участвующих\ в\ сцене}}
+\DoxyCodeLine{00073\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ }}
+\DoxyCodeLine{00074\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ @return\ Optional[str]\ Путь\ к\ сохраненному\ изображению\ или\ None\ в\ случае\ ошибки}}
+\DoxyCodeLine{00075\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ "{}"{}"{}}}
+\DoxyCodeLine{00076\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ actor\_output\ \textcolor{keywordflow}{in}\ [off\_topic\_message\_ru,\ off\_topic\_message\_eng]:}
+\DoxyCodeLine{00077\ \ \ \ \ \ \ \ \ \ \ \ \ self.\_\_db.save\_image\_prompt(self.\_\_session\_id,\ user\_input,\ actor\_output,\ off\_topic\_message\_eng)}
+\DoxyCodeLine{00078\ \ \ \ \ \ \ \ \ \ \ \ \ image\_prompts\ =\ self.\_\_db.get\_image\_prompts(self.\_\_session\_id)}
+\DoxyCodeLine{00079\ \ \ \ \ \ \ \ \ \ \ \ \ next\_sequence\ =\ len(image\_prompts)\ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00080\ }
+\DoxyCodeLine{00081\ \ \ \ \ \ \ \ \ \ \ \ \ target\_path\ =\ f\textcolor{stringliteral}{"{}\{IMAGE\_OUTPUT\_DIR\}/\{self.\_\_session\_id\}/\{next\_sequence\}.png"{}}}
+\DoxyCodeLine{00082\ \ \ \ \ \ \ \ \ \ \ \ \ shutil.copy2(error\_image\_path,\ target\_path)}
+\DoxyCodeLine{00083\ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00084\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ target\_path}
+\DoxyCodeLine{00085\ }
+\DoxyCodeLine{00086\ \ \ \ \ \ \ \ \ \textcolor{comment}{\#\ Generate\ prompt\ with\ character\ information}}
+\DoxyCodeLine{00087\ \ \ \ \ \ \ \ \ image\_prompt\ =\ self.\_\_prompt\_generator.generate\_prompt(user\_input,\ actor\_output,\ character\_ids)}
+\DoxyCodeLine{00088\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00089\ \ \ \ \ \ \ \ \ \textcolor{comment}{\#\ Get\ the\ next\ sequence\ number\ from\ database}}
+\DoxyCodeLine{00090\ \ \ \ \ \ \ \ \ image\_prompts\ =\ self.\_\_db.get\_image\_prompts(self.\_\_session\_id)}
+\DoxyCodeLine{00091\ \ \ \ \ \ \ \ \ next\_sequence\ =\ len(image\_prompts)}
+\DoxyCodeLine{00092\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00093\ \ \ \ \ \ \ \ \ \textcolor{comment}{\#\ Get\ character\ image\ paths}}
+\DoxyCodeLine{00094\ \ \ \ \ \ \ \ \ character\_images\ =\ []}
+\DoxyCodeLine{00095\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ char\_id\ \textcolor{keywordflow}{in}\ character\_ids:}
+\DoxyCodeLine{00096\ \ \ \ \ \ \ \ \ \ \ \ \ character\ =\ self.\_\_db.get\_character(char\_id)}
+\DoxyCodeLine{00097\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ character:}
+\DoxyCodeLine{00098\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ name,\ \_\ =\ character}
+\DoxyCodeLine{00099\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ char\_image\_path\ =\ os.path.join(IMAGE\_OUTPUT\_DIR,\ str(self.\_\_session\_id),\ \textcolor{stringliteral}{"{}characters"{}},\ f\textcolor{stringliteral}{"{}\{name\}.png"{}})}
+\DoxyCodeLine{00100\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ os.path.exists(char\_image\_path):}
+\DoxyCodeLine{00101\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ character\_images.append(char\_image\_path)}
+\DoxyCodeLine{00102\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00103\ \ \ \ \ \ \ \ \ \textcolor{comment}{\#\ Generate\ and\ save\ image}}
+\DoxyCodeLine{00104\ \ \ \ \ \ \ \ \ target\_path\ =\ os.path.join(IMAGE\_OUTPUT\_DIR,\ str(self.\_\_session\_id),\ f\textcolor{stringliteral}{"{}\{next\_sequence\}.png"{}})}
+\DoxyCodeLine{00105\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ image\_prompt\ \textcolor{keywordflow}{is}\ \textcolor{keywordtype}{None}:}
+\DoxyCodeLine{00106\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keywordtype}{None}}
+\DoxyCodeLine{00107\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ self.\_\_image\_generator.generate\_image\_response(image\_prompt,\ target\_path,\ character\_images)\ }
+
+\end{DoxyCode}

@@ -1,0 +1,240 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ru">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.13.2"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>My Project: Исходный файл C:/Users/kir/Desktop/py/API/src/ImageGenerator/ImageGeneratorGoogle.py</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+  $(function() { init_search(); });
+/* @license-end */
+</script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">My Project
+   </div>
+  </td>
+    <td>        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <span id="MSearchSelect"                onmouseover="return searchBox.OnSearchSelectShow()"                onmouseout="return searchBox.OnSearchSelectHide()">&#160;</span>
+          <input type="text" id="MSearchField" value="" placeholder="Поиск" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.svg" alt=""/></a>
+          </span>
+        </div>
+</td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Создано системой Doxygen 1.13.2 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() { codefold.init(0); });
+/* @license-end */
+</script>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function(){initNavTree('_image_generator_google_8py_source.html',''); initResizable(true); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Загрузка...</div>
+<div class="SRStatus" id="Searching">Поиск...</div>
+<div class="SRStatus" id="NoMatches">Не найдено</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">ImageGeneratorGoogle.py</div></div>
+</div><!--header-->
+<div class="contents">
+<div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="keyword">import</span> os</div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="keyword">from</span> typing <span class="keyword">import</span> Optional, Any, List</div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="keyword">from</span> google <span class="keyword">import</span> genai  <span class="comment"># type: ignore</span></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="keyword">from</span> google.genai <span class="keyword">import</span> types  <span class="comment"># type: ignore</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="keyword">from</span> dotenv <span class="keyword">import</span> load_dotenv</div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="keyword">import</span> logging</div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="keyword">from</span> PIL <span class="keyword">import</span> Image</div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="keyword">from</span> io <span class="keyword">import</span> BytesIO</div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="keyword">from</span> <a class="code hl_namespace" href="namespacesrc_1_1_image_generator_1_1_image_generator_protocol.html">src.ImageGenerator.ImageGeneratorProtocol</a> <span class="keyword">import</span> ImageGeneratorProtocol</div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="keyword">from</span> <a class="code hl_namespace" href="namespacesrc_1_1config.html">src.config</a> <span class="keyword">import</span> IMAGE_OUTPUT_DIR</div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span> </div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span> </div>
+<div class="foldopen" id="foldopen00013" data-start="" data-end="">
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno"><a class="line" href="classsrc_1_1_image_generator_1_1_image_generator_google_1_1_image_generator_google.html">   13</a></span><span class="keyword">class </span><a class="code hl_class" href="classsrc_1_1_image_generator_1_1_image_generator_google_1_1_image_generator_google.html">ImageGeneratorGoogle</a>(<a class="code hl_class" href="classsrc_1_1_image_generator_1_1_image_generator_protocol_1_1_image_generator_protocol.html">ImageGeneratorProtocol</a>):</div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span>    <span class="stringliteral">&quot;&quot;&quot;!</span></div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="stringliteral">    @brief Класс для генерации изображений с использованием Google Gemini API</span></div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="stringliteral">    </span></div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="stringliteral">    @details</span></div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span><span class="stringliteral">    Реализует интерфейс ImageGeneratorProtocol для генерации изображений.</span></div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span><span class="stringliteral">    Использует Google Gemini API для создания изображений на основе текстовых промптов</span></div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span><span class="stringliteral">    и опциональных изображений персонажей.</span></div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span><span class="stringliteral">    </span></div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span><span class="stringliteral">    @note Требуется прокси/vpn для работы с Google API</span></div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><span class="stringliteral">    &quot;&quot;&quot;</span></div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>    __client: Any  <span class="comment"># Using Any for google.genai.Client since it lacks type stubs</span></div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>    __output_dir: str</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span> </div>
+<div class="foldopen" id="foldopen00027" data-start="" data-end="">
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno"><a class="line" href="classsrc_1_1_image_generator_1_1_image_generator_google_1_1_image_generator_google.html#a2069327fc05d70f8c2f6f488c2abfa05">   27</a></span>    <span class="keyword">def </span><a class="code hl_function" href="classsrc_1_1_image_generator_1_1_image_generator_google_1_1_image_generator_google.html#a2069327fc05d70f8c2f6f488c2abfa05">__init__</a>(self, session_id: int) -&gt; <span class="keywordtype">None</span>:</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>        <span class="stringliteral">&quot;&quot;&quot;!</span></div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span><span class="stringliteral">        @brief Инициализация генератора изображений</span></div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span><span class="stringliteral">        </span></div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span><span class="stringliteral">        @param session_id ID сессии для организации файлов изображений</span></div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span><span class="stringliteral">        &quot;&quot;&quot;</span></div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>        load_dotenv()</div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>        </div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>        <span class="comment"># Initialize Gemini API</span></div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>        self.<a class="code hl_variable" href="classsrc_1_1_image_generator_1_1_image_generator_google_1_1_image_generator_google.html#a98b723b41003f9158623a75f002ff107">__client</a> = genai.Client(api_key=os.getenv(<span class="stringliteral">&quot;GOOGLE_API_KEY&quot;</span>))</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>        </div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>        <span class="comment"># Set up output directory</span></div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>        self.<a class="code hl_variable" href="classsrc_1_1_image_generator_1_1_image_generator_google_1_1_image_generator_google.html#ae0a51614b9204606eb4b425f21b1f142">__output_dir</a> = os.path.join(IMAGE_OUTPUT_DIR, str(session_id))</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>        os.makedirs(self.<a class="code hl_variable" href="classsrc_1_1_image_generator_1_1_image_generator_google_1_1_image_generator_google.html#ae0a51614b9204606eb4b425f21b1f142">__output_dir</a>, exist_ok=<span class="keyword">True</span>)</div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span> </div>
+</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>    <span class="keyword">def </span>__save_image(self, image_data: bytes, target_path: str) -&gt; Optional[str]:</div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>        <span class="stringliteral">&quot;&quot;&quot;!</span></div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span><span class="stringliteral">        @brief Сохранение изображения в файл</span></div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span><span class="stringliteral">        </span></div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span><span class="stringliteral">        @param image_data Бинарные данные изображения</span></div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span><span class="stringliteral">        @param target_path Путь для сохранения файла</span></div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span><span class="stringliteral">        </span></div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span><span class="stringliteral">        @return Optional[str] Путь к сохраненному файлу или None в случае ошибки</span></div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span><span class="stringliteral">        &quot;&quot;&quot;</span></div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>        <span class="keywordflow">try</span>:</div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>            <span class="comment"># Convert the image data to a PIL Image</span></div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>            image = Image.open(BytesIO(image_data))</div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>            </div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>            <span class="comment"># Save the image</span></div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>            image.save(target_path)</div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>            </div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>            logging.info(f<span class="stringliteral">&quot;Successfully saved image to {target_path}&quot;</span>)</div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>            <span class="keywordflow">return</span> target_path</div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>            </div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>        <span class="keywordflow">except</span> Exception <span class="keyword">as</span> e:</div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>            logging.error(f<span class="stringliteral">&quot;Error saving image: {str(e)}&quot;</span>)</div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>            <span class="keywordflow">return</span> <span class="keywordtype">None</span></div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span> </div>
+<div class="foldopen" id="foldopen00065" data-start="" data-end="">
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno"><a class="line" href="classsrc_1_1_image_generator_1_1_image_generator_google_1_1_image_generator_google.html#a3470aae404ebe3e833362ae57500e44f">   65</a></span>    <span class="keyword">def </span><a class="code hl_function" href="classsrc_1_1_image_generator_1_1_image_generator_google_1_1_image_generator_google.html#a3470aae404ebe3e833362ae57500e44f">generate_image_response</a>(self, prompt: str, target_path: str, character_images: Optional[List[str]] = <span class="keywordtype">None</span>) -&gt; Optional[str]:</div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>        <span class="stringliteral">&quot;&quot;&quot;!</span></div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span><span class="stringliteral">        @brief Генерация изображения с использованием Gemini API</span></div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span><span class="stringliteral">        </span></div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span><span class="stringliteral">        @param prompt Текстовый промпт для генерации изображения</span></div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span><span class="stringliteral">        @param target_path Полный путь для сохранения изображения</span></div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span><span class="stringliteral">        @param character_images Опциональный список путей к изображениям персонажей</span></div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span><span class="stringliteral">        </span></div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span><span class="stringliteral">        @return Optional[str] Путь к сохраненному изображению или None в случае ошибки</span></div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span><span class="stringliteral">        &quot;&quot;&quot;</span></div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>        <span class="keywordflow">try</span>:</div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>            <span class="comment"># Prepare contents list with prompt and images</span></div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>            contents: List[Any] = [prompt]</div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>            </div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>            <span class="comment"># Add character images if provided</span></div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>            <span class="keywordflow">if</span> character_images:</div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>                <span class="keywordflow">for</span> image_path <span class="keywordflow">in</span> character_images:</div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>                    <span class="keywordflow">try</span>:</div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>                        image = Image.open(image_path)</div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>                        contents.append(image)</div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>                    <span class="keywordflow">except</span> Exception <span class="keyword">as</span> e:</div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>                        logging.warning(f<span class="stringliteral">&quot;Failed to load character image {image_path}: {str(e)}&quot;</span>)</div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>            </div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>            <span class="comment"># Generate the image using Gemini API</span></div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span>            response = self.<a class="code hl_variable" href="classsrc_1_1_image_generator_1_1_image_generator_google_1_1_image_generator_google.html#a98b723b41003f9158623a75f002ff107">__client</a>.models.generate_content(</div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>                model=<span class="stringliteral">&#39;gemini-2.0-flash-exp-image-generation&#39;</span>,</div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>                contents=contents,</div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span>                config=types.GenerateContentConfig(</div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span>                    response_modalities=[<span class="stringliteral">&#39;Text&#39;</span>, <span class="stringliteral">&#39;Image&#39;</span>]</div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span>                )</div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span>            )</div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span>            </div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span>            <span class="comment"># Process the response</span></div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span>            <span class="keywordflow">for</span> part <span class="keywordflow">in</span> response.candidates[0].content.parts:</div>
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span>                <span class="keywordflow">if</span> part.inline_data <span class="keywordflow">is</span> <span class="keywordflow">not</span> <span class="keywordtype">None</span>:</div>
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span>                    <span class="keywordflow">return</span> self.<a class="code hl_function" href="classsrc_1_1_image_generator_1_1_image_generator_google_1_1_image_generator_google.html#a6d4412e01117f519c922c1e0fefa5a81">__save_image</a>(part.inline_data.data, target_path)</div>
+<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span>                    </div>
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span>            logging.error(<span class="stringliteral">&quot;No image data found in response&quot;</span>)</div>
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span>            <span class="keywordflow">return</span> <span class="keywordtype">None</span></div>
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span>            </div>
+<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span>        <span class="keywordflow">except</span> Exception <span class="keyword">as</span> e:</div>
+<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span>            logging.error(f<span class="stringliteral">&quot;Error generating image: {str(e)}&quot;</span>)</div>
+<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span>            <span class="keywordflow">return</span> <span class="keywordtype">None</span> </div>
+</div>
+</div>
+<div class="ttc" id="aclasssrc_1_1_image_generator_1_1_image_generator_google_1_1_image_generator_google_html"><div class="ttname"><a href="classsrc_1_1_image_generator_1_1_image_generator_google_1_1_image_generator_google.html">src.ImageGenerator.ImageGeneratorGoogle.ImageGeneratorGoogle</a></div><div class="ttdoc">Класс для генерации изображений с использованием Google Gemini API.</div><div class="ttdef"><b>Определения</b> <a href="#l00013">ImageGeneratorGoogle.py:13</a></div></div>
+<div class="ttc" id="aclasssrc_1_1_image_generator_1_1_image_generator_google_1_1_image_generator_google_html_a2069327fc05d70f8c2f6f488c2abfa05"><div class="ttname"><a href="classsrc_1_1_image_generator_1_1_image_generator_google_1_1_image_generator_google.html#a2069327fc05d70f8c2f6f488c2abfa05">src.ImageGenerator.ImageGeneratorGoogle.ImageGeneratorGoogle.__init__</a></div><div class="ttdeci">None __init__(self, int session_id)</div><div class="ttdoc">Инициализация генератора изображений</div><div class="ttdef"><b>Определения</b> <a href="#l00027">ImageGeneratorGoogle.py:27</a></div></div>
+<div class="ttc" id="aclasssrc_1_1_image_generator_1_1_image_generator_google_1_1_image_generator_google_html_a3470aae404ebe3e833362ae57500e44f"><div class="ttname"><a href="classsrc_1_1_image_generator_1_1_image_generator_google_1_1_image_generator_google.html#a3470aae404ebe3e833362ae57500e44f">src.ImageGenerator.ImageGeneratorGoogle.ImageGeneratorGoogle.generate_image_response</a></div><div class="ttdeci">Optional[str] generate_image_response(self, str prompt, str target_path, Optional[List[str]] character_images=None)</div><div class="ttdoc">Генерация изображения с использованием Gemini API.</div><div class="ttdef"><b>Определения</b> <a href="#l00065">ImageGeneratorGoogle.py:65</a></div></div>
+<div class="ttc" id="aclasssrc_1_1_image_generator_1_1_image_generator_google_1_1_image_generator_google_html_a6d4412e01117f519c922c1e0fefa5a81"><div class="ttname"><a href="classsrc_1_1_image_generator_1_1_image_generator_google_1_1_image_generator_google.html#a6d4412e01117f519c922c1e0fefa5a81">src.ImageGenerator.ImageGeneratorGoogle.ImageGeneratorGoogle.__save_image</a></div><div class="ttdeci">Optional[str] __save_image(self, bytes image_data, str target_path)</div><div class="ttdef"><b>Определения</b> <a href="#l00042">ImageGeneratorGoogle.py:42</a></div></div>
+<div class="ttc" id="aclasssrc_1_1_image_generator_1_1_image_generator_google_1_1_image_generator_google_html_a98b723b41003f9158623a75f002ff107"><div class="ttname"><a href="classsrc_1_1_image_generator_1_1_image_generator_google_1_1_image_generator_google.html#a98b723b41003f9158623a75f002ff107">src.ImageGenerator.ImageGeneratorGoogle.ImageGeneratorGoogle.__client</a></div><div class="ttdeci">__client</div><div class="ttdef"><b>Определения</b> <a href="#l00036">ImageGeneratorGoogle.py:36</a></div></div>
+<div class="ttc" id="aclasssrc_1_1_image_generator_1_1_image_generator_google_1_1_image_generator_google_html_ae0a51614b9204606eb4b425f21b1f142"><div class="ttname"><a href="classsrc_1_1_image_generator_1_1_image_generator_google_1_1_image_generator_google.html#ae0a51614b9204606eb4b425f21b1f142">src.ImageGenerator.ImageGeneratorGoogle.ImageGeneratorGoogle.__output_dir</a></div><div class="ttdeci">__output_dir</div><div class="ttdef"><b>Определения</b> <a href="#l00039">ImageGeneratorGoogle.py:39</a></div></div>
+<div class="ttc" id="aclasssrc_1_1_image_generator_1_1_image_generator_protocol_1_1_image_generator_protocol_html"><div class="ttname"><a href="classsrc_1_1_image_generator_1_1_image_generator_protocol_1_1_image_generator_protocol.html">src.ImageGenerator.ImageGeneratorProtocol.ImageGeneratorProtocol</a></div><div class="ttdoc">Протокол для генерации изображений</div><div class="ttdef"><b>Определения</b> <a href="_image_generator_protocol_8py_source.html#l00004">ImageGeneratorProtocol.py:4</a></div></div>
+<div class="ttc" id="anamespacesrc_1_1_image_generator_1_1_image_generator_protocol_html"><div class="ttname"><a href="namespacesrc_1_1_image_generator_1_1_image_generator_protocol.html">src.ImageGenerator.ImageGeneratorProtocol</a></div><div class="ttdef"><b>Определения</b> <a href="_image_generator_protocol_8py_source.html#l00001">ImageGeneratorProtocol.py:1</a></div></div>
+<div class="ttc" id="anamespacesrc_1_1config_html"><div class="ttname"><a href="namespacesrc_1_1config.html">src.config</a></div><div class="ttdef"><b>Определения</b> <a href="config_8py_source.html#l00001">config.py:1</a></div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_15fe2cec17dffb22c04117b383426cd3.html">py</a></li><li class="navelem"><a class="el" href="dir_1bacb7a041c5d8e8f278a4dfcf4ef5b7.html">API</a></li><li class="navelem"><a class="el" href="dir_ba9bc6bf1fb8c5cfdc0d21d8ec27424e.html">src</a></li><li class="navelem"><a class="el" href="dir_65b5ee33c505f5d0d2f0347c8c16bb10.html">ImageGenerator</a></li><li class="navelem"><b>ImageGeneratorGoogle.py</b></li>
+    <li class="footer">Создано системой <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.13.2 </li>
+  </ul>
+</div>
+</body>
+</html>

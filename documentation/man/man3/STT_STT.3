@@ -1,0 +1,138 @@
+.TH "STT.STT" 3 "My Project" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+STT.STT \- Класс для распознавания речи (Speech-to-Text)  
+
+.SH SYNOPSIS
+.br
+.PP
+.SS "Открытые члены"
+
+.in +1c
+.ti -1c
+.RI " '\fBSTT\fP' \fB__new__\fP (cls)"
+.br
+.RI "Создание единственного экземпляра класса "
+.ti -1c
+.RI "None \fB__init__\fP (self)"
+.br
+.RI "Инициализация распознавателя речи "
+.ti -1c
+.RI "None \fBset_language\fP (self, str language)"
+.br
+.RI "Установка языка распознавания "
+.ti -1c
+.RI "str \fBget_language\fP (self)"
+.br
+.RI "Получение текущего языка распознавания "
+.ti -1c
+.RI "str \fBaudio_to_text\fP (self, str audio_path)"
+.br
+.RI "Преобразование аудиофайла в текст "
+.in -1c
+.SH "Подробное описание"
+.PP 
+Класс для распознавания речи (Speech-to-Text) 
+
+Реализует паттерн Singleton для обеспечения единой точки доступа к функционалу распознавания речи\&. Использует библиотеку speech_recognition для преобразования аудио в текст\&.
+
+.PP
+\fBЗаметки\fP
+.RS 4
+Поддерживает русский и английский языки для распознавания 
+.RE
+.PP
+
+.PP
+См\&. определение в файле \fBSTT\&.py\fP строка \fB8\fP
+.SH "Конструктор(ы)"
+.PP 
+.SS " None STT\&.STT\&.__init__ ( self)"
+
+.PP
+Инициализация распознавателя речи 
+.PP
+\fBЗаметки\fP
+.RS 4
+Метод выполняется только при первом создании экземпляра 
+.RE
+.PP
+
+.PP
+См\&. определение в файле \fBSTT\&.py\fP строка \fB48\fP
+.SH "Методы"
+.PP 
+.SS " '\fBSTT\fP' STT\&.STT\&.__new__ ( cls)"
+
+.PP
+Создание единственного экземпляра класса 
+.PP
+\fBВозвращает\fP
+.RS 4
+\fBSTT\fP Единственный экземпляр класса \fBSTT\fP 
+.RE
+.PP
+
+.PP
+См\&. определение в файле \fBSTT\&.py\fP строка \fB37\fP
+.SS " str STT\&.STT\&.audio_to_text ( self, str audio_path)"
+
+.PP
+Преобразование аудиофайла в текст 
+.PP
+\fBАргументы\fP
+.RS 4
+\fIaudio_path\fP Путь к аудиофайлу для распознавания
+.RE
+.PP
+\fBВозвращает\fP
+.RS 4
+str Распознанный текст или сообщение об ошибке
+.RE
+.PP
+\fBИсключения\fP
+.RS 4
+\fIsr\&.UnknownValueError\fP если речь не может быть распознана 
+.br
+\fIsr\&.RequestError\fP если возникла ошибка при подключении к API 
+.RE
+.PP
+
+.PP
+См\&. определение в файле \fBSTT\&.py\fP строка \fB120\fP
+.SS " str STT\&.STT\&.get_language ( self)"
+
+.PP
+Получение текущего языка распознавания 
+.PP
+\fBВозвращает\fP
+.RS 4
+str Текущий язык распознавания 
+.RE
+.PP
+
+.PP
+См\&. определение в файле \fBSTT\&.py\fP строка \fB73\fP
+.SS " None STT\&.STT\&.set_language ( self, str language)"
+
+.PP
+Установка языка распознавания 
+.PP
+\fBАргументы\fP
+.RS 4
+\fIlanguage\fP Язык для распознавания (Russian/English или ru-RU/en-US)
+.RE
+.PP
+\fBИсключения\fP
+.RS 4
+\fIValueError\fP если указанный язык не поддерживается 
+.RE
+.PP
+
+.PP
+См\&. определение в файле \fBSTT\&.py\fP строка \fB61\fP
+
+.SH "Автор"
+.PP 
+Автоматически создано Doxygen для My Project из исходного текста\&.

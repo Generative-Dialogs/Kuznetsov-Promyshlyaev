@@ -1,0 +1,93 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_classsrc_1_1_image_generator_1_1_image_generator_protocol_1_1_image_generator_protocol" xml:lang="ru">
+<title>Класс src.ImageGenerator.ImageGeneratorProtocol.ImageGeneratorProtocol</title>
+<indexterm><primary>src.ImageGenerator.ImageGeneratorProtocol.ImageGeneratorProtocol</primary></indexterm>
+<para>
+
+<para>Протокол для генерации изображений </para>
+ 
+</para>
+<para>Граф наследования:src.ImageGenerator.ImageGeneratorProtocol.ImageGeneratorProtocol:    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="classsrc_1_1_image_generator_1_1_image_generator_protocol_1_1_image_generator_protocol.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Открытые члены    </title>
+        <itemizedlist>
+            <listitem><para>Optional[str] <link linkend="_classsrc_1_1_image_generator_1_1_image_generator_protocol_1_1_image_generator_protocol_1a67dc32bad76939e2ba372be83049fcbb">generate_image_response</link> (self, str prompt, str target_path, Optional[List[str]] character_images=None)</para>
+
+<para>Генерация изображения на основе промпта и опциональных изображений персонажей </para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Подробное описание</title>
+
+<para>Протокол для генерации изображений </para>
+
+
+
+<para>Определяет интерфейс для классов, реализующих генерацию изображений. Используется как контракт для различных реализаций генераторов изображений. </para>
+<para>
+См. определение в файле <link linkend="__image_generator_protocol_8py_source">ImageGeneratorProtocol.py</link> строка <link linkend="__image_generator_protocol_8py_source_1l00004">4</link></para>
+</section>
+<section>
+<title>Методы</title>
+<anchor xml:id="_classsrc_1_1_image_generator_1_1_image_generator_protocol_1_1_image_generator_protocol_1a67dc32bad76939e2ba372be83049fcbb"/><section>
+    <title>generate_image_response()</title>
+<indexterm><primary>generate_image_response</primary><secondary>src.ImageGenerator.ImageGeneratorProtocol.ImageGeneratorProtocol</secondary></indexterm>
+<indexterm><primary>src.ImageGenerator.ImageGeneratorProtocol.ImageGeneratorProtocol</primary><secondary>generate_image_response</secondary></indexterm>
+<para><computeroutput> Optional[str] src.ImageGenerator.ImageGeneratorProtocol.ImageGeneratorProtocol.generate_image_response ( self, str prompt, str target_path, Optional[List[str]]  character_images = <computeroutput>None</computeroutput>
+)</computeroutput></para><para>
+
+<para>Генерация изображения на основе промпта и опциональных изображений персонажей </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Аргументы</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>prompt</entry><entry>
+<para>Текстовый промпт для генерации изображения </para>
+</entry>
+                            </row>
+                            <row>
+<entry>target_path</entry><entry>
+<para>Полный путь для сохранения изображения </para>
+</entry>
+                            </row>
+                            <row>
+<entry>character_images</entry><entry>
+<para>Опциональный список путей к изображениям персонажей</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Возвращает</title>
+
+<para>Optional[str] Путь к сохраненному изображению или None в случае ошибки </para>
+</formalpara>
+</para>
+<para>
+Переопределяется в <link linkend="_classsrc_1_1_image_generator_1_1_image_generator_google_1_1_image_generator_google_1a3470aae404ebe3e833362ae57500e44f">src.ImageGenerator.ImageGeneratorGoogle.ImageGeneratorGoogle</link>.</para>
+<para>
+См. определение в файле <link linkend="__image_generator_protocol_8py_source">ImageGeneratorProtocol.py</link> строка <link linkend="__image_generator_protocol_8py_source_1l00012">12</link></para>
+</section>
+<para>
+Объявления и описания членов класса находятся в файле:</para>
+C:/Users/kir/Desktop/py/API/src/ImageGenerator/ImageGeneratorProtocol.py</section>
+</section>

@@ -1,0 +1,13 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.13.2" xml:lang="ru">
+  <compounddef id="dir_8c8508466b27b4f86abdc45c5e27ce3c" kind="dir">
+    <compoundname>C:/Users/kir/Desktop/py/API/src/DatabaseManager</compoundname>
+    <innerfile refid="_database_manager_2____init_____8py">__init__.py</innerfile>
+    <innerfile refid="_database_manager_8py">DatabaseManager.py</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="C:/Users/kir/Desktop/py/API/src/DatabaseManager/"/>
+  </compounddef>
+</doxygen>

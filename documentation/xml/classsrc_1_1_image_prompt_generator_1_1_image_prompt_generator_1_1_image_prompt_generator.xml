@@ -1,0 +1,168 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.13.2" xml:lang="ru">
+  <compounddef id="classsrc_1_1_image_prompt_generator_1_1_image_prompt_generator_1_1_image_prompt_generator" kind="class" language="Python" prot="public">
+    <compoundname>src::ImagePromptGenerator::ImagePromptGenerator::ImagePromptGenerator</compoundname>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classsrc_1_1_image_prompt_generator_1_1_image_prompt_generator_1_1_image_prompt_generator_1afec27a1711c202d0ef81038d31fd8da4" prot="private" static="no" mutable="no">
+        <type></type>
+        <definition>src.ImagePromptGenerator.ImagePromptGenerator.ImagePromptGenerator::__session_id</definition>
+        <argsstring></argsstring>
+        <name>__session_id</name>
+        <qualifiedname>src.ImagePromptGenerator.ImagePromptGenerator.ImagePromptGenerator.__session_id</qualifiedname>
+        <initializer>=  session_id</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/kir/Desktop/py/API/src/ImagePromptGenerator/ImagePromptGenerator.py" line="25" column="1" bodyfile="C:/Users/kir/Desktop/py/API/src/ImagePromptGenerator/ImagePromptGenerator.py" bodystart="25" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classsrc_1_1_image_prompt_generator_1_1_image_prompt_generator_1_1_image_prompt_generator_1a280c3008385d9edcc1d7559e019c76fa" prot="private" static="no" mutable="no">
+        <type></type>
+        <definition>src.ImagePromptGenerator.ImagePromptGenerator.ImagePromptGenerator::__messageGenerator</definition>
+        <argsstring></argsstring>
+        <name>__messageGenerator</name>
+        <qualifiedname>src.ImagePromptGenerator.ImagePromptGenerator.ImagePromptGenerator.__messageGenerator</qualifiedname>
+        <initializer>=  <ref refid="classsrc_1_1_message_generator_1_1_message_generator_open_router_1_1_message_generator_open_router" kindref="compound">MessageGeneratorOpenRouter</ref>()</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/kir/Desktop/py/API/src/ImagePromptGenerator/ImagePromptGenerator.py" line="26" column="1" bodyfile="C:/Users/kir/Desktop/py/API/src/ImagePromptGenerator/ImagePromptGenerator.py" bodystart="26" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classsrc_1_1_image_prompt_generator_1_1_image_prompt_generator_1_1_image_prompt_generator_1aca5715c387563a43cf6d858f2078c7be" prot="private" static="no" mutable="no">
+        <type></type>
+        <definition>src.ImagePromptGenerator.ImagePromptGenerator.ImagePromptGenerator::__db</definition>
+        <argsstring></argsstring>
+        <name>__db</name>
+        <qualifiedname>src.ImagePromptGenerator.ImagePromptGenerator.ImagePromptGenerator.__db</qualifiedname>
+        <initializer>=  <ref refid="classsrc_1_1_database_manager_1_1_database_manager_1_1_database_manager" kindref="compound">DatabaseManager</ref>()</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/kir/Desktop/py/API/src/ImagePromptGenerator/ImagePromptGenerator.py" line="27" column="1" bodyfile="C:/Users/kir/Desktop/py/API/src/ImagePromptGenerator/ImagePromptGenerator.py" bodystart="27" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classsrc_1_1_image_prompt_generator_1_1_image_prompt_generator_1_1_image_prompt_generator_1a594f12f4fc1c80b4b7294dd45ebc9a0a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>None</type>
+        <definition> None src.ImagePromptGenerator.ImagePromptGenerator.ImagePromptGenerator.__init__</definition>
+        <argsstring>(self, int session_id)</argsstring>
+        <name>__init__</name>
+        <qualifiedname>src.ImagePromptGenerator.ImagePromptGenerator.ImagePromptGenerator.__init__</qualifiedname>
+        <param>
+          <type>self</type>
+          <defname>self</defname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>session_id</declname>
+        </param>
+        <briefdescription>
+<para>Инициализация генератора промптов </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>session_id</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>ID сессии для организации промптов </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/kir/Desktop/py/API/src/ImagePromptGenerator/ImagePromptGenerator.py" line="19" column="1" bodyfile="C:/Users/kir/Desktop/py/API/src/ImagePromptGenerator/ImagePromptGenerator.py" bodystart="19" bodyend="86"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrc_1_1_image_prompt_generator_1_1_image_prompt_generator_1_1_image_prompt_generator_1ad6a86ab3a3f04e4e23fd36d119d5dbdc" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Optional[str]</type>
+        <definition> Optional[str] src.ImagePromptGenerator.ImagePromptGenerator.ImagePromptGenerator.generate_prompt</definition>
+        <argsstring>(self, str user_input, str system_output, List[int] character_ids)</argsstring>
+        <name>generate_prompt</name>
+        <qualifiedname>src.ImagePromptGenerator.ImagePromptGenerator.ImagePromptGenerator.generate_prompt</qualifiedname>
+        <param>
+          <type>self</type>
+          <defname>self</defname>
+        </param>
+        <param>
+          <type>str</type>
+          <declname>user_input</declname>
+        </param>
+        <param>
+          <type>str</type>
+          <declname>system_output</declname>
+        </param>
+        <param>
+          <type>List</type>
+          <declname>character_ids</declname>
+          <array>[int]</array>
+        </param>
+        <briefdescription>
+<para>Генерация промпта для создания изображения </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>user_input</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Ввод пользователя </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>system_output</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Ответ системы </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>character_ids</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Список ID персонажей, участвующих в сцене</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Optional[str] Сгенерированный промпт или None в случае ошибки </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/kir/Desktop/py/API/src/ImagePromptGenerator/ImagePromptGenerator.py" line="87" column="1" bodyfile="C:/Users/kir/Desktop/py/API/src/ImagePromptGenerator/ImagePromptGenerator.py" bodystart="87" bodyend="127"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>Генератор промптов для создания изображений </para>
+    </briefdescription>
+    <detaileddescription>
+<para>Класс отвечает за:<itemizedlist>
+<listitem><para>Создание детальных промптов для генерации изображений</para>
+</listitem><listitem><para>Поддержание согласованности описаний персонажей</para>
+</listitem><listitem><para>Учет контекста сцены и действий</para>
+</listitem><listitem><para>Генерацию стилистически согласованных описаний </para>
+</listitem></itemizedlist>
+</para>
+    </detaileddescription>
+    <location file="C:/Users/kir/Desktop/py/API/src/ImagePromptGenerator/ImagePromptGenerator.py" line="8" column="1" bodyfile="C:/Users/kir/Desktop/py/API/src/ImagePromptGenerator/ImagePromptGenerator.py" bodystart="8" bodyend="127"/>
+    <listofallmembers>
+      <member refid="classsrc_1_1_image_prompt_generator_1_1_image_prompt_generator_1_1_image_prompt_generator_1aca5715c387563a43cf6d858f2078c7be" prot="private" virt="non-virtual"><scope>src::ImagePromptGenerator::ImagePromptGenerator::ImagePromptGenerator</scope><name>__db</name></member>
+      <member refid="classsrc_1_1_image_prompt_generator_1_1_image_prompt_generator_1_1_image_prompt_generator_1a594f12f4fc1c80b4b7294dd45ebc9a0a" prot="public" virt="non-virtual"><scope>src::ImagePromptGenerator::ImagePromptGenerator::ImagePromptGenerator</scope><name>__init__</name></member>
+      <member refid="classsrc_1_1_image_prompt_generator_1_1_image_prompt_generator_1_1_image_prompt_generator_1a280c3008385d9edcc1d7559e019c76fa" prot="private" virt="non-virtual"><scope>src::ImagePromptGenerator::ImagePromptGenerator::ImagePromptGenerator</scope><name>__messageGenerator</name></member>
+      <member refid="classsrc_1_1_image_prompt_generator_1_1_image_prompt_generator_1_1_image_prompt_generator_1afec27a1711c202d0ef81038d31fd8da4" prot="private" virt="non-virtual"><scope>src::ImagePromptGenerator::ImagePromptGenerator::ImagePromptGenerator</scope><name>__session_id</name></member>
+      <member refid="classsrc_1_1_image_prompt_generator_1_1_image_prompt_generator_1_1_image_prompt_generator_1ad6a86ab3a3f04e4e23fd36d119d5dbdc" prot="public" virt="non-virtual"><scope>src::ImagePromptGenerator::ImagePromptGenerator::ImagePromptGenerator</scope><name>generate_prompt</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

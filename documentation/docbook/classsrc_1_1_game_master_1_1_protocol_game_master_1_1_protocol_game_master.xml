@@ -1,0 +1,213 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_classsrc_1_1_game_master_1_1_protocol_game_master_1_1_protocol_game_master" xml:lang="ru">
+<title>Класс src.GameMaster.ProtocolGameMaster.ProtocolGameMaster</title>
+<indexterm><primary>src.GameMaster.ProtocolGameMaster.ProtocolGameMaster</primary></indexterm>
+<para>
+
+<para>Протокол для мастера игры </para>
+ 
+</para>
+<para>Граф наследования:src.GameMaster.ProtocolGameMaster.ProtocolGameMaster:    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="classsrc_1_1_game_master_1_1_protocol_game_master_1_1_protocol_game_master.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Открытые члены    </title>
+        <itemizedlist>
+            <listitem><para>str <link linkend="_classsrc_1_1_game_master_1_1_protocol_game_master_1_1_protocol_game_master_1a6e421e6e57783f84be9b98d42cfb9af2">generate_answer</link> (self, str message)</para>
+
+<para>Генерация ответа на сообщение игрока </para>
+</listitem>
+            <listitem><para>Tuple[List[<link linkend="_classsrc_1_1_game_master_1_1_command_data_1_1_command_data">CommandData</link>], str] <link linkend="_classsrc_1_1_game_master_1_1_protocol_game_master_1_1_protocol_game_master_1ac842ff606b7dd24e62ff6e62f5163035">generate_instruction</link> (self, str message)</para>
+
+<para>Генерация инструкций на основе сообщения </para>
+</listitem>
+            <listitem><para>Tuple[str, Set[str]] <link linkend="_classsrc_1_1_game_master_1_1_protocol_game_master_1_1_protocol_game_master_1a2ca7cf4f8163b1dd4056a66403117f04">parse_commands</link> (self, List[<link linkend="_classsrc_1_1_game_master_1_1_command_data_1_1_command_data">CommandData</link>] commands)</para>
+
+<para>Обработка списка команд </para>
+</listitem>
+            <listitem><para>Tuple[Optional[List[<link linkend="_classsrc_1_1_game_master_1_1_command_data_1_1_command_data">CommandData</link>]], str] <link linkend="_classsrc_1_1_game_master_1_1_protocol_game_master_1_1_protocol_game_master_1a8a9b7dd7fd2039e11dc803822e5f159c">validate_and_parse</link> (self, str input_text)</para>
+
+<para>Валидация и парсинг входного текста </para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Подробное описание</title>
+
+<para>Протокол для мастера игры </para>
+
+
+
+<para>Определяет интерфейс для мастера игры, который отвечает за:<itemizedlist>
+<listitem>
+<para>Генерацию ответов на действия игрока</para>
+</listitem><listitem>
+<para>Управление игровыми персонажами</para>
+</listitem><listitem>
+<para>Поддержание целостности игрового мира</para>
+</listitem><listitem>
+<para>Обработку команд и инструкций </para>
+</listitem></itemizedlist>
+</para>
+<para>
+См. определение в файле <link linkend="__protocol_game_master_8py_source">ProtocolGameMaster.py</link> строка <link linkend="__protocol_game_master_8py_source_1l00004">4</link></para>
+</section>
+<section>
+<title>Методы</title>
+<anchor xml:id="_classsrc_1_1_game_master_1_1_protocol_game_master_1_1_protocol_game_master_1a6e421e6e57783f84be9b98d42cfb9af2"/><section>
+    <title>generate_answer()</title>
+<indexterm><primary>generate_answer</primary><secondary>src.GameMaster.ProtocolGameMaster.ProtocolGameMaster</secondary></indexterm>
+<indexterm><primary>src.GameMaster.ProtocolGameMaster.ProtocolGameMaster</primary><secondary>generate_answer</secondary></indexterm>
+<para><computeroutput> str src.GameMaster.ProtocolGameMaster.ProtocolGameMaster.generate_answer ( self, str message)</computeroutput></para><para>
+
+<para>Генерация ответа на сообщение игрока </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Аргументы</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>message</entry><entry>
+<para>Сообщение игрока </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Возвращает</title>
+
+<para>str Ответ системы </para>
+</formalpara>
+</para>
+<para>
+См. определение в файле <link linkend="__protocol_game_master_8py_source">ProtocolGameMaster.py</link> строка <link linkend="__protocol_game_master_8py_source_1l00018">18</link></para>
+</section>
+<anchor xml:id="_classsrc_1_1_game_master_1_1_protocol_game_master_1_1_protocol_game_master_1ac842ff606b7dd24e62ff6e62f5163035"/><section>
+    <title>generate_instruction()</title>
+<indexterm><primary>generate_instruction</primary><secondary>src.GameMaster.ProtocolGameMaster.ProtocolGameMaster</secondary></indexterm>
+<indexterm><primary>src.GameMaster.ProtocolGameMaster.ProtocolGameMaster</primary><secondary>generate_instruction</secondary></indexterm>
+<para><computeroutput> Tuple[List[<link linkend="_classsrc_1_1_game_master_1_1_command_data_1_1_command_data">CommandData</link>], str] src.GameMaster.ProtocolGameMaster.ProtocolGameMaster.generate_instruction ( self, str message)</computeroutput></para><para>
+
+<para>Генерация инструкций на основе сообщения </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Аргументы</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>message</entry><entry>
+<para>Сообщение для обработки </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Возвращает</title>
+
+<para>Tuple[List[<link linkend="_classsrc_1_1_game_master_1_1_command_data_1_1_command_data">CommandData</link>], str] Кортеж из списка команд и текстового вывода </para>
+</formalpara>
+</para>
+<para>
+См. определение в файле <link linkend="__protocol_game_master_8py_source">ProtocolGameMaster.py</link> строка <link linkend="__protocol_game_master_8py_source_1l00027">27</link></para>
+</section>
+<anchor xml:id="_classsrc_1_1_game_master_1_1_protocol_game_master_1_1_protocol_game_master_1a2ca7cf4f8163b1dd4056a66403117f04"/><section>
+    <title>parse_commands()</title>
+<indexterm><primary>parse_commands</primary><secondary>src.GameMaster.ProtocolGameMaster.ProtocolGameMaster</secondary></indexterm>
+<indexterm><primary>src.GameMaster.ProtocolGameMaster.ProtocolGameMaster</primary><secondary>parse_commands</secondary></indexterm>
+<para><computeroutput> Tuple[str, Set[str]] src.GameMaster.ProtocolGameMaster.ProtocolGameMaster.parse_commands ( self, List[<link linkend="_classsrc_1_1_game_master_1_1_command_data_1_1_command_data">CommandData</link>] commands)</computeroutput></para><para>
+
+<para>Обработка списка команд </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Аргументы</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>commands</entry><entry>
+<para>Список команд для обработки </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Возвращает</title>
+
+<para>Tuple[str, Set[str]] Кортеж из текстового вывода и множества имен активных персонажей </para>
+</formalpara>
+</para>
+<para>
+См. определение в файле <link linkend="__protocol_game_master_8py_source">ProtocolGameMaster.py</link> строка <link linkend="__protocol_game_master_8py_source_1l00036">36</link></para>
+</section>
+<anchor xml:id="_classsrc_1_1_game_master_1_1_protocol_game_master_1_1_protocol_game_master_1a8a9b7dd7fd2039e11dc803822e5f159c"/><section>
+    <title>validate_and_parse()</title>
+<indexterm><primary>validate_and_parse</primary><secondary>src.GameMaster.ProtocolGameMaster.ProtocolGameMaster</secondary></indexterm>
+<indexterm><primary>src.GameMaster.ProtocolGameMaster.ProtocolGameMaster</primary><secondary>validate_and_parse</secondary></indexterm>
+<para><computeroutput> Tuple[Optional[List[<link linkend="_classsrc_1_1_game_master_1_1_command_data_1_1_command_data">CommandData</link>]], str] src.GameMaster.ProtocolGameMaster.ProtocolGameMaster.validate_and_parse ( self, str input_text)</computeroutput></para><para>
+
+<para>Валидация и парсинг входного текста </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Аргументы</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>input_text</entry><entry>
+<para>Текст для валидации и парсинга </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Возвращает</title>
+
+<para>Tuple[Optional[List[<link linkend="_classsrc_1_1_game_master_1_1_command_data_1_1_command_data">CommandData</link>]], str] Кортеж из списка команд (или None) и сообщения об ошибке </para>
+</formalpara>
+</para>
+<para>
+См. определение в файле <link linkend="__protocol_game_master_8py_source">ProtocolGameMaster.py</link> строка <link linkend="__protocol_game_master_8py_source_1l00045">45</link></para>
+</section>
+<para>
+Объявления и описания членов класса находятся в файле:</para>
+C:/Users/kir/Desktop/py/API/src/GameMaster/ProtocolGameMaster.py</section>
+</section>

@@ -1,0 +1,1573 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ru">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.13.2"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>My Project: Класс src.DatabaseManager.DatabaseManager.DatabaseManager</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+  $(function() { init_search(); });
+/* @license-end */
+</script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">My Project
+   </div>
+  </td>
+    <td>        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <span id="MSearchSelect"                onmouseover="return searchBox.OnSearchSelectShow()"                onmouseout="return searchBox.OnSearchSelectHide()">&#160;</span>
+          <input type="text" id="MSearchField" value="" placeholder="Поиск" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.svg" alt=""/></a>
+          </span>
+        </div>
+</td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Создано системой Doxygen 1.13.2 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() { codefold.init(0); });
+/* @license-end */
+</script>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function(){initNavTree('classsrc_1_1_database_manager_1_1_database_manager_1_1_database_manager.html',''); initResizable(true); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Загрузка...</div>
+<div class="SRStatus" id="Searching">Поиск...</div>
+<div class="SRStatus" id="NoMatches">Не найдено</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="summary">
+<a href="#pub-methods">Открытые члены</a> &#124;
+<a href="#pub-attribs">Открытые атрибуты</a> &#124;
+<a href="#pro-methods">Защищенные члены</a> &#124;
+<a href="#pro-static-attribs">Статические защищенные данные</a> &#124;
+<a href="classsrc_1_1_database_manager_1_1_database_manager_1_1_database_manager-members.html">Полный список членов класса</a>  </div>
+  <div class="headertitle"><div class="title">Класс src.DatabaseManager.DatabaseManager.DatabaseManager</div></div>
+</div><!--header-->
+<div class="contents">
+
+<p>Менеджер базы данных для управления игровыми сессиями  
+ <a href="#details">Подробнее...</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+Открытые члены</h2></td></tr>
+<tr class="memitem:ae8e9b4a5cf7f9c4a05276052a98528ee" id="r_ae8e9b4a5cf7f9c4a05276052a98528ee"><td class="memItemLeft" align="right" valign="top"> '<a class="el" href="classsrc_1_1_database_manager_1_1_database_manager_1_1_database_manager.html">DatabaseManager</a>'&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae8e9b4a5cf7f9c4a05276052a98528ee">__new__</a> (cls)</td></tr>
+<tr class="memdesc:ae8e9b4a5cf7f9c4a05276052a98528ee"><td class="mdescLeft">&#160;</td><td class="mdescRight">Реализация паттерна Singleton.  <br /></td></tr>
+<tr class="separator:ae8e9b4a5cf7f9c4a05276052a98528ee"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac07876128f530806fb845ee3ca550c8a" id="r_ac07876128f530806fb845ee3ca550c8a"><td class="memItemLeft" align="right" valign="top">None&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac07876128f530806fb845ee3ca550c8a">__init__</a> (self)</td></tr>
+<tr class="memdesc:ac07876128f530806fb845ee3ca550c8a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Инициализация атрибутов экземпляра  <br /></td></tr>
+<tr class="separator:ac07876128f530806fb845ee3ca550c8a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a90bfa9b37df42c63ceabd1630c901025" id="r_a90bfa9b37df42c63ceabd1630c901025"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a90bfa9b37df42c63ceabd1630c901025">create_user</a> (self)</td></tr>
+<tr class="memdesc:a90bfa9b37df42c63ceabd1630c901025"><td class="mdescLeft">&#160;</td><td class="mdescRight">Создание нового пользователя  <br /></td></tr>
+<tr class="separator:a90bfa9b37df42c63ceabd1630c901025"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae5727ae5eb1a749423299458b67948d8" id="r_ae5727ae5eb1a749423299458b67948d8"><td class="memItemLeft" align="right" valign="top">List[int]&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae5727ae5eb1a749423299458b67948d8">get_all_users</a> (self)</td></tr>
+<tr class="memdesc:ae5727ae5eb1a749423299458b67948d8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Получение списка всех пользователей  <br /></td></tr>
+<tr class="separator:ae5727ae5eb1a749423299458b67948d8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4ef04a04c179b51dd3650ddd7f0a1044" id="r_a4ef04a04c179b51dd3650ddd7f0a1044"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4ef04a04c179b51dd3650ddd7f0a1044">create_session</a> (self, int user_id, str world_description, str player_description, str language=&quot;Russian&quot;)</td></tr>
+<tr class="memdesc:a4ef04a04c179b51dd3650ddd7f0a1044"><td class="mdescLeft">&#160;</td><td class="mdescRight">Создание новой игровой сессии  <br /></td></tr>
+<tr class="separator:a4ef04a04c179b51dd3650ddd7f0a1044"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af7ba5da6c9851f8a7572ddd0b100e83a" id="r_af7ba5da6c9851f8a7572ddd0b100e83a"><td class="memItemLeft" align="right" valign="top">List[Tuple[int, str, str, str]]&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af7ba5da6c9851f8a7572ddd0b100e83a">get_user_sessions</a> (self, int user_id)</td></tr>
+<tr class="memdesc:af7ba5da6c9851f8a7572ddd0b100e83a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Получение списка сессий пользователя  <br /></td></tr>
+<tr class="separator:af7ba5da6c9851f8a7572ddd0b100e83a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8b470f05c518dbf890db72c451494b36" id="r_a8b470f05c518dbf890db72c451494b36"><td class="memItemLeft" align="right" valign="top">Optional[Tuple[str, str]]&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8b470f05c518dbf890db72c451494b36">get_session_info</a> (self, int session_id)</td></tr>
+<tr class="memdesc:a8b470f05c518dbf890db72c451494b36"><td class="mdescLeft">&#160;</td><td class="mdescRight">Получение информации о сессии  <br /></td></tr>
+<tr class="separator:a8b470f05c518dbf890db72c451494b36"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a78b9f08ef4c174650284fb7ff55fa201" id="r_a78b9f08ef4c174650284fb7ff55fa201"><td class="memItemLeft" align="right" valign="top">None&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a78b9f08ef4c174650284fb7ff55fa201">save_character</a> (self, int session_id, str name, str description)</td></tr>
+<tr class="memdesc:a78b9f08ef4c174650284fb7ff55fa201"><td class="mdescLeft">&#160;</td><td class="mdescRight">Сохранение персонажа  <br /></td></tr>
+<tr class="separator:a78b9f08ef4c174650284fb7ff55fa201"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad57a9638af3e753cb56ac36905049a59" id="r_ad57a9638af3e753cb56ac36905049a59"><td class="memItemLeft" align="right" valign="top">List[Tuple[str, str]]&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad57a9638af3e753cb56ac36905049a59">get_characters</a> (self, int session_id)</td></tr>
+<tr class="memdesc:ad57a9638af3e753cb56ac36905049a59"><td class="mdescLeft">&#160;</td><td class="mdescRight">Получение списка персонажей сессии  <br /></td></tr>
+<tr class="separator:ad57a9638af3e753cb56ac36905049a59"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7ca1b98dcdd0b87151292b22868f1abd" id="r_a7ca1b98dcdd0b87151292b22868f1abd"><td class="memItemLeft" align="right" valign="top">None&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7ca1b98dcdd0b87151292b22868f1abd">save_user_message</a> (self, int session_id, str user_input, str response)</td></tr>
+<tr class="memdesc:a7ca1b98dcdd0b87151292b22868f1abd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Сохранение сообщения пользователя  <br /></td></tr>
+<tr class="separator:a7ca1b98dcdd0b87151292b22868f1abd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6fce88139b93dc797e02b7b93777e3ac" id="r_a6fce88139b93dc797e02b7b93777e3ac"><td class="memItemLeft" align="right" valign="top">None&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6fce88139b93dc797e02b7b93777e3ac">save_master_message</a> (self, int session_id, str user_input, str master_output, str actor_output)</td></tr>
+<tr class="memdesc:a6fce88139b93dc797e02b7b93777e3ac"><td class="mdescLeft">&#160;</td><td class="mdescRight">Сохранение сообщения мастера игры  <br /></td></tr>
+<tr class="separator:a6fce88139b93dc797e02b7b93777e3ac"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a89e3e3073c296d111a67339cbbcc9de5" id="r_a89e3e3073c296d111a67339cbbcc9de5"><td class="memItemLeft" align="right" valign="top">None&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a89e3e3073c296d111a67339cbbcc9de5">save_actor_message</a> (self, int session_id, str master_prompt, str actor_response)</td></tr>
+<tr class="memdesc:a89e3e3073c296d111a67339cbbcc9de5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Сохранение сообщения актора  <br /></td></tr>
+<tr class="separator:a89e3e3073c296d111a67339cbbcc9de5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad86bf1f4095f7ef32b50e3ce2d87bde7" id="r_ad86bf1f4095f7ef32b50e3ce2d87bde7"><td class="memItemLeft" align="right" valign="top">List[Tuple[int, str, str]]&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad86bf1f4095f7ef32b50e3ce2d87bde7">get_user_messages</a> (self, int session_id)</td></tr>
+<tr class="memdesc:ad86bf1f4095f7ef32b50e3ce2d87bde7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Получение истории сообщений пользователя  <br /></td></tr>
+<tr class="separator:ad86bf1f4095f7ef32b50e3ce2d87bde7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acb0c3701f33e33493c5f83e09d6b2582" id="r_acb0c3701f33e33493c5f83e09d6b2582"><td class="memItemLeft" align="right" valign="top">List[Tuple[int, str, str, str]]&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#acb0c3701f33e33493c5f83e09d6b2582">get_master_messages</a> (self, int session_id)</td></tr>
+<tr class="memdesc:acb0c3701f33e33493c5f83e09d6b2582"><td class="mdescLeft">&#160;</td><td class="mdescRight">Получение истории сообщений мастера игры  <br /></td></tr>
+<tr class="separator:acb0c3701f33e33493c5f83e09d6b2582"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a662d9f39b1dea0e44bed824197cb2232" id="r_a662d9f39b1dea0e44bed824197cb2232"><td class="memItemLeft" align="right" valign="top">List[Tuple[int, str, str]]&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a662d9f39b1dea0e44bed824197cb2232">get_actor_messages</a> (self, int session_id)</td></tr>
+<tr class="memdesc:a662d9f39b1dea0e44bed824197cb2232"><td class="mdescLeft">&#160;</td><td class="mdescRight">Получение истории сообщений актора  <br /></td></tr>
+<tr class="separator:a662d9f39b1dea0e44bed824197cb2232"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a415f0d8b3bef38865370bddc8203e3ff" id="r_a415f0d8b3bef38865370bddc8203e3ff"><td class="memItemLeft" align="right" valign="top">None&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a415f0d8b3bef38865370bddc8203e3ff">delete_session</a> (self, int session_id)</td></tr>
+<tr class="memdesc:a415f0d8b3bef38865370bddc8203e3ff"><td class="mdescLeft">&#160;</td><td class="mdescRight">Удаление сессии и всех связанных с ней данных  <br /></td></tr>
+<tr class="separator:a415f0d8b3bef38865370bddc8203e3ff"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9f15c3a6da37337d517fe72327a261e3" id="r_a9f15c3a6da37337d517fe72327a261e3"><td class="memItemLeft" align="right" valign="top">None&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9f15c3a6da37337d517fe72327a261e3">delete_user_data</a> (self, int user_id)</td></tr>
+<tr class="memdesc:a9f15c3a6da37337d517fe72327a261e3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Удаление всех данных пользователя  <br /></td></tr>
+<tr class="separator:a9f15c3a6da37337d517fe72327a261e3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adbac8da66f7473e585fa1b1b4ab1d9c8" id="r_adbac8da66f7473e585fa1b1b4ab1d9c8"><td class="memItemLeft" align="right" valign="top">None&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#adbac8da66f7473e585fa1b1b4ab1d9c8">save_game_master_prompt</a> (self, int session_id, str prompt_type, str prompt_content, str model_response)</td></tr>
+<tr class="memdesc:adbac8da66f7473e585fa1b1b4ab1d9c8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Сохранение промпта мастера игры  <br /></td></tr>
+<tr class="separator:adbac8da66f7473e585fa1b1b4ab1d9c8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a96f76fb4ab001ccbf497590b0b04281c" id="r_a96f76fb4ab001ccbf497590b0b04281c"><td class="memItemLeft" align="right" valign="top">None&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a96f76fb4ab001ccbf497590b0b04281c">save_actor_prompt</a> (self, int session_id, str prompt_content, str model_response)</td></tr>
+<tr class="memdesc:a96f76fb4ab001ccbf497590b0b04281c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Сохранение промпта актора  <br /></td></tr>
+<tr class="separator:a96f76fb4ab001ccbf497590b0b04281c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9a1872c584c8c411e2915234baeb9eba" id="r_a9a1872c584c8c411e2915234baeb9eba"><td class="memItemLeft" align="right" valign="top">List[Tuple[str, str, str]]&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9a1872c584c8c411e2915234baeb9eba">get_game_master_prompts</a> (self, int session_id)</td></tr>
+<tr class="memdesc:a9a1872c584c8c411e2915234baeb9eba"><td class="mdescLeft">&#160;</td><td class="mdescRight">Получение промптов мастера игры  <br /></td></tr>
+<tr class="separator:a9a1872c584c8c411e2915234baeb9eba"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a23c74e9358f840a3cdca80aa993758be" id="r_a23c74e9358f840a3cdca80aa993758be"><td class="memItemLeft" align="right" valign="top">List[Tuple[str, str]]&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a23c74e9358f840a3cdca80aa993758be">get_actor_prompts</a> (self, int session_id)</td></tr>
+<tr class="memdesc:a23c74e9358f840a3cdca80aa993758be"><td class="mdescLeft">&#160;</td><td class="mdescRight">Получение промптов актора  <br /></td></tr>
+<tr class="separator:a23c74e9358f840a3cdca80aa993758be"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a89252dc2b29611b424ecb352c99de987" id="r_a89252dc2b29611b424ecb352c99de987"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a89252dc2b29611b424ecb352c99de987">is_new_session_actor_prompt</a> (self, int session_id)</td></tr>
+<tr class="memdesc:a89252dc2b29611b424ecb352c99de987"><td class="mdescLeft">&#160;</td><td class="mdescRight">Проверка, является ли сессия новой для промптов актора  <br /></td></tr>
+<tr class="separator:a89252dc2b29611b424ecb352c99de987"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a062acf7bf40d0d49920cceaa844318b0" id="r_a062acf7bf40d0d49920cceaa844318b0"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a062acf7bf40d0d49920cceaa844318b0">is_new_session_gm_prompt</a> (self, int session_id)</td></tr>
+<tr class="memdesc:a062acf7bf40d0d49920cceaa844318b0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Проверка, является ли сессия новой для промптов мастера игры  <br /></td></tr>
+<tr class="separator:a062acf7bf40d0d49920cceaa844318b0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6bdafff6a250fc4aa977fed2611b6710" id="r_a6bdafff6a250fc4aa977fed2611b6710"><td class="memItemLeft" align="right" valign="top">None&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6bdafff6a250fc4aa977fed2611b6710">save_image_prompt</a> (self, int session_id, str user_input, str narrative_response, str image_prompt)</td></tr>
+<tr class="memdesc:a6bdafff6a250fc4aa977fed2611b6710"><td class="mdescLeft">&#160;</td><td class="mdescRight">Сохранение промпта для генерации изображения  <br /></td></tr>
+<tr class="separator:a6bdafff6a250fc4aa977fed2611b6710"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af2ed9a550ccd1c8f98ff811f1e2938df" id="r_af2ed9a550ccd1c8f98ff811f1e2938df"><td class="memItemLeft" align="right" valign="top">List[Tuple[int, str, str, str]]&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af2ed9a550ccd1c8f98ff811f1e2938df">get_image_prompts</a> (self, int session_id)</td></tr>
+<tr class="memdesc:af2ed9a550ccd1c8f98ff811f1e2938df"><td class="mdescLeft">&#160;</td><td class="mdescRight">Получение промптов для генерации изображений  <br /></td></tr>
+<tr class="separator:af2ed9a550ccd1c8f98ff811f1e2938df"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a28df3ea877ad1afa4aab83d911b15b62" id="r_a28df3ea877ad1afa4aab83d911b15b62"><td class="memItemLeft" align="right" valign="top">None&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a28df3ea877ad1afa4aab83d911b15b62">save_active_characters</a> (self, int session_id, int sequence_number, List[int] character_ids)</td></tr>
+<tr class="memdesc:a28df3ea877ad1afa4aab83d911b15b62"><td class="mdescLeft">&#160;</td><td class="mdescRight">Сохранение активных персонажей для конкретного номера последовательности в сессии  <br /></td></tr>
+<tr class="separator:a28df3ea877ad1afa4aab83d911b15b62"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac0e4345b683038740e4d9720a00fca6d" id="r_ac0e4345b683038740e4d9720a00fca6d"><td class="memItemLeft" align="right" valign="top">List[str]&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac0e4345b683038740e4d9720a00fca6d">get_active_characters</a> (self, int session_id, int sequence_number)</td></tr>
+<tr class="memdesc:ac0e4345b683038740e4d9720a00fca6d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Получение списка активных персонажей для конкретного номера последовательности в сессии  <br /></td></tr>
+<tr class="separator:ac0e4345b683038740e4d9720a00fca6d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7e4425052cdd6ee6ba50c65ce565e010" id="r_a7e4425052cdd6ee6ba50c65ce565e010"><td class="memItemLeft" align="right" valign="top">None&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7e4425052cdd6ee6ba50c65ce565e010">update_active_characters</a> (self, int session_id, int sequence_number, List[int] character_ids)</td></tr>
+<tr class="memdesc:a7e4425052cdd6ee6ba50c65ce565e010"><td class="mdescLeft">&#160;</td><td class="mdescRight">Обновление списка активных персонажей для конкретного номера последовательности в сессии  <br /></td></tr>
+<tr class="separator:a7e4425052cdd6ee6ba50c65ce565e010"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad487ccaff17690e1b0063da99ffacae6" id="r_ad487ccaff17690e1b0063da99ffacae6"><td class="memItemLeft" align="right" valign="top">Optional[Tuple[str, str]]&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad487ccaff17690e1b0063da99ffacae6">get_character</a> (self, int character_id)</td></tr>
+<tr class="memdesc:ad487ccaff17690e1b0063da99ffacae6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Получение информации о персонаже по ID.  <br /></td></tr>
+<tr class="separator:ad487ccaff17690e1b0063da99ffacae6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac3ca7f87598cfa981e29de5b60aadadf" id="r_ac3ca7f87598cfa981e29de5b60aadadf"><td class="memItemLeft" align="right" valign="top">List[int]&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac3ca7f87598cfa981e29de5b60aadadf">get_active_characters_ids</a> (self, int session_id, int sequence_number)</td></tr>
+<tr class="memdesc:ac3ca7f87598cfa981e29de5b60aadadf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Получение ID активных персонажей для конкретного номера последовательности в сессии  <br /></td></tr>
+<tr class="separator:ac3ca7f87598cfa981e29de5b60aadadf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abd4dc8956da9fdb1ea64343e4000d363" id="r_abd4dc8956da9fdb1ea64343e4000d363"><td class="memItemLeft" align="right" valign="top">Optional[Tuple[str, str]]&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#abd4dc8956da9fdb1ea64343e4000d363">get_user_message</a> (self, int session_id, int sequence)</td></tr>
+<tr class="memdesc:abd4dc8956da9fdb1ea64343e4000d363"><td class="mdescLeft">&#160;</td><td class="mdescRight">Получение конкретного сообщения пользователя по номеру последовательности  <br /></td></tr>
+<tr class="separator:abd4dc8956da9fdb1ea64343e4000d363"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a36029029cb0970d72a9a6ce0bc05b6d3" id="r_a36029029cb0970d72a9a6ce0bc05b6d3"><td class="memItemLeft" align="right" valign="top">Optional[int]&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a36029029cb0970d72a9a6ce0bc05b6d3">get_character_id</a> (self, int session_id, str name)</td></tr>
+<tr class="memdesc:a36029029cb0970d72a9a6ce0bc05b6d3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Получение ID персонажа по ID сессии и имени  <br /></td></tr>
+<tr class="separator:a36029029cb0970d72a9a6ce0bc05b6d3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a52d0357efb41c804f645c5e42e1560eb" id="r_a52d0357efb41c804f645c5e42e1560eb"><td class="memItemLeft" align="right" valign="top">str&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a52d0357efb41c804f645c5e42e1560eb">get_session_language</a> (self, int session_id)</td></tr>
+<tr class="memdesc:a52d0357efb41c804f645c5e42e1560eb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Получение языка сессии  <br /></td></tr>
+<tr class="separator:a52d0357efb41c804f645c5e42e1560eb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
+Открытые атрибуты</h2></td></tr>
+<tr class="memitem:a0d4c59d10e40d5663df4c8308e9e9d15" id="r_a0d4c59d10e40d5663df4c8308e9e9d15"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0d4c59d10e40d5663df4c8308e9e9d15">db_path</a> = DATABASE_NAME</td></tr>
+<tr class="separator:a0d4c59d10e40d5663df4c8308e9e9d15"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pro-methods" name="pro-methods"></a>
+Защищенные члены</h2></td></tr>
+<tr class="memitem:ab455f7780512cbb276d0725bae1e6df4" id="r_ab455f7780512cbb276d0725bae1e6df4"><td class="memItemLeft" align="right" valign="top">None&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab455f7780512cbb276d0725bae1e6df4">_init_database</a> (self)</td></tr>
+<tr class="memdesc:ab455f7780512cbb276d0725bae1e6df4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Инициализация структуры базы данных  <br /></td></tr>
+<tr class="separator:ab455f7780512cbb276d0725bae1e6df4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pro-static-attribs" name="pro-static-attribs"></a>
+Статические защищенные данные</h2></td></tr>
+<tr class="memitem:a7ad3dcb044e31b90bf31806853bfc837" id="r_a7ad3dcb044e31b90bf31806853bfc837"><td class="memItemLeft" align="right" valign="top">'<a class="el" href="classsrc_1_1_database_manager_1_1_database_manager_1_1_database_manager.html">DatabaseManager</a>'&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7ad3dcb044e31b90bf31806853bfc837">_instance</a> = None</td></tr>
+<tr class="separator:a7ad3dcb044e31b90bf31806853bfc837"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Подробное описание</h2>
+<div class="textblock"><p>Менеджер базы данных для управления игровыми сессиями </p>
+<p>Реализует паттерн Singleton для обеспечения единой точки доступа к базе данных. Управляет всеми операциями с базой данных, включая:</p><ul>
+<li>Пользователей и их сессии</li>
+<li>Персонажей и их описания</li>
+<li>Историю сообщений и диалогов</li>
+<li>Промпты для генерации контента</li>
+<li>Изображения и их промпты</li>
+</ul>
+<dl class="section note"><dt>Заметки</dt><dd>Класс использует SQLite в качестве системы управления базами данных </dd></dl>
+
+<p class="definition">См. определение в файле <a class="el" href="_database_manager_8py_source.html">DatabaseManager.py</a> строка <a class="el" href="_database_manager_8py_source.html#l00008">8</a></p>
+</div><h2 class="groupheader">Конструктор(ы)</h2>
+<a id="ac07876128f530806fb845ee3ca550c8a" name="ac07876128f530806fb845ee3ca550c8a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac07876128f530806fb845ee3ca550c8a">&#9670;&#160;</a></span>__init__()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"> None src.DatabaseManager.DatabaseManager.DatabaseManager.__init__ </td>
+          <td>(</td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>self</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Инициализация атрибутов экземпляра </p>
+<p>Устанавливает путь к базе данных и инициализирует структуру базы данных </p>
+
+<p class="definition">См. определение в файле <a class="el" href="_database_manager_8py_source.html">DatabaseManager.py</a> строка <a class="el" href="_database_manager_8py_source.html#l00038">38</a></p>
+
+</div>
+</div>
+<h2 class="groupheader">Методы</h2>
+<a id="ae8e9b4a5cf7f9c4a05276052a98528ee" name="ae8e9b4a5cf7f9c4a05276052a98528ee"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae8e9b4a5cf7f9c4a05276052a98528ee">&#9670;&#160;</a></span>__new__()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"> '<a class="el" href="classsrc_1_1_database_manager_1_1_database_manager_1_1_database_manager.html">DatabaseManager</a>' src.DatabaseManager.DatabaseManager.DatabaseManager.__new__ </td>
+          <td>(</td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>cls</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Реализация паттерна Singleton. </p>
+<dl class="section return"><dt>Возвращает</dt><dd><a class="el" href="classsrc_1_1_database_manager_1_1_database_manager_1_1_database_manager.html" title="Менеджер базы данных для управления игровыми сессиями">DatabaseManager</a> Единственный экземпляр класса </dd></dl>
+
+<p class="definition">См. определение в файле <a class="el" href="_database_manager_8py_source.html">DatabaseManager.py</a> строка <a class="el" href="_database_manager_8py_source.html#l00026">26</a></p>
+
+</div>
+</div>
+<a id="ab455f7780512cbb276d0725bae1e6df4" name="ab455f7780512cbb276d0725bae1e6df4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab455f7780512cbb276d0725bae1e6df4">&#9670;&#160;</a></span>_init_database()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"> None src.DatabaseManager.DatabaseManager.DatabaseManager._init_database </td>
+          <td>(</td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>self</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel protected">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Инициализация структуры базы данных </p>
+<p>Создает все необходимые таблицы, если они не существуют:</p><ul>
+<li>users: информация о пользователях</li>
+<li>sessions: игровые сессии</li>
+<li>characters: персонажи</li>
+<li>active_characters: активные персонажи в сессии</li>
+<li>user_messages: история сообщений пользователя</li>
+<li>master_messages: история сообщений мастера игры</li>
+<li>actor_messages: история сообщений актора</li>
+<li>game_master_prompts: промпты для мастера игры</li>
+<li>actor_prompts: промпты для актора</li>
+<li>image_prompts: промпты для генерации изображений </li>
+</ul>
+
+<p class="definition">См. определение в файле <a class="el" href="_database_manager_8py_source.html">DatabaseManager.py</a> строка <a class="el" href="_database_manager_8py_source.html#l00048">48</a></p>
+
+</div>
+</div>
+<a id="a4ef04a04c179b51dd3650ddd7f0a1044" name="a4ef04a04c179b51dd3650ddd7f0a1044"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4ef04a04c179b51dd3650ddd7f0a1044">&#9670;&#160;</a></span>create_session()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"> int src.DatabaseManager.DatabaseManager.DatabaseManager.create_session </td>
+          <td>(</td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>self</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>user_id</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">str</td>          <td class="paramname"><span class="paramname"><em>world_description</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">str</td>          <td class="paramname"><span class="paramname"><em>player_description</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">str </td>          <td class="paramname"><span class="paramname"><em>language</em></span><span class="paramdefsep"> = </span><span class="paramdefval">&quot;Russian&quot;</span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Создание новой игровой сессии </p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">user_id</td><td>ID пользователя </td></tr>
+    <tr><td class="paramname">world_description</td><td>Описание игрового мира </td></tr>
+    <tr><td class="paramname">player_description</td><td>Описание игрока </td></tr>
+    <tr><td class="paramname">language</td><td>Язык сессии (Russian/English)</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Возвращает</dt><dd>int ID созданной сессии</dd></dl>
+<dl class="exception"><dt>Исключения</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname">ValueError</td><td>если указан неподдерживаемый язык </td></tr>
+    <tr><td class="paramname">RuntimeError</td><td>если не удалось создать сессию </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">См. определение в файле <a class="el" href="_database_manager_8py_source.html">DatabaseManager.py</a> строка <a class="el" href="_database_manager_8py_source.html#l00220">220</a></p>
+
+</div>
+</div>
+<a id="a90bfa9b37df42c63ceabd1630c901025" name="a90bfa9b37df42c63ceabd1630c901025"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a90bfa9b37df42c63ceabd1630c901025">&#9670;&#160;</a></span>create_user()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"> int src.DatabaseManager.DatabaseManager.DatabaseManager.create_user </td>
+          <td>(</td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>self</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Создание нового пользователя </p>
+<dl class="section return"><dt>Возвращает</dt><dd>int ID созданного пользователя</dd></dl>
+<dl class="exception"><dt>Исключения</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname">RuntimeError</td><td>если не удалось создать пользователя </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">См. определение в файле <a class="el" href="_database_manager_8py_source.html">DatabaseManager.py</a> строка <a class="el" href="_database_manager_8py_source.html#l00192">192</a></p>
+
+</div>
+</div>
+<a id="a415f0d8b3bef38865370bddc8203e3ff" name="a415f0d8b3bef38865370bddc8203e3ff"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a415f0d8b3bef38865370bddc8203e3ff">&#9670;&#160;</a></span>delete_session()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"> None src.DatabaseManager.DatabaseManager.DatabaseManager.delete_session </td>
+          <td>(</td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>self</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>session_id</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Удаление сессии и всех связанных с ней данных </p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">session_id</td><td>ID сессии </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">См. определение в файле <a class="el" href="_database_manager_8py_source.html">DatabaseManager.py</a> строка <a class="el" href="_database_manager_8py_source.html#l00436">436</a></p>
+
+</div>
+</div>
+<a id="a9f15c3a6da37337d517fe72327a261e3" name="a9f15c3a6da37337d517fe72327a261e3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9f15c3a6da37337d517fe72327a261e3">&#9670;&#160;</a></span>delete_user_data()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"> None src.DatabaseManager.DatabaseManager.DatabaseManager.delete_user_data </td>
+          <td>(</td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>self</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>user_id</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Удаление всех данных пользователя </p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">user_id</td><td>ID пользователя </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">См. определение в файле <a class="el" href="_database_manager_8py_source.html">DatabaseManager.py</a> строка <a class="el" href="_database_manager_8py_source.html#l00449">449</a></p>
+
+</div>
+</div>
+<a id="ac0e4345b683038740e4d9720a00fca6d" name="ac0e4345b683038740e4d9720a00fca6d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac0e4345b683038740e4d9720a00fca6d">&#9670;&#160;</a></span>get_active_characters()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"> List[str] src.DatabaseManager.DatabaseManager.DatabaseManager.get_active_characters </td>
+          <td>(</td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>self</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>session_id</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>sequence_number</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Получение списка активных персонажей для конкретного номера последовательности в сессии </p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">session_id</td><td>ID сессии </td></tr>
+    <tr><td class="paramname">sequence_number</td><td>Номер последовательности промпта мастера</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Возвращает</dt><dd>List[str] Список имен активных персонажей</dd></dl>
+<dl class="exception"><dt>Исключения</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname">Exception</td><td>если произошла ошибка при получении данных </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">См. определение в файле <a class="el" href="_database_manager_8py_source.html">DatabaseManager.py</a> строка <a class="el" href="_database_manager_8py_source.html#l00638">638</a></p>
+
+</div>
+</div>
+<a id="ac3ca7f87598cfa981e29de5b60aadadf" name="ac3ca7f87598cfa981e29de5b60aadadf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac3ca7f87598cfa981e29de5b60aadadf">&#9670;&#160;</a></span>get_active_characters_ids()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"> List[int] src.DatabaseManager.DatabaseManager.DatabaseManager.get_active_characters_ids </td>
+          <td>(</td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>self</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>session_id</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>sequence_number</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Получение ID активных персонажей для конкретного номера последовательности в сессии </p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">session_id</td><td>ID сессии </td></tr>
+    <tr><td class="paramname">sequence_number</td><td>Номер последовательности промпта мастера</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Возвращает</dt><dd>List[int] Список ID активных персонажей</dd></dl>
+<dl class="exception"><dt>Исключения</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname">Exception</td><td>если произошла ошибка при получении данных </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">См. определение в файле <a class="el" href="_database_manager_8py_source.html">DatabaseManager.py</a> строка <a class="el" href="_database_manager_8py_source.html#l00696">696</a></p>
+
+</div>
+</div>
+<a id="a662d9f39b1dea0e44bed824197cb2232" name="a662d9f39b1dea0e44bed824197cb2232"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a662d9f39b1dea0e44bed824197cb2232">&#9670;&#160;</a></span>get_actor_messages()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"> List[Tuple[int, str, str]] src.DatabaseManager.DatabaseManager.DatabaseManager.get_actor_messages </td>
+          <td>(</td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>self</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>session_id</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Получение истории сообщений актора </p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">session_id</td><td>ID сессии</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Возвращает</dt><dd>List[Tuple[int, str, str]] Список кортежей (sequence_number, master_prompt, actor_response) </dd></dl>
+
+<p class="definition">См. определение в файле <a class="el" href="_database_manager_8py_source.html">DatabaseManager.py</a> строка <a class="el" href="_database_manager_8py_source.html#l00418">418</a></p>
+
+</div>
+</div>
+<a id="a23c74e9358f840a3cdca80aa993758be" name="a23c74e9358f840a3cdca80aa993758be"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a23c74e9358f840a3cdca80aa993758be">&#9670;&#160;</a></span>get_actor_prompts()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"> List[Tuple[str, str]] src.DatabaseManager.DatabaseManager.DatabaseManager.get_actor_prompts </td>
+          <td>(</td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>self</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>session_id</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Получение промптов актора </p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">session_id</td><td>ID сессии</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Возвращает</dt><dd>List[Tuple[str, str]] Список кортежей (prompt_content, model_response) </dd></dl>
+
+<p class="definition">См. определение в файле <a class="el" href="_database_manager_8py_source.html">DatabaseManager.py</a> строка <a class="el" href="_database_manager_8py_source.html#l00516">516</a></p>
+
+</div>
+</div>
+<a id="ae5727ae5eb1a749423299458b67948d8" name="ae5727ae5eb1a749423299458b67948d8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae5727ae5eb1a749423299458b67948d8">&#9670;&#160;</a></span>get_all_users()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"> List[int] src.DatabaseManager.DatabaseManager.DatabaseManager.get_all_users </td>
+          <td>(</td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>self</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Получение списка всех пользователей </p>
+<dl class="section return"><dt>Возвращает</dt><dd>List[int] Список ID всех пользователей </dd></dl>
+
+<p class="definition">См. определение в файле <a class="el" href="_database_manager_8py_source.html">DatabaseManager.py</a> строка <a class="el" href="_database_manager_8py_source.html#l00209">209</a></p>
+
+</div>
+</div>
+<a id="ad487ccaff17690e1b0063da99ffacae6" name="ad487ccaff17690e1b0063da99ffacae6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad487ccaff17690e1b0063da99ffacae6">&#9670;&#160;</a></span>get_character()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"> Optional[Tuple[str, str]] src.DatabaseManager.DatabaseManager.DatabaseManager.get_character </td>
+          <td>(</td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>self</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>character_id</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Получение информации о персонаже по ID. </p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">character_id</td><td>ID персонажа</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Возвращает</dt><dd>Optional[Tuple[str, str]] Кортеж (name, description) или None если персонаж не найден</dd></dl>
+<dl class="exception"><dt>Исключения</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname">Exception</td><td>если произошла ошибка при получении данных </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">См. определение в файле <a class="el" href="_database_manager_8py_source.html">DatabaseManager.py</a> строка <a class="el" href="_database_manager_8py_source.html#l00673">673</a></p>
+
+</div>
+</div>
+<a id="a36029029cb0970d72a9a6ce0bc05b6d3" name="a36029029cb0970d72a9a6ce0bc05b6d3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a36029029cb0970d72a9a6ce0bc05b6d3">&#9670;&#160;</a></span>get_character_id()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"> Optional[int] src.DatabaseManager.DatabaseManager.DatabaseManager.get_character_id </td>
+          <td>(</td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>self</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>session_id</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">str</td>          <td class="paramname"><span class="paramname"><em>name</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Получение ID персонажа по ID сессии и имени </p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">session_id</td><td>ID сессии </td></tr>
+    <tr><td class="paramname">name</td><td>Имя персонажа</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Возвращает</dt><dd>Optional[int] ID персонажа или None если персонаж не найден</dd></dl>
+<dl class="exception"><dt>Исключения</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname">Exception</td><td>если произошла ошибка при получении данных </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">См. определение в файле <a class="el" href="_database_manager_8py_source.html">DatabaseManager.py</a> строка <a class="el" href="_database_manager_8py_source.html#l00745">745</a></p>
+
+</div>
+</div>
+<a id="ad57a9638af3e753cb56ac36905049a59" name="ad57a9638af3e753cb56ac36905049a59"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad57a9638af3e753cb56ac36905049a59">&#9670;&#160;</a></span>get_characters()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"> List[Tuple[str, str]] src.DatabaseManager.DatabaseManager.DatabaseManager.get_characters </td>
+          <td>(</td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>self</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>session_id</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Получение списка персонажей сессии </p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">session_id</td><td>ID сессии</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Возвращает</dt><dd>List[Tuple[str, str]] Список кортежей (name, description) </dd></dl>
+
+<p class="definition">См. определение в файле <a class="el" href="_database_manager_8py_source.html">DatabaseManager.py</a> строка <a class="el" href="_database_manager_8py_source.html#l00299">299</a></p>
+
+</div>
+</div>
+<a id="a9a1872c584c8c411e2915234baeb9eba" name="a9a1872c584c8c411e2915234baeb9eba"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9a1872c584c8c411e2915234baeb9eba">&#9670;&#160;</a></span>get_game_master_prompts()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"> List[Tuple[str, str, str]] src.DatabaseManager.DatabaseManager.DatabaseManager.get_game_master_prompts </td>
+          <td>(</td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>self</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>session_id</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Получение промптов мастера игры </p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">session_id</td><td>ID сессии</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Возвращает</dt><dd>List[Tuple[str, str, str]] Список кортежей (prompt_type, prompt_content, model_response) </dd></dl>
+
+<p class="definition">См. определение в файле <a class="el" href="_database_manager_8py_source.html">DatabaseManager.py</a> строка <a class="el" href="_database_manager_8py_source.html#l00498">498</a></p>
+
+</div>
+</div>
+<a id="af2ed9a550ccd1c8f98ff811f1e2938df" name="af2ed9a550ccd1c8f98ff811f1e2938df"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af2ed9a550ccd1c8f98ff811f1e2938df">&#9670;&#160;</a></span>get_image_prompts()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"> List[Tuple[int, str, str, str]] src.DatabaseManager.DatabaseManager.DatabaseManager.get_image_prompts </td>
+          <td>(</td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>self</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>session_id</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Получение промптов для генерации изображений </p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">session_id</td><td>ID сессии</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Возвращает</dt><dd>List[Tuple[int, str, str, str]] Список кортежей (sequence_number, user_input, narrative_response, image_prompt) </dd></dl>
+
+<p class="definition">См. определение в файле <a class="el" href="_database_manager_8py_source.html">DatabaseManager.py</a> строка <a class="el" href="_database_manager_8py_source.html#l00591">591</a></p>
+
+</div>
+</div>
+<a id="acb0c3701f33e33493c5f83e09d6b2582" name="acb0c3701f33e33493c5f83e09d6b2582"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acb0c3701f33e33493c5f83e09d6b2582">&#9670;&#160;</a></span>get_master_messages()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"> List[Tuple[int, str, str, str]] src.DatabaseManager.DatabaseManager.DatabaseManager.get_master_messages </td>
+          <td>(</td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>self</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>session_id</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Получение истории сообщений мастера игры </p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">session_id</td><td>ID сессии</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Возвращает</dt><dd>List[Tuple[int, str, str, str]] Список кортежей (sequence_number, user_input, master_output, actor_output) </dd></dl>
+
+<p class="definition">См. определение в файле <a class="el" href="_database_manager_8py_source.html">DatabaseManager.py</a> строка <a class="el" href="_database_manager_8py_source.html#l00400">400</a></p>
+
+</div>
+</div>
+<a id="a8b470f05c518dbf890db72c451494b36" name="a8b470f05c518dbf890db72c451494b36"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8b470f05c518dbf890db72c451494b36">&#9670;&#160;</a></span>get_session_info()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"> Optional[Tuple[str, str]] src.DatabaseManager.DatabaseManager.DatabaseManager.get_session_info </td>
+          <td>(</td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>self</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>session_id</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Получение информации о сессии </p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">session_id</td><td>ID сессии</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Возвращает</dt><dd>Optional[Tuple[str, str]] Кортеж (world_description, player_description) или None если сессия не найдена </dd></dl>
+
+<p class="definition">См. определение в файле <a class="el" href="_database_manager_8py_source.html">DatabaseManager.py</a> строка <a class="el" href="_database_manager_8py_source.html#l00266">266</a></p>
+
+</div>
+</div>
+<a id="a52d0357efb41c804f645c5e42e1560eb" name="a52d0357efb41c804f645c5e42e1560eb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a52d0357efb41c804f645c5e42e1560eb">&#9670;&#160;</a></span>get_session_language()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"> str src.DatabaseManager.DatabaseManager.DatabaseManager.get_session_language </td>
+          <td>(</td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>self</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>session_id</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Получение языка сессии </p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">session_id</td><td>ID сессии</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Возвращает</dt><dd>str Язык сессии (Russian/English)</dd></dl>
+<dl class="exception"><dt>Исключения</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname">RuntimeError</td><td>если сессия не найдена </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">См. определение в файле <a class="el" href="_database_manager_8py_source.html">DatabaseManager.py</a> строка <a class="el" href="_database_manager_8py_source.html#l00769">769</a></p>
+
+</div>
+</div>
+<a id="abd4dc8956da9fdb1ea64343e4000d363" name="abd4dc8956da9fdb1ea64343e4000d363"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abd4dc8956da9fdb1ea64343e4000d363">&#9670;&#160;</a></span>get_user_message()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"> Optional[Tuple[str, str]] src.DatabaseManager.DatabaseManager.DatabaseManager.get_user_message </td>
+          <td>(</td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>self</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>session_id</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>sequence</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Получение конкретного сообщения пользователя по номеру последовательности </p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">session_id</td><td>ID сессии </td></tr>
+    <tr><td class="paramname">sequence</td><td>Номер последовательности сообщения</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Возвращает</dt><dd>Optional[Tuple[str, str]] Кортеж (user_input, response) или None если сообщение не найдено</dd></dl>
+<dl class="exception"><dt>Исключения</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname">Exception</td><td>если произошла ошибка при получении данных </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">См. определение в файле <a class="el" href="_database_manager_8py_source.html">DatabaseManager.py</a> строка <a class="el" href="_database_manager_8py_source.html#l00720">720</a></p>
+
+</div>
+</div>
+<a id="ad86bf1f4095f7ef32b50e3ce2d87bde7" name="ad86bf1f4095f7ef32b50e3ce2d87bde7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad86bf1f4095f7ef32b50e3ce2d87bde7">&#9670;&#160;</a></span>get_user_messages()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"> List[Tuple[int, str, str]] src.DatabaseManager.DatabaseManager.DatabaseManager.get_user_messages </td>
+          <td>(</td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>self</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>session_id</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Получение истории сообщений пользователя </p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">session_id</td><td>ID сессии</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Возвращает</dt><dd>List[Tuple[int, str, str]] Список кортежей (sequence_number, user_input, response) </dd></dl>
+
+<p class="definition">См. определение в файле <a class="el" href="_database_manager_8py_source.html">DatabaseManager.py</a> строка <a class="el" href="_database_manager_8py_source.html#l00382">382</a></p>
+
+</div>
+</div>
+<a id="af7ba5da6c9851f8a7572ddd0b100e83a" name="af7ba5da6c9851f8a7572ddd0b100e83a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af7ba5da6c9851f8a7572ddd0b100e83a">&#9670;&#160;</a></span>get_user_sessions()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"> List[Tuple[int, str, str, str]] src.DatabaseManager.DatabaseManager.DatabaseManager.get_user_sessions </td>
+          <td>(</td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>self</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>user_id</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Получение списка сессий пользователя </p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">user_id</td><td>ID пользователя</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Возвращает</dt><dd>List[Tuple[int, str, str, str]] Список кортежей (session_id, created_at, world_description, player_description) </dd></dl>
+
+<p class="definition">См. определение в файле <a class="el" href="_database_manager_8py_source.html">DatabaseManager.py</a> строка <a class="el" href="_database_manager_8py_source.html#l00249">249</a></p>
+
+</div>
+</div>
+<a id="a89252dc2b29611b424ecb352c99de987" name="a89252dc2b29611b424ecb352c99de987"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a89252dc2b29611b424ecb352c99de987">&#9670;&#160;</a></span>is_new_session_actor_prompt()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"> bool src.DatabaseManager.DatabaseManager.DatabaseManager.is_new_session_actor_prompt </td>
+          <td>(</td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>self</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>session_id</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Проверка, является ли сессия новой для промптов актора </p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">session_id</td><td>ID сессии</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Возвращает</dt><dd>bool True если сессия новая, False если промпты уже существуют </dd></dl>
+
+<p class="definition">См. определение в файле <a class="el" href="_database_manager_8py_source.html">DatabaseManager.py</a> строка <a class="el" href="_database_manager_8py_source.html#l00534">534</a></p>
+
+</div>
+</div>
+<a id="a062acf7bf40d0d49920cceaa844318b0" name="a062acf7bf40d0d49920cceaa844318b0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a062acf7bf40d0d49920cceaa844318b0">&#9670;&#160;</a></span>is_new_session_gm_prompt()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"> bool src.DatabaseManager.DatabaseManager.DatabaseManager.is_new_session_gm_prompt </td>
+          <td>(</td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>self</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>session_id</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Проверка, является ли сессия новой для промптов мастера игры </p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">session_id</td><td>ID сессии</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Возвращает</dt><dd>bool True если сессия новая, False если промпты уже существуют </dd></dl>
+
+<p class="definition">См. определение в файле <a class="el" href="_database_manager_8py_source.html">DatabaseManager.py</a> строка <a class="el" href="_database_manager_8py_source.html#l00551">551</a></p>
+
+</div>
+</div>
+<a id="a28df3ea877ad1afa4aab83d911b15b62" name="a28df3ea877ad1afa4aab83d911b15b62"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a28df3ea877ad1afa4aab83d911b15b62">&#9670;&#160;</a></span>save_active_characters()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"> None src.DatabaseManager.DatabaseManager.DatabaseManager.save_active_characters </td>
+          <td>(</td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>self</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>session_id</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>sequence_number</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">List[int]</td>          <td class="paramname"><span class="paramname"><em>character_ids</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Сохранение активных персонажей для конкретного номера последовательности в сессии </p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">session_id</td><td>ID сессии </td></tr>
+    <tr><td class="paramname">sequence_number</td><td>Номер последовательности промпта мастера </td></tr>
+    <tr><td class="paramname">character_ids</td><td>Список ID персонажей, которые в данный момент активны</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="exception"><dt>Исключения</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname">Exception</td><td>если произошла ошибка при сохранении </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">См. определение в файле <a class="el" href="_database_manager_8py_source.html">DatabaseManager.py</a> строка <a class="el" href="_database_manager_8py_source.html#l00609">609</a></p>
+
+</div>
+</div>
+<a id="a89e3e3073c296d111a67339cbbcc9de5" name="a89e3e3073c296d111a67339cbbcc9de5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a89e3e3073c296d111a67339cbbcc9de5">&#9670;&#160;</a></span>save_actor_message()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"> None src.DatabaseManager.DatabaseManager.DatabaseManager.save_actor_message </td>
+          <td>(</td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>self</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>session_id</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">str</td>          <td class="paramname"><span class="paramname"><em>master_prompt</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">str</td>          <td class="paramname"><span class="paramname"><em>actor_response</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Сохранение сообщения актора </p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">session_id</td><td>ID сессии </td></tr>
+    <tr><td class="paramname">master_prompt</td><td>Промпт мастера игры </td></tr>
+    <tr><td class="paramname">actor_response</td><td>Ответ актора </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">См. определение в файле <a class="el" href="_database_manager_8py_source.html">DatabaseManager.py</a> строка <a class="el" href="_database_manager_8py_source.html#l00360">360</a></p>
+
+</div>
+</div>
+<a id="a96f76fb4ab001ccbf497590b0b04281c" name="a96f76fb4ab001ccbf497590b0b04281c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a96f76fb4ab001ccbf497590b0b04281c">&#9670;&#160;</a></span>save_actor_prompt()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"> None src.DatabaseManager.DatabaseManager.DatabaseManager.save_actor_prompt </td>
+          <td>(</td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>self</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>session_id</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">str</td>          <td class="paramname"><span class="paramname"><em>prompt_content</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">str</td>          <td class="paramname"><span class="paramname"><em>model_response</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Сохранение промпта актора </p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">session_id</td><td>ID сессии </td></tr>
+    <tr><td class="paramname">prompt_content</td><td>Содержимое промпта </td></tr>
+    <tr><td class="paramname">model_response</td><td>Ответ модели </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">См. определение в файле <a class="el" href="_database_manager_8py_source.html">DatabaseManager.py</a> строка <a class="el" href="_database_manager_8py_source.html#l00482">482</a></p>
+
+</div>
+</div>
+<a id="a78b9f08ef4c174650284fb7ff55fa201" name="a78b9f08ef4c174650284fb7ff55fa201"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a78b9f08ef4c174650284fb7ff55fa201">&#9670;&#160;</a></span>save_character()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"> None src.DatabaseManager.DatabaseManager.DatabaseManager.save_character </td>
+          <td>(</td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>self</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>session_id</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">str</td>          <td class="paramname"><span class="paramname"><em>name</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">str</td>          <td class="paramname"><span class="paramname"><em>description</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Сохранение персонажа </p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">session_id</td><td>ID сессии </td></tr>
+    <tr><td class="paramname">name</td><td>Имя персонажа </td></tr>
+    <tr><td class="paramname">description</td><td>Описание персонажа </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">См. определение в файле <a class="el" href="_database_manager_8py_source.html">DatabaseManager.py</a> строка <a class="el" href="_database_manager_8py_source.html#l00283">283</a></p>
+
+</div>
+</div>
+<a id="adbac8da66f7473e585fa1b1b4ab1d9c8" name="adbac8da66f7473e585fa1b1b4ab1d9c8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adbac8da66f7473e585fa1b1b4ab1d9c8">&#9670;&#160;</a></span>save_game_master_prompt()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"> None src.DatabaseManager.DatabaseManager.DatabaseManager.save_game_master_prompt </td>
+          <td>(</td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>self</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>session_id</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">str</td>          <td class="paramname"><span class="paramname"><em>prompt_type</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">str</td>          <td class="paramname"><span class="paramname"><em>prompt_content</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">str</td>          <td class="paramname"><span class="paramname"><em>model_response</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Сохранение промпта мастера игры </p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">session_id</td><td>ID сессии </td></tr>
+    <tr><td class="paramname">prompt_type</td><td>Тип промпта </td></tr>
+    <tr><td class="paramname">prompt_content</td><td>Содержимое промпта </td></tr>
+    <tr><td class="paramname">model_response</td><td>Ответ модели </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">См. определение в файле <a class="el" href="_database_manager_8py_source.html">DatabaseManager.py</a> строка <a class="el" href="_database_manager_8py_source.html#l00465">465</a></p>
+
+</div>
+</div>
+<a id="a6bdafff6a250fc4aa977fed2611b6710" name="a6bdafff6a250fc4aa977fed2611b6710"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6bdafff6a250fc4aa977fed2611b6710">&#9670;&#160;</a></span>save_image_prompt()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"> None src.DatabaseManager.DatabaseManager.DatabaseManager.save_image_prompt </td>
+          <td>(</td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>self</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>session_id</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">str</td>          <td class="paramname"><span class="paramname"><em>user_input</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">str</td>          <td class="paramname"><span class="paramname"><em>narrative_response</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">str</td>          <td class="paramname"><span class="paramname"><em>image_prompt</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Сохранение промпта для генерации изображения </p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">session_id</td><td>ID сессии </td></tr>
+    <tr><td class="paramname">user_input</td><td>Ввод пользователя </td></tr>
+    <tr><td class="paramname">narrative_response</td><td>Нарративный ответ </td></tr>
+    <tr><td class="paramname">image_prompt</td><td>Промпт для генерации изображения </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">См. определение в файле <a class="el" href="_database_manager_8py_source.html">DatabaseManager.py</a> строка <a class="el" href="_database_manager_8py_source.html#l00568">568</a></p>
+
+</div>
+</div>
+<a id="a6fce88139b93dc797e02b7b93777e3ac" name="a6fce88139b93dc797e02b7b93777e3ac"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6fce88139b93dc797e02b7b93777e3ac">&#9670;&#160;</a></span>save_master_message()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"> None src.DatabaseManager.DatabaseManager.DatabaseManager.save_master_message </td>
+          <td>(</td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>self</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>session_id</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">str</td>          <td class="paramname"><span class="paramname"><em>user_input</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">str</td>          <td class="paramname"><span class="paramname"><em>master_output</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">str</td>          <td class="paramname"><span class="paramname"><em>actor_output</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Сохранение сообщения мастера игры </p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">session_id</td><td>ID сессии </td></tr>
+    <tr><td class="paramname">user_input</td><td>Ввод пользователя </td></tr>
+    <tr><td class="paramname">master_output</td><td>Вывод мастера игры </td></tr>
+    <tr><td class="paramname">actor_output</td><td>Вывод актора </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">См. определение в файле <a class="el" href="_database_manager_8py_source.html">DatabaseManager.py</a> строка <a class="el" href="_database_manager_8py_source.html#l00337">337</a></p>
+
+</div>
+</div>
+<a id="a7ca1b98dcdd0b87151292b22868f1abd" name="a7ca1b98dcdd0b87151292b22868f1abd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7ca1b98dcdd0b87151292b22868f1abd">&#9670;&#160;</a></span>save_user_message()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"> None src.DatabaseManager.DatabaseManager.DatabaseManager.save_user_message </td>
+          <td>(</td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>self</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>session_id</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">str</td>          <td class="paramname"><span class="paramname"><em>user_input</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">str</td>          <td class="paramname"><span class="paramname"><em>response</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Сохранение сообщения пользователя </p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">session_id</td><td>ID сессии </td></tr>
+    <tr><td class="paramname">user_input</td><td>Ввод пользователя </td></tr>
+    <tr><td class="paramname">response</td><td>Ответ системы </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">См. определение в файле <a class="el" href="_database_manager_8py_source.html">DatabaseManager.py</a> строка <a class="el" href="_database_manager_8py_source.html#l00315">315</a></p>
+
+</div>
+</div>
+<a id="a7e4425052cdd6ee6ba50c65ce565e010" name="a7e4425052cdd6ee6ba50c65ce565e010"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7e4425052cdd6ee6ba50c65ce565e010">&#9670;&#160;</a></span>update_active_characters()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"> None src.DatabaseManager.DatabaseManager.DatabaseManager.update_active_characters </td>
+          <td>(</td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>self</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>session_id</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>sequence_number</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">List[int]</td>          <td class="paramname"><span class="paramname"><em>character_ids</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Обновление списка активных персонажей для конкретного номера последовательности в сессии </p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">session_id</td><td>ID сессии </td></tr>
+    <tr><td class="paramname">sequence_number</td><td>Номер последовательности промпта мастера </td></tr>
+    <tr><td class="paramname">character_ids</td><td>Список ID персонажей, которые в данный момент активны </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">См. определение в файле <a class="el" href="_database_manager_8py_source.html">DatabaseManager.py</a> строка <a class="el" href="_database_manager_8py_source.html#l00663">663</a></p>
+
+</div>
+</div>
+<h2 class="groupheader">Данные класса</h2>
+<a id="a7ad3dcb044e31b90bf31806853bfc837" name="a7ad3dcb044e31b90bf31806853bfc837"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7ad3dcb044e31b90bf31806853bfc837">&#9670;&#160;</a></span>_instance</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">'<a class="el" href="classsrc_1_1_database_manager_1_1_database_manager_1_1_database_manager.html">DatabaseManager</a>' src.DatabaseManager.DatabaseManager.DatabaseManager._instance = None</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span><span class="mlabel protected">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">См. определение в файле <a class="el" href="_database_manager_8py_source.html">DatabaseManager.py</a> строка <a class="el" href="_database_manager_8py_source.html#l00023">23</a></p>
+
+</div>
+</div>
+<a id="a0d4c59d10e40d5663df4c8308e9e9d15" name="a0d4c59d10e40d5663df4c8308e9e9d15"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0d4c59d10e40d5663df4c8308e9e9d15">&#9670;&#160;</a></span>db_path</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">src.DatabaseManager.DatabaseManager.DatabaseManager.db_path = DATABASE_NAME</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">См. определение в файле <a class="el" href="_database_manager_8py_source.html">DatabaseManager.py</a> строка <a class="el" href="_database_manager_8py_source.html#l00045">45</a></p>
+
+</div>
+</div>
+<hr/>Объявления и описания членов класса находятся в файле:<ul>
+<li>C:/Users/kir/Desktop/py/API/src/DatabaseManager/<a class="el" href="_database_manager_8py_source.html">DatabaseManager.py</a></li>
+</ul>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="namespacesrc.html">src</a></li><li class="navelem"><b>DatabaseManager</b></li><li class="navelem"><b>DatabaseManager</b></li><li class="navelem"><a class="el" href="classsrc_1_1_database_manager_1_1_database_manager_1_1_database_manager.html">DatabaseManager</a></li>
+    <li class="footer">Создано системой <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.13.2 </li>
+  </ul>
+</div>
+</body>
+</html>

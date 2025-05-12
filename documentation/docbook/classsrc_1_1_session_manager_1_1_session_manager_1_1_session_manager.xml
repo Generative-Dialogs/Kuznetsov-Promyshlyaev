@@ -1,0 +1,243 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_classsrc_1_1_session_manager_1_1_session_manager_1_1_session_manager" xml:lang="ru">
+<title>Класс src.SessionManager.SessionManager.SessionManager</title>
+<indexterm><primary>src.SessionManager.SessionManager.SessionManager</primary></indexterm>
+<para>
+
+<para>Менеджер игровых сессий </para>
+ 
+</para>
+<simplesect>
+    <title>Открытые члены    </title>
+        <itemizedlist>
+            <listitem><para>None <link linkend="_classsrc_1_1_session_manager_1_1_session_manager_1_1_session_manager_1aa2005fc8b425dcfa8f4c96f0aa9f80f3">__init__</link> (self)</para>
+
+<para>Инициализация менеджера сессий </para>
+</listitem>
+            <listitem><para>int <link linkend="_classsrc_1_1_session_manager_1_1_session_manager_1_1_session_manager_1abd148d50854cccb0ff7e7c93d2147ed2">create_user</link> (self)</para>
+
+<para>Создание нового пользователя </para>
+</listitem>
+            <listitem><para><link linkend="_classsrc_1_1_game_master_1_1_game_master_1_1_game_master">GameMaster</link> <link linkend="_classsrc_1_1_session_manager_1_1_session_manager_1_1_session_manager_1a998efcf0b4c22cc5faf175a3c92eecb9">start_session</link> (self, int session_id)</para>
+
+<para>Запуск или возобновление игровой сессии </para>
+</listitem>
+            <listitem><para>Optional[<link linkend="_classsrc_1_1_game_master_1_1_game_master_1_1_game_master">GameMaster</link>] <link linkend="_classsrc_1_1_session_manager_1_1_session_manager_1_1_session_manager_1ada7c5043a8839d41f62fc6e5d0c3714f">get_session</link> (self, int session_id)</para>
+
+<para>Получение активной игровой сессии </para>
+</listitem>
+            <listitem><para>None <link linkend="_classsrc_1_1_session_manager_1_1_session_manager_1_1_session_manager_1aa656a9c75833127e301b8a22b506b257">delete_user</link> (self, int user_id)</para>
+
+<para>Удаление всех данных пользователя </para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Открытые атрибуты    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_classsrc_1_1_session_manager_1_1_session_manager_1_1_session_manager_1aeb0257a623292508922fb0b43f9de393">db</link> = <link linkend="_classsrc_1_1_database_manager_1_1_database_manager_1_1_database_manager">DatabaseManager</link>()</para>
+</listitem>
+            <listitem><para>dict <link linkend="_classsrc_1_1_session_manager_1_1_session_manager_1_1_session_manager_1ad18f61f47f308462113132ca2564eba0">active_sessions</link> = {}</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Подробное описание</title>
+
+<para>Менеджер игровых сессий </para>
+
+
+
+<para>Класс отвечает за:<itemizedlist>
+<listitem>
+<para>Создание и управление игровыми сессиями</para>
+</listitem><listitem>
+<para>Управление пользователями</para>
+</listitem><listitem>
+<para>Взаимодействие с базой данных для хранения информации о сессиях </para>
+</listitem></itemizedlist>
+</para>
+<para>
+См. определение в файле <link linkend="__session_manager_8py_source">SessionManager.py</link> строка <link linkend="__session_manager_8py_source_1l00007">7</link></para>
+</section>
+<section>
+<title>Конструктор(ы)</title>
+<anchor xml:id="_classsrc_1_1_session_manager_1_1_session_manager_1_1_session_manager_1aa2005fc8b425dcfa8f4c96f0aa9f80f3"/><section>
+    <title>__init__()</title>
+<indexterm><primary>__init__</primary><secondary>src.SessionManager.SessionManager.SessionManager</secondary></indexterm>
+<indexterm><primary>src.SessionManager.SessionManager.SessionManager</primary><secondary>__init__</secondary></indexterm>
+<para><computeroutput> None src.SessionManager.SessionManager.SessionManager.__init__ ( self)</computeroutput></para><para>
+
+<para>Инициализация менеджера сессий </para>
+</para>
+<para>
+См. определение в файле <link linkend="__session_manager_8py_source">SessionManager.py</link> строка <link linkend="__session_manager_8py_source_1l00017">17</link></para>
+</section>
+</section>
+<section>
+<title>Методы</title>
+<anchor xml:id="_classsrc_1_1_session_manager_1_1_session_manager_1_1_session_manager_1abd148d50854cccb0ff7e7c93d2147ed2"/><section>
+    <title>create_user()</title>
+<indexterm><primary>create_user</primary><secondary>src.SessionManager.SessionManager.SessionManager</secondary></indexterm>
+<indexterm><primary>src.SessionManager.SessionManager.SessionManager</primary><secondary>create_user</secondary></indexterm>
+<para><computeroutput> int src.SessionManager.SessionManager.SessionManager.create_user ( self)</computeroutput></para><para>
+
+<para>Создание нового пользователя </para>
+</para>
+
+<para><formalpara><title>Возвращает</title>
+
+<para>int ID созданного пользователя </para>
+</formalpara>
+</para>
+<para>
+См. определение в файле <link linkend="__session_manager_8py_source">SessionManager.py</link> строка <link linkend="__session_manager_8py_source_1l00024">24</link></para>
+</section>
+<anchor xml:id="_classsrc_1_1_session_manager_1_1_session_manager_1_1_session_manager_1aa656a9c75833127e301b8a22b506b257"/><section>
+    <title>delete_user()</title>
+<indexterm><primary>delete_user</primary><secondary>src.SessionManager.SessionManager.SessionManager</secondary></indexterm>
+<indexterm><primary>src.SessionManager.SessionManager.SessionManager</primary><secondary>delete_user</secondary></indexterm>
+<para><computeroutput> None src.SessionManager.SessionManager.SessionManager.delete_user ( self, int user_id)</computeroutput></para><para>
+
+<para>Удаление всех данных пользователя </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Аргументы</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>user_id</entry><entry>
+<para>ID пользователя </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+<para>
+См. определение в файле <link linkend="__session_manager_8py_source">SessionManager.py</link> строка <link linkend="__session_manager_8py_source_1l00067">67</link></para>
+</section>
+<anchor xml:id="_classsrc_1_1_session_manager_1_1_session_manager_1_1_session_manager_1ada7c5043a8839d41f62fc6e5d0c3714f"/><section>
+    <title>get_session()</title>
+<indexterm><primary>get_session</primary><secondary>src.SessionManager.SessionManager.SessionManager</secondary></indexterm>
+<indexterm><primary>src.SessionManager.SessionManager.SessionManager</primary><secondary>get_session</secondary></indexterm>
+<para><computeroutput> Optional[<link linkend="_classsrc_1_1_game_master_1_1_game_master_1_1_game_master">GameMaster</link>] src.SessionManager.SessionManager.SessionManager.get_session ( self, int session_id)</computeroutput></para><para>
+
+<para>Получение активной игровой сессии </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Аргументы</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>session_id</entry><entry>
+<para>ID сессии</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Возвращает</title>
+
+<para>Optional[<link linkend="_classsrc_1_1_game_master_1_1_game_master_1_1_game_master">GameMaster</link>] Объект мастера игры или None, если сессия не найдена </para>
+</formalpara>
+</para>
+<para>
+См. определение в файле <link linkend="__session_manager_8py_source">SessionManager.py</link> строка <link linkend="__session_manager_8py_source_1l00057">57</link></para>
+</section>
+<anchor xml:id="_classsrc_1_1_session_manager_1_1_session_manager_1_1_session_manager_1a998efcf0b4c22cc5faf175a3c92eecb9"/><section>
+    <title>start_session()</title>
+<indexterm><primary>start_session</primary><secondary>src.SessionManager.SessionManager.SessionManager</secondary></indexterm>
+<indexterm><primary>src.SessionManager.SessionManager.SessionManager</primary><secondary>start_session</secondary></indexterm>
+<para><computeroutput> <link linkend="_classsrc_1_1_game_master_1_1_game_master_1_1_game_master">GameMaster</link> src.SessionManager.SessionManager.SessionManager.start_session ( self, int session_id)</computeroutput></para><para>
+
+<para>Запуск или возобновление игровой сессии </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Аргументы</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>session_id</entry><entry>
+<para>ID сессии</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Возвращает</title>
+
+<para><link linkend="_classsrc_1_1_game_master_1_1_game_master_1_1_game_master">GameMaster</link> Объект мастера игры для управления сессией</para>
+</formalpara>
+
+                <formalpara>
+                    <title>
+Исключения</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>ValueError</entry><entry>
+<para>если сессия не найдена </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+<para>
+См. определение в файле <link linkend="__session_manager_8py_source">SessionManager.py</link> строка <link linkend="__session_manager_8py_source_1l00032">32</link></para>
+</section>
+</section>
+<section>
+<title>Данные класса</title>
+<anchor xml:id="_classsrc_1_1_session_manager_1_1_session_manager_1_1_session_manager_1ad18f61f47f308462113132ca2564eba0"/><section>
+    <title>active_sessions</title>
+<indexterm><primary>active_sessions</primary><secondary>src.SessionManager.SessionManager.SessionManager</secondary></indexterm>
+<indexterm><primary>src.SessionManager.SessionManager.SessionManager</primary><secondary>active_sessions</secondary></indexterm>
+<para><computeroutput>dict src.SessionManager.SessionManager.SessionManager.active_sessions = {}</computeroutput></para><para>
+См. определение в файле <link linkend="__session_manager_8py_source">SessionManager.py</link> строка <link linkend="__session_manager_8py_source_1l00022">22</link></para>
+</section>
+<anchor xml:id="_classsrc_1_1_session_manager_1_1_session_manager_1_1_session_manager_1aeb0257a623292508922fb0b43f9de393"/><section>
+    <title>db</title>
+<indexterm><primary>db</primary><secondary>src.SessionManager.SessionManager.SessionManager</secondary></indexterm>
+<indexterm><primary>src.SessionManager.SessionManager.SessionManager</primary><secondary>db</secondary></indexterm>
+<para><computeroutput>src.SessionManager.SessionManager.SessionManager.db = <link linkend="_classsrc_1_1_database_manager_1_1_database_manager_1_1_database_manager">DatabaseManager</link>()</computeroutput></para><para>
+См. определение в файле <link linkend="__session_manager_8py_source">SessionManager.py</link> строка <link linkend="__session_manager_8py_source_1l00021">21</link></para>
+</section>
+<para>
+Объявления и описания членов класса находятся в файле:</para>
+C:/Users/kir/Desktop/py/API/src/SessionManager/SessionManager.py</section>
+</section>

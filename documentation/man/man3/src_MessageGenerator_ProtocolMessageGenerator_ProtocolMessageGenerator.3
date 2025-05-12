@@ -1,0 +1,132 @@
+.TH "src.MessageGenerator.ProtocolMessageGenerator.ProtocolMessageGenerator" 3 "My Project" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+src.MessageGenerator.ProtocolMessageGenerator.ProtocolMessageGenerator \- Протокол для генерации сообщений  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Базовые классы:Protocol\&.
+.PP
+Производные классы:\fBsrc\&.MessageGenerator\&.MessageGeneratorDeepSeek\&.MessageGeneratorDeepSeek\fP, \fBsrc\&.MessageGenerator\&.MessageGeneratorGroq\&.MessageGeneratorGroq\fP и \fBsrc\&.MessageGenerator\&.MessageGeneratorOpenRouter\&.MessageGeneratorOpenRouter\fP\&.
+.SS "Открытые члены"
+
+.in +1c
+.ti -1c
+.RI "str \fBgenerate\fP (self, str messages, str model='')"
+.br
+.RI "Генерация ответа на основе входного сообщения "
+.ti -1c
+.RI "None \fBadd_user_message\fP (self, str message)"
+.br
+.RI "Добавление сообщения пользователя в историю "
+.ti -1c
+.RI "None \fBadd_system_message\fP (self, str message)"
+.br
+.RI "Добавление системного сообщения в историю "
+.ti -1c
+.RI "None \fBadd_ai_message\fP (self, str message)"
+.br
+.RI "Добавление сообщения ИИ в историю "
+.ti -1c
+.RI "List[Dict[str, str]] \fBget_message_history\fP (self)"
+.br
+.RI "Получение истории сообщений "
+.in -1c
+.SH "Подробное описание"
+.PP 
+Протокол для генерации сообщений 
+
+Определяет интерфейс для классов, реализующих генерацию сообщений\&. Используется как контракт для различных реализаций генераторов сообщений\&. 
+.PP
+См\&. определение в файле \fBProtocolMessageGenerator\&.py\fP строка \fB4\fP
+.SH "Методы"
+.PP 
+.SS " None src\&.MessageGenerator\&.ProtocolMessageGenerator\&.ProtocolMessageGenerator\&.add_ai_message ( self, str message)"
+
+.PP
+Добавление сообщения ИИ в историю 
+.PP
+\fBАргументы\fP
+.RS 4
+\fImessage\fP Текст сообщения ИИ 
+.RE
+.PP
+
+.PP
+Переопределяется в \fBsrc\&.MessageGenerator\&.MessageGeneratorDeepSeek\&.MessageGeneratorDeepSeek\fP, \fBsrc\&.MessageGenerator\&.MessageGeneratorGroq\&.MessageGeneratorGroq\fP и \fBsrc\&.MessageGenerator\&.MessageGeneratorOpenRouter\&.MessageGeneratorOpenRouter\fP\&.
+.PP
+См\&. определение в файле \fBProtocolMessageGenerator\&.py\fP строка \fB40\fP
+.SS " None src\&.MessageGenerator\&.ProtocolMessageGenerator\&.ProtocolMessageGenerator\&.add_system_message ( self, str message)"
+
+.PP
+Добавление системного сообщения в историю 
+.PP
+\fBАргументы\fP
+.RS 4
+\fImessage\fP Текст системного сообщения 
+.RE
+.PP
+
+.PP
+Переопределяется в \fBsrc\&.MessageGenerator\&.MessageGeneratorDeepSeek\&.MessageGeneratorDeepSeek\fP, \fBsrc\&.MessageGenerator\&.MessageGeneratorGroq\&.MessageGeneratorGroq\fP и \fBsrc\&.MessageGenerator\&.MessageGeneratorOpenRouter\&.MessageGeneratorOpenRouter\fP\&.
+.PP
+См\&. определение в файле \fBProtocolMessageGenerator\&.py\fP строка \fB32\fP
+.SS " None src\&.MessageGenerator\&.ProtocolMessageGenerator\&.ProtocolMessageGenerator\&.add_user_message ( self, str message)"
+
+.PP
+Добавление сообщения пользователя в историю 
+.PP
+\fBАргументы\fP
+.RS 4
+\fImessage\fP Текст сообщения пользователя 
+.RE
+.PP
+
+.PP
+Переопределяется в \fBsrc\&.MessageGenerator\&.MessageGeneratorDeepSeek\&.MessageGeneratorDeepSeek\fP, \fBsrc\&.MessageGenerator\&.MessageGeneratorGroq\&.MessageGeneratorGroq\fP и \fBsrc\&.MessageGenerator\&.MessageGeneratorOpenRouter\&.MessageGeneratorOpenRouter\fP\&.
+.PP
+См\&. определение в файле \fBProtocolMessageGenerator\&.py\fP строка \fB24\fP
+.SS " str src\&.MessageGenerator\&.ProtocolMessageGenerator\&.ProtocolMessageGenerator\&.generate ( self, str messages, str  model = \fR''\fP)"
+
+.PP
+Генерация ответа на основе входного сообщения 
+.PP
+\fBАргументы\fP
+.RS 4
+\fImessages\fP Входное сообщение для обработки 
+.br
+\fImodel\fP Название модели для генерации (опционально)
+.RE
+.PP
+\fBВозвращает\fP
+.RS 4
+str Сгенерированный ответ 
+.RE
+.PP
+
+.PP
+Переопределяется в \fBsrc\&.MessageGenerator\&.MessageGeneratorDeepSeek\&.MessageGeneratorDeepSeek\fP, \fBsrc\&.MessageGenerator\&.MessageGeneratorGroq\&.MessageGeneratorGroq\fP и \fBsrc\&.MessageGenerator\&.MessageGeneratorOpenRouter\&.MessageGeneratorOpenRouter\fP\&.
+.PP
+См\&. определение в файле \fBProtocolMessageGenerator\&.py\fP строка \fB13\fP
+.SS " List[Dict[str, str]] src\&.MessageGenerator\&.ProtocolMessageGenerator\&.ProtocolMessageGenerator\&.get_message_history ( self)"
+
+.PP
+Получение истории сообщений 
+.PP
+\fBВозвращает\fP
+.RS 4
+List[Dict[str, str]] Список сообщений в формате словарей 
+.RE
+.PP
+
+.PP
+Переопределяется в \fBsrc\&.MessageGenerator\&.MessageGeneratorDeepSeek\&.MessageGeneratorDeepSeek\fP, \fBsrc\&.MessageGenerator\&.MessageGeneratorGroq\&.MessageGeneratorGroq\fP и \fBsrc\&.MessageGenerator\&.MessageGeneratorOpenRouter\&.MessageGeneratorOpenRouter\fP\&.
+.PP
+См\&. определение в файле \fBProtocolMessageGenerator\&.py\fP строка \fB48\fP
+
+.SH "Автор"
+.PP 
+Автоматически создано Doxygen для My Project из исходного текста\&.

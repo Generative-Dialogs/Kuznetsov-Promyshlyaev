@@ -1,0 +1,39 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.13.2" xml:lang="ru">
+  <compounddef id="_image_generator_protocol_8py" kind="file" language="Python">
+    <compoundname>ImageGeneratorProtocol.py</compoundname>
+    <innerclass refid="classsrc_1_1_image_generator_1_1_image_generator_protocol_1_1_image_generator_protocol" prot="public">src::ImageGenerator::ImageGeneratorProtocol::ImageGeneratorProtocol</innerclass>
+    <innernamespace refid="namespacesrc">src</innernamespace>
+    <innernamespace refid="namespacesrc_1_1_image_generator">src::ImageGenerator</innernamespace>
+    <innernamespace refid="namespacesrc_1_1_image_generator_1_1_image_generator_protocol">src::ImageGenerator::ImageGeneratorProtocol</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="keyword">from</highlight><highlight class="normal"><sp/>typing<sp/></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>Protocol,<sp/>Optional,<sp/>List</highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight></codeline>
+<codeline lineno="4" refid="classsrc_1_1_image_generator_1_1_image_generator_protocol_1_1_image_generator_protocol" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classsrc_1_1_image_generator_1_1_image_generator_protocol_1_1_image_generator_protocol" kindref="compound">ImageGeneratorProtocol</ref>(Protocol):</highlight></codeline>
+<codeline lineno="5"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;&quot;&quot;!</highlight></codeline>
+<codeline lineno="6"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>@brief<sp/>Протокол<sp/>для<sp/>генерации<sp/>изображений</highlight></codeline>
+<codeline lineno="7"><highlight class="stringliteral"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="8"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>@details</highlight></codeline>
+<codeline lineno="9"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>Определяет<sp/>интерфейс<sp/>для<sp/>классов,<sp/>реализующих<sp/>генерацию<sp/>изображений.</highlight></codeline>
+<codeline lineno="10"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>Используется<sp/>как<sp/>контракт<sp/>для<sp/>различных<sp/>реализаций<sp/>генераторов<sp/>изображений.</highlight></codeline>
+<codeline lineno="11"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>&quot;&quot;&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="12" refid="classsrc_1_1_image_generator_1_1_image_generator_protocol_1_1_image_generator_protocol_1a67dc32bad76939e2ba372be83049fcbb" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">def<sp/></highlight><highlight class="normal"><ref refid="classsrc_1_1_image_generator_1_1_image_generator_protocol_1_1_image_generator_protocol_1a67dc32bad76939e2ba372be83049fcbb" kindref="member">generate_image_response</ref>(self,<sp/>prompt:<sp/>str,<sp/>target_path:<sp/>str,<sp/>character_images:<sp/>Optional[List[str]]<sp/>=<sp/></highlight><highlight class="keywordtype">None</highlight><highlight class="normal">)<sp/>-&gt;<sp/>Optional[str]:</highlight></codeline>
+<codeline lineno="13"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;&quot;&quot;!</highlight></codeline>
+<codeline lineno="14"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>@brief<sp/>Генерация<sp/>изображения<sp/>на<sp/>основе<sp/>промпта<sp/>и<sp/>опциональных<sp/>изображений<sp/>персонажей</highlight></codeline>
+<codeline lineno="15"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="16"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>@param<sp/>prompt<sp/>Текстовый<sp/>промпт<sp/>для<sp/>генерации<sp/>изображения</highlight></codeline>
+<codeline lineno="17"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>@param<sp/>target_path<sp/>Полный<sp/>путь<sp/>для<sp/>сохранения<sp/>изображения</highlight></codeline>
+<codeline lineno="18"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>@param<sp/>character_images<sp/>Опциональный<sp/>список<sp/>путей<sp/>к<sp/>изображениям<sp/>персонажей</highlight></codeline>
+<codeline lineno="19"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="20"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>@return<sp/>Optional[str]<sp/>Путь<sp/>к<sp/>сохраненному<sp/>изображению<sp/>или<sp/>None<sp/>в<sp/>случае<sp/>ошибки</highlight></codeline>
+<codeline lineno="21"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&quot;&quot;&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="22"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>...<sp/></highlight></codeline>
+    </programlisting>
+    <location file="C:/Users/kir/Desktop/py/API/src/ImageGenerator/ImageGeneratorProtocol.py"/>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,149 @@
+\doxysection{Класс STT.\+STT}
+\label{class_s_t_t_1_1_s_t_t}\index{STT.STT@{STT.STT}}
+
+
+Класс для распознавания речи (Speech-\/to-\/\+Text)  
+
+
+\doxysubsubsection*{Открытые члены}
+\begin{DoxyCompactItemize}
+\item 
+ \textquotesingle{}\textbf{ STT}\textquotesingle{} \textbf{ \+\_\+\+\_\+new\+\_\+\+\_\+} (cls)
+\begin{DoxyCompactList}\small\item\em Создание единственного экземпляра класса \end{DoxyCompactList}\item 
+None \textbf{ \+\_\+\+\_\+init\+\_\+\+\_\+} (self)
+\begin{DoxyCompactList}\small\item\em Инициализация распознавателя речи \end{DoxyCompactList}\item 
+None \textbf{ set\+\_\+language} (self, str language)
+\begin{DoxyCompactList}\small\item\em Установка языка распознавания \end{DoxyCompactList}\item 
+str \textbf{ get\+\_\+language} (self)
+\begin{DoxyCompactList}\small\item\em Получение текущего языка распознавания \end{DoxyCompactList}\item 
+str \textbf{ audio\+\_\+to\+\_\+text} (self, str audio\+\_\+path)
+\begin{DoxyCompactList}\small\item\em Преобразование аудиофайла в текст \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Подробное описание}
+Класс для распознавания речи (Speech-\/to-\/\+Text) 
+
+Реализует паттерн Singleton для обеспечения единой точки доступа к функционалу распознавания речи. Использует библиотеку speech\+\_\+recognition для преобразования аудио в текст.
+
+\begin{DoxyNote}{Заметки}
+Поддерживает русский и английский языки для распознавания 
+\end{DoxyNote}
+
+
+См. определение в файле \textbf{ STT.\+py} строка \textbf{ 8}
+
+
+
+\doxysubsection{Конструктор(ы)}
+\index{STT.STT@{STT.STT}!\_\_init\_\_@{\_\_init\_\_}}
+\index{\_\_init\_\_@{\_\_init\_\_}!STT.STT@{STT.STT}}
+\doxysubsubsection{\_\_init\_\_()}
+{\footnotesize\ttfamily \label{class_s_t_t_1_1_s_t_t_afd1233e0d05b742a70ac41d656c39d7a} 
+ None STT.\+STT.\+\_\+\+\_\+init\+\_\+\+\_\+ (\begin{DoxyParamCaption}\item[{}]{self}{}\end{DoxyParamCaption})}
+
+
+
+Инициализация распознавателя речи 
+
+\begin{DoxyNote}{Заметки}
+Метод выполняется только при первом создании экземпляра 
+\end{DoxyNote}
+
+
+См. определение в файле \textbf{ STT.\+py} строка \textbf{ 48}
+
+
+
+\doxysubsection{Методы}
+\index{STT.STT@{STT.STT}!\_\_new\_\_@{\_\_new\_\_}}
+\index{\_\_new\_\_@{\_\_new\_\_}!STT.STT@{STT.STT}}
+\doxysubsubsection{\_\_new\_\_()}
+{\footnotesize\ttfamily \label{class_s_t_t_1_1_s_t_t_a00806fedb423f01c5e88d7b05428ed42} 
+ \textquotesingle{}\textbf{ STT}\textquotesingle{} STT.\+STT.\+\_\+\+\_\+new\+\_\+\+\_\+ (\begin{DoxyParamCaption}\item[{}]{cls}{}\end{DoxyParamCaption})}
+
+
+
+Создание единственного экземпляра класса 
+
+\begin{DoxyReturn}{Возвращает}
+\doxyref{STT}{стр.}{class_s_t_t_1_1_s_t_t} Единственный экземпляр класса \doxyref{STT}{стр.}{class_s_t_t_1_1_s_t_t} 
+\end{DoxyReturn}
+
+
+См. определение в файле \textbf{ STT.\+py} строка \textbf{ 37}
+
+\index{STT.STT@{STT.STT}!audio\_to\_text@{audio\_to\_text}}
+\index{audio\_to\_text@{audio\_to\_text}!STT.STT@{STT.STT}}
+\doxysubsubsection{audio\_to\_text()}
+{\footnotesize\ttfamily \label{class_s_t_t_1_1_s_t_t_ab26c7c8dcf0c6c835b4f596cac106d9b} 
+ str STT.\+STT.\+audio\+\_\+to\+\_\+text (\begin{DoxyParamCaption}\item[{}]{self}{, }\item[{str}]{audio\+\_\+path}{}\end{DoxyParamCaption})}
+
+
+
+Преобразование аудиофайла в текст 
+
+
+\begin{DoxyParams}{Аргументы}
+{\em audio\+\_\+path} & Путь к аудиофайлу для распознавания\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Возвращает}
+str Распознанный текст или сообщение об ошибке
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Исключения}
+{\em sr.\+Unknown\+Value\+Error} & если речь не может быть распознана \\
+\hline
+{\em sr.\+Request\+Error} & если возникла ошибка при подключении к API \\
+\hline
+\end{DoxyExceptions}
+
+
+См. определение в файле \textbf{ STT.\+py} строка \textbf{ 120}
+
+\index{STT.STT@{STT.STT}!get\_language@{get\_language}}
+\index{get\_language@{get\_language}!STT.STT@{STT.STT}}
+\doxysubsubsection{get\_language()}
+{\footnotesize\ttfamily \label{class_s_t_t_1_1_s_t_t_a2834cb4380855d9beb3d8a70ac675523} 
+ str STT.\+STT.\+get\+\_\+language (\begin{DoxyParamCaption}\item[{}]{self}{}\end{DoxyParamCaption})}
+
+
+
+Получение текущего языка распознавания 
+
+\begin{DoxyReturn}{Возвращает}
+str Текущий язык распознавания 
+\end{DoxyReturn}
+
+
+См. определение в файле \textbf{ STT.\+py} строка \textbf{ 73}
+
+\index{STT.STT@{STT.STT}!set\_language@{set\_language}}
+\index{set\_language@{set\_language}!STT.STT@{STT.STT}}
+\doxysubsubsection{set\_language()}
+{\footnotesize\ttfamily \label{class_s_t_t_1_1_s_t_t_a26c6ff8183dcc74ae777214092921ddf} 
+ None STT.\+STT.\+set\+\_\+language (\begin{DoxyParamCaption}\item[{}]{self}{, }\item[{str}]{language}{}\end{DoxyParamCaption})}
+
+
+
+Установка языка распознавания 
+
+
+\begin{DoxyParams}{Аргументы}
+{\em language} & Язык для распознавания (Russian/\+English или ru-\/\+RU/en-\/\+US)\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Исключения}
+{\em Value\+Error} & если указанный язык не поддерживается \\
+\hline
+\end{DoxyExceptions}
+
+
+См. определение в файле \textbf{ STT.\+py} строка \textbf{ 61}
+
+
+
+Объявления и описания членов класса находятся в файле\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/kir/\+Desktop/py/\+API/src/\+STT/STT.\+py\end{DoxyCompactItemize}

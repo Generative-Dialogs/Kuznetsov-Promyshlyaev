@@ -1,0 +1,854 @@
+.TH "src.DatabaseManager.DatabaseManager.DatabaseManager" 3 "My Project" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+src.DatabaseManager.DatabaseManager.DatabaseManager \- Менеджер базы данных для управления игровыми сессиями  
+
+.SH SYNOPSIS
+.br
+.PP
+.SS "Открытые члены"
+
+.in +1c
+.ti -1c
+.RI " '\fBDatabaseManager\fP' \fB__new__\fP (cls)"
+.br
+.RI "Реализация паттерна Singleton\&. "
+.ti -1c
+.RI "None \fB__init__\fP (self)"
+.br
+.RI "Инициализация атрибутов экземпляра "
+.ti -1c
+.RI "int \fBcreate_user\fP (self)"
+.br
+.RI "Создание нового пользователя "
+.ti -1c
+.RI "List[int] \fBget_all_users\fP (self)"
+.br
+.RI "Получение списка всех пользователей "
+.ti -1c
+.RI "int \fBcreate_session\fP (self, int user_id, str world_description, str player_description, str language='Russian')"
+.br
+.RI "Создание новой игровой сессии "
+.ti -1c
+.RI "List[Tuple[int, str, str, str]] \fBget_user_sessions\fP (self, int user_id)"
+.br
+.RI "Получение списка сессий пользователя "
+.ti -1c
+.RI "Optional[Tuple[str, str]] \fBget_session_info\fP (self, int session_id)"
+.br
+.RI "Получение информации о сессии "
+.ti -1c
+.RI "None \fBsave_character\fP (self, int session_id, str name, str description)"
+.br
+.RI "Сохранение персонажа "
+.ti -1c
+.RI "List[Tuple[str, str]] \fBget_characters\fP (self, int session_id)"
+.br
+.RI "Получение списка персонажей сессии "
+.ti -1c
+.RI "None \fBsave_user_message\fP (self, int session_id, str user_input, str response)"
+.br
+.RI "Сохранение сообщения пользователя "
+.ti -1c
+.RI "None \fBsave_master_message\fP (self, int session_id, str user_input, str master_output, str actor_output)"
+.br
+.RI "Сохранение сообщения мастера игры "
+.ti -1c
+.RI "None \fBsave_actor_message\fP (self, int session_id, str master_prompt, str actor_response)"
+.br
+.RI "Сохранение сообщения актора "
+.ti -1c
+.RI "List[Tuple[int, str, str]] \fBget_user_messages\fP (self, int session_id)"
+.br
+.RI "Получение истории сообщений пользователя "
+.ti -1c
+.RI "List[Tuple[int, str, str, str]] \fBget_master_messages\fP (self, int session_id)"
+.br
+.RI "Получение истории сообщений мастера игры "
+.ti -1c
+.RI "List[Tuple[int, str, str]] \fBget_actor_messages\fP (self, int session_id)"
+.br
+.RI "Получение истории сообщений актора "
+.ti -1c
+.RI "None \fBdelete_session\fP (self, int session_id)"
+.br
+.RI "Удаление сессии и всех связанных с ней данных "
+.ti -1c
+.RI "None \fBdelete_user_data\fP (self, int user_id)"
+.br
+.RI "Удаление всех данных пользователя "
+.ti -1c
+.RI "None \fBsave_game_master_prompt\fP (self, int session_id, str prompt_type, str prompt_content, str model_response)"
+.br
+.RI "Сохранение промпта мастера игры "
+.ti -1c
+.RI "None \fBsave_actor_prompt\fP (self, int session_id, str prompt_content, str model_response)"
+.br
+.RI "Сохранение промпта актора "
+.ti -1c
+.RI "List[Tuple[str, str, str]] \fBget_game_master_prompts\fP (self, int session_id)"
+.br
+.RI "Получение промптов мастера игры "
+.ti -1c
+.RI "List[Tuple[str, str]] \fBget_actor_prompts\fP (self, int session_id)"
+.br
+.RI "Получение промптов актора "
+.ti -1c
+.RI "bool \fBis_new_session_actor_prompt\fP (self, int session_id)"
+.br
+.RI "Проверка, является ли сессия новой для промптов актора "
+.ti -1c
+.RI "bool \fBis_new_session_gm_prompt\fP (self, int session_id)"
+.br
+.RI "Проверка, является ли сессия новой для промптов мастера игры "
+.ti -1c
+.RI "None \fBsave_image_prompt\fP (self, int session_id, str user_input, str narrative_response, str image_prompt)"
+.br
+.RI "Сохранение промпта для генерации изображения "
+.ti -1c
+.RI "List[Tuple[int, str, str, str]] \fBget_image_prompts\fP (self, int session_id)"
+.br
+.RI "Получение промптов для генерации изображений "
+.ti -1c
+.RI "None \fBsave_active_characters\fP (self, int session_id, int sequence_number, List[int] character_ids)"
+.br
+.RI "Сохранение активных персонажей для конкретного номера последовательности в сессии "
+.ti -1c
+.RI "List[str] \fBget_active_characters\fP (self, int session_id, int sequence_number)"
+.br
+.RI "Получение списка активных персонажей для конкретного номера последовательности в сессии "
+.ti -1c
+.RI "None \fBupdate_active_characters\fP (self, int session_id, int sequence_number, List[int] character_ids)"
+.br
+.RI "Обновление списка активных персонажей для конкретного номера последовательности в сессии "
+.ti -1c
+.RI "Optional[Tuple[str, str]] \fBget_character\fP (self, int character_id)"
+.br
+.RI "Получение информации о персонаже по ID\&. "
+.ti -1c
+.RI "List[int] \fBget_active_characters_ids\fP (self, int session_id, int sequence_number)"
+.br
+.RI "Получение ID активных персонажей для конкретного номера последовательности в сессии "
+.ti -1c
+.RI "Optional[Tuple[str, str]] \fBget_user_message\fP (self, int session_id, int sequence)"
+.br
+.RI "Получение конкретного сообщения пользователя по номеру последовательности "
+.ti -1c
+.RI "Optional[int] \fBget_character_id\fP (self, int session_id, str name)"
+.br
+.RI "Получение ID персонажа по ID сессии и имени "
+.ti -1c
+.RI "str \fBget_session_language\fP (self, int session_id)"
+.br
+.RI "Получение языка сессии "
+.in -1c
+.SS "Открытые атрибуты"
+
+.in +1c
+.ti -1c
+.RI "\fBdb_path\fP = DATABASE_NAME"
+.br
+.in -1c
+.SS "Защищенные члены"
+
+.in +1c
+.ti -1c
+.RI "None \fB_init_database\fP (self)"
+.br
+.RI "Инициализация структуры базы данных "
+.in -1c
+.SS "Статические защищенные данные"
+
+.in +1c
+.ti -1c
+.RI "'\fBDatabaseManager\fP' \fB_instance\fP = None"
+.br
+.in -1c
+.SH "Подробное описание"
+.PP 
+Менеджер базы данных для управления игровыми сессиями 
+
+Реализует паттерн Singleton для обеспечения единой точки доступа к базе данных\&. Управляет всеми операциями с базой данных, включая:
+.IP "\(bu" 2
+Пользователей и их сессии
+.IP "\(bu" 2
+Персонажей и их описания
+.IP "\(bu" 2
+Историю сообщений и диалогов
+.IP "\(bu" 2
+Промпты для генерации контента
+.IP "\(bu" 2
+Изображения и их промпты
+.PP
+
+.PP
+\fBЗаметки\fP
+.RS 4
+Класс использует SQLite в качестве системы управления базами данных 
+.RE
+.PP
+
+.PP
+См\&. определение в файле \fBDatabaseManager\&.py\fP строка \fB8\fP
+.SH "Конструктор(ы)"
+.PP 
+.SS " None src\&.DatabaseManager\&.DatabaseManager\&.DatabaseManager\&.__init__ ( self)"
+
+.PP
+Инициализация атрибутов экземпляра Устанавливает путь к базе данных и инициализирует структуру базы данных 
+.PP
+См\&. определение в файле \fBDatabaseManager\&.py\fP строка \fB38\fP
+.SH "Методы"
+.PP 
+.SS " '\fBDatabaseManager\fP' src\&.DatabaseManager\&.DatabaseManager\&.DatabaseManager\&.__new__ ( cls)"
+
+.PP
+Реализация паттерна Singleton\&. 
+.PP
+\fBВозвращает\fP
+.RS 4
+\fBDatabaseManager\fP Единственный экземпляр класса 
+.RE
+.PP
+
+.PP
+См\&. определение в файле \fBDatabaseManager\&.py\fP строка \fB26\fP
+.SS " None src\&.DatabaseManager\&.DatabaseManager\&.DatabaseManager\&._init_database ( self)\fR [protected]\fP"
+
+.PP
+Инициализация структуры базы данных Создает все необходимые таблицы, если они не существуют:
+.IP "\(bu" 2
+users: информация о пользователях
+.IP "\(bu" 2
+sessions: игровые сессии
+.IP "\(bu" 2
+characters: персонажи
+.IP "\(bu" 2
+active_characters: активные персонажи в сессии
+.IP "\(bu" 2
+user_messages: история сообщений пользователя
+.IP "\(bu" 2
+master_messages: история сообщений мастера игры
+.IP "\(bu" 2
+actor_messages: история сообщений актора
+.IP "\(bu" 2
+game_master_prompts: промпты для мастера игры
+.IP "\(bu" 2
+actor_prompts: промпты для актора
+.IP "\(bu" 2
+image_prompts: промпты для генерации изображений 
+.PP
+
+.PP
+См\&. определение в файле \fBDatabaseManager\&.py\fP строка \fB48\fP
+.SS " int src\&.DatabaseManager\&.DatabaseManager\&.DatabaseManager\&.create_session ( self, int user_id, str world_description, str player_description, str  language = \fR'Russian'\fP)"
+
+.PP
+Создание новой игровой сессии 
+.PP
+\fBАргументы\fP
+.RS 4
+\fIuser_id\fP ID пользователя 
+.br
+\fIworld_description\fP Описание игрового мира 
+.br
+\fIplayer_description\fP Описание игрока 
+.br
+\fIlanguage\fP Язык сессии (Russian/English)
+.RE
+.PP
+\fBВозвращает\fP
+.RS 4
+int ID созданной сессии
+.RE
+.PP
+\fBИсключения\fP
+.RS 4
+\fIValueError\fP если указан неподдерживаемый язык 
+.br
+\fIRuntimeError\fP если не удалось создать сессию 
+.RE
+.PP
+
+.PP
+См\&. определение в файле \fBDatabaseManager\&.py\fP строка \fB220\fP
+.SS " int src\&.DatabaseManager\&.DatabaseManager\&.DatabaseManager\&.create_user ( self)"
+
+.PP
+Создание нового пользователя 
+.PP
+\fBВозвращает\fP
+.RS 4
+int ID созданного пользователя
+.RE
+.PP
+\fBИсключения\fP
+.RS 4
+\fIRuntimeError\fP если не удалось создать пользователя 
+.RE
+.PP
+
+.PP
+См\&. определение в файле \fBDatabaseManager\&.py\fP строка \fB192\fP
+.SS " None src\&.DatabaseManager\&.DatabaseManager\&.DatabaseManager\&.delete_session ( self, int session_id)"
+
+.PP
+Удаление сессии и всех связанных с ней данных 
+.PP
+\fBАргументы\fP
+.RS 4
+\fIsession_id\fP ID сессии 
+.RE
+.PP
+
+.PP
+См\&. определение в файле \fBDatabaseManager\&.py\fP строка \fB436\fP
+.SS " None src\&.DatabaseManager\&.DatabaseManager\&.DatabaseManager\&.delete_user_data ( self, int user_id)"
+
+.PP
+Удаление всех данных пользователя 
+.PP
+\fBАргументы\fP
+.RS 4
+\fIuser_id\fP ID пользователя 
+.RE
+.PP
+
+.PP
+См\&. определение в файле \fBDatabaseManager\&.py\fP строка \fB449\fP
+.SS " List[str] src\&.DatabaseManager\&.DatabaseManager\&.DatabaseManager\&.get_active_characters ( self, int session_id, int sequence_number)"
+
+.PP
+Получение списка активных персонажей для конкретного номера последовательности в сессии 
+.PP
+\fBАргументы\fP
+.RS 4
+\fIsession_id\fP ID сессии 
+.br
+\fIsequence_number\fP Номер последовательности промпта мастера
+.RE
+.PP
+\fBВозвращает\fP
+.RS 4
+List[str] Список имен активных персонажей
+.RE
+.PP
+\fBИсключения\fP
+.RS 4
+\fIException\fP если произошла ошибка при получении данных 
+.RE
+.PP
+
+.PP
+См\&. определение в файле \fBDatabaseManager\&.py\fP строка \fB638\fP
+.SS " List[int] src\&.DatabaseManager\&.DatabaseManager\&.DatabaseManager\&.get_active_characters_ids ( self, int session_id, int sequence_number)"
+
+.PP
+Получение ID активных персонажей для конкретного номера последовательности в сессии 
+.PP
+\fBАргументы\fP
+.RS 4
+\fIsession_id\fP ID сессии 
+.br
+\fIsequence_number\fP Номер последовательности промпта мастера
+.RE
+.PP
+\fBВозвращает\fP
+.RS 4
+List[int] Список ID активных персонажей
+.RE
+.PP
+\fBИсключения\fP
+.RS 4
+\fIException\fP если произошла ошибка при получении данных 
+.RE
+.PP
+
+.PP
+См\&. определение в файле \fBDatabaseManager\&.py\fP строка \fB696\fP
+.SS " List[Tuple[int, str, str]] src\&.DatabaseManager\&.DatabaseManager\&.DatabaseManager\&.get_actor_messages ( self, int session_id)"
+
+.PP
+Получение истории сообщений актора 
+.PP
+\fBАргументы\fP
+.RS 4
+\fIsession_id\fP ID сессии
+.RE
+.PP
+\fBВозвращает\fP
+.RS 4
+List[Tuple[int, str, str]] Список кортежей (sequence_number, master_prompt, actor_response) 
+.RE
+.PP
+
+.PP
+См\&. определение в файле \fBDatabaseManager\&.py\fP строка \fB418\fP
+.SS " List[Tuple[str, str]] src\&.DatabaseManager\&.DatabaseManager\&.DatabaseManager\&.get_actor_prompts ( self, int session_id)"
+
+.PP
+Получение промптов актора 
+.PP
+\fBАргументы\fP
+.RS 4
+\fIsession_id\fP ID сессии
+.RE
+.PP
+\fBВозвращает\fP
+.RS 4
+List[Tuple[str, str]] Список кортежей (prompt_content, model_response) 
+.RE
+.PP
+
+.PP
+См\&. определение в файле \fBDatabaseManager\&.py\fP строка \fB516\fP
+.SS " List[int] src\&.DatabaseManager\&.DatabaseManager\&.DatabaseManager\&.get_all_users ( self)"
+
+.PP
+Получение списка всех пользователей 
+.PP
+\fBВозвращает\fP
+.RS 4
+List[int] Список ID всех пользователей 
+.RE
+.PP
+
+.PP
+См\&. определение в файле \fBDatabaseManager\&.py\fP строка \fB209\fP
+.SS " Optional[Tuple[str, str]] src\&.DatabaseManager\&.DatabaseManager\&.DatabaseManager\&.get_character ( self, int character_id)"
+
+.PP
+Получение информации о персонаже по ID\&. 
+.PP
+\fBАргументы\fP
+.RS 4
+\fIcharacter_id\fP ID персонажа
+.RE
+.PP
+\fBВозвращает\fP
+.RS 4
+Optional[Tuple[str, str]] Кортеж (name, description) или None если персонаж не найден
+.RE
+.PP
+\fBИсключения\fP
+.RS 4
+\fIException\fP если произошла ошибка при получении данных 
+.RE
+.PP
+
+.PP
+См\&. определение в файле \fBDatabaseManager\&.py\fP строка \fB673\fP
+.SS " Optional[int] src\&.DatabaseManager\&.DatabaseManager\&.DatabaseManager\&.get_character_id ( self, int session_id, str name)"
+
+.PP
+Получение ID персонажа по ID сессии и имени 
+.PP
+\fBАргументы\fP
+.RS 4
+\fIsession_id\fP ID сессии 
+.br
+\fIname\fP Имя персонажа
+.RE
+.PP
+\fBВозвращает\fP
+.RS 4
+Optional[int] ID персонажа или None если персонаж не найден
+.RE
+.PP
+\fBИсключения\fP
+.RS 4
+\fIException\fP если произошла ошибка при получении данных 
+.RE
+.PP
+
+.PP
+См\&. определение в файле \fBDatabaseManager\&.py\fP строка \fB745\fP
+.SS " List[Tuple[str, str]] src\&.DatabaseManager\&.DatabaseManager\&.DatabaseManager\&.get_characters ( self, int session_id)"
+
+.PP
+Получение списка персонажей сессии 
+.PP
+\fBАргументы\fP
+.RS 4
+\fIsession_id\fP ID сессии
+.RE
+.PP
+\fBВозвращает\fP
+.RS 4
+List[Tuple[str, str]] Список кортежей (name, description) 
+.RE
+.PP
+
+.PP
+См\&. определение в файле \fBDatabaseManager\&.py\fP строка \fB299\fP
+.SS " List[Tuple[str, str, str]] src\&.DatabaseManager\&.DatabaseManager\&.DatabaseManager\&.get_game_master_prompts ( self, int session_id)"
+
+.PP
+Получение промптов мастера игры 
+.PP
+\fBАргументы\fP
+.RS 4
+\fIsession_id\fP ID сессии
+.RE
+.PP
+\fBВозвращает\fP
+.RS 4
+List[Tuple[str, str, str]] Список кортежей (prompt_type, prompt_content, model_response) 
+.RE
+.PP
+
+.PP
+См\&. определение в файле \fBDatabaseManager\&.py\fP строка \fB498\fP
+.SS " List[Tuple[int, str, str, str]] src\&.DatabaseManager\&.DatabaseManager\&.DatabaseManager\&.get_image_prompts ( self, int session_id)"
+
+.PP
+Получение промптов для генерации изображений 
+.PP
+\fBАргументы\fP
+.RS 4
+\fIsession_id\fP ID сессии
+.RE
+.PP
+\fBВозвращает\fP
+.RS 4
+List[Tuple[int, str, str, str]] Список кортежей (sequence_number, user_input, narrative_response, image_prompt) 
+.RE
+.PP
+
+.PP
+См\&. определение в файле \fBDatabaseManager\&.py\fP строка \fB591\fP
+.SS " List[Tuple[int, str, str, str]] src\&.DatabaseManager\&.DatabaseManager\&.DatabaseManager\&.get_master_messages ( self, int session_id)"
+
+.PP
+Получение истории сообщений мастера игры 
+.PP
+\fBАргументы\fP
+.RS 4
+\fIsession_id\fP ID сессии
+.RE
+.PP
+\fBВозвращает\fP
+.RS 4
+List[Tuple[int, str, str, str]] Список кортежей (sequence_number, user_input, master_output, actor_output) 
+.RE
+.PP
+
+.PP
+См\&. определение в файле \fBDatabaseManager\&.py\fP строка \fB400\fP
+.SS " Optional[Tuple[str, str]] src\&.DatabaseManager\&.DatabaseManager\&.DatabaseManager\&.get_session_info ( self, int session_id)"
+
+.PP
+Получение информации о сессии 
+.PP
+\fBАргументы\fP
+.RS 4
+\fIsession_id\fP ID сессии
+.RE
+.PP
+\fBВозвращает\fP
+.RS 4
+Optional[Tuple[str, str]] Кортеж (world_description, player_description) или None если сессия не найдена 
+.RE
+.PP
+
+.PP
+См\&. определение в файле \fBDatabaseManager\&.py\fP строка \fB266\fP
+.SS " str src\&.DatabaseManager\&.DatabaseManager\&.DatabaseManager\&.get_session_language ( self, int session_id)"
+
+.PP
+Получение языка сессии 
+.PP
+\fBАргументы\fP
+.RS 4
+\fIsession_id\fP ID сессии
+.RE
+.PP
+\fBВозвращает\fP
+.RS 4
+str Язык сессии (Russian/English)
+.RE
+.PP
+\fBИсключения\fP
+.RS 4
+\fIRuntimeError\fP если сессия не найдена 
+.RE
+.PP
+
+.PP
+См\&. определение в файле \fBDatabaseManager\&.py\fP строка \fB769\fP
+.SS " Optional[Tuple[str, str]] src\&.DatabaseManager\&.DatabaseManager\&.DatabaseManager\&.get_user_message ( self, int session_id, int sequence)"
+
+.PP
+Получение конкретного сообщения пользователя по номеру последовательности 
+.PP
+\fBАргументы\fP
+.RS 4
+\fIsession_id\fP ID сессии 
+.br
+\fIsequence\fP Номер последовательности сообщения
+.RE
+.PP
+\fBВозвращает\fP
+.RS 4
+Optional[Tuple[str, str]] Кортеж (user_input, response) или None если сообщение не найдено
+.RE
+.PP
+\fBИсключения\fP
+.RS 4
+\fIException\fP если произошла ошибка при получении данных 
+.RE
+.PP
+
+.PP
+См\&. определение в файле \fBDatabaseManager\&.py\fP строка \fB720\fP
+.SS " List[Tuple[int, str, str]] src\&.DatabaseManager\&.DatabaseManager\&.DatabaseManager\&.get_user_messages ( self, int session_id)"
+
+.PP
+Получение истории сообщений пользователя 
+.PP
+\fBАргументы\fP
+.RS 4
+\fIsession_id\fP ID сессии
+.RE
+.PP
+\fBВозвращает\fP
+.RS 4
+List[Tuple[int, str, str]] Список кортежей (sequence_number, user_input, response) 
+.RE
+.PP
+
+.PP
+См\&. определение в файле \fBDatabaseManager\&.py\fP строка \fB382\fP
+.SS " List[Tuple[int, str, str, str]] src\&.DatabaseManager\&.DatabaseManager\&.DatabaseManager\&.get_user_sessions ( self, int user_id)"
+
+.PP
+Получение списка сессий пользователя 
+.PP
+\fBАргументы\fP
+.RS 4
+\fIuser_id\fP ID пользователя
+.RE
+.PP
+\fBВозвращает\fP
+.RS 4
+List[Tuple[int, str, str, str]] Список кортежей (session_id, created_at, world_description, player_description) 
+.RE
+.PP
+
+.PP
+См\&. определение в файле \fBDatabaseManager\&.py\fP строка \fB249\fP
+.SS " bool src\&.DatabaseManager\&.DatabaseManager\&.DatabaseManager\&.is_new_session_actor_prompt ( self, int session_id)"
+
+.PP
+Проверка, является ли сессия новой для промптов актора 
+.PP
+\fBАргументы\fP
+.RS 4
+\fIsession_id\fP ID сессии
+.RE
+.PP
+\fBВозвращает\fP
+.RS 4
+bool True если сессия новая, False если промпты уже существуют 
+.RE
+.PP
+
+.PP
+См\&. определение в файле \fBDatabaseManager\&.py\fP строка \fB534\fP
+.SS " bool src\&.DatabaseManager\&.DatabaseManager\&.DatabaseManager\&.is_new_session_gm_prompt ( self, int session_id)"
+
+.PP
+Проверка, является ли сессия новой для промптов мастера игры 
+.PP
+\fBАргументы\fP
+.RS 4
+\fIsession_id\fP ID сессии
+.RE
+.PP
+\fBВозвращает\fP
+.RS 4
+bool True если сессия новая, False если промпты уже существуют 
+.RE
+.PP
+
+.PP
+См\&. определение в файле \fBDatabaseManager\&.py\fP строка \fB551\fP
+.SS " None src\&.DatabaseManager\&.DatabaseManager\&.DatabaseManager\&.save_active_characters ( self, int session_id, int sequence_number, List[int] character_ids)"
+
+.PP
+Сохранение активных персонажей для конкретного номера последовательности в сессии 
+.PP
+\fBАргументы\fP
+.RS 4
+\fIsession_id\fP ID сессии 
+.br
+\fIsequence_number\fP Номер последовательности промпта мастера 
+.br
+\fIcharacter_ids\fP Список ID персонажей, которые в данный момент активны
+.RE
+.PP
+\fBИсключения\fP
+.RS 4
+\fIException\fP если произошла ошибка при сохранении 
+.RE
+.PP
+
+.PP
+См\&. определение в файле \fBDatabaseManager\&.py\fP строка \fB609\fP
+.SS " None src\&.DatabaseManager\&.DatabaseManager\&.DatabaseManager\&.save_actor_message ( self, int session_id, str master_prompt, str actor_response)"
+
+.PP
+Сохранение сообщения актора 
+.PP
+\fBАргументы\fP
+.RS 4
+\fIsession_id\fP ID сессии 
+.br
+\fImaster_prompt\fP Промпт мастера игры 
+.br
+\fIactor_response\fP Ответ актора 
+.RE
+.PP
+
+.PP
+См\&. определение в файле \fBDatabaseManager\&.py\fP строка \fB360\fP
+.SS " None src\&.DatabaseManager\&.DatabaseManager\&.DatabaseManager\&.save_actor_prompt ( self, int session_id, str prompt_content, str model_response)"
+
+.PP
+Сохранение промпта актора 
+.PP
+\fBАргументы\fP
+.RS 4
+\fIsession_id\fP ID сессии 
+.br
+\fIprompt_content\fP Содержимое промпта 
+.br
+\fImodel_response\fP Ответ модели 
+.RE
+.PP
+
+.PP
+См\&. определение в файле \fBDatabaseManager\&.py\fP строка \fB482\fP
+.SS " None src\&.DatabaseManager\&.DatabaseManager\&.DatabaseManager\&.save_character ( self, int session_id, str name, str description)"
+
+.PP
+Сохранение персонажа 
+.PP
+\fBАргументы\fP
+.RS 4
+\fIsession_id\fP ID сессии 
+.br
+\fIname\fP Имя персонажа 
+.br
+\fIdescription\fP Описание персонажа 
+.RE
+.PP
+
+.PP
+См\&. определение в файле \fBDatabaseManager\&.py\fP строка \fB283\fP
+.SS " None src\&.DatabaseManager\&.DatabaseManager\&.DatabaseManager\&.save_game_master_prompt ( self, int session_id, str prompt_type, str prompt_content, str model_response)"
+
+.PP
+Сохранение промпта мастера игры 
+.PP
+\fBАргументы\fP
+.RS 4
+\fIsession_id\fP ID сессии 
+.br
+\fIprompt_type\fP Тип промпта 
+.br
+\fIprompt_content\fP Содержимое промпта 
+.br
+\fImodel_response\fP Ответ модели 
+.RE
+.PP
+
+.PP
+См\&. определение в файле \fBDatabaseManager\&.py\fP строка \fB465\fP
+.SS " None src\&.DatabaseManager\&.DatabaseManager\&.DatabaseManager\&.save_image_prompt ( self, int session_id, str user_input, str narrative_response, str image_prompt)"
+
+.PP
+Сохранение промпта для генерации изображения 
+.PP
+\fBАргументы\fP
+.RS 4
+\fIsession_id\fP ID сессии 
+.br
+\fIuser_input\fP Ввод пользователя 
+.br
+\fInarrative_response\fP Нарративный ответ 
+.br
+\fIimage_prompt\fP Промпт для генерации изображения 
+.RE
+.PP
+
+.PP
+См\&. определение в файле \fBDatabaseManager\&.py\fP строка \fB568\fP
+.SS " None src\&.DatabaseManager\&.DatabaseManager\&.DatabaseManager\&.save_master_message ( self, int session_id, str user_input, str master_output, str actor_output)"
+
+.PP
+Сохранение сообщения мастера игры 
+.PP
+\fBАргументы\fP
+.RS 4
+\fIsession_id\fP ID сессии 
+.br
+\fIuser_input\fP Ввод пользователя 
+.br
+\fImaster_output\fP Вывод мастера игры 
+.br
+\fIactor_output\fP Вывод актора 
+.RE
+.PP
+
+.PP
+См\&. определение в файле \fBDatabaseManager\&.py\fP строка \fB337\fP
+.SS " None src\&.DatabaseManager\&.DatabaseManager\&.DatabaseManager\&.save_user_message ( self, int session_id, str user_input, str response)"
+
+.PP
+Сохранение сообщения пользователя 
+.PP
+\fBАргументы\fP
+.RS 4
+\fIsession_id\fP ID сессии 
+.br
+\fIuser_input\fP Ввод пользователя 
+.br
+\fIresponse\fP Ответ системы 
+.RE
+.PP
+
+.PP
+См\&. определение в файле \fBDatabaseManager\&.py\fP строка \fB315\fP
+.SS " None src\&.DatabaseManager\&.DatabaseManager\&.DatabaseManager\&.update_active_characters ( self, int session_id, int sequence_number, List[int] character_ids)"
+
+.PP
+Обновление списка активных персонажей для конкретного номера последовательности в сессии 
+.PP
+\fBАргументы\fP
+.RS 4
+\fIsession_id\fP ID сессии 
+.br
+\fIsequence_number\fP Номер последовательности промпта мастера 
+.br
+\fIcharacter_ids\fP Список ID персонажей, которые в данный момент активны 
+.RE
+.PP
+
+.PP
+См\&. определение в файле \fBDatabaseManager\&.py\fP строка \fB663\fP
+.SH "Данные класса"
+.PP 
+.SS "'\fBDatabaseManager\fP' src\&.DatabaseManager\&.DatabaseManager\&.DatabaseManager\&._instance = None\fR [static]\fP, \fR [protected]\fP"
+
+.PP
+См\&. определение в файле \fBDatabaseManager\&.py\fP строка \fB23\fP
+.SS "src\&.DatabaseManager\&.DatabaseManager\&.DatabaseManager\&.db_path = DATABASE_NAME"
+
+.PP
+См\&. определение в файле \fBDatabaseManager\&.py\fP строка \fB45\fP
+
+.SH "Автор"
+.PP 
+Автоматически создано Doxygen для My Project из исходного текста\&.

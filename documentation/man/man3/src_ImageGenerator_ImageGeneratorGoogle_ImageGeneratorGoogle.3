@@ -1,0 +1,83 @@
+.TH "src.ImageGenerator.ImageGeneratorGoogle.ImageGeneratorGoogle" 3 "My Project" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+src.ImageGenerator.ImageGeneratorGoogle.ImageGeneratorGoogle \- Класс для генерации изображений с использованием Google Gemini API\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Базовые классы:\fBsrc\&.ImageGenerator\&.ImageGeneratorProtocol\&.ImageGeneratorProtocol\fP\&.
+.SS "Открытые члены"
+
+.in +1c
+.ti -1c
+.RI "None \fB__init__\fP (self, int session_id)"
+.br
+.RI "Инициализация генератора изображений "
+.ti -1c
+.RI "Optional[str] \fBgenerate_image_response\fP (self, str prompt, str target_path, Optional[List[str]] character_images=None)"
+.br
+.RI "Генерация изображения с использованием Gemini API\&. "
+.in -1c
+.SH "Подробное описание"
+.PP 
+Класс для генерации изображений с использованием Google Gemini API\&. 
+
+Реализует интерфейс \fBImageGeneratorProtocol\fP для генерации изображений\&. Использует Google Gemini API для создания изображений на основе текстовых промптов и опциональных изображений персонажей\&.
+
+.PP
+\fBЗаметки\fP
+.RS 4
+Требуется прокси/vpn для работы с Google API 
+.RE
+.PP
+
+.PP
+См\&. определение в файле \fBImageGeneratorGoogle\&.py\fP строка \fB13\fP
+.SH "Конструктор(ы)"
+.PP 
+.SS " None src\&.ImageGenerator\&.ImageGeneratorGoogle\&.ImageGeneratorGoogle\&.__init__ ( self, int session_id)"
+
+.PP
+Инициализация генератора изображений 
+.PP
+\fBАргументы\fP
+.RS 4
+\fIsession_id\fP ID сессии для организации файлов изображений 
+.RE
+.PP
+
+.PP
+См\&. определение в файле \fBImageGeneratorGoogle\&.py\fP строка \fB27\fP
+.SH "Методы"
+.PP 
+.SS " Optional[str] src\&.ImageGenerator\&.ImageGeneratorGoogle\&.ImageGeneratorGoogle\&.generate_image_response ( self, str prompt, str target_path, Optional[List[str]]  character_images = \fRNone\fP)"
+
+.PP
+Генерация изображения с использованием Gemini API\&. 
+.PP
+\fBАргументы\fP
+.RS 4
+\fIprompt\fP Текстовый промпт для генерации изображения 
+.br
+\fItarget_path\fP Полный путь для сохранения изображения 
+.br
+\fIcharacter_images\fP Опциональный список путей к изображениям персонажей
+.RE
+.PP
+\fBВозвращает\fP
+.RS 4
+Optional[str] Путь к сохраненному изображению или None в случае ошибки 
+.RE
+.PP
+
+.PP
+Переопределяет метод предка \fBsrc\&.ImageGenerator\&.ImageGeneratorProtocol\&.ImageGeneratorProtocol\fP\&.
+.PP
+См\&. определение в файле \fBImageGeneratorGoogle\&.py\fP строка \fB65\fP
+
+.SH "Автор"
+.PP 
+Автоматически создано Doxygen для My Project из исходного текста\&.

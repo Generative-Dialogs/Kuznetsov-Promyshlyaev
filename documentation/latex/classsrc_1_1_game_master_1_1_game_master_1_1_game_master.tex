@@ -1,0 +1,272 @@
+\doxysection{Класс src.\+Game\+Master.\+Game\+Master.\+Game\+Master}
+\label{classsrc_1_1_game_master_1_1_game_master_1_1_game_master}\index{src.GameMaster.GameMaster.GameMaster@{src.GameMaster.GameMaster.GameMaster}}
+
+
+Класс, управляющий игровым процессом и взаимодействием с игроком  
+
+
+\doxysubsubsection*{Открытые члены}
+\begin{DoxyCompactItemize}
+\item 
+None \textbf{ \+\_\+\+\_\+init\+\_\+\+\_\+} (self, int session\+\_\+id, Optional[str] world\+\_\+description=None, Optional[str] player\+\_\+description=None, bool fast\+\_\+flg=True, str language="{}English"{}, bool generate\+\_\+character\+\_\+images=True)
+\begin{DoxyCompactList}\small\item\em Инициализация мастера игры \end{DoxyCompactList}\item 
+str \textbf{ generate\+\_\+answer} (self, str message)
+\begin{DoxyCompactList}\small\item\em Генерация ответа на сообщение игрока \end{DoxyCompactList}\item 
+Tuple[List[\textbf{ Command\+Data}], str] \textbf{ generate\+\_\+instruction} (self, str message)
+\begin{DoxyCompactList}\small\item\em Генерация инструкций на основе сообщения \end{DoxyCompactList}\item 
+Tuple[Optional[List[\textbf{ Command\+Data}]], str] \textbf{ validate\+\_\+and\+\_\+parse} (self, str input\+\_\+text)
+\begin{DoxyCompactList}\small\item\em Валидация и парсинг входного текста \end{DoxyCompactList}\item 
+Tuple[str, Set[str]] \textbf{ parse\+\_\+commands} (self, List[\textbf{ Command\+Data}] commands)
+\begin{DoxyCompactList}\small\item\em Обработка списка команд \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Открытые атрибуты}
+\begin{DoxyCompactItemize}
+\item 
+\textbf{ session\+\_\+id} = session\+\_\+id
+\item 
+\textbf{ db} = \textbf{ Database\+Manager}()
+\item 
+\textbf{ generate\+\_\+character\+\_\+images} = generate\+\_\+character\+\_\+images
+\item 
+\textbf{ world\+\_\+description} = world\+\_\+description
+\item 
+\textbf{ player\+\_\+description} = player\+\_\+description
+\item 
+\textbf{ Protocol\+Message\+Generator} \textbf{ message\+Generator} = \textbf{ Message\+Generator\+Open\+Router}()
+\item 
+dict \textbf{ characters} = \{\}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Подробное описание}
+Класс, управляющий игровым процессом и взаимодействием с игроком 
+
+Отвечает за\+:
+\begin{DoxyItemize}
+\item Генерацию ответов на действия игрока
+\item Управление игровыми персонажами
+\item Поддержание целостности игрового мира
+\item Генерацию изображений
+\item Взаимодействие с базой данных
+\end{DoxyItemize}
+
+\begin{DoxyNote}{Заметки}
+Реализует паттерн Singleton для обеспечения единой точки управления игровым процессом 
+\end{DoxyNote}
+
+
+См. определение в файле \textbf{ Game\+Master.\+py} строка \textbf{ 29}
+
+
+
+\doxysubsection{Конструктор(ы)}
+\index{src.GameMaster.GameMaster.GameMaster@{src.GameMaster.GameMaster.GameMaster}!\_\_init\_\_@{\_\_init\_\_}}
+\index{\_\_init\_\_@{\_\_init\_\_}!src.GameMaster.GameMaster.GameMaster@{src.GameMaster.GameMaster.GameMaster}}
+\doxysubsubsection{\_\_init\_\_()}
+{\footnotesize\ttfamily \label{classsrc_1_1_game_master_1_1_game_master_1_1_game_master_a3d4c57cdc4cd784782f1fdb024610892} 
+ None src.\+Game\+Master.\+Game\+Master.\+Game\+Master.\+\_\+\+\_\+init\+\_\+\+\_\+ (\begin{DoxyParamCaption}\item[{}]{self}{, }\item[{int}]{session\+\_\+id}{, }\item[{Optional[str] }]{world\+\_\+description}{ = {\ttfamily None}, }\item[{Optional[str] }]{player\+\_\+description}{ = {\ttfamily None}, }\item[{bool }]{fast\+\_\+flg}{ = {\ttfamily True}, }\item[{str }]{language}{ = {\ttfamily "{}English"{}}, }\item[{bool }]{generate\+\_\+character\+\_\+images}{ = {\ttfamily True}}\end{DoxyParamCaption})}
+
+
+
+Инициализация мастера игры 
+
+
+\begin{DoxyParams}{Аргументы}
+{\em session\+\_\+id} & ID игровой сессии \\
+\hline
+{\em world\+\_\+description} & Описание игрового мира (опционально) \\
+\hline
+{\em player\+\_\+description} & Описание игрового персонажа (опционально) \\
+\hline
+{\em fast\+\_\+flg} & Флаг быстрого режима (опционально) \\
+\hline
+{\em language} & Язык игры (опционально) \\
+\hline
+{\em generate\+\_\+character\+\_\+images} & Флаг генерации изображений персонажей (опционально) \\
+\hline
+\end{DoxyParams}
+
+
+См. определение в файле \textbf{ Game\+Master.\+py} строка \textbf{ 43}
+
+
+
+\doxysubsection{Методы}
+\index{src.GameMaster.GameMaster.GameMaster@{src.GameMaster.GameMaster.GameMaster}!generate\_answer@{generate\_answer}}
+\index{generate\_answer@{generate\_answer}!src.GameMaster.GameMaster.GameMaster@{src.GameMaster.GameMaster.GameMaster}}
+\doxysubsubsection{generate\_answer()}
+{\footnotesize\ttfamily \label{classsrc_1_1_game_master_1_1_game_master_1_1_game_master_ada31cf2e334f400a557e5cef5cfd4035} 
+ str src.\+Game\+Master.\+Game\+Master.\+Game\+Master.\+generate\+\_\+answer (\begin{DoxyParamCaption}\item[{}]{self}{, }\item[{str}]{message}{}\end{DoxyParamCaption})}
+
+
+
+Генерация ответа на сообщение игрока 
+
+
+\begin{DoxyParams}{Аргументы}
+{\em message} & Сообщение игрока\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Возвращает}
+str Ответ системы
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Исключения}
+{\em \doxyref{Player\+Death\+Exception}{стр.}{classsrc_1_1_game_master_1_1_game_master_1_1_player_death_exception}} & если игровой персонаж умирает \\
+\hline
+\end{DoxyExceptions}
+
+
+См. определение в файле \textbf{ Game\+Master.\+py} строка \textbf{ 139}
+
+\index{src.GameMaster.GameMaster.GameMaster@{src.GameMaster.GameMaster.GameMaster}!generate\_instruction@{generate\_instruction}}
+\index{generate\_instruction@{generate\_instruction}!src.GameMaster.GameMaster.GameMaster@{src.GameMaster.GameMaster.GameMaster}}
+\doxysubsubsection{generate\_instruction()}
+{\footnotesize\ttfamily \label{classsrc_1_1_game_master_1_1_game_master_1_1_game_master_af4b0a20324399ffd65811c0d5a7e72fb} 
+ Tuple[List[\textbf{ Command\+Data}], str] src.\+Game\+Master.\+Game\+Master.\+Game\+Master.\+generate\+\_\+instruction (\begin{DoxyParamCaption}\item[{}]{self}{, }\item[{str}]{message}{}\end{DoxyParamCaption})}
+
+
+
+Генерация инструкций на основе сообщения 
+
+
+\begin{DoxyParams}{Аргументы}
+{\em message} & Сообщение для обработки\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Возвращает}
+Tuple[List[\doxyref{Command\+Data}{стр.}{classsrc_1_1_game_master_1_1_command_data_1_1_command_data}], str] Кортеж из списка команд и текстового вывода
+\end{DoxyReturn}
+\begin{DoxyNote}{Заметки}
+Метод может выполнять повторные попытки генерации при некорректном формате 
+\end{DoxyNote}
+
+
+См. определение в файле \textbf{ Game\+Master.\+py} строка \textbf{ 188}
+
+\index{src.GameMaster.GameMaster.GameMaster@{src.GameMaster.GameMaster.GameMaster}!parse\_commands@{parse\_commands}}
+\index{parse\_commands@{parse\_commands}!src.GameMaster.GameMaster.GameMaster@{src.GameMaster.GameMaster.GameMaster}}
+\doxysubsubsection{parse\_commands()}
+{\footnotesize\ttfamily \label{classsrc_1_1_game_master_1_1_game_master_1_1_game_master_a7f51c99f6a3adafdebc200086a1e71f2} 
+ Tuple[str, Set[str]] src.\+Game\+Master.\+Game\+Master.\+Game\+Master.\+parse\+\_\+commands (\begin{DoxyParamCaption}\item[{}]{self}{, }\item[{List[\textbf{ Command\+Data}]}]{commands}{}\end{DoxyParamCaption})}
+
+
+
+Обработка списка команд 
+
+
+\begin{DoxyParams}{Аргументы}
+{\em commands} & Список команд для обработки\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Возвращает}
+Tuple[str, Set[str]] Кортеж из текстового вывода и множества имен активных персонажей
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Исключения}
+{\em \doxyref{Player\+Death\+Exception}{стр.}{classsrc_1_1_game_master_1_1_game_master_1_1_player_death_exception}} & если встречена команда смерти игрока \\
+\hline
+\end{DoxyExceptions}
+
+
+См. определение в файле \textbf{ Game\+Master.\+py} строка \textbf{ 279}
+
+\index{src.GameMaster.GameMaster.GameMaster@{src.GameMaster.GameMaster.GameMaster}!validate\_and\_parse@{validate\_and\_parse}}
+\index{validate\_and\_parse@{validate\_and\_parse}!src.GameMaster.GameMaster.GameMaster@{src.GameMaster.GameMaster.GameMaster}}
+\doxysubsubsection{validate\_and\_parse()}
+{\footnotesize\ttfamily \label{classsrc_1_1_game_master_1_1_game_master_1_1_game_master_aa80e8c47e27990d55aeb45ddf7512f05} 
+ Tuple[Optional[List[\textbf{ Command\+Data}]], str] src.\+Game\+Master.\+Game\+Master.\+Game\+Master.\+validate\+\_\+and\+\_\+parse (\begin{DoxyParamCaption}\item[{}]{self}{, }\item[{str}]{input\+\_\+text}{}\end{DoxyParamCaption})}
+
+
+
+Валидация и парсинг входного текста 
+
+
+\begin{DoxyParams}{Аргументы}
+{\em input\+\_\+text} & Текст для валидации и парсинга\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Возвращает}
+Tuple[Optional[List[\doxyref{Command\+Data}{стр.}{classsrc_1_1_game_master_1_1_command_data_1_1_command_data}]], str] Кортеж из списка команд (или None) и сообщения об ошибке 
+\end{DoxyReturn}
+
+
+См. определение в файле \textbf{ Game\+Master.\+py} строка \textbf{ 209}
+
+
+
+\doxysubsection{Данные класса}
+\index{src.GameMaster.GameMaster.GameMaster@{src.GameMaster.GameMaster.GameMaster}!characters@{characters}}
+\index{characters@{characters}!src.GameMaster.GameMaster.GameMaster@{src.GameMaster.GameMaster.GameMaster}}
+\doxysubsubsection{characters}
+{\footnotesize\ttfamily \label{classsrc_1_1_game_master_1_1_game_master_1_1_game_master_ab5359c63c972052f22645b0d60df5c38} 
+dict src.\+Game\+Master.\+Game\+Master.\+Game\+Master.\+characters = \{\}}
+
+
+
+См. определение в файле \textbf{ Game\+Master.\+py} строка \textbf{ 70}
+
+\index{src.GameMaster.GameMaster.GameMaster@{src.GameMaster.GameMaster.GameMaster}!db@{db}}
+\index{db@{db}!src.GameMaster.GameMaster.GameMaster@{src.GameMaster.GameMaster.GameMaster}}
+\doxysubsubsection{db}
+{\footnotesize\ttfamily \label{classsrc_1_1_game_master_1_1_game_master_1_1_game_master_a7fcc819f6b191473b29534ab67576211} 
+src.\+Game\+Master.\+Game\+Master.\+Game\+Master.\+db = \textbf{ Database\+Manager}()}
+
+
+
+См. определение в файле \textbf{ Game\+Master.\+py} строка \textbf{ 58}
+
+\index{src.GameMaster.GameMaster.GameMaster@{src.GameMaster.GameMaster.GameMaster}!generate\_character\_images@{generate\_character\_images}}
+\index{generate\_character\_images@{generate\_character\_images}!src.GameMaster.GameMaster.GameMaster@{src.GameMaster.GameMaster.GameMaster}}
+\doxysubsubsection{generate\_character\_images}
+{\footnotesize\ttfamily \label{classsrc_1_1_game_master_1_1_game_master_1_1_game_master_ab19b9e393d293c94e4643cd32c67d0dd} 
+src.\+Game\+Master.\+Game\+Master.\+Game\+Master.\+generate\+\_\+character\+\_\+images = generate\+\_\+character\+\_\+images}
+
+
+
+См. определение в файле \textbf{ Game\+Master.\+py} строка \textbf{ 59}
+
+\index{src.GameMaster.GameMaster.GameMaster@{src.GameMaster.GameMaster.GameMaster}!messageGenerator@{messageGenerator}}
+\index{messageGenerator@{messageGenerator}!src.GameMaster.GameMaster.GameMaster@{src.GameMaster.GameMaster.GameMaster}}
+\doxysubsubsection{messageGenerator}
+{\footnotesize\ttfamily \label{classsrc_1_1_game_master_1_1_game_master_1_1_game_master_aedb06b2bcc0533a886a217a19735151d} 
+\textbf{ Protocol\+Message\+Generator} src.\+Game\+Master.\+Game\+Master.\+Game\+Master.\+message\+Generator = \textbf{ Message\+Generator\+Open\+Router}()}
+
+
+
+См. определение в файле \textbf{ Game\+Master.\+py} строка \textbf{ 69}
+
+\index{src.GameMaster.GameMaster.GameMaster@{src.GameMaster.GameMaster.GameMaster}!player\_description@{player\_description}}
+\index{player\_description@{player\_description}!src.GameMaster.GameMaster.GameMaster@{src.GameMaster.GameMaster.GameMaster}}
+\doxysubsubsection{player\_description}
+{\footnotesize\ttfamily \label{classsrc_1_1_game_master_1_1_game_master_1_1_game_master_a0bb1f23554cf5091cf4bffb1641d9be6} 
+src.\+Game\+Master.\+Game\+Master.\+Game\+Master.\+player\+\_\+description = player\+\_\+description}
+
+
+
+См. определение в файле \textbf{ Game\+Master.\+py} строка \textbf{ 67}
+
+\index{src.GameMaster.GameMaster.GameMaster@{src.GameMaster.GameMaster.GameMaster}!session\_id@{session\_id}}
+\index{session\_id@{session\_id}!src.GameMaster.GameMaster.GameMaster@{src.GameMaster.GameMaster.GameMaster}}
+\doxysubsubsection{session\_id}
+{\footnotesize\ttfamily \label{classsrc_1_1_game_master_1_1_game_master_1_1_game_master_a163bdf238c24c30500cb4d758cd25b31} 
+src.\+Game\+Master.\+Game\+Master.\+Game\+Master.\+session\+\_\+id = session\+\_\+id}
+
+
+
+См. определение в файле \textbf{ Game\+Master.\+py} строка \textbf{ 57}
+
+\index{src.GameMaster.GameMaster.GameMaster@{src.GameMaster.GameMaster.GameMaster}!world\_description@{world\_description}}
+\index{world\_description@{world\_description}!src.GameMaster.GameMaster.GameMaster@{src.GameMaster.GameMaster.GameMaster}}
+\doxysubsubsection{world\_description}
+{\footnotesize\ttfamily \label{classsrc_1_1_game_master_1_1_game_master_1_1_game_master_aaebaf89191e3696ae060994b3cbd85bd} 
+src.\+Game\+Master.\+Game\+Master.\+Game\+Master.\+world\+\_\+description = world\+\_\+description}
+
+
+
+См. определение в файле \textbf{ Game\+Master.\+py} строка \textbf{ 66}
+
+
+
+Объявления и описания членов класса находятся в файле\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/kir/\+Desktop/py/\+API/src/\+Game\+Master/Game\+Master.\+py\end{DoxyCompactItemize}

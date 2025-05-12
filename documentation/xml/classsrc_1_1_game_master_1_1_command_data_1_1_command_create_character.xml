@@ -1,0 +1,58 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.13.2" xml:lang="ru">
+  <compounddef id="classsrc_1_1_game_master_1_1_command_data_1_1_command_create_character" kind="class" language="Python" prot="public">
+    <compoundname>src::GameMaster::CommandData::CommandCreateCharacter</compoundname>
+    <basecompoundref refid="classsrc_1_1_game_master_1_1_command_data_1_1_command_data" prot="public" virt="non-virtual">src.GameMaster.CommandData.CommandData</basecompoundref>
+    <briefdescription>
+<para>Команда создания нового персонажа </para>
+    </briefdescription>
+    <detaileddescription>
+<para>Используется для добавления нового персонажа в игру с заданным именем и описанием.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>name</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Имя нового персонажа </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>description</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Описание нового персонажа </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>src.GameMaster.CommandData.CommandCreateCharacter</label>
+        <link refid="classsrc_1_1_game_master_1_1_command_data_1_1_command_create_character"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>src.GameMaster.CommandData.CommandData</label>
+        <link refid="classsrc_1_1_game_master_1_1_command_data_1_1_command_data"/>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>src.GameMaster.CommandData.CommandCreateCharacter</label>
+        <link refid="classsrc_1_1_game_master_1_1_command_data_1_1_command_create_character"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>src.GameMaster.CommandData.CommandData</label>
+        <link refid="classsrc_1_1_game_master_1_1_command_data_1_1_command_data"/>
+      </node>
+    </collaborationgraph>
+    <location file="C:/Users/kir/Desktop/py/API/src/GameMaster/CommandData.py" line="44" column="1" bodyfile="C:/Users/kir/Desktop/py/API/src/GameMaster/CommandData.py" bodystart="44" bodyend="58"/>
+    <listofallmembers>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,384 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygenindex xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="index.xsd" version="1.13.2" xml:lang="ru">
+  <compound refid="classsrc_1_1_actor_1_1_actor_1_1_actor" kind="class"><name>src::Actor::Actor::Actor</name>
+    <member refid="classsrc_1_1_actor_1_1_actor_1_1_actor_1a02cd4b4f8cabdc862915f21a5a09e2f6" kind="variable"><name>__game_master</name></member>
+    <member refid="classsrc_1_1_actor_1_1_actor_1_1_actor_1a555c09b922592195dbe5d6046e8c59bc" kind="variable"><name>__session_id</name></member>
+    <member refid="classsrc_1_1_actor_1_1_actor_1_1_actor_1a9ee4717958973cf596c6fe1b9b68bd6f" kind="variable"><name>__language</name></member>
+    <member refid="classsrc_1_1_actor_1_1_actor_1_1_actor_1af49f26ff10c887f0648b90254cfa170e" kind="variable"><name>__messageGenerator</name></member>
+    <member refid="classsrc_1_1_actor_1_1_actor_1_1_actor_1a742d0360a74e41c074f8366f85bd82b0" kind="variable"><name>__active_characters</name></member>
+    <member refid="classsrc_1_1_actor_1_1_actor_1_1_actor_1a0608dc0a8d05e278fd85449d79635dc3" kind="variable"><name>__db</name></member>
+    <member refid="classsrc_1_1_actor_1_1_actor_1_1_actor_1aa8ef3f312997a013b56e9512422c2ef6" kind="function"><name>__init__</name></member>
+    <member refid="classsrc_1_1_actor_1_1_actor_1_1_actor_1a9d4e45216b2ba0b276ae82a62e7fa54b" kind="function"><name>update_active_characters</name></member>
+    <member refid="classsrc_1_1_actor_1_1_actor_1_1_actor_1a34ab83bb9801246351209a2a31f4fb06" kind="function"><name>get_detailed_action</name></member>
+    <member refid="classsrc_1_1_actor_1_1_actor_1_1_actor_1a338c52fc8f731dbf7695b5c7a8c9160a" kind="function"><name>get_message_history</name></member>
+  </compound>
+  <compound refid="classsrc_1_1_game_master_1_1_command_data_1_1_command_create_character" kind="class"><name>src::GameMaster::CommandData::CommandCreateCharacter</name>
+  </compound>
+  <compound refid="classsrc_1_1_game_master_1_1_command_data_1_1_command_data" kind="class"><name>src::GameMaster::CommandData::CommandData</name>
+  </compound>
+  <compound refid="classsrc_1_1_game_master_1_1_command_data_1_1_command_data_environment_description" kind="class"><name>src::GameMaster::CommandData::CommandDataEnvironmentDescription</name>
+  </compound>
+  <compound refid="classsrc_1_1_game_master_1_1_command_data_1_1_command_off_topic" kind="class"><name>src::GameMaster::CommandData::CommandOffTopic</name>
+  </compound>
+  <compound refid="classsrc_1_1_game_master_1_1_command_data_1_1_command_player_death" kind="class"><name>src::GameMaster::CommandData::CommandPlayerDeath</name>
+  </compound>
+  <compound refid="classsrc_1_1_game_master_1_1_command_data_1_1_command_select_character" kind="class"><name>src::GameMaster::CommandData::CommandSelectCharacter</name>
+  </compound>
+  <compound refid="classsrc_1_1_database_manager_1_1_database_manager_1_1_database_manager" kind="class"><name>src::DatabaseManager::DatabaseManager::DatabaseManager</name>
+    <member refid="classsrc_1_1_database_manager_1_1_database_manager_1_1_database_manager_1a7ad3dcb044e31b90bf31806853bfc837" kind="variable"><name>_instance</name></member>
+    <member refid="classsrc_1_1_database_manager_1_1_database_manager_1_1_database_manager_1a0d4c59d10e40d5663df4c8308e9e9d15" kind="variable"><name>db_path</name></member>
+    <member refid="classsrc_1_1_database_manager_1_1_database_manager_1_1_database_manager_1ae8e9b4a5cf7f9c4a05276052a98528ee" kind="function"><name>__new__</name></member>
+    <member refid="classsrc_1_1_database_manager_1_1_database_manager_1_1_database_manager_1ac07876128f530806fb845ee3ca550c8a" kind="function"><name>__init__</name></member>
+    <member refid="classsrc_1_1_database_manager_1_1_database_manager_1_1_database_manager_1a90bfa9b37df42c63ceabd1630c901025" kind="function"><name>create_user</name></member>
+    <member refid="classsrc_1_1_database_manager_1_1_database_manager_1_1_database_manager_1ae5727ae5eb1a749423299458b67948d8" kind="function"><name>get_all_users</name></member>
+    <member refid="classsrc_1_1_database_manager_1_1_database_manager_1_1_database_manager_1a4ef04a04c179b51dd3650ddd7f0a1044" kind="function"><name>create_session</name></member>
+    <member refid="classsrc_1_1_database_manager_1_1_database_manager_1_1_database_manager_1af7ba5da6c9851f8a7572ddd0b100e83a" kind="function"><name>get_user_sessions</name></member>
+    <member refid="classsrc_1_1_database_manager_1_1_database_manager_1_1_database_manager_1a8b470f05c518dbf890db72c451494b36" kind="function"><name>get_session_info</name></member>
+    <member refid="classsrc_1_1_database_manager_1_1_database_manager_1_1_database_manager_1a78b9f08ef4c174650284fb7ff55fa201" kind="function"><name>save_character</name></member>
+    <member refid="classsrc_1_1_database_manager_1_1_database_manager_1_1_database_manager_1ad57a9638af3e753cb56ac36905049a59" kind="function"><name>get_characters</name></member>
+    <member refid="classsrc_1_1_database_manager_1_1_database_manager_1_1_database_manager_1a7ca1b98dcdd0b87151292b22868f1abd" kind="function"><name>save_user_message</name></member>
+    <member refid="classsrc_1_1_database_manager_1_1_database_manager_1_1_database_manager_1a6fce88139b93dc797e02b7b93777e3ac" kind="function"><name>save_master_message</name></member>
+    <member refid="classsrc_1_1_database_manager_1_1_database_manager_1_1_database_manager_1a89e3e3073c296d111a67339cbbcc9de5" kind="function"><name>save_actor_message</name></member>
+    <member refid="classsrc_1_1_database_manager_1_1_database_manager_1_1_database_manager_1ad86bf1f4095f7ef32b50e3ce2d87bde7" kind="function"><name>get_user_messages</name></member>
+    <member refid="classsrc_1_1_database_manager_1_1_database_manager_1_1_database_manager_1acb0c3701f33e33493c5f83e09d6b2582" kind="function"><name>get_master_messages</name></member>
+    <member refid="classsrc_1_1_database_manager_1_1_database_manager_1_1_database_manager_1a662d9f39b1dea0e44bed824197cb2232" kind="function"><name>get_actor_messages</name></member>
+    <member refid="classsrc_1_1_database_manager_1_1_database_manager_1_1_database_manager_1a415f0d8b3bef38865370bddc8203e3ff" kind="function"><name>delete_session</name></member>
+    <member refid="classsrc_1_1_database_manager_1_1_database_manager_1_1_database_manager_1a9f15c3a6da37337d517fe72327a261e3" kind="function"><name>delete_user_data</name></member>
+    <member refid="classsrc_1_1_database_manager_1_1_database_manager_1_1_database_manager_1adbac8da66f7473e585fa1b1b4ab1d9c8" kind="function"><name>save_game_master_prompt</name></member>
+    <member refid="classsrc_1_1_database_manager_1_1_database_manager_1_1_database_manager_1a96f76fb4ab001ccbf497590b0b04281c" kind="function"><name>save_actor_prompt</name></member>
+    <member refid="classsrc_1_1_database_manager_1_1_database_manager_1_1_database_manager_1a9a1872c584c8c411e2915234baeb9eba" kind="function"><name>get_game_master_prompts</name></member>
+    <member refid="classsrc_1_1_database_manager_1_1_database_manager_1_1_database_manager_1a23c74e9358f840a3cdca80aa993758be" kind="function"><name>get_actor_prompts</name></member>
+    <member refid="classsrc_1_1_database_manager_1_1_database_manager_1_1_database_manager_1a89252dc2b29611b424ecb352c99de987" kind="function"><name>is_new_session_actor_prompt</name></member>
+    <member refid="classsrc_1_1_database_manager_1_1_database_manager_1_1_database_manager_1a062acf7bf40d0d49920cceaa844318b0" kind="function"><name>is_new_session_gm_prompt</name></member>
+    <member refid="classsrc_1_1_database_manager_1_1_database_manager_1_1_database_manager_1a6bdafff6a250fc4aa977fed2611b6710" kind="function"><name>save_image_prompt</name></member>
+    <member refid="classsrc_1_1_database_manager_1_1_database_manager_1_1_database_manager_1af2ed9a550ccd1c8f98ff811f1e2938df" kind="function"><name>get_image_prompts</name></member>
+    <member refid="classsrc_1_1_database_manager_1_1_database_manager_1_1_database_manager_1a28df3ea877ad1afa4aab83d911b15b62" kind="function"><name>save_active_characters</name></member>
+    <member refid="classsrc_1_1_database_manager_1_1_database_manager_1_1_database_manager_1ac0e4345b683038740e4d9720a00fca6d" kind="function"><name>get_active_characters</name></member>
+    <member refid="classsrc_1_1_database_manager_1_1_database_manager_1_1_database_manager_1a7e4425052cdd6ee6ba50c65ce565e010" kind="function"><name>update_active_characters</name></member>
+    <member refid="classsrc_1_1_database_manager_1_1_database_manager_1_1_database_manager_1ad487ccaff17690e1b0063da99ffacae6" kind="function"><name>get_character</name></member>
+    <member refid="classsrc_1_1_database_manager_1_1_database_manager_1_1_database_manager_1ac3ca7f87598cfa981e29de5b60aadadf" kind="function"><name>get_active_characters_ids</name></member>
+    <member refid="classsrc_1_1_database_manager_1_1_database_manager_1_1_database_manager_1abd4dc8956da9fdb1ea64343e4000d363" kind="function"><name>get_user_message</name></member>
+    <member refid="classsrc_1_1_database_manager_1_1_database_manager_1_1_database_manager_1a36029029cb0970d72a9a6ce0bc05b6d3" kind="function"><name>get_character_id</name></member>
+    <member refid="classsrc_1_1_database_manager_1_1_database_manager_1_1_database_manager_1a52d0357efb41c804f645c5e42e1560eb" kind="function"><name>get_session_language</name></member>
+    <member refid="classsrc_1_1_database_manager_1_1_database_manager_1_1_database_manager_1ab455f7780512cbb276d0725bae1e6df4" kind="function"><name>_init_database</name></member>
+  </compound>
+  <compound refid="class_game_manager_1_1_game_manager" kind="class"><name>GameManager::GameManager</name>
+    <member refid="class_game_manager_1_1_game_manager_1af977870e9df12a4120cecf10d1d5647d" kind="variable"><name>__session_id</name></member>
+    <member refid="class_game_manager_1_1_game_manager_1a75c754fb86e9204e4375868740743d15" kind="variable"><name>__db</name></member>
+    <member refid="class_game_manager_1_1_game_manager_1a52c70d5bbb95643dc2ed0d163d8e9eb5" kind="variable"><name>__language</name></member>
+    <member refid="class_game_manager_1_1_game_manager_1a39ffa5cd6276726992b3d78410fcd54d" kind="variable"><name>__game_master</name></member>
+    <member refid="class_game_manager_1_1_game_manager_1a31379ed017e575d546860a7346b38215" kind="variable"><name>__image_manager</name></member>
+    <member refid="class_game_manager_1_1_game_manager_1ad5731f32589712e4113aac7366c5d679" kind="variable"><name>__stt</name></member>
+    <member refid="class_game_manager_1_1_game_manager_1a6383f10322032727e247ff60ce81f15a" kind="function"><name>__init__</name></member>
+    <member refid="class_game_manager_1_1_game_manager_1a9d2e1bd15ba705ae42efbc0dcf1be035" kind="function"><name>process_audio_input</name></member>
+    <member refid="class_game_manager_1_1_game_manager_1a4322b2bdf33e7468c720e53233ffcbff" kind="function"><name>process_input</name></member>
+    <member refid="class_game_manager_1_1_game_manager_1a268def76d22d758ba6bab8ddcced4b75" kind="function"><name>generate_image</name></member>
+  </compound>
+  <compound refid="classsrc_1_1_game_master_1_1_game_master_1_1_game_master" kind="class"><name>src::GameMaster::GameMaster::GameMaster</name>
+    <member refid="classsrc_1_1_game_master_1_1_game_master_1_1_game_master_1a163bdf238c24c30500cb4d758cd25b31" kind="variable"><name>session_id</name></member>
+    <member refid="classsrc_1_1_game_master_1_1_game_master_1_1_game_master_1a7fcc819f6b191473b29534ab67576211" kind="variable"><name>db</name></member>
+    <member refid="classsrc_1_1_game_master_1_1_game_master_1_1_game_master_1ab19b9e393d293c94e4643cd32c67d0dd" kind="variable"><name>generate_character_images</name></member>
+    <member refid="classsrc_1_1_game_master_1_1_game_master_1_1_game_master_1aaebaf89191e3696ae060994b3cbd85bd" kind="variable"><name>world_description</name></member>
+    <member refid="classsrc_1_1_game_master_1_1_game_master_1_1_game_master_1a0bb1f23554cf5091cf4bffb1641d9be6" kind="variable"><name>player_description</name></member>
+    <member refid="classsrc_1_1_game_master_1_1_game_master_1_1_game_master_1aedb06b2bcc0533a886a217a19735151d" kind="variable"><name>messageGenerator</name></member>
+    <member refid="classsrc_1_1_game_master_1_1_game_master_1_1_game_master_1ab5359c63c972052f22645b0d60df5c38" kind="variable"><name>characters</name></member>
+    <member refid="classsrc_1_1_game_master_1_1_game_master_1_1_game_master_1ace910641bfd7d3f2a1421aecaea522dd" kind="variable"><name>__actor</name></member>
+    <member refid="classsrc_1_1_game_master_1_1_game_master_1_1_game_master_1ae450110ca0fd166f5a1cf036d7a42faa" kind="variable"><name>__image_manager</name></member>
+    <member refid="classsrc_1_1_game_master_1_1_game_master_1_1_game_master_1a3d4c57cdc4cd784782f1fdb024610892" kind="function"><name>__init__</name></member>
+    <member refid="classsrc_1_1_game_master_1_1_game_master_1_1_game_master_1ada31cf2e334f400a557e5cef5cfd4035" kind="function"><name>generate_answer</name></member>
+    <member refid="classsrc_1_1_game_master_1_1_game_master_1_1_game_master_1af4b0a20324399ffd65811c0d5a7e72fb" kind="function"><name>generate_instruction</name></member>
+    <member refid="classsrc_1_1_game_master_1_1_game_master_1_1_game_master_1aa80e8c47e27990d55aeb45ddf7512f05" kind="function"><name>validate_and_parse</name></member>
+    <member refid="classsrc_1_1_game_master_1_1_game_master_1_1_game_master_1a7f51c99f6a3adafdebc200086a1e71f2" kind="function"><name>parse_commands</name></member>
+  </compound>
+  <compound refid="classsrc_1_1_image_generator_1_1_image_generator_google_1_1_image_generator_google" kind="class"><name>src::ImageGenerator::ImageGeneratorGoogle::ImageGeneratorGoogle</name>
+    <member refid="classsrc_1_1_image_generator_1_1_image_generator_google_1_1_image_generator_google_1a98b723b41003f9158623a75f002ff107" kind="variable"><name>__client</name></member>
+    <member refid="classsrc_1_1_image_generator_1_1_image_generator_google_1_1_image_generator_google_1ae0a51614b9204606eb4b425f21b1f142" kind="variable"><name>__output_dir</name></member>
+    <member refid="classsrc_1_1_image_generator_1_1_image_generator_google_1_1_image_generator_google_1a2069327fc05d70f8c2f6f488c2abfa05" kind="function"><name>__init__</name></member>
+    <member refid="classsrc_1_1_image_generator_1_1_image_generator_google_1_1_image_generator_google_1a3470aae404ebe3e833362ae57500e44f" kind="function"><name>generate_image_response</name></member>
+    <member refid="classsrc_1_1_image_generator_1_1_image_generator_google_1_1_image_generator_google_1a6d4412e01117f519c922c1e0fefa5a81" kind="function"><name>__save_image</name></member>
+  </compound>
+  <compound refid="classsrc_1_1_image_generator_1_1_image_generator_protocol_1_1_image_generator_protocol" kind="class"><name>src::ImageGenerator::ImageGeneratorProtocol::ImageGeneratorProtocol</name>
+    <member refid="classsrc_1_1_image_generator_1_1_image_generator_protocol_1_1_image_generator_protocol_1a67dc32bad76939e2ba372be83049fcbb" kind="function"><name>generate_image_response</name></member>
+  </compound>
+  <compound refid="classsrc_1_1_image_manager_1_1_image_manager_1_1_image_manager" kind="class"><name>src::ImageManager::ImageManager::ImageManager</name>
+    <member refid="classsrc_1_1_image_manager_1_1_image_manager_1_1_image_manager_1a3465ec8f770e1d18ac5dd5b9b8fbc456" kind="variable"><name>__session_id</name></member>
+    <member refid="classsrc_1_1_image_manager_1_1_image_manager_1_1_image_manager_1ae9ba57ed0c65ba1f56460d0cc94affff" kind="variable"><name>__db</name></member>
+    <member refid="classsrc_1_1_image_manager_1_1_image_manager_1_1_image_manager_1ae507231a3f50da5695b2a08c271c5f6e" kind="variable"><name>__image_generator</name></member>
+    <member refid="classsrc_1_1_image_manager_1_1_image_manager_1_1_image_manager_1a72ef9f21452a12537f50d12508c1e900" kind="variable"><name>__prompt_generator</name></member>
+    <member refid="classsrc_1_1_image_manager_1_1_image_manager_1_1_image_manager_1adf109f7e341a2ada404f984e7ad2d986" kind="function"><name>__init__</name></member>
+    <member refid="classsrc_1_1_image_manager_1_1_image_manager_1_1_image_manager_1a3d93b2b2a90ff5fecaab453bbd9f2b22" kind="function"><name>generate_character_portrait</name></member>
+    <member refid="classsrc_1_1_image_manager_1_1_image_manager_1_1_image_manager_1ac9ee1fea0ddc63d7373be64fc1924487" kind="function"><name>generate_and_save_image</name></member>
+  </compound>
+  <compound refid="classsrc_1_1_image_prompt_generator_1_1_image_prompt_generator_1_1_image_prompt_generator" kind="class"><name>src::ImagePromptGenerator::ImagePromptGenerator::ImagePromptGenerator</name>
+    <member refid="classsrc_1_1_image_prompt_generator_1_1_image_prompt_generator_1_1_image_prompt_generator_1afec27a1711c202d0ef81038d31fd8da4" kind="variable"><name>__session_id</name></member>
+    <member refid="classsrc_1_1_image_prompt_generator_1_1_image_prompt_generator_1_1_image_prompt_generator_1a280c3008385d9edcc1d7559e019c76fa" kind="variable"><name>__messageGenerator</name></member>
+    <member refid="classsrc_1_1_image_prompt_generator_1_1_image_prompt_generator_1_1_image_prompt_generator_1aca5715c387563a43cf6d858f2078c7be" kind="variable"><name>__db</name></member>
+    <member refid="classsrc_1_1_image_prompt_generator_1_1_image_prompt_generator_1_1_image_prompt_generator_1a594f12f4fc1c80b4b7294dd45ebc9a0a" kind="function"><name>__init__</name></member>
+    <member refid="classsrc_1_1_image_prompt_generator_1_1_image_prompt_generator_1_1_image_prompt_generator_1ad6a86ab3a3f04e4e23fd36d119d5dbdc" kind="function"><name>generate_prompt</name></member>
+  </compound>
+  <compound refid="classsrc_1_1_message_generator_1_1_message_generator_deep_seek_1_1_message_generator_deep_seek" kind="class"><name>src::MessageGenerator::MessageGeneratorDeepSeek::MessageGeneratorDeepSeek</name>
+    <member refid="classsrc_1_1_message_generator_1_1_message_generator_deep_seek_1_1_message_generator_deep_seek_1a872e2504daca8acb5364b4aa04af85ea" kind="variable"><name>__messages</name></member>
+    <member refid="classsrc_1_1_message_generator_1_1_message_generator_deep_seek_1_1_message_generator_deep_seek_1af4a1185524ecfc334f2b62e040e6352d" kind="variable"><name>__client</name></member>
+    <member refid="classsrc_1_1_message_generator_1_1_message_generator_deep_seek_1_1_message_generator_deep_seek_1aa7d215f6838e51f144fcd615061b8822" kind="variable"><name>__model</name></member>
+    <member refid="classsrc_1_1_message_generator_1_1_message_generator_deep_seek_1_1_message_generator_deep_seek_1ac67faa02a6bb34a7fd0b7d25554c20ef" kind="function"><name>__init__</name></member>
+    <member refid="classsrc_1_1_message_generator_1_1_message_generator_deep_seek_1_1_message_generator_deep_seek_1a68531f3d43ffeb6363d6efbf434048d4" kind="function"><name>generate</name></member>
+    <member refid="classsrc_1_1_message_generator_1_1_message_generator_deep_seek_1_1_message_generator_deep_seek_1a92cd7430f9c81a8f5b6de9b0b4724111" kind="function"><name>add_user_message</name></member>
+    <member refid="classsrc_1_1_message_generator_1_1_message_generator_deep_seek_1_1_message_generator_deep_seek_1a4ad1e859f543ce3e1cce49b8a1ffc7c0" kind="function"><name>add_ai_message</name></member>
+    <member refid="classsrc_1_1_message_generator_1_1_message_generator_deep_seek_1_1_message_generator_deep_seek_1a36703bcdba3a8acfd2875370a2f43215" kind="function"><name>add_system_message</name></member>
+    <member refid="classsrc_1_1_message_generator_1_1_message_generator_deep_seek_1_1_message_generator_deep_seek_1ad3dc50b0d644789063eede934d586d7e" kind="function"><name>get_message_history</name></member>
+  </compound>
+  <compound refid="classsrc_1_1_message_generator_1_1_message_generator_groq_1_1_message_generator_groq" kind="class"><name>src::MessageGenerator::MessageGeneratorGroq::MessageGeneratorGroq</name>
+    <member refid="classsrc_1_1_message_generator_1_1_message_generator_groq_1_1_message_generator_groq_1a2cd814aa50f1f24e121e89b7a4fb0b13" kind="variable"><name>__messages</name></member>
+    <member refid="classsrc_1_1_message_generator_1_1_message_generator_groq_1_1_message_generator_groq_1a0b3e43bb62fc1b661e21f1de5cb9133b" kind="variable"><name>__client</name></member>
+    <member refid="classsrc_1_1_message_generator_1_1_message_generator_groq_1_1_message_generator_groq_1aef36b343da4674d8ce23f6c0e7260bd8" kind="variable"><name>__model</name></member>
+    <member refid="classsrc_1_1_message_generator_1_1_message_generator_groq_1_1_message_generator_groq_1af6d11410614b3d5dba47ce43e9f1a169" kind="function"><name>__init__</name></member>
+    <member refid="classsrc_1_1_message_generator_1_1_message_generator_groq_1_1_message_generator_groq_1a55c476ecd34d9391f86fd20c0ccd93c5" kind="function"><name>generate</name></member>
+    <member refid="classsrc_1_1_message_generator_1_1_message_generator_groq_1_1_message_generator_groq_1a49e6e6a49d276e60130573614ac8b09b" kind="function"><name>add_user_message</name></member>
+    <member refid="classsrc_1_1_message_generator_1_1_message_generator_groq_1_1_message_generator_groq_1ad1bbe107a0b4808269d42ce6d60f34ef" kind="function"><name>add_ai_message</name></member>
+    <member refid="classsrc_1_1_message_generator_1_1_message_generator_groq_1_1_message_generator_groq_1a253ab4ceb6fdaa120ea1f4163bd95fcb" kind="function"><name>add_system_message</name></member>
+    <member refid="classsrc_1_1_message_generator_1_1_message_generator_groq_1_1_message_generator_groq_1af59bda1d70f1580e1cdab0402b87a1fd" kind="function"><name>get_message_history</name></member>
+  </compound>
+  <compound refid="classsrc_1_1_message_generator_1_1_message_generator_open_router_1_1_message_generator_open_router" kind="class"><name>src::MessageGenerator::MessageGeneratorOpenRouter::MessageGeneratorOpenRouter</name>
+    <member refid="classsrc_1_1_message_generator_1_1_message_generator_open_router_1_1_message_generator_open_router_1aa4a09d11a5361f944f396b76c4c86ad4" kind="variable"><name>__messages</name></member>
+    <member refid="classsrc_1_1_message_generator_1_1_message_generator_open_router_1_1_message_generator_open_router_1a5adc38c643092381549678199f189607" kind="variable"><name>__client</name></member>
+    <member refid="classsrc_1_1_message_generator_1_1_message_generator_open_router_1_1_message_generator_open_router_1ae42abd5f686c8f95feda3bdbd9843a9d" kind="variable"><name>__model</name></member>
+    <member refid="classsrc_1_1_message_generator_1_1_message_generator_open_router_1_1_message_generator_open_router_1a75a7a3626f6c6189f666a22d74a18303" kind="function"><name>__init__</name></member>
+    <member refid="classsrc_1_1_message_generator_1_1_message_generator_open_router_1_1_message_generator_open_router_1a15028a5b1b03263bf167d0b962b6a8ed" kind="function"><name>generate</name></member>
+    <member refid="classsrc_1_1_message_generator_1_1_message_generator_open_router_1_1_message_generator_open_router_1af52bb8a0267ae1b4daa825306d899a7e" kind="function"><name>add_user_message</name></member>
+    <member refid="classsrc_1_1_message_generator_1_1_message_generator_open_router_1_1_message_generator_open_router_1aa5d3cc3f60a9d6fa9dd5b3953ddeb96d" kind="function"><name>add_ai_message</name></member>
+    <member refid="classsrc_1_1_message_generator_1_1_message_generator_open_router_1_1_message_generator_open_router_1a1fb2452d509bfbf2b1bcf924265fe386" kind="function"><name>add_system_message</name></member>
+    <member refid="classsrc_1_1_message_generator_1_1_message_generator_open_router_1_1_message_generator_open_router_1a7578f9aa506627b7e8de5e6b322f401e" kind="function"><name>get_message_history</name></member>
+  </compound>
+  <compound refid="classsrc_1_1_game_master_1_1_game_master_1_1_player_death_exception" kind="class"><name>src::GameMaster::GameMaster::PlayerDeathException</name>
+  </compound>
+  <compound refid="classsrc_1_1_actor_1_1_protocol_actor_1_1_protocol_actor" kind="class"><name>src::Actor::ProtocolActor::ProtocolActor</name>
+    <member refid="classsrc_1_1_actor_1_1_protocol_actor_1_1_protocol_actor_1a56b4f71b5273de57aae8a65e1e0e3fb3" kind="function"><name>get_detailed_action</name></member>
+  </compound>
+  <compound refid="classsrc_1_1_game_master_1_1_protocol_game_master_1_1_protocol_game_master" kind="class"><name>src::GameMaster::ProtocolGameMaster::ProtocolGameMaster</name>
+    <member refid="classsrc_1_1_game_master_1_1_protocol_game_master_1_1_protocol_game_master_1a6e421e6e57783f84be9b98d42cfb9af2" kind="function"><name>generate_answer</name></member>
+    <member refid="classsrc_1_1_game_master_1_1_protocol_game_master_1_1_protocol_game_master_1ac842ff606b7dd24e62ff6e62f5163035" kind="function"><name>generate_instruction</name></member>
+    <member refid="classsrc_1_1_game_master_1_1_protocol_game_master_1_1_protocol_game_master_1a2ca7cf4f8163b1dd4056a66403117f04" kind="function"><name>parse_commands</name></member>
+    <member refid="classsrc_1_1_game_master_1_1_protocol_game_master_1_1_protocol_game_master_1a8a9b7dd7fd2039e11dc803822e5f159c" kind="function"><name>validate_and_parse</name></member>
+  </compound>
+  <compound refid="classsrc_1_1_message_generator_1_1_protocol_message_generator_1_1_protocol_message_generator" kind="class"><name>src::MessageGenerator::ProtocolMessageGenerator::ProtocolMessageGenerator</name>
+    <member refid="classsrc_1_1_message_generator_1_1_protocol_message_generator_1_1_protocol_message_generator_1a3b2d9e3f4f31cce6400c8fe8b5329bf4" kind="function"><name>generate</name></member>
+    <member refid="classsrc_1_1_message_generator_1_1_protocol_message_generator_1_1_protocol_message_generator_1acecf0dcf2a5261a36c56da5ab6e253e3" kind="function"><name>add_user_message</name></member>
+    <member refid="classsrc_1_1_message_generator_1_1_protocol_message_generator_1_1_protocol_message_generator_1a05e18c9670112887e7fd920ad79caf14" kind="function"><name>add_system_message</name></member>
+    <member refid="classsrc_1_1_message_generator_1_1_protocol_message_generator_1_1_protocol_message_generator_1afaffcee2207244df4fa8b5b398196062" kind="function"><name>add_ai_message</name></member>
+    <member refid="classsrc_1_1_message_generator_1_1_protocol_message_generator_1_1_protocol_message_generator_1a854ce7a11bf37223a2b51f465a0a7638" kind="function"><name>get_message_history</name></member>
+  </compound>
+  <compound refid="classsrc_1_1_session_manager_1_1_session_manager_1_1_session_manager" kind="class"><name>src::SessionManager::SessionManager::SessionManager</name>
+    <member refid="classsrc_1_1_session_manager_1_1_session_manager_1_1_session_manager_1aeb0257a623292508922fb0b43f9de393" kind="variable"><name>db</name></member>
+    <member refid="classsrc_1_1_session_manager_1_1_session_manager_1_1_session_manager_1ad18f61f47f308462113132ca2564eba0" kind="variable"><name>active_sessions</name></member>
+    <member refid="classsrc_1_1_session_manager_1_1_session_manager_1_1_session_manager_1aa2005fc8b425dcfa8f4c96f0aa9f80f3" kind="function"><name>__init__</name></member>
+    <member refid="classsrc_1_1_session_manager_1_1_session_manager_1_1_session_manager_1abd148d50854cccb0ff7e7c93d2147ed2" kind="function"><name>create_user</name></member>
+    <member refid="classsrc_1_1_session_manager_1_1_session_manager_1_1_session_manager_1a998efcf0b4c22cc5faf175a3c92eecb9" kind="function"><name>start_session</name></member>
+    <member refid="classsrc_1_1_session_manager_1_1_session_manager_1_1_session_manager_1ada7c5043a8839d41f62fc6e5d0c3714f" kind="function"><name>get_session</name></member>
+    <member refid="classsrc_1_1_session_manager_1_1_session_manager_1_1_session_manager_1aa656a9c75833127e301b8a22b506b257" kind="function"><name>delete_user</name></member>
+  </compound>
+  <compound refid="class_s_t_t_1_1_s_t_t" kind="class"><name>STT::STT</name>
+    <member refid="class_s_t_t_1_1_s_t_t_1a135af9a06c5abce11d9f7d6dc11b66e4" kind="variable"><name>__instance</name></member>
+    <member refid="class_s_t_t_1_1_s_t_t_1a18d65b38e82a8a6d2332dcb77448c334" kind="variable"><name>__recognizer</name></member>
+    <member refid="class_s_t_t_1_1_s_t_t_1a31995431a1081b0e1fa5e22634677c63" kind="variable"><name>__silence_duration_ms</name></member>
+    <member refid="class_s_t_t_1_1_s_t_t_1a0eb5f46b9bbcfad3f8c5ea052d9d75dc" kind="variable"><name>__energy_threshold</name></member>
+    <member refid="class_s_t_t_1_1_s_t_t_1a2f168079f8932bca18ff8ea847b01072" kind="variable"><name>__pause_threshold</name></member>
+    <member refid="class_s_t_t_1_1_s_t_t_1a96f1b5f438df84284f82933791420440" kind="variable"><name>__dynamic_energy_threshold</name></member>
+    <member refid="class_s_t_t_1_1_s_t_t_1add1948143ef0071a4e01484adf81ab04" kind="variable"><name>__language_codes</name></member>
+    <member refid="class_s_t_t_1_1_s_t_t_1a4ca8df1cdc6958d6ee4897155e8f95f6" kind="variable"><name>__current_language</name></member>
+    <member refid="class_s_t_t_1_1_s_t_t_1a00806fedb423f01c5e88d7b05428ed42" kind="function"><name>__new__</name></member>
+    <member refid="class_s_t_t_1_1_s_t_t_1afd1233e0d05b742a70ac41d656c39d7a" kind="function"><name>__init__</name></member>
+    <member refid="class_s_t_t_1_1_s_t_t_1a26c6ff8183dcc74ae777214092921ddf" kind="function"><name>set_language</name></member>
+    <member refid="class_s_t_t_1_1_s_t_t_1a2834cb4380855d9beb3d8a70ac675523" kind="function"><name>get_language</name></member>
+    <member refid="class_s_t_t_1_1_s_t_t_1ab26c7c8dcf0c6c835b4f596cac106d9b" kind="function"><name>audio_to_text</name></member>
+    <member refid="class_s_t_t_1_1_s_t_t_1a06e540126c6521cfacfcb842adfcd347" kind="function"><name>__add_silence_padding</name></member>
+    <member refid="class_s_t_t_1_1_s_t_t_1a6c0c83ad8bd5648101d8cd0d2207282f" kind="function"><name>__cleanup_temp_file</name></member>
+  </compound>
+  <compound refid="namespace_game_manager" kind="namespace"><name>GameManager</name>
+  </compound>
+  <compound refid="namespacesrc" kind="namespace"><name>src</name>
+  </compound>
+  <compound refid="namespacesrc_1_1____main____" kind="namespace"><name>src::__main__</name>
+    <member refid="____main_____8py_1a64329f56b838a215f5f21a5439bd8769" kind="variable"><name>project_root</name></member>
+    <member refid="____main_____8py_1af024d0d79d4771a64ec0c1d532e2115b" kind="function"><name>run_mypy</name></member>
+    <member refid="____main_____8py_1a72806940ae95c75e6d16cbf2ec7d0a11" kind="function"><name>select_user</name></member>
+    <member refid="____main_____8py_1a4af6f5133b3c56554014f93af32f438a" kind="function"><name>select_session</name></member>
+    <member refid="____main_____8py_1a4268ea6de35a439f8bdd8b86a30012a7" kind="function"><name>select_language</name></member>
+    <member refid="____main_____8py_1a0d128d6bf9e0fb75460cfc439ee9c482" kind="function"><name>main</name></member>
+  </compound>
+  <compound refid="namespacesrc_1_1_actor" kind="namespace"><name>src::Actor</name>
+  </compound>
+  <compound refid="namespacesrc_1_1_actor_1_1_actor" kind="namespace"><name>src::Actor::Actor</name>
+  </compound>
+  <compound refid="namespacesrc_1_1_actor_1_1_actor_promts" kind="namespace"><name>src::Actor::ActorPromts</name>
+    <member refid="_actor_promts_8py_1a39284d85b308781313a9de23549d69ec" kind="variable"><name>start_message</name></member>
+  </compound>
+  <compound refid="namespacesrc_1_1_actor_1_1_protocol_actor" kind="namespace"><name>src::Actor::ProtocolActor</name>
+  </compound>
+  <compound refid="namespacesrc_1_1config" kind="namespace"><name>src::config</name>
+    <member refid="config_8py_1a2abca760921c0ba869450ca992428678" kind="variable"><name>DATABASE_NAME</name></member>
+    <member refid="config_8py_1a6249507e1c9b6734a85288b204e2c9c7" kind="variable"><name>IMAGE_OUTPUT_DIR</name></member>
+  </compound>
+  <compound refid="namespacesrc_1_1_database_manager" kind="namespace"><name>src::DatabaseManager</name>
+  </compound>
+  <compound refid="namespacesrc_1_1_database_manager_1_1_database_manager" kind="namespace"><name>src::DatabaseManager::DatabaseManager</name>
+  </compound>
+  <compound refid="namespacesrc_1_1_descriptions" kind="namespace"><name>src::Descriptions</name>
+  </compound>
+  <compound refid="namespacesrc_1_1_descriptions_1_1_character_decription" kind="namespace"><name>src::Descriptions::CharacterDecription</name>
+    <member refid="_character_decription_8py_1afe793ce6393775fee90677259088bbcd" kind="variable"><name>base_character_name</name></member>
+    <member refid="_character_decription_8py_1ae904d0a82d95b721d88ff92b91fbf5fe" kind="variable"><name>base_character_description</name></member>
+  </compound>
+  <compound refid="namespacesrc_1_1_descriptions_1_1_world_decription" kind="namespace"><name>src::Descriptions::WorldDecription</name>
+    <member refid="_world_decription_8py_1a34d7e231eb8e935d34df006064069048" kind="variable"><name>base_world_description</name></member>
+  </compound>
+  <compound refid="namespacesrc_1_1_game_master" kind="namespace"><name>src::GameMaster</name>
+  </compound>
+  <compound refid="namespacesrc_1_1_game_master_1_1_command_data" kind="namespace"><name>src::GameMaster::CommandData</name>
+  </compound>
+  <compound refid="namespacesrc_1_1_game_master_1_1_game_master" kind="namespace"><name>src::GameMaster::GameMaster</name>
+  </compound>
+  <compound refid="namespacesrc_1_1_game_master_1_1_game_master_promts" kind="namespace"><name>src::GameMaster::GameMasterPromts</name>
+    <member refid="_game_master_promts_8py_1aaf2f8fbf8674417dac103dc6b021a1b1" kind="variable"><name>correct_formatting</name></member>
+    <member refid="_game_master_promts_8py_1a475efef684ec18b7d5679fb106004312" kind="variable"><name>start_message</name></member>
+    <member refid="_game_master_promts_8py_1aed60faa1910f5ef00558a8221da3b5f5" kind="variable"><name>world_description_start</name></member>
+    <member refid="_game_master_promts_8py_1ac432329b4135ab4f2c4506889d018cd2" kind="variable"><name>character_name_start</name></member>
+    <member refid="_game_master_promts_8py_1a3ded5cecac704b24b97a541fa3440d53" kind="variable"><name>off_topic_message_eng</name></member>
+    <member refid="_game_master_promts_8py_1a8e256f55f4864a33e386b55813f7635d" kind="variable"><name>off_topic_message_ru</name></member>
+  </compound>
+  <compound refid="namespacesrc_1_1_game_master_1_1_protocol_game_master" kind="namespace"><name>src::GameMaster::ProtocolGameMaster</name>
+  </compound>
+  <compound refid="namespacesrc_1_1_image_generator" kind="namespace"><name>src::ImageGenerator</name>
+  </compound>
+  <compound refid="namespacesrc_1_1_image_generator_1_1_image_generator_google" kind="namespace"><name>src::ImageGenerator::ImageGeneratorGoogle</name>
+  </compound>
+  <compound refid="namespacesrc_1_1_image_generator_1_1_image_generator_protocol" kind="namespace"><name>src::ImageGenerator::ImageGeneratorProtocol</name>
+  </compound>
+  <compound refid="namespacesrc_1_1_image_manager" kind="namespace"><name>src::ImageManager</name>
+  </compound>
+  <compound refid="namespacesrc_1_1_image_manager_1_1_image_manager" kind="namespace"><name>src::ImageManager::ImageManager</name>
+    <member refid="_image_manager_8py_1adcca881f19f44e1da6f846aa10deac2c" kind="variable"><name>error_image_path</name></member>
+  </compound>
+  <compound refid="namespacesrc_1_1_image_prompt_generator" kind="namespace"><name>src::ImagePromptGenerator</name>
+  </compound>
+  <compound refid="namespacesrc_1_1_image_prompt_generator_1_1_image_prompt_generator" kind="namespace"><name>src::ImagePromptGenerator::ImagePromptGenerator</name>
+  </compound>
+  <compound refid="namespacesrc_1_1_message_generator" kind="namespace"><name>src::MessageGenerator</name>
+  </compound>
+  <compound refid="namespacesrc_1_1_message_generator_1_1_message_generator_deep_seek" kind="namespace"><name>src::MessageGenerator::MessageGeneratorDeepSeek</name>
+  </compound>
+  <compound refid="namespacesrc_1_1_message_generator_1_1_message_generator_groq" kind="namespace"><name>src::MessageGenerator::MessageGeneratorGroq</name>
+  </compound>
+  <compound refid="namespacesrc_1_1_message_generator_1_1_message_generator_open_router" kind="namespace"><name>src::MessageGenerator::MessageGeneratorOpenRouter</name>
+  </compound>
+  <compound refid="namespacesrc_1_1_message_generator_1_1_protocol_message_generator" kind="namespace"><name>src::MessageGenerator::ProtocolMessageGenerator</name>
+  </compound>
+  <compound refid="namespacesrc_1_1_session_manager" kind="namespace"><name>src::SessionManager</name>
+  </compound>
+  <compound refid="namespacesrc_1_1_session_manager_1_1_session_manager" kind="namespace"><name>src::SessionManager::SessionManager</name>
+  </compound>
+  <compound refid="namespace_s_t_t" kind="namespace"><name>STT</name>
+    <member refid="_s_t_t_8py_1ade5feede90ad9c9a271714279be614c6" kind="variable"><name>stt</name></member>
+    <member refid="_s_t_t_8py_1abcb5f86c93a3b03fd0cb54598fd5762e" kind="variable"><name>audio_file</name></member>
+    <member refid="_s_t_t_8py_1a27bb5f430b5479d4be6cc9163090d79a" kind="variable"><name>result</name></member>
+  </compound>
+  <compound refid="namespace_va_l_l_e-test" kind="namespace"><name>VaLLE-test</name>
+  </compound>
+  <compound refid="____main_____8py" kind="file"><name>__main__.py</name>
+  </compound>
+  <compound refid="____init_____8py" kind="file"><name>__init__.py</name>
+  </compound>
+  <compound refid="_actor_2____init_____8py" kind="file"><name>__init__.py</name>
+  </compound>
+  <compound refid="_database_manager_2____init_____8py" kind="file"><name>__init__.py</name>
+  </compound>
+  <compound refid="_descriptions_2____init_____8py" kind="file"><name>__init__.py</name>
+  </compound>
+  <compound refid="_game_master_2____init_____8py" kind="file"><name>__init__.py</name>
+  </compound>
+  <compound refid="_image_generator_2____init_____8py" kind="file"><name>__init__.py</name>
+  </compound>
+  <compound refid="_image_manager_2____init_____8py" kind="file"><name>__init__.py</name>
+  </compound>
+  <compound refid="_image_prompt_generator_2____init_____8py" kind="file"><name>__init__.py</name>
+  </compound>
+  <compound refid="_message_generator_2____init_____8py" kind="file"><name>__init__.py</name>
+  </compound>
+  <compound refid="_session_manager_2____init_____8py" kind="file"><name>__init__.py</name>
+  </compound>
+  <compound refid="_actor_8py" kind="file"><name>Actor.py</name>
+  </compound>
+  <compound refid="_actor_promts_8py" kind="file"><name>ActorPromts.py</name>
+  </compound>
+  <compound refid="_protocol_actor_8py" kind="file"><name>ProtocolActor.py</name>
+  </compound>
+  <compound refid="config_8py" kind="file"><name>config.py</name>
+  </compound>
+  <compound refid="_database_manager_8py" kind="file"><name>DatabaseManager.py</name>
+  </compound>
+  <compound refid="_character_decription_8py" kind="file"><name>CharacterDecription.py</name>
+  </compound>
+  <compound refid="_world_decription_8py" kind="file"><name>WorldDecription.py</name>
+  </compound>
+  <compound refid="_game_manager_8py" kind="file"><name>GameManager.py</name>
+  </compound>
+  <compound refid="_command_data_8py" kind="file"><name>CommandData.py</name>
+  </compound>
+  <compound refid="_game_master_8py" kind="file"><name>GameMaster.py</name>
+  </compound>
+  <compound refid="_game_master_promts_8py" kind="file"><name>GameMasterPromts.py</name>
+  </compound>
+  <compound refid="_protocol_game_master_8py" kind="file"><name>ProtocolGameMaster.py</name>
+  </compound>
+  <compound refid="_image_generator_google_8py" kind="file"><name>ImageGeneratorGoogle.py</name>
+  </compound>
+  <compound refid="_image_generator_protocol_8py" kind="file"><name>ImageGeneratorProtocol.py</name>
+  </compound>
+  <compound refid="_image_manager_8py" kind="file"><name>ImageManager.py</name>
+  </compound>
+  <compound refid="_image_prompt_generator_8py" kind="file"><name>ImagePromptGenerator.py</name>
+  </compound>
+  <compound refid="_message_generator_deep_seek_8py" kind="file"><name>MessageGeneratorDeepSeek.py</name>
+  </compound>
+  <compound refid="_message_generator_groq_8py" kind="file"><name>MessageGeneratorGroq.py</name>
+  </compound>
+  <compound refid="_message_generator_open_router_8py" kind="file"><name>MessageGeneratorOpenRouter.py</name>
+  </compound>
+  <compound refid="_protocol_message_generator_8py" kind="file"><name>ProtocolMessageGenerator.py</name>
+  </compound>
+  <compound refid="_session_manager_8py" kind="file"><name>SessionManager.py</name>
+  </compound>
+  <compound refid="_s_t_t_8py" kind="file"><name>STT.py</name>
+  </compound>
+  <compound refid="_va_l_l_e-test_8py" kind="file"><name>VaLLE-test.py</name>
+  </compound>
+  <compound refid="dir_3c22b8431fbd9abe569b7ddfcfa36376" kind="dir"><name>C:/Users/kir/Desktop/py/API/src/Actor</name>
+  </compound>
+  <compound refid="dir_1bacb7a041c5d8e8f278a4dfcf4ef5b7" kind="dir"><name>C:/Users/kir/Desktop/py/API</name>
+  </compound>
+  <compound refid="dir_8c8508466b27b4f86abdc45c5e27ce3c" kind="dir"><name>C:/Users/kir/Desktop/py/API/src/DatabaseManager</name>
+  </compound>
+  <compound refid="dir_ce82d4583c7b64f700b9ab58309896d0" kind="dir"><name>C:/Users/kir/Desktop/py/API/src/Descriptions</name>
+  </compound>
+  <compound refid="dir_814a0ff088737b94f0ce35fea5e10d9d" kind="dir"><name>C:/Users/kir/Desktop/py/API/src/GameManager</name>
+  </compound>
+  <compound refid="dir_59ebbeb22c91e58fd1dac20ab8fae146" kind="dir"><name>C:/Users/kir/Desktop/py/API/src/GameMaster</name>
+  </compound>
+  <compound refid="dir_65b5ee33c505f5d0d2f0347c8c16bb10" kind="dir"><name>C:/Users/kir/Desktop/py/API/src/ImageGenerator</name>
+  </compound>
+  <compound refid="dir_924bfd6db5f3fcf53470265e6fc53f62" kind="dir"><name>C:/Users/kir/Desktop/py/API/src/ImageManager</name>
+  </compound>
+  <compound refid="dir_eaa09915ff28484e08253593f2681bb6" kind="dir"><name>C:/Users/kir/Desktop/py/API/src/ImagePromptGenerator</name>
+  </compound>
+  <compound refid="dir_e72ccf52b297ca68de91d53a198ee3d4" kind="dir"><name>C:/Users/kir/Desktop/py/API/src/MessageGenerator</name>
+  </compound>
+  <compound refid="dir_15fe2cec17dffb22c04117b383426cd3" kind="dir"><name>C:/Users/kir/Desktop/py</name>
+  </compound>
+  <compound refid="dir_540e72667078bcd2760ad27bdea71b99" kind="dir"><name>C:/Users/kir/Desktop/py/API/src/SessionManager</name>
+  </compound>
+  <compound refid="dir_ba9bc6bf1fb8c5cfdc0d21d8ec27424e" kind="dir"><name>C:/Users/kir/Desktop/py/API/src</name>
+  </compound>
+  <compound refid="dir_9d40df8cf3d2146dc53d2148906060ce" kind="dir"><name>C:/Users/kir/Desktop/py/API/src/STT</name>
+  </compound>
+  <compound refid="dir_b61ff97e9255645370ef3aad62595f6e" kind="dir"><name>C:/Users/kir/Desktop/py/API/src/TTS</name>
+  </compound>
+</doxygenindex>

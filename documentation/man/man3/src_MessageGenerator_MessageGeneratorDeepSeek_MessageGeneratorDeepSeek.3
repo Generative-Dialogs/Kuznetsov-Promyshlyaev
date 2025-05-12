@@ -1,0 +1,149 @@
+.TH "src.MessageGenerator.MessageGeneratorDeepSeek.MessageGeneratorDeepSeek" 3 "My Project" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+src.MessageGenerator.MessageGeneratorDeepSeek.MessageGeneratorDeepSeek \- Генератор сообщений с использованием DeepSeek API\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Базовые классы:\fBsrc\&.MessageGenerator\&.ProtocolMessageGenerator\&.ProtocolMessageGenerator\fP\&.
+.SS "Открытые члены"
+
+.in +1c
+.ti -1c
+.RI "None \fB__init__\fP (self, str model='deepseek\-chat')"
+.br
+.RI "Инициализация генератора сообщений "
+.ti -1c
+.RI "str \fBgenerate\fP (self, str input_message, Optional[str] model=None)"
+.br
+.RI "Генерация ответа с использованием DeepSeek API\&. "
+.ti -1c
+.RI "None \fBadd_user_message\fP (self, str message_content)"
+.br
+.RI "Добавление сообщения пользователя в историю "
+.ti -1c
+.RI "None \fBadd_ai_message\fP (self, str message_content)"
+.br
+.RI "Добавление сообщения ИИ в историю "
+.ti -1c
+.RI "None \fBadd_system_message\fP (self, str message_content)"
+.br
+.RI "Добавление системного сообщения в историю "
+.ti -1c
+.RI "List[Dict[str, str]] \fBget_message_history\fP (self)"
+.br
+.RI "Получение истории сообщений "
+.in -1c
+.SH "Подробное описание"
+.PP 
+Генератор сообщений с использованием DeepSeek API\&. 
+
+Реализует интерфейс \fBProtocolMessageGenerator\fP для генерации сообщений через DeepSeek API, предоставляющий доступ к специализированным языковым моделям\&. 
+.PP
+См\&. определение в файле \fBMessageGeneratorDeepSeek\&.py\fP строка \fB8\fP
+.SH "Конструктор(ы)"
+.PP 
+.SS " None src\&.MessageGenerator\&.MessageGeneratorDeepSeek\&.MessageGeneratorDeepSeek\&.__init__ ( self, str  model = \fR'deepseek\-chat'\fP)"
+
+.PP
+Инициализация генератора сообщений 
+.PP
+\fBАргументы\fP
+.RS 4
+\fImodel\fP Название модели для генерации (по умолчанию 'deepseek-chat') 
+.RE
+.PP
+
+.PP
+См\&. определение в файле \fBMessageGeneratorDeepSeek\&.py\fP строка \fB20\fP
+.SH "Методы"
+.PP 
+.SS " None src\&.MessageGenerator\&.MessageGeneratorDeepSeek\&.MessageGeneratorDeepSeek\&.add_ai_message ( self, str message_content)"
+
+.PP
+Добавление сообщения ИИ в историю 
+.PP
+\fBАргументы\fP
+.RS 4
+\fImessage_content\fP Текст сообщения ИИ 
+.RE
+.PP
+
+.PP
+Переопределяет метод предка \fBsrc\&.MessageGenerator\&.ProtocolMessageGenerator\&.ProtocolMessageGenerator\fP\&.
+.PP
+См\&. определение в файле \fBMessageGeneratorDeepSeek\&.py\fP строка \fB70\fP
+.SS " None src\&.MessageGenerator\&.MessageGeneratorDeepSeek\&.MessageGeneratorDeepSeek\&.add_system_message ( self, str message_content)"
+
+.PP
+Добавление системного сообщения в историю 
+.PP
+\fBАргументы\fP
+.RS 4
+\fImessage_content\fP Текст системного сообщения 
+.RE
+.PP
+
+.PP
+Переопределяет метод предка \fBsrc\&.MessageGenerator\&.ProtocolMessageGenerator\&.ProtocolMessageGenerator\fP\&.
+.PP
+См\&. определение в файле \fBMessageGeneratorDeepSeek\&.py\fP строка \fB82\fP
+.SS " None src\&.MessageGenerator\&.MessageGeneratorDeepSeek\&.MessageGeneratorDeepSeek\&.add_user_message ( self, str message_content)"
+
+.PP
+Добавление сообщения пользователя в историю 
+.PP
+\fBАргументы\fP
+.RS 4
+\fImessage_content\fP Текст сообщения пользователя 
+.RE
+.PP
+
+.PP
+Переопределяет метод предка \fBsrc\&.MessageGenerator\&.ProtocolMessageGenerator\&.ProtocolMessageGenerator\fP\&.
+.PP
+См\&. определение в файле \fBMessageGeneratorDeepSeek\&.py\fP строка \fB58\fP
+.SS " str src\&.MessageGenerator\&.MessageGeneratorDeepSeek\&.MessageGeneratorDeepSeek\&.generate ( self, str input_message, Optional[str]  model = \fRNone\fP)"
+
+.PP
+Генерация ответа с использованием DeepSeek API\&. 
+.PP
+\fBАргументы\fP
+.RS 4
+\fIinput_message\fP Входное сообщение для обработки 
+.br
+\fImodel\fP Название модели для генерации (опционально)
+.RE
+.PP
+\fBВозвращает\fP
+.RS 4
+str Сгенерированный ответ 
+.RE
+.PP
+
+.PP
+Переопределяет метод предка \fBsrc\&.MessageGenerator\&.ProtocolMessageGenerator\&.ProtocolMessageGenerator\fP\&.
+.PP
+См\&. определение в файле \fBMessageGeneratorDeepSeek\&.py\fP строка \fB31\fP
+.SS " List[Dict[str, str]] src\&.MessageGenerator\&.MessageGeneratorDeepSeek\&.MessageGeneratorDeepSeek\&.get_message_history ( self)"
+
+.PP
+Получение истории сообщений 
+.PP
+\fBВозвращает\fP
+.RS 4
+List[Dict[str, str]] Список сообщений в формате словарей 
+.RE
+.PP
+
+.PP
+Переопределяет метод предка \fBsrc\&.MessageGenerator\&.ProtocolMessageGenerator\&.ProtocolMessageGenerator\fP\&.
+.PP
+См\&. определение в файле \fBMessageGeneratorDeepSeek\&.py\fP строка \fB94\fP
+
+.SH "Автор"
+.PP 
+Автоматически создано Doxygen для My Project из исходного текста\&.

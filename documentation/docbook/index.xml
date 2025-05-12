@@ -1,0 +1,74 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<book xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_index" xml:lang="ru">
+    <info>
+    <title>My Project</title>
+    </info>
+<chapter>
+    <title>Пространства имен</title>
+<xi:include href="namespacesrc.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+</chapter>
+<chapter>
+    <title>Классы</title>
+    <xi:include href="classsrc_1_1_actor_1_1_actor_1_1_actor.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="classsrc_1_1_game_master_1_1_command_data_1_1_command_create_character.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="classsrc_1_1_game_master_1_1_command_data_1_1_command_data.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="classsrc_1_1_game_master_1_1_command_data_1_1_command_data_environment_description.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="classsrc_1_1_game_master_1_1_command_data_1_1_command_off_topic.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="classsrc_1_1_game_master_1_1_command_data_1_1_command_player_death.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="classsrc_1_1_game_master_1_1_command_data_1_1_command_select_character.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="classsrc_1_1_database_manager_1_1_database_manager_1_1_database_manager.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="class_game_manager_1_1_game_manager.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="classsrc_1_1_game_master_1_1_game_master_1_1_game_master.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="classsrc_1_1_image_generator_1_1_image_generator_google_1_1_image_generator_google.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="classsrc_1_1_image_generator_1_1_image_generator_protocol_1_1_image_generator_protocol.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="classsrc_1_1_image_manager_1_1_image_manager_1_1_image_manager.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="classsrc_1_1_image_prompt_generator_1_1_image_prompt_generator_1_1_image_prompt_generator.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="classsrc_1_1_message_generator_1_1_message_generator_deep_seek_1_1_message_generator_deep_seek.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="classsrc_1_1_message_generator_1_1_message_generator_groq_1_1_message_generator_groq.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="classsrc_1_1_message_generator_1_1_message_generator_open_router_1_1_message_generator_open_router.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="classsrc_1_1_game_master_1_1_game_master_1_1_player_death_exception.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="classsrc_1_1_actor_1_1_protocol_actor_1_1_protocol_actor.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="classsrc_1_1_game_master_1_1_protocol_game_master_1_1_protocol_game_master.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="classsrc_1_1_message_generator_1_1_protocol_message_generator_1_1_protocol_message_generator.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="classsrc_1_1_session_manager_1_1_session_manager_1_1_session_manager.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="class_s_t_t_1_1_s_t_t.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+</chapter>
+<chapter>
+    <title>Файлы</title>
+    <xi:include href="____main_____8py_source.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="____init_____8py_source.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="_actor_2____init_____8py_source.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="_database_manager_2____init_____8py_source.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="_descriptions_2____init_____8py_source.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="_game_master_2____init_____8py_source.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="_image_generator_2____init_____8py_source.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="_image_manager_2____init_____8py_source.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="_image_prompt_generator_2____init_____8py_source.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="_message_generator_2____init_____8py_source.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="_session_manager_2____init_____8py_source.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="_actor_8py_source.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="_actor_promts_8py_source.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="_protocol_actor_8py_source.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="config_8py_source.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="_database_manager_8py_source.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="_character_decription_8py_source.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="_world_decription_8py_source.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="_game_manager_8py_source.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="_command_data_8py_source.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="_game_master_8py_source.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="_game_master_promts_8py_source.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="_protocol_game_master_8py_source.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="_image_generator_google_8py_source.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="_image_generator_protocol_8py_source.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="_image_manager_8py_source.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="_image_prompt_generator_8py_source.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="_message_generator_deep_seek_8py_source.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="_message_generator_groq_8py_source.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="_message_generator_open_router_8py_source.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="_protocol_message_generator_8py_source.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="_session_manager_8py_source.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="_s_t_t_8py_source.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="_va_l_l_e-test_8py_source.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+</chapter>
+<index/>
+</book>

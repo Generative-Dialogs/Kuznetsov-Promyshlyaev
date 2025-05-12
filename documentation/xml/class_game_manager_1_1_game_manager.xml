@@ -1,0 +1,298 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.13.2" xml:lang="ru">
+  <compounddef id="class_game_manager_1_1_game_manager" kind="class" language="Python" prot="public">
+    <compoundname>GameManager::GameManager</compoundname>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="class_game_manager_1_1_game_manager_1af977870e9df12a4120cecf10d1d5647d" prot="private" static="no" mutable="no">
+        <type></type>
+        <definition>GameManager.GameManager::__session_id</definition>
+        <argsstring></argsstring>
+        <name>__session_id</name>
+        <qualifiedname>GameManager.GameManager.__session_id</qualifiedname>
+        <initializer>=  session_id</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/kir/Desktop/py/API/src/GameManager/GameManager.py" line="37" column="1" bodyfile="C:/Users/kir/Desktop/py/API/src/GameManager/GameManager.py" bodystart="37" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_game_manager_1_1_game_manager_1a75c754fb86e9204e4375868740743d15" prot="private" static="no" mutable="no">
+        <type></type>
+        <definition>GameManager.GameManager::__db</definition>
+        <argsstring></argsstring>
+        <name>__db</name>
+        <qualifiedname>GameManager.GameManager.__db</qualifiedname>
+        <initializer>=  <ref refid="classsrc_1_1_database_manager_1_1_database_manager_1_1_database_manager" kindref="compound">DatabaseManager</ref>()</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/kir/Desktop/py/API/src/GameManager/GameManager.py" line="38" column="1" bodyfile="C:/Users/kir/Desktop/py/API/src/GameManager/GameManager.py" bodystart="38" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_game_manager_1_1_game_manager_1a52c70d5bbb95643dc2ed0d163d8e9eb5" prot="private" static="no" mutable="no">
+        <type></type>
+        <definition>GameManager.GameManager::__language</definition>
+        <argsstring></argsstring>
+        <name>__language</name>
+        <qualifiedname>GameManager.GameManager.__language</qualifiedname>
+        <initializer>=  self.__db.get_session_language(session_id)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/kir/Desktop/py/API/src/GameManager/GameManager.py" line="39" column="1" bodyfile="C:/Users/kir/Desktop/py/API/src/GameManager/GameManager.py" bodystart="39" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_game_manager_1_1_game_manager_1a39ffa5cd6276726992b3d78410fcd54d" prot="private" static="no" mutable="no">
+        <type></type>
+        <definition>GameManager.GameManager::__game_master</definition>
+        <argsstring></argsstring>
+        <name>__game_master</name>
+        <qualifiedname>GameManager.GameManager.__game_master</qualifiedname>
+        <initializer>=  <ref refid="classsrc_1_1_game_master_1_1_game_master_1_1_game_master" kindref="compound">GameMaster</ref>(session_id, language=self.__language)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/kir/Desktop/py/API/src/GameManager/GameManager.py" line="40" column="1" bodyfile="C:/Users/kir/Desktop/py/API/src/GameManager/GameManager.py" bodystart="40" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_game_manager_1_1_game_manager_1a31379ed017e575d546860a7346b38215" prot="private" static="no" mutable="no">
+        <type></type>
+        <definition>GameManager.GameManager::__image_manager</definition>
+        <argsstring></argsstring>
+        <name>__image_manager</name>
+        <qualifiedname>GameManager.GameManager.__image_manager</qualifiedname>
+        <initializer>=  <ref refid="classsrc_1_1_image_manager_1_1_image_manager_1_1_image_manager" kindref="compound">ImageManager</ref>(session_id)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/kir/Desktop/py/API/src/GameManager/GameManager.py" line="41" column="1" bodyfile="C:/Users/kir/Desktop/py/API/src/GameManager/GameManager.py" bodystart="41" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_game_manager_1_1_game_manager_1ad5731f32589712e4113aac7366c5d679" prot="private" static="no" mutable="no">
+        <type></type>
+        <definition>GameManager.GameManager::__stt</definition>
+        <argsstring></argsstring>
+        <name>__stt</name>
+        <qualifiedname>GameManager.GameManager.__stt</qualifiedname>
+        <initializer>=  STT()</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/kir/Desktop/py/API/src/GameManager/GameManager.py" line="42" column="1" bodyfile="C:/Users/kir/Desktop/py/API/src/GameManager/GameManager.py" bodystart="42" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_game_manager_1_1_game_manager_1a6383f10322032727e247ff60ce81f15a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>None</type>
+        <definition> None GameManager.GameManager.__init__</definition>
+        <argsstring>(self, int session_id)</argsstring>
+        <name>__init__</name>
+        <qualifiedname>GameManager.GameManager.__init__</qualifiedname>
+        <param>
+          <type>self</type>
+          <defname>self</defname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>session_id</declname>
+        </param>
+        <briefdescription>
+<para>Инициализация менеджера игры </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>session_id</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>ID игровой сессии</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+Создает новый экземпляр менеджера игры и инициализирует все необходимые компоненты для работы игровой сессии. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/kir/Desktop/py/API/src/GameManager/GameManager.py" line="27" column="1" bodyfile="C:/Users/kir/Desktop/py/API/src/GameManager/GameManager.py" bodystart="27" bodyend="43"/>
+      </memberdef>
+      <memberdef kind="function" id="class_game_manager_1_1_game_manager_1a9d2e1bd15ba705ae42efbc0dcf1be035" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Tuple[str, Optional[str]]</type>
+        <definition> Tuple[str, Optional[str]] GameManager.GameManager.process_audio_input</definition>
+        <argsstring>(self, str audio_path, bool generate_image=True)</argsstring>
+        <name>process_audio_input</name>
+        <qualifiedname>GameManager.GameManager.process_audio_input</qualifiedname>
+        <param>
+          <type>self</type>
+          <defname>self</defname>
+        </param>
+        <param>
+          <type>str</type>
+          <declname>audio_path</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>generate_image</declname>
+          <defval>True</defval>
+        </param>
+        <briefdescription>
+<para>Обработка аудио ввода от пользователя </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>audio_path</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Путь к аудиофайлу </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>generate_image</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Флаг генерации изображения (по умолчанию True)</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Tuple[str, Optional[str]] Кортеж из:<itemizedlist>
+<listitem><para>Текстового ответа от мастера игры</para>
+</listitem><listitem><para>Пути к сгенерированному изображению (если успешно и generate_image=True) или None</para>
+</listitem></itemizedlist>
+</para>
+</simplesect>
+Преобразует аудио в текст с помощью STT и обрабатывает полученный текст через process_input. Использует язык сессии для распознавания речи. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/kir/Desktop/py/API/src/GameManager/GameManager.py" line="44" column="1" bodyfile="C:/Users/kir/Desktop/py/API/src/GameManager/GameManager.py" bodystart="44" bodyend="72"/>
+      </memberdef>
+      <memberdef kind="function" id="class_game_manager_1_1_game_manager_1a4322b2bdf33e7468c720e53233ffcbff" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Tuple[str, Optional[str]]</type>
+        <definition> Tuple[str, Optional[str]] GameManager.GameManager.process_input</definition>
+        <argsstring>(self, str user_input, bool generate_image=True)</argsstring>
+        <name>process_input</name>
+        <qualifiedname>GameManager.GameManager.process_input</qualifiedname>
+        <param>
+          <type>self</type>
+          <defname>self</defname>
+        </param>
+        <param>
+          <type>str</type>
+          <declname>user_input</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>generate_image</declname>
+          <defval>True</defval>
+        </param>
+        <briefdescription>
+<para>Обработка пользовательского ввода </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>user_input</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Ввод пользователя </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>generate_image</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Флаг генерации изображения (по умолчанию True)</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Tuple[str, Optional[str]] Кортеж из:<itemizedlist>
+<listitem><para>Текстового ответа от мастера игры</para>
+</listitem><listitem><para>Пути к сгенерированному изображению (если успешно и generate_image=True) или None</para>
+</listitem></itemizedlist>
+</para>
+</simplesect>
+Обрабатывает пользовательский ввод, генерирует ответ и, при необходимости, создает изображение для текущей сцены. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/kir/Desktop/py/API/src/GameManager/GameManager.py" line="73" column="1" bodyfile="C:/Users/kir/Desktop/py/API/src/GameManager/GameManager.py" bodystart="73" bodyend="100"/>
+      </memberdef>
+      <memberdef kind="function" id="class_game_manager_1_1_game_manager_1a268def76d22d758ba6bab8ddcced4b75" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Optional[str]</type>
+        <definition> Optional[str] GameManager.GameManager.generate_image</definition>
+        <argsstring>(self, int sequence)</argsstring>
+        <name>generate_image</name>
+        <qualifiedname>GameManager.GameManager.generate_image</qualifiedname>
+        <param>
+          <type>self</type>
+          <defname>self</defname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>sequence</declname>
+        </param>
+        <briefdescription>
+<para>Генерация изображения для сообщения </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>sequence</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Номер последовательности сообщения</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Optional[str] Путь к сгенерированному изображению или None в случае ошибки</para>
+</simplesect>
+Генерирует изображение для указанного сообщения, используя данные из базы данных и активных персонажей. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/kir/Desktop/py/API/src/GameManager/GameManager.py" line="101" column="1" bodyfile="C:/Users/kir/Desktop/py/API/src/GameManager/GameManager.py" bodystart="101" bodyend="129"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>Менеджер игрового процесса </para>
+    </briefdescription>
+    <detaileddescription>
+<para>Координирует взаимодействие между различными компонентами игры:<itemizedlist>
+<listitem><para>Мастер игры (<ref refid="classsrc_1_1_game_master_1_1_game_master_1_1_game_master" kindref="compound">GameMaster</ref>)</para>
+</listitem><listitem><para>Менеджер изображений (<ref refid="classsrc_1_1_image_manager_1_1_image_manager_1_1_image_manager" kindref="compound">ImageManager</ref>)</para>
+</listitem><listitem><para>База данных (<ref refid="classsrc_1_1_database_manager_1_1_database_manager_1_1_database_manager" kindref="compound">DatabaseManager</ref>)</para>
+</listitem><listitem><para>Актор (<ref refid="classsrc_1_1_actor_1_1_actor_1_1_actor" kindref="compound">Actor</ref>)</para>
+</listitem></itemizedlist>
+</para>
+<para>Отвечает за обработку пользовательского ввода и генерацию ответов, включая текстовые описания и изображения. </para>
+    </detaileddescription>
+    <location file="C:/Users/kir/Desktop/py/API/src/GameManager/GameManager.py" line="12" column="1" bodyfile="C:/Users/kir/Desktop/py/API/src/GameManager/GameManager.py" bodystart="12" bodyend="129"/>
+    <listofallmembers>
+      <member refid="class_game_manager_1_1_game_manager_1a75c754fb86e9204e4375868740743d15" prot="private" virt="non-virtual"><scope>GameManager::GameManager</scope><name>__db</name></member>
+      <member refid="class_game_manager_1_1_game_manager_1a39ffa5cd6276726992b3d78410fcd54d" prot="private" virt="non-virtual"><scope>GameManager::GameManager</scope><name>__game_master</name></member>
+      <member refid="class_game_manager_1_1_game_manager_1a31379ed017e575d546860a7346b38215" prot="private" virt="non-virtual"><scope>GameManager::GameManager</scope><name>__image_manager</name></member>
+      <member refid="class_game_manager_1_1_game_manager_1a6383f10322032727e247ff60ce81f15a" prot="public" virt="non-virtual"><scope>GameManager::GameManager</scope><name>__init__</name></member>
+      <member refid="class_game_manager_1_1_game_manager_1a52c70d5bbb95643dc2ed0d163d8e9eb5" prot="private" virt="non-virtual"><scope>GameManager::GameManager</scope><name>__language</name></member>
+      <member refid="class_game_manager_1_1_game_manager_1af977870e9df12a4120cecf10d1d5647d" prot="private" virt="non-virtual"><scope>GameManager::GameManager</scope><name>__session_id</name></member>
+      <member refid="class_game_manager_1_1_game_manager_1ad5731f32589712e4113aac7366c5d679" prot="private" virt="non-virtual"><scope>GameManager::GameManager</scope><name>__stt</name></member>
+      <member refid="class_game_manager_1_1_game_manager_1a268def76d22d758ba6bab8ddcced4b75" prot="public" virt="non-virtual"><scope>GameManager::GameManager</scope><name>generate_image</name></member>
+      <member refid="class_game_manager_1_1_game_manager_1a9d2e1bd15ba705ae42efbc0dcf1be035" prot="public" virt="non-virtual"><scope>GameManager::GameManager</scope><name>process_audio_input</name></member>
+      <member refid="class_game_manager_1_1_game_manager_1a4322b2bdf33e7468c720e53233ffcbff" prot="public" virt="non-virtual"><scope>GameManager::GameManager</scope><name>process_input</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

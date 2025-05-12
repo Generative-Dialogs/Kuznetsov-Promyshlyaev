@@ -1,0 +1,48 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.13.2" xml:lang="ru">
+  <compounddef id="_protocol_actor_8py" kind="file" language="Python">
+    <compoundname>ProtocolActor.py</compoundname>
+    <innerclass refid="classsrc_1_1_actor_1_1_protocol_actor_1_1_protocol_actor" prot="public">src::Actor::ProtocolActor::ProtocolActor</innerclass>
+    <innernamespace refid="namespacesrc">src</innernamespace>
+    <innernamespace refid="namespacesrc_1_1_actor">src::Actor</innernamespace>
+    <innernamespace refid="namespacesrc_1_1_actor_1_1_protocol_actor">src::Actor::ProtocolActor</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="keyword">from</highlight><highlight class="normal"><sp/>typing<sp/></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>Protocol</highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="keyword">from</highlight><highlight class="normal"><sp/><ref refid="namespacesrc_1_1_game_master_1_1_protocol_game_master" kindref="compound">src.GameMaster.ProtocolGameMaster</ref><sp/></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>ProtocolGameMaster</highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="keyword">from</highlight><highlight class="normal"><sp/><ref refid="namespacesrc_1_1_message_generator_1_1_protocol_message_generator" kindref="compound">src.MessageGenerator.ProtocolMessageGenerator</ref><sp/></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>ProtocolMessageGenerator</highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight></codeline>
+<codeline lineno="6" refid="classsrc_1_1_actor_1_1_protocol_actor_1_1_protocol_actor" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classsrc_1_1_actor_1_1_protocol_actor_1_1_protocol_actor" kindref="compound">ProtocolActor</ref>(Protocol):</highlight></codeline>
+<codeline lineno="7"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;&quot;&quot;!</highlight></codeline>
+<codeline lineno="8"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>@brief<sp/>Протокол<sp/>для<sp/>актора<sp/>в<sp/>игровой<sp/>системе</highlight></codeline>
+<codeline lineno="9"><highlight class="stringliteral"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="10"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>@details</highlight></codeline>
+<codeline lineno="11"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>Определяет<sp/>интерфейс<sp/>для<sp/>актора,<sp/>который<sp/>отвечает<sp/>за</highlight></codeline>
+<codeline lineno="12"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>генерацию<sp/>детализированных<sp/>действий<sp/>и<sp/>описаний<sp/>в<sp/>игре.</highlight></codeline>
+<codeline lineno="13"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>Актор<sp/>преобразует<sp/>команды<sp/>мастера<sp/>игры<sp/>в<sp/>нарративные<sp/>описания.</highlight></codeline>
+<codeline lineno="14"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>&quot;&quot;&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="15"><highlight class="normal"><sp/><sp/><sp/><sp/>__name:<sp/>str</highlight></codeline>
+<codeline lineno="16"><highlight class="normal"><sp/><sp/><sp/><sp/>__description:<sp/>str</highlight></codeline>
+<codeline lineno="17"><highlight class="normal"><sp/><sp/><sp/><sp/>__game_master:<sp/>ProtocolGameMaster</highlight></codeline>
+<codeline lineno="18"><highlight class="normal"><sp/><sp/><sp/><sp/>__messageGenerator:<sp/>ProtocolMessageGenerator</highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight></codeline>
+<codeline lineno="20" refid="classsrc_1_1_actor_1_1_protocol_actor_1_1_protocol_actor_1a56b4f71b5273de57aae8a65e1e0e3fb3" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">def<sp/></highlight><highlight class="normal"><ref refid="classsrc_1_1_actor_1_1_protocol_actor_1_1_protocol_actor_1a56b4f71b5273de57aae8a65e1e0e3fb3" kindref="member">get_detailed_action</ref>(self,<sp/>game_master_output:<sp/>str)<sp/>-&gt;<sp/>str:</highlight></codeline>
+<codeline lineno="21"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;&quot;&quot;!</highlight></codeline>
+<codeline lineno="22"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>@brief<sp/>Получение<sp/>детализированного<sp/>описания<sp/>действия</highlight></codeline>
+<codeline lineno="23"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="24"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>@param<sp/>game_master_output<sp/>Выходные<sp/>данные<sp/>мастера<sp/>игры</highlight></codeline>
+<codeline lineno="25"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>@return<sp/>str<sp/>Детализированное<sp/>описание<sp/>действия</highlight></codeline>
+<codeline lineno="26"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="27"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>@details</highlight></codeline>
+<codeline lineno="28"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Преобразует<sp/>команды<sp/>мастера<sp/>игры<sp/>в<sp/>подробное</highlight></codeline>
+<codeline lineno="29"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>нарративное<sp/>описание<sp/>действий<sp/>и<sp/>событий.</highlight></codeline>
+<codeline lineno="30"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&quot;&quot;&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="31"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>...</highlight></codeline>
+    </programlisting>
+    <location file="C:/Users/kir/Desktop/py/API/src/Actor/ProtocolActor.py"/>
+  </compounddef>
+</doxygen>

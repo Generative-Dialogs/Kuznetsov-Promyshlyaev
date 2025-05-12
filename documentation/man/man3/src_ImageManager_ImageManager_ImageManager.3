@@ -1,0 +1,105 @@
+.TH "src.ImageManager.ImageManager.ImageManager" 3 "My Project" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+src.ImageManager.ImageManager.ImageManager \- Менеджер для управления генерацией и хранением изображений  
+
+.SH SYNOPSIS
+.br
+.PP
+.SS "Открытые члены"
+
+.in +1c
+.ti -1c
+.RI "None \fB__init__\fP (self, int session_id)"
+.br
+.RI "Инициализация менеджера изображений "
+.ti -1c
+.RI "Optional[str] \fBgenerate_character_portrait\fP (self, str character_name, str character_description)"
+.br
+.RI "Генерация портрета персонажа "
+.ti -1c
+.RI "Optional[str] \fBgenerate_and_save_image\fP (self, str user_input, str actor_output, List[int] character_ids)"
+.br
+.RI "Генерация и сохранение изображения сцены "
+.in -1c
+.SH "Подробное описание"
+.PP 
+Менеджер для управления генерацией и хранением изображений 
+
+Класс отвечает за:
+.IP "\(bu" 2
+Генерацию портретов персонажей
+.IP "\(bu" 2
+Создание изображений сцен
+.IP "\(bu" 2
+Управление файлами изображений
+.IP "\(bu" 2
+Взаимодействие с базой данных для хранения информации об изображениях 
+.PP
+
+.PP
+См\&. определение в файле \fBImageManager\&.py\fP строка \fB14\fP
+.SH "Конструктор(ы)"
+.PP 
+.SS " None src\&.ImageManager\&.ImageManager\&.ImageManager\&.__init__ ( self, int session_id)"
+
+.PP
+Инициализация менеджера изображений 
+.PP
+\fBАргументы\fP
+.RS 4
+\fIsession_id\fP ID сессии для организации файлов изображений 
+.RE
+.PP
+
+.PP
+См\&. определение в файле \fBImageManager\&.py\fP строка \fB30\fP
+.SH "Методы"
+.PP 
+.SS " Optional[str] src\&.ImageManager\&.ImageManager\&.ImageManager\&.generate_and_save_image ( self, str user_input, str actor_output, List[int] character_ids)"
+
+.PP
+Генерация и сохранение изображения сцены 
+.PP
+\fBАргументы\fP
+.RS 4
+\fIuser_input\fP Ввод пользователя 
+.br
+\fIactor_output\fP Описание сцены от актора 
+.br
+\fIcharacter_ids\fP Список ID персонажей, участвующих в сцене
+.RE
+.PP
+\fBВозвращает\fP
+.RS 4
+Optional[str] Путь к сохраненному изображению или None в случае ошибки 
+.RE
+.PP
+
+.PP
+См\&. определение в файле \fBImageManager\&.py\fP строка \fB66\fP
+.SS " Optional[str] src\&.ImageManager\&.ImageManager\&.ImageManager\&.generate_character_portrait ( self, str character_name, str character_description)"
+
+.PP
+Генерация портрета персонажа 
+.PP
+\fBАргументы\fP
+.RS 4
+\fIcharacter_name\fP Имя персонажа 
+.br
+\fIcharacter_description\fP Описание персонажа
+.RE
+.PP
+\fBВозвращает\fP
+.RS 4
+Optional[str] Путь к сохраненному портрету или None в случае ошибки 
+.RE
+.PP
+
+.PP
+См\&. определение в файле \fBImageManager\&.py\fP строка \fB41\fP
+
+.SH "Автор"
+.PP 
+Автоматически создано Doxygen для My Project из исходного текста\&.

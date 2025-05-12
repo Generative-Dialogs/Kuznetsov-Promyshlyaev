@@ -1,0 +1,94 @@
+\doxysection{Класс src.\+Image\+Generator.\+Image\+Generator\+Google.\+Image\+Generator\+Google}
+\label{classsrc_1_1_image_generator_1_1_image_generator_google_1_1_image_generator_google}\index{src.ImageGenerator.ImageGeneratorGoogle.ImageGeneratorGoogle@{src.ImageGenerator.ImageGeneratorGoogle.ImageGeneratorGoogle}}
+
+
+Класс для генерации изображений с использованием Google Gemini API.  
+
+
+Граф наследования\+:src.\+Image\+Generator.\+Image\+Generator\+Google.\+Image\+Generator\+Google\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{classsrc_1_1_image_generator_1_1_image_generator_google_1_1_image_generator_google}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Открытые члены}
+\begin{DoxyCompactItemize}
+\item 
+None \textbf{ \+\_\+\+\_\+init\+\_\+\+\_\+} (self, int session\+\_\+id)
+\begin{DoxyCompactList}\small\item\em Инициализация генератора изображений \end{DoxyCompactList}\item 
+Optional[str] \textbf{ generate\+\_\+image\+\_\+response} (self, str prompt, str target\+\_\+path, Optional[List[str]] character\+\_\+images=None)
+\begin{DoxyCompactList}\small\item\em Генерация изображения с использованием Gemini API. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Подробное описание}
+Класс для генерации изображений с использованием Google Gemini API. 
+
+Реализует интерфейс \doxyref{Image\+Generator\+Protocol}{стр.}{classsrc_1_1_image_generator_1_1_image_generator_protocol_1_1_image_generator_protocol} для генерации изображений. Использует Google Gemini API для создания изображений на основе текстовых промптов и опциональных изображений персонажей.
+
+\begin{DoxyNote}{Заметки}
+Требуется прокси/vpn для работы с Google API 
+\end{DoxyNote}
+
+
+См. определение в файле \textbf{ Image\+Generator\+Google.\+py} строка \textbf{ 13}
+
+
+
+\doxysubsection{Конструктор(ы)}
+\index{src.ImageGenerator.ImageGeneratorGoogle.ImageGeneratorGoogle@{src.ImageGenerator.ImageGeneratorGoogle.ImageGeneratorGoogle}!\_\_init\_\_@{\_\_init\_\_}}
+\index{\_\_init\_\_@{\_\_init\_\_}!src.ImageGenerator.ImageGeneratorGoogle.ImageGeneratorGoogle@{src.ImageGenerator.ImageGeneratorGoogle.ImageGeneratorGoogle}}
+\doxysubsubsection{\_\_init\_\_()}
+{\footnotesize\ttfamily \label{classsrc_1_1_image_generator_1_1_image_generator_google_1_1_image_generator_google_a2069327fc05d70f8c2f6f488c2abfa05} 
+ None src.\+Image\+Generator.\+Image\+Generator\+Google.\+Image\+Generator\+Google.\+\_\+\+\_\+init\+\_\+\+\_\+ (\begin{DoxyParamCaption}\item[{}]{self}{, }\item[{int}]{session\+\_\+id}{}\end{DoxyParamCaption})}
+
+
+
+Инициализация генератора изображений 
+
+
+\begin{DoxyParams}{Аргументы}
+{\em session\+\_\+id} & ID сессии для организации файлов изображений \\
+\hline
+\end{DoxyParams}
+
+
+См. определение в файле \textbf{ Image\+Generator\+Google.\+py} строка \textbf{ 27}
+
+
+
+\doxysubsection{Методы}
+\index{src.ImageGenerator.ImageGeneratorGoogle.ImageGeneratorGoogle@{src.ImageGenerator.ImageGeneratorGoogle.ImageGeneratorGoogle}!generate\_image\_response@{generate\_image\_response}}
+\index{generate\_image\_response@{generate\_image\_response}!src.ImageGenerator.ImageGeneratorGoogle.ImageGeneratorGoogle@{src.ImageGenerator.ImageGeneratorGoogle.ImageGeneratorGoogle}}
+\doxysubsubsection{generate\_image\_response()}
+{\footnotesize\ttfamily \label{classsrc_1_1_image_generator_1_1_image_generator_google_1_1_image_generator_google_a3470aae404ebe3e833362ae57500e44f} 
+ Optional[str] src.\+Image\+Generator.\+Image\+Generator\+Google.\+Image\+Generator\+Google.\+generate\+\_\+image\+\_\+response (\begin{DoxyParamCaption}\item[{}]{self}{, }\item[{str}]{prompt}{, }\item[{str}]{target\+\_\+path}{, }\item[{Optional[List[str]] }]{character\+\_\+images}{ = {\ttfamily None}}\end{DoxyParamCaption})}
+
+
+
+Генерация изображения с использованием Gemini API. 
+
+
+\begin{DoxyParams}{Аргументы}
+{\em prompt} & Текстовый промпт для генерации изображения \\
+\hline
+{\em target\+\_\+path} & Полный путь для сохранения изображения \\
+\hline
+{\em character\+\_\+images} & Опциональный список путей к изображениям персонажей\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Возвращает}
+Optional[str] Путь к сохраненному изображению или None в случае ошибки 
+\end{DoxyReturn}
+
+
+Переопределяет метод предка \textbf{ src.\+Image\+Generator.\+Image\+Generator\+Protocol.\+Image\+Generator\+Protocol} \doxyref{}{стр.}{classsrc_1_1_image_generator_1_1_image_generator_protocol_1_1_image_generator_protocol_a67dc32bad76939e2ba372be83049fcbb}.
+
+
+
+См. определение в файле \textbf{ Image\+Generator\+Google.\+py} строка \textbf{ 65}
+
+
+
+Объявления и описания членов класса находятся в файле\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/kir/\+Desktop/py/\+API/src/\+Image\+Generator/Image\+Generator\+Google.\+py\end{DoxyCompactItemize}

@@ -1,0 +1,58 @@
+\doxysection{Protocol\+Game\+Master.\+py}
+\label{_protocol_game_master_8py_source}\index{C:/Users/kir/Desktop/py/API/src/GameMaster/ProtocolGameMaster.py@{C:/Users/kir/Desktop/py/API/src/GameMaster/ProtocolGameMaster.py}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{keyword}{from}\ typing\ \textcolor{keyword}{import}\ Protocol,\ Optional,\ List,\ Tuple,\ Set}
+\DoxyCodeLine{00002\ \textcolor{keyword}{from}\ src.GameMaster.CommandData\ \textcolor{keyword}{import}\ CommandData}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{keyword}{class\ }ProtocolGameMaster(Protocol):}
+\DoxyCodeLine{00005\ \ \ \ \ \textcolor{stringliteral}{"{}"{}"{}!}}
+\DoxyCodeLine{00006\ \textcolor{stringliteral}{\ \ \ \ @brief\ Протокол\ для\ мастера\ игры}}
+\DoxyCodeLine{00007\ \textcolor{stringliteral}{\ \ \ \ }}
+\DoxyCodeLine{00008\ \textcolor{stringliteral}{\ \ \ \ @details}}
+\DoxyCodeLine{00009\ \textcolor{stringliteral}{\ \ \ \ Определяет\ интерфейс\ для\ мастера\ игры,\ который\ отвечает\ за:}}
+\DoxyCodeLine{00010\ \textcolor{stringliteral}{\ \ \ \ -\/\ Генерацию\ ответов\ на\ действия\ игрока}}
+\DoxyCodeLine{00011\ \textcolor{stringliteral}{\ \ \ \ -\/\ Управление\ игровыми\ персонажами}}
+\DoxyCodeLine{00012\ \textcolor{stringliteral}{\ \ \ \ -\/\ Поддержание\ целостности\ игрового\ мира}}
+\DoxyCodeLine{00013\ \textcolor{stringliteral}{\ \ \ \ -\/\ Обработку\ команд\ и\ инструкций}}
+\DoxyCodeLine{00014\ \textcolor{stringliteral}{\ \ \ \ "{}"{}"{}}}
+\DoxyCodeLine{00015\ \ \ \ \ world\_description:\ str}
+\DoxyCodeLine{00016\ \ \ \ \ player\_description:\ str}
+\DoxyCodeLine{00017\ \ \ \ \ }
+\DoxyCodeLine{00018\ \ \ \ \ \textcolor{keyword}{def\ }generate\_answer(self,\ message:\ str)\ -\/>\ str:}
+\DoxyCodeLine{00019\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}"{}"{}!}}
+\DoxyCodeLine{00020\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ @brief\ Генерация\ ответа\ на\ сообщение\ игрока}}
+\DoxyCodeLine{00021\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ }}
+\DoxyCodeLine{00022\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ @param\ message\ Сообщение\ игрока}}
+\DoxyCodeLine{00023\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ @return\ str\ Ответ\ системы}}
+\DoxyCodeLine{00024\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ "{}"{}"{}}}
+\DoxyCodeLine{00025\ \ \ \ \ \ \ \ \ ...}
+\DoxyCodeLine{00026\ }
+\DoxyCodeLine{00027\ \ \ \ \ \textcolor{keyword}{def\ }generate\_instruction(self,\ message:\ str)\ -\/>\ Tuple[List[CommandData],\ str]:}
+\DoxyCodeLine{00028\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}"{}"{}!}}
+\DoxyCodeLine{00029\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ @brief\ Генерация\ инструкций\ на\ основе\ сообщения}}
+\DoxyCodeLine{00030\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ }}
+\DoxyCodeLine{00031\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ @param\ message\ Сообщение\ для\ обработки}}
+\DoxyCodeLine{00032\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ @return\ Tuple[List[CommandData],\ str]\ Кортеж\ из\ списка\ команд\ и\ текстового\ вывода}}
+\DoxyCodeLine{00033\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ "{}"{}"{}}}
+\DoxyCodeLine{00034\ \ \ \ \ \ \ \ \ ...}
+\DoxyCodeLine{00035\ }
+\DoxyCodeLine{00036\ \ \ \ \ \textcolor{keyword}{def\ }parse\_commands(self,\ commands:\ List[CommandData])\ -\/>\ Tuple[str,\ Set[str]]:}
+\DoxyCodeLine{00037\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}"{}"{}!}}
+\DoxyCodeLine{00038\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ @brief\ Обработка\ списка\ команд}}
+\DoxyCodeLine{00039\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ }}
+\DoxyCodeLine{00040\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ @param\ commands\ Список\ команд\ для\ обработки}}
+\DoxyCodeLine{00041\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ @return\ Tuple[str,\ Set[str]]\ Кортеж\ из\ текстового\ вывода\ и\ множества\ имен\ активных\ персонажей}}
+\DoxyCodeLine{00042\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ "{}"{}"{}}}
+\DoxyCodeLine{00043\ \ \ \ \ \ \ \ \ ...}
+\DoxyCodeLine{00044\ }
+\DoxyCodeLine{00045\ \ \ \ \ \textcolor{keyword}{def\ }validate\_and\_parse(self,\ input\_text:\ str)\ -\/>\ Tuple[Optional[List[CommandData]],\ str]:}
+\DoxyCodeLine{00046\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}"{}"{}!}}
+\DoxyCodeLine{00047\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ @brief\ Валидация\ и\ парсинг\ входного\ текста}}
+\DoxyCodeLine{00048\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ }}
+\DoxyCodeLine{00049\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ @param\ input\_text\ Текст\ для\ валидации\ и\ парсинга}}
+\DoxyCodeLine{00050\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ @return\ Tuple[Optional[List[CommandData]],\ str]\ Кортеж\ из\ списка\ команд\ (или\ None)\ и\ сообщения\ об\ ошибке}}
+\DoxyCodeLine{00051\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ "{}"{}"{}}}
+\DoxyCodeLine{00052\ \ \ \ \ \ \ \ \ ...}
+
+\end{DoxyCode}

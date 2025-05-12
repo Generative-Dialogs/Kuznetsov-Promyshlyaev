@@ -1,0 +1,37 @@
+\doxysection{Protocol\+Actor.\+py}
+\label{_protocol_actor_8py_source}\index{C:/Users/kir/Desktop/py/API/src/Actor/ProtocolActor.py@{C:/Users/kir/Desktop/py/API/src/Actor/ProtocolActor.py}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{keyword}{from}\ typing\ \textcolor{keyword}{import}\ Protocol}
+\DoxyCodeLine{00002\ \textcolor{keyword}{from}\ src.GameMaster.ProtocolGameMaster\ \textcolor{keyword}{import}\ ProtocolGameMaster}
+\DoxyCodeLine{00003\ \textcolor{keyword}{from}\ src.MessageGenerator.ProtocolMessageGenerator\ \textcolor{keyword}{import}\ ProtocolMessageGenerator}
+\DoxyCodeLine{00004\ }
+\DoxyCodeLine{00005\ }
+\DoxyCodeLine{00006\ \textcolor{keyword}{class\ }ProtocolActor(Protocol):}
+\DoxyCodeLine{00007\ \ \ \ \ \textcolor{stringliteral}{"{}"{}"{}!}}
+\DoxyCodeLine{00008\ \textcolor{stringliteral}{\ \ \ \ @brief\ Протокол\ для\ актора\ в\ игровой\ системе}}
+\DoxyCodeLine{00009\ \textcolor{stringliteral}{\ \ \ \ }}
+\DoxyCodeLine{00010\ \textcolor{stringliteral}{\ \ \ \ @details}}
+\DoxyCodeLine{00011\ \textcolor{stringliteral}{\ \ \ \ Определяет\ интерфейс\ для\ актора,\ который\ отвечает\ за}}
+\DoxyCodeLine{00012\ \textcolor{stringliteral}{\ \ \ \ генерацию\ детализированных\ действий\ и\ описаний\ в\ игре.}}
+\DoxyCodeLine{00013\ \textcolor{stringliteral}{\ \ \ \ Актор\ преобразует\ команды\ мастера\ игры\ в\ нарративные\ описания.}}
+\DoxyCodeLine{00014\ \textcolor{stringliteral}{\ \ \ \ "{}"{}"{}}}
+\DoxyCodeLine{00015\ \ \ \ \ \_\_name:\ str}
+\DoxyCodeLine{00016\ \ \ \ \ \_\_description:\ str}
+\DoxyCodeLine{00017\ \ \ \ \ \_\_game\_master:\ ProtocolGameMaster}
+\DoxyCodeLine{00018\ \ \ \ \ \_\_messageGenerator:\ ProtocolMessageGenerator}
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00020\ \ \ \ \ \textcolor{keyword}{def\ }get\_detailed\_action(self,\ game\_master\_output:\ str)\ -\/>\ str:}
+\DoxyCodeLine{00021\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}"{}"{}!}}
+\DoxyCodeLine{00022\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ @brief\ Получение\ детализированного\ описания\ действия}}
+\DoxyCodeLine{00023\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ }}
+\DoxyCodeLine{00024\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ @param\ game\_master\_output\ Выходные\ данные\ мастера\ игры}}
+\DoxyCodeLine{00025\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ @return\ str\ Детализированное\ описание\ действия}}
+\DoxyCodeLine{00026\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ }}
+\DoxyCodeLine{00027\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ @details}}
+\DoxyCodeLine{00028\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ Преобразует\ команды\ мастера\ игры\ в\ подробное}}
+\DoxyCodeLine{00029\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ нарративное\ описание\ действий\ и\ событий.}}
+\DoxyCodeLine{00030\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ "{}"{}"{}}}
+\DoxyCodeLine{00031\ \ \ \ \ \ \ \ \ ...}
+
+\end{DoxyCode}

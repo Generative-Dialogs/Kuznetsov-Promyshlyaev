@@ -1,0 +1,31 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_classsrc_1_1_game_master_1_1_command_data_1_1_command_off_topic" xml:lang="ru">
+<title>Класс src.GameMaster.CommandData.CommandOffTopic</title>
+<indexterm><primary>src.GameMaster.CommandData.CommandOffTopic</primary></indexterm>
+<para>
+
+<para>Команда для обработки внеигрового ввода </para>
+ 
+</para>
+<para>Граф наследования:src.GameMaster.CommandData.CommandOffTopic:    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="classsrc_1_1_game_master_1_1_command_data_1_1_command_off_topic.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<section>
+<title>Подробное описание</title>
+
+<para>Команда для обработки внеигрового ввода </para>
+
+
+
+<para>Используется, когда ввод пользователя не относится к игровому процессу или нарушает правила игры. </para>
+<para>
+См. определение в файле <link linkend="__command_data_8py_source">CommandData.py</link> строка <link linkend="__command_data_8py_source_1l00059">59</link></para>
+<para>
+Объявления и описания членов класса находятся в файле:</para>
+C:/Users/kir/Desktop/py/API/src/GameMaster/CommandData.py</section>
+</section>

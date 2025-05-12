@@ -1,0 +1,85 @@
+\doxysection{Класс src.\+Image\+Prompt\+Generator.\+Image\+Prompt\+Generator.\+Image\+Prompt\+Generator}
+\label{classsrc_1_1_image_prompt_generator_1_1_image_prompt_generator_1_1_image_prompt_generator}\index{src.ImagePromptGenerator.ImagePromptGenerator.ImagePromptGenerator@{src.ImagePromptGenerator.ImagePromptGenerator.ImagePromptGenerator}}
+
+
+Генератор промптов для создания изображений  
+
+
+\doxysubsubsection*{Открытые члены}
+\begin{DoxyCompactItemize}
+\item 
+None \textbf{ \+\_\+\+\_\+init\+\_\+\+\_\+} (self, int session\+\_\+id)
+\begin{DoxyCompactList}\small\item\em Инициализация генератора промптов \end{DoxyCompactList}\item 
+Optional[str] \textbf{ generate\+\_\+prompt} (self, str user\+\_\+input, str system\+\_\+output, List[int] character\+\_\+ids)
+\begin{DoxyCompactList}\small\item\em Генерация промпта для создания изображения \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Подробное описание}
+Генератор промптов для создания изображений 
+
+Класс отвечает за\+:
+\begin{DoxyItemize}
+\item Создание детальных промптов для генерации изображений
+\item Поддержание согласованности описаний персонажей
+\item Учет контекста сцены и действий
+\item Генерацию стилистически согласованных описаний 
+\end{DoxyItemize}
+
+См. определение в файле \textbf{ Image\+Prompt\+Generator.\+py} строка \textbf{ 8}
+
+
+
+\doxysubsection{Конструктор(ы)}
+\index{src.ImagePromptGenerator.ImagePromptGenerator.ImagePromptGenerator@{src.ImagePromptGenerator.ImagePromptGenerator.ImagePromptGenerator}!\_\_init\_\_@{\_\_init\_\_}}
+\index{\_\_init\_\_@{\_\_init\_\_}!src.ImagePromptGenerator.ImagePromptGenerator.ImagePromptGenerator@{src.ImagePromptGenerator.ImagePromptGenerator.ImagePromptGenerator}}
+\doxysubsubsection{\_\_init\_\_()}
+{\footnotesize\ttfamily \label{classsrc_1_1_image_prompt_generator_1_1_image_prompt_generator_1_1_image_prompt_generator_a594f12f4fc1c80b4b7294dd45ebc9a0a} 
+ None src.\+Image\+Prompt\+Generator.\+Image\+Prompt\+Generator.\+Image\+Prompt\+Generator.\+\_\+\+\_\+init\+\_\+\+\_\+ (\begin{DoxyParamCaption}\item[{}]{self}{, }\item[{int}]{session\+\_\+id}{}\end{DoxyParamCaption})}
+
+
+
+Инициализация генератора промптов 
+
+
+\begin{DoxyParams}{Аргументы}
+{\em session\+\_\+id} & ID сессии для организации промптов \\
+\hline
+\end{DoxyParams}
+
+
+См. определение в файле \textbf{ Image\+Prompt\+Generator.\+py} строка \textbf{ 19}
+
+
+
+\doxysubsection{Методы}
+\index{src.ImagePromptGenerator.ImagePromptGenerator.ImagePromptGenerator@{src.ImagePromptGenerator.ImagePromptGenerator.ImagePromptGenerator}!generate\_prompt@{generate\_prompt}}
+\index{generate\_prompt@{generate\_prompt}!src.ImagePromptGenerator.ImagePromptGenerator.ImagePromptGenerator@{src.ImagePromptGenerator.ImagePromptGenerator.ImagePromptGenerator}}
+\doxysubsubsection{generate\_prompt()}
+{\footnotesize\ttfamily \label{classsrc_1_1_image_prompt_generator_1_1_image_prompt_generator_1_1_image_prompt_generator_ad6a86ab3a3f04e4e23fd36d119d5dbdc} 
+ Optional[str] src.\+Image\+Prompt\+Generator.\+Image\+Prompt\+Generator.\+Image\+Prompt\+Generator.\+generate\+\_\+prompt (\begin{DoxyParamCaption}\item[{}]{self}{, }\item[{str}]{user\+\_\+input}{, }\item[{str}]{system\+\_\+output}{, }\item[{List[int]}]{character\+\_\+ids}{}\end{DoxyParamCaption})}
+
+
+
+Генерация промпта для создания изображения 
+
+
+\begin{DoxyParams}{Аргументы}
+{\em user\+\_\+input} & Ввод пользователя \\
+\hline
+{\em system\+\_\+output} & Ответ системы \\
+\hline
+{\em character\+\_\+ids} & Список ID персонажей, участвующих в сцене\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Возвращает}
+Optional[str] Сгенерированный промпт или None в случае ошибки 
+\end{DoxyReturn}
+
+
+См. определение в файле \textbf{ Image\+Prompt\+Generator.\+py} строка \textbf{ 87}
+
+
+
+Объявления и описания членов класса находятся в файле\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/kir/\+Desktop/py/\+API/src/\+Image\+Prompt\+Generator/Image\+Prompt\+Generator.\+py\end{DoxyCompactItemize}

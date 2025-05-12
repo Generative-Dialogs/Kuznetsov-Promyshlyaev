@@ -1,0 +1,161 @@
+\doxysection{Класс src.\+Message\+Generator.\+Protocol\+Message\+Generator.\+Protocol\+Message\+Generator}
+\label{classsrc_1_1_message_generator_1_1_protocol_message_generator_1_1_protocol_message_generator}\index{src.MessageGenerator.ProtocolMessageGenerator.ProtocolMessageGenerator@{src.MessageGenerator.ProtocolMessageGenerator.ProtocolMessageGenerator}}
+
+
+Протокол для генерации сообщений  
+
+
+Граф наследования\+:src.\+Message\+Generator.\+Protocol\+Message\+Generator.\+Protocol\+Message\+Generator\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=1.098039cm]{classsrc_1_1_message_generator_1_1_protocol_message_generator_1_1_protocol_message_generator}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Открытые члены}
+\begin{DoxyCompactItemize}
+\item 
+str \textbf{ generate} (self, str messages, str model=\textquotesingle{}\textquotesingle{})
+\begin{DoxyCompactList}\small\item\em Генерация ответа на основе входного сообщения \end{DoxyCompactList}\item 
+None \textbf{ add\+\_\+user\+\_\+message} (self, str message)
+\begin{DoxyCompactList}\small\item\em Добавление сообщения пользователя в историю \end{DoxyCompactList}\item 
+None \textbf{ add\+\_\+system\+\_\+message} (self, str message)
+\begin{DoxyCompactList}\small\item\em Добавление системного сообщения в историю \end{DoxyCompactList}\item 
+None \textbf{ add\+\_\+ai\+\_\+message} (self, str message)
+\begin{DoxyCompactList}\small\item\em Добавление сообщения ИИ в историю \end{DoxyCompactList}\item 
+List[Dict[str, str]] \textbf{ get\+\_\+message\+\_\+history} (self)
+\begin{DoxyCompactList}\small\item\em Получение истории сообщений \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Подробное описание}
+Протокол для генерации сообщений 
+
+Определяет интерфейс для классов, реализующих генерацию сообщений. Используется как контракт для различных реализаций генераторов сообщений. 
+
+См. определение в файле \textbf{ Protocol\+Message\+Generator.\+py} строка \textbf{ 4}
+
+
+
+\doxysubsection{Методы}
+\index{src.MessageGenerator.ProtocolMessageGenerator.ProtocolMessageGenerator@{src.MessageGenerator.ProtocolMessageGenerator.ProtocolMessageGenerator}!add\_ai\_message@{add\_ai\_message}}
+\index{add\_ai\_message@{add\_ai\_message}!src.MessageGenerator.ProtocolMessageGenerator.ProtocolMessageGenerator@{src.MessageGenerator.ProtocolMessageGenerator.ProtocolMessageGenerator}}
+\doxysubsubsection{add\_ai\_message()}
+{\footnotesize\ttfamily \label{classsrc_1_1_message_generator_1_1_protocol_message_generator_1_1_protocol_message_generator_afaffcee2207244df4fa8b5b398196062} 
+ None src.\+Message\+Generator.\+Protocol\+Message\+Generator.\+Protocol\+Message\+Generator.\+add\+\_\+ai\+\_\+message (\begin{DoxyParamCaption}\item[{}]{self}{, }\item[{str}]{message}{}\end{DoxyParamCaption})}
+
+
+
+Добавление сообщения ИИ в историю 
+
+
+\begin{DoxyParams}{Аргументы}
+{\em message} & Текст сообщения ИИ \\
+\hline
+\end{DoxyParams}
+
+
+Переопределяется в \textbf{ src.\+Message\+Generator.\+Message\+Generator\+Deep\+Seek.\+Message\+Generator\+Deep\+Seek} \doxyref{}{стр.}{classsrc_1_1_message_generator_1_1_message_generator_deep_seek_1_1_message_generator_deep_seek_a4ad1e859f543ce3e1cce49b8a1ffc7c0}, \textbf{ src.\+Message\+Generator.\+Message\+Generator\+Groq.\+Message\+Generator\+Groq} \doxyref{}{стр.}{classsrc_1_1_message_generator_1_1_message_generator_groq_1_1_message_generator_groq_ad1bbe107a0b4808269d42ce6d60f34ef} и \textbf{ src.\+Message\+Generator.\+Message\+Generator\+Open\+Router.\+Message\+Generator\+Open\+Router} \doxyref{}{стр.}{classsrc_1_1_message_generator_1_1_message_generator_open_router_1_1_message_generator_open_router_aa5d3cc3f60a9d6fa9dd5b3953ddeb96d}.
+
+
+
+См. определение в файле \textbf{ Protocol\+Message\+Generator.\+py} строка \textbf{ 40}
+
+\index{src.MessageGenerator.ProtocolMessageGenerator.ProtocolMessageGenerator@{src.MessageGenerator.ProtocolMessageGenerator.ProtocolMessageGenerator}!add\_system\_message@{add\_system\_message}}
+\index{add\_system\_message@{add\_system\_message}!src.MessageGenerator.ProtocolMessageGenerator.ProtocolMessageGenerator@{src.MessageGenerator.ProtocolMessageGenerator.ProtocolMessageGenerator}}
+\doxysubsubsection{add\_system\_message()}
+{\footnotesize\ttfamily \label{classsrc_1_1_message_generator_1_1_protocol_message_generator_1_1_protocol_message_generator_a05e18c9670112887e7fd920ad79caf14} 
+ None src.\+Message\+Generator.\+Protocol\+Message\+Generator.\+Protocol\+Message\+Generator.\+add\+\_\+system\+\_\+message (\begin{DoxyParamCaption}\item[{}]{self}{, }\item[{str}]{message}{}\end{DoxyParamCaption})}
+
+
+
+Добавление системного сообщения в историю 
+
+
+\begin{DoxyParams}{Аргументы}
+{\em message} & Текст системного сообщения \\
+\hline
+\end{DoxyParams}
+
+
+Переопределяется в \textbf{ src.\+Message\+Generator.\+Message\+Generator\+Deep\+Seek.\+Message\+Generator\+Deep\+Seek} \doxyref{}{стр.}{classsrc_1_1_message_generator_1_1_message_generator_deep_seek_1_1_message_generator_deep_seek_a36703bcdba3a8acfd2875370a2f43215}, \textbf{ src.\+Message\+Generator.\+Message\+Generator\+Groq.\+Message\+Generator\+Groq} \doxyref{}{стр.}{classsrc_1_1_message_generator_1_1_message_generator_groq_1_1_message_generator_groq_a253ab4ceb6fdaa120ea1f4163bd95fcb} и \textbf{ src.\+Message\+Generator.\+Message\+Generator\+Open\+Router.\+Message\+Generator\+Open\+Router} \doxyref{}{стр.}{classsrc_1_1_message_generator_1_1_message_generator_open_router_1_1_message_generator_open_router_a1fb2452d509bfbf2b1bcf924265fe386}.
+
+
+
+См. определение в файле \textbf{ Protocol\+Message\+Generator.\+py} строка \textbf{ 32}
+
+\index{src.MessageGenerator.ProtocolMessageGenerator.ProtocolMessageGenerator@{src.MessageGenerator.ProtocolMessageGenerator.ProtocolMessageGenerator}!add\_user\_message@{add\_user\_message}}
+\index{add\_user\_message@{add\_user\_message}!src.MessageGenerator.ProtocolMessageGenerator.ProtocolMessageGenerator@{src.MessageGenerator.ProtocolMessageGenerator.ProtocolMessageGenerator}}
+\doxysubsubsection{add\_user\_message()}
+{\footnotesize\ttfamily \label{classsrc_1_1_message_generator_1_1_protocol_message_generator_1_1_protocol_message_generator_acecf0dcf2a5261a36c56da5ab6e253e3} 
+ None src.\+Message\+Generator.\+Protocol\+Message\+Generator.\+Protocol\+Message\+Generator.\+add\+\_\+user\+\_\+message (\begin{DoxyParamCaption}\item[{}]{self}{, }\item[{str}]{message}{}\end{DoxyParamCaption})}
+
+
+
+Добавление сообщения пользователя в историю 
+
+
+\begin{DoxyParams}{Аргументы}
+{\em message} & Текст сообщения пользователя \\
+\hline
+\end{DoxyParams}
+
+
+Переопределяется в \textbf{ src.\+Message\+Generator.\+Message\+Generator\+Deep\+Seek.\+Message\+Generator\+Deep\+Seek} \doxyref{}{стр.}{classsrc_1_1_message_generator_1_1_message_generator_deep_seek_1_1_message_generator_deep_seek_a92cd7430f9c81a8f5b6de9b0b4724111}, \textbf{ src.\+Message\+Generator.\+Message\+Generator\+Groq.\+Message\+Generator\+Groq} \doxyref{}{стр.}{classsrc_1_1_message_generator_1_1_message_generator_groq_1_1_message_generator_groq_a49e6e6a49d276e60130573614ac8b09b} и \textbf{ src.\+Message\+Generator.\+Message\+Generator\+Open\+Router.\+Message\+Generator\+Open\+Router} \doxyref{}{стр.}{classsrc_1_1_message_generator_1_1_message_generator_open_router_1_1_message_generator_open_router_af52bb8a0267ae1b4daa825306d899a7e}.
+
+
+
+См. определение в файле \textbf{ Protocol\+Message\+Generator.\+py} строка \textbf{ 24}
+
+\index{src.MessageGenerator.ProtocolMessageGenerator.ProtocolMessageGenerator@{src.MessageGenerator.ProtocolMessageGenerator.ProtocolMessageGenerator}!generate@{generate}}
+\index{generate@{generate}!src.MessageGenerator.ProtocolMessageGenerator.ProtocolMessageGenerator@{src.MessageGenerator.ProtocolMessageGenerator.ProtocolMessageGenerator}}
+\doxysubsubsection{generate()}
+{\footnotesize\ttfamily \label{classsrc_1_1_message_generator_1_1_protocol_message_generator_1_1_protocol_message_generator_a3b2d9e3f4f31cce6400c8fe8b5329bf4} 
+ str src.\+Message\+Generator.\+Protocol\+Message\+Generator.\+Protocol\+Message\+Generator.\+generate (\begin{DoxyParamCaption}\item[{}]{self}{, }\item[{str}]{messages}{, }\item[{str }]{model}{ = {\ttfamily \textquotesingle{}\textquotesingle{}}}\end{DoxyParamCaption})}
+
+
+
+Генерация ответа на основе входного сообщения 
+
+
+\begin{DoxyParams}{Аргументы}
+{\em messages} & Входное сообщение для обработки \\
+\hline
+{\em model} & Название модели для генерации (опционально)\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Возвращает}
+str Сгенерированный ответ 
+\end{DoxyReturn}
+
+
+Переопределяется в \textbf{ src.\+Message\+Generator.\+Message\+Generator\+Deep\+Seek.\+Message\+Generator\+Deep\+Seek} \doxyref{}{стр.}{classsrc_1_1_message_generator_1_1_message_generator_deep_seek_1_1_message_generator_deep_seek_a68531f3d43ffeb6363d6efbf434048d4}, \textbf{ src.\+Message\+Generator.\+Message\+Generator\+Groq.\+Message\+Generator\+Groq} \doxyref{}{стр.}{classsrc_1_1_message_generator_1_1_message_generator_groq_1_1_message_generator_groq_a55c476ecd34d9391f86fd20c0ccd93c5} и \textbf{ src.\+Message\+Generator.\+Message\+Generator\+Open\+Router.\+Message\+Generator\+Open\+Router} \doxyref{}{стр.}{classsrc_1_1_message_generator_1_1_message_generator_open_router_1_1_message_generator_open_router_a15028a5b1b03263bf167d0b962b6a8ed}.
+
+
+
+См. определение в файле \textbf{ Protocol\+Message\+Generator.\+py} строка \textbf{ 13}
+
+\index{src.MessageGenerator.ProtocolMessageGenerator.ProtocolMessageGenerator@{src.MessageGenerator.ProtocolMessageGenerator.ProtocolMessageGenerator}!get\_message\_history@{get\_message\_history}}
+\index{get\_message\_history@{get\_message\_history}!src.MessageGenerator.ProtocolMessageGenerator.ProtocolMessageGenerator@{src.MessageGenerator.ProtocolMessageGenerator.ProtocolMessageGenerator}}
+\doxysubsubsection{get\_message\_history()}
+{\footnotesize\ttfamily \label{classsrc_1_1_message_generator_1_1_protocol_message_generator_1_1_protocol_message_generator_a854ce7a11bf37223a2b51f465a0a7638} 
+ List[Dict[str, str]] src.\+Message\+Generator.\+Protocol\+Message\+Generator.\+Protocol\+Message\+Generator.\+get\+\_\+message\+\_\+history (\begin{DoxyParamCaption}\item[{}]{self}{}\end{DoxyParamCaption})}
+
+
+
+Получение истории сообщений 
+
+\begin{DoxyReturn}{Возвращает}
+List[Dict[str, str]] Список сообщений в формате словарей 
+\end{DoxyReturn}
+
+
+Переопределяется в \textbf{ src.\+Message\+Generator.\+Message\+Generator\+Deep\+Seek.\+Message\+Generator\+Deep\+Seek} \doxyref{}{стр.}{classsrc_1_1_message_generator_1_1_message_generator_deep_seek_1_1_message_generator_deep_seek_ad3dc50b0d644789063eede934d586d7e}, \textbf{ src.\+Message\+Generator.\+Message\+Generator\+Groq.\+Message\+Generator\+Groq} \doxyref{}{стр.}{classsrc_1_1_message_generator_1_1_message_generator_groq_1_1_message_generator_groq_af59bda1d70f1580e1cdab0402b87a1fd} и \textbf{ src.\+Message\+Generator.\+Message\+Generator\+Open\+Router.\+Message\+Generator\+Open\+Router} \doxyref{}{стр.}{classsrc_1_1_message_generator_1_1_message_generator_open_router_1_1_message_generator_open_router_a7578f9aa506627b7e8de5e6b322f401e}.
+
+
+
+См. определение в файле \textbf{ Protocol\+Message\+Generator.\+py} строка \textbf{ 48}
+
+
+
+Объявления и описания членов класса находятся в файле\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/kir/\+Desktop/py/\+API/src/\+Message\+Generator/Protocol\+Message\+Generator.\+py\end{DoxyCompactItemize}

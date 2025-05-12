@@ -1,0 +1,53 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_classsrc_1_1_game_master_1_1_command_data_1_1_command_data_environment_description" xml:lang="ru">
+<title>Класс src.GameMaster.CommandData.CommandDataEnvironmentDescription</title>
+<indexterm><primary>src.GameMaster.CommandData.CommandDataEnvironmentDescription</primary></indexterm>
+<para>
+
+<para>Команда для описания окружения </para>
+ 
+</para>
+<para>Граф наследования:src.GameMaster.CommandData.CommandDataEnvironmentDescription:    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="classsrc_1_1_game_master_1_1_command_data_1_1_command_data_environment_description.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<section>
+<title>Подробное описание</title>
+
+<para>Команда для описания окружения </para>
+
+
+
+<para>Используется для генерации описания текущего окружения, в котором находятся персонажи.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Аргументы</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>description</entry><entry>
+<para>Текстовое описание окружения </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+<para>
+См. определение в файле <link linkend="__command_data_8py_source">CommandData.py</link> строка <link linkend="__command_data_8py_source_1l00016">16</link></para>
+<para>
+Объявления и описания членов класса находятся в файле:</para>
+C:/Users/kir/Desktop/py/API/src/GameMaster/CommandData.py</section>
+</section>

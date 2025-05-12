@@ -1,0 +1,113 @@
+\doxysection{Image\+Generator\+Google.\+py}
+\label{_image_generator_google_8py_source}\index{C:/Users/kir/Desktop/py/API/src/ImageGenerator/ImageGeneratorGoogle.py@{C:/Users/kir/Desktop/py/API/src/ImageGenerator/ImageGeneratorGoogle.py}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{keyword}{import}\ os}
+\DoxyCodeLine{00002\ \textcolor{keyword}{from}\ typing\ \textcolor{keyword}{import}\ Optional,\ Any,\ List}
+\DoxyCodeLine{00003\ \textcolor{keyword}{from}\ google\ \textcolor{keyword}{import}\ genai\ \ \textcolor{comment}{\#\ type:\ ignore}}
+\DoxyCodeLine{00004\ \textcolor{keyword}{from}\ google.genai\ \textcolor{keyword}{import}\ types\ \ \textcolor{comment}{\#\ type:\ ignore}}
+\DoxyCodeLine{00005\ \textcolor{keyword}{from}\ dotenv\ \textcolor{keyword}{import}\ load\_dotenv}
+\DoxyCodeLine{00006\ \textcolor{keyword}{import}\ logging}
+\DoxyCodeLine{00007\ \textcolor{keyword}{from}\ PIL\ \textcolor{keyword}{import}\ Image}
+\DoxyCodeLine{00008\ \textcolor{keyword}{from}\ io\ \textcolor{keyword}{import}\ BytesIO}
+\DoxyCodeLine{00009\ \textcolor{keyword}{from}\ src.ImageGenerator.ImageGeneratorProtocol\ \textcolor{keyword}{import}\ ImageGeneratorProtocol}
+\DoxyCodeLine{00010\ \textcolor{keyword}{from}\ src.config\ \textcolor{keyword}{import}\ IMAGE\_OUTPUT\_DIR}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00013\ \textcolor{keyword}{class\ }ImageGeneratorGoogle(ImageGeneratorProtocol):}
+\DoxyCodeLine{00014\ \ \ \ \ \textcolor{stringliteral}{"{}"{}"{}!}}
+\DoxyCodeLine{00015\ \textcolor{stringliteral}{\ \ \ \ @brief\ Класс\ для\ генерации\ изображений\ с\ использованием\ Google\ Gemini\ API}}
+\DoxyCodeLine{00016\ \textcolor{stringliteral}{\ \ \ \ }}
+\DoxyCodeLine{00017\ \textcolor{stringliteral}{\ \ \ \ @details}}
+\DoxyCodeLine{00018\ \textcolor{stringliteral}{\ \ \ \ Реализует\ интерфейс\ ImageGeneratorProtocol\ для\ генерации\ изображений.}}
+\DoxyCodeLine{00019\ \textcolor{stringliteral}{\ \ \ \ Использует\ Google\ Gemini\ API\ для\ создания\ изображений\ на\ основе\ текстовых\ промптов}}
+\DoxyCodeLine{00020\ \textcolor{stringliteral}{\ \ \ \ и\ опциональных\ изображений\ персонажей.}}
+\DoxyCodeLine{00021\ \textcolor{stringliteral}{\ \ \ \ }}
+\DoxyCodeLine{00022\ \textcolor{stringliteral}{\ \ \ \ @note\ Требуется\ прокси/vpn\ для\ работы\ с\ Google\ API}}
+\DoxyCodeLine{00023\ \textcolor{stringliteral}{\ \ \ \ "{}"{}"{}}}
+\DoxyCodeLine{00024\ \ \ \ \ \_\_client:\ Any\ \ \textcolor{comment}{\#\ Using\ Any\ for\ google.genai.Client\ since\ it\ lacks\ type\ stubs}}
+\DoxyCodeLine{00025\ \ \ \ \ \_\_output\_dir:\ str}
+\DoxyCodeLine{00026\ }
+\DoxyCodeLine{00027\ \ \ \ \ \textcolor{keyword}{def\ }\_\_init\_\_(self,\ session\_id:\ int)\ -\/>\ \textcolor{keywordtype}{None}:}
+\DoxyCodeLine{00028\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}"{}"{}!}}
+\DoxyCodeLine{00029\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ @brief\ Инициализация\ генератора\ изображений}}
+\DoxyCodeLine{00030\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ }}
+\DoxyCodeLine{00031\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ @param\ session\_id\ ID\ сессии\ для\ организации\ файлов\ изображений}}
+\DoxyCodeLine{00032\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ "{}"{}"{}}}
+\DoxyCodeLine{00033\ \ \ \ \ \ \ \ \ load\_dotenv()}
+\DoxyCodeLine{00034\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00035\ \ \ \ \ \ \ \ \ \textcolor{comment}{\#\ Initialize\ Gemini\ API}}
+\DoxyCodeLine{00036\ \ \ \ \ \ \ \ \ self.\_\_client\ =\ genai.Client(api\_key=os.getenv(\textcolor{stringliteral}{"{}GOOGLE\_API\_KEY"{}}))}
+\DoxyCodeLine{00037\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00038\ \ \ \ \ \ \ \ \ \textcolor{comment}{\#\ Set\ up\ output\ directory}}
+\DoxyCodeLine{00039\ \ \ \ \ \ \ \ \ self.\_\_output\_dir\ =\ os.path.join(IMAGE\_OUTPUT\_DIR,\ str(session\_id))}
+\DoxyCodeLine{00040\ \ \ \ \ \ \ \ \ os.makedirs(self.\_\_output\_dir,\ exist\_ok=\textcolor{keyword}{True})}
+\DoxyCodeLine{00041\ }
+\DoxyCodeLine{00042\ \ \ \ \ \textcolor{keyword}{def\ }\_\_save\_image(self,\ image\_data:\ bytes,\ target\_path:\ str)\ -\/>\ Optional[str]:}
+\DoxyCodeLine{00043\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}"{}"{}!}}
+\DoxyCodeLine{00044\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ @brief\ Сохранение\ изображения\ в\ файл}}
+\DoxyCodeLine{00045\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ }}
+\DoxyCodeLine{00046\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ @param\ image\_data\ Бинарные\ данные\ изображения}}
+\DoxyCodeLine{00047\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ @param\ target\_path\ Путь\ для\ сохранения\ файла}}
+\DoxyCodeLine{00048\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ }}
+\DoxyCodeLine{00049\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ @return\ Optional[str]\ Путь\ к\ сохраненному\ файлу\ или\ None\ в\ случае\ ошибки}}
+\DoxyCodeLine{00050\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ "{}"{}"{}}}
+\DoxyCodeLine{00051\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{try}:}
+\DoxyCodeLine{00052\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{\#\ Convert\ the\ image\ data\ to\ a\ PIL\ Image}}
+\DoxyCodeLine{00053\ \ \ \ \ \ \ \ \ \ \ \ \ image\ =\ Image.open(BytesIO(image\_data))}
+\DoxyCodeLine{00054\ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00055\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{\#\ Save\ the\ image}}
+\DoxyCodeLine{00056\ \ \ \ \ \ \ \ \ \ \ \ \ image.save(target\_path)}
+\DoxyCodeLine{00057\ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00058\ \ \ \ \ \ \ \ \ \ \ \ \ logging.info(f\textcolor{stringliteral}{"{}Successfully\ saved\ image\ to\ \{target\_path\}"{}})}
+\DoxyCodeLine{00059\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ target\_path}
+\DoxyCodeLine{00060\ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00061\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{except}\ Exception\ \textcolor{keyword}{as}\ e:}
+\DoxyCodeLine{00062\ \ \ \ \ \ \ \ \ \ \ \ \ logging.error(f\textcolor{stringliteral}{"{}Error\ saving\ image:\ \{str(e)\}"{}})}
+\DoxyCodeLine{00063\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keywordtype}{None}}
+\DoxyCodeLine{00064\ }
+\DoxyCodeLine{00065\ \ \ \ \ \textcolor{keyword}{def\ }generate\_image\_response(self,\ prompt:\ str,\ target\_path:\ str,\ character\_images:\ Optional[List[str]]\ =\ \textcolor{keywordtype}{None})\ -\/>\ Optional[str]:}
+\DoxyCodeLine{00066\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}"{}"{}!}}
+\DoxyCodeLine{00067\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ @brief\ Генерация\ изображения\ с\ использованием\ Gemini\ API}}
+\DoxyCodeLine{00068\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ }}
+\DoxyCodeLine{00069\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ @param\ prompt\ Текстовый\ промпт\ для\ генерации\ изображения}}
+\DoxyCodeLine{00070\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ @param\ target\_path\ Полный\ путь\ для\ сохранения\ изображения}}
+\DoxyCodeLine{00071\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ @param\ character\_images\ Опциональный\ список\ путей\ к\ изображениям\ персонажей}}
+\DoxyCodeLine{00072\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ }}
+\DoxyCodeLine{00073\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ @return\ Optional[str]\ Путь\ к\ сохраненному\ изображению\ или\ None\ в\ случае\ ошибки}}
+\DoxyCodeLine{00074\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ "{}"{}"{}}}
+\DoxyCodeLine{00075\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{try}:}
+\DoxyCodeLine{00076\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{\#\ Prepare\ contents\ list\ with\ prompt\ and\ images}}
+\DoxyCodeLine{00077\ \ \ \ \ \ \ \ \ \ \ \ \ contents:\ List[Any]\ =\ [prompt]}
+\DoxyCodeLine{00078\ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00079\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{\#\ Add\ character\ images\ if\ provided}}
+\DoxyCodeLine{00080\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ character\_images:}
+\DoxyCodeLine{00081\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ image\_path\ \textcolor{keywordflow}{in}\ character\_images:}
+\DoxyCodeLine{00082\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{try}:}
+\DoxyCodeLine{00083\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ image\ =\ Image.open(image\_path)}
+\DoxyCodeLine{00084\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ contents.append(image)}
+\DoxyCodeLine{00085\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{except}\ Exception\ \textcolor{keyword}{as}\ e:}
+\DoxyCodeLine{00086\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ logging.warning(f\textcolor{stringliteral}{"{}Failed\ to\ load\ character\ image\ \{image\_path\}:\ \{str(e)\}"{}})}
+\DoxyCodeLine{00087\ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00088\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{\#\ Generate\ the\ image\ using\ Gemini\ API}}
+\DoxyCodeLine{00089\ \ \ \ \ \ \ \ \ \ \ \ \ response\ =\ self.\_\_client.models.generate\_content(}
+\DoxyCodeLine{00090\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ model=\textcolor{stringliteral}{'gemini-\/2.0-\/flash-\/exp-\/image-\/generation'},}
+\DoxyCodeLine{00091\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ contents=contents,}
+\DoxyCodeLine{00092\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ config=types.GenerateContentConfig(}
+\DoxyCodeLine{00093\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ response\_modalities=[\textcolor{stringliteral}{'Text'},\ \textcolor{stringliteral}{'Image'}]}
+\DoxyCodeLine{00094\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ )}
+\DoxyCodeLine{00095\ \ \ \ \ \ \ \ \ \ \ \ \ )}
+\DoxyCodeLine{00096\ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00097\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{\#\ Process\ the\ response}}
+\DoxyCodeLine{00098\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ part\ \textcolor{keywordflow}{in}\ response.candidates[0].content.parts:}
+\DoxyCodeLine{00099\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ part.inline\_data\ \textcolor{keywordflow}{is}\ \textcolor{keywordflow}{not}\ \textcolor{keywordtype}{None}:}
+\DoxyCodeLine{00100\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ self.\_\_save\_image(part.inline\_data.data,\ target\_path)}
+\DoxyCodeLine{00101\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00102\ \ \ \ \ \ \ \ \ \ \ \ \ logging.error(\textcolor{stringliteral}{"{}No\ image\ data\ found\ in\ response"{}})}
+\DoxyCodeLine{00103\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keywordtype}{None}}
+\DoxyCodeLine{00104\ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00105\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{except}\ Exception\ \textcolor{keyword}{as}\ e:}
+\DoxyCodeLine{00106\ \ \ \ \ \ \ \ \ \ \ \ \ logging.error(f\textcolor{stringliteral}{"{}Error\ generating\ image:\ \{str(e)\}"{}})}
+\DoxyCodeLine{00107\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keywordtype}{None}\ }
+
+\end{DoxyCode}

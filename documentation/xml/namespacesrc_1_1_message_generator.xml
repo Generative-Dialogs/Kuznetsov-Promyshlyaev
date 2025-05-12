@@ -1,0 +1,15 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.13.2" xml:lang="ru">
+  <compounddef id="namespacesrc_1_1_message_generator" kind="namespace" language="Python">
+    <compoundname>src::MessageGenerator</compoundname>
+    <innernamespace refid="namespacesrc_1_1_message_generator_1_1_message_generator_deep_seek">src::MessageGenerator::MessageGeneratorDeepSeek</innernamespace>
+    <innernamespace refid="namespacesrc_1_1_message_generator_1_1_message_generator_groq">src::MessageGenerator::MessageGeneratorGroq</innernamespace>
+    <innernamespace refid="namespacesrc_1_1_message_generator_1_1_message_generator_open_router">src::MessageGenerator::MessageGeneratorOpenRouter</innernamespace>
+    <innernamespace refid="namespacesrc_1_1_message_generator_1_1_protocol_message_generator">src::MessageGenerator::ProtocolMessageGenerator</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="C:/Users/kir/Desktop/py/API/src/MessageGenerator/__init__.py" line="1" column="1"/>
+  </compounddef>
+</doxygen>

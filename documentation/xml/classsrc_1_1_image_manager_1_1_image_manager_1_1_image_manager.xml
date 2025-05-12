@@ -1,0 +1,232 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.13.2" xml:lang="ru">
+  <compounddef id="classsrc_1_1_image_manager_1_1_image_manager_1_1_image_manager" kind="class" language="Python" prot="public">
+    <compoundname>src::ImageManager::ImageManager::ImageManager</compoundname>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classsrc_1_1_image_manager_1_1_image_manager_1_1_image_manager_1a3465ec8f770e1d18ac5dd5b9b8fbc456" prot="private" static="no" mutable="no">
+        <type></type>
+        <definition>src.ImageManager.ImageManager.ImageManager::__session_id</definition>
+        <argsstring></argsstring>
+        <name>__session_id</name>
+        <qualifiedname>src.ImageManager.ImageManager.ImageManager.__session_id</qualifiedname>
+        <initializer>=  session_id</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/kir/Desktop/py/API/src/ImageManager/ImageManager.py" line="36" column="1" bodyfile="C:/Users/kir/Desktop/py/API/src/ImageManager/ImageManager.py" bodystart="36" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classsrc_1_1_image_manager_1_1_image_manager_1_1_image_manager_1ae9ba57ed0c65ba1f56460d0cc94affff" prot="private" static="no" mutable="no">
+        <type></type>
+        <definition>src.ImageManager.ImageManager.ImageManager::__db</definition>
+        <argsstring></argsstring>
+        <name>__db</name>
+        <qualifiedname>src.ImageManager.ImageManager.ImageManager.__db</qualifiedname>
+        <initializer>=  <ref refid="classsrc_1_1_database_manager_1_1_database_manager_1_1_database_manager" kindref="compound">DatabaseManager</ref>()</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/kir/Desktop/py/API/src/ImageManager/ImageManager.py" line="37" column="1" bodyfile="C:/Users/kir/Desktop/py/API/src/ImageManager/ImageManager.py" bodystart="37" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classsrc_1_1_image_manager_1_1_image_manager_1_1_image_manager_1ae507231a3f50da5695b2a08c271c5f6e" prot="private" static="no" mutable="no">
+        <type></type>
+        <definition>src.ImageManager.ImageManager.ImageManager::__image_generator</definition>
+        <argsstring></argsstring>
+        <name>__image_generator</name>
+        <qualifiedname>src.ImageManager.ImageManager.ImageManager.__image_generator</qualifiedname>
+        <initializer>=  <ref refid="classsrc_1_1_image_generator_1_1_image_generator_google_1_1_image_generator_google" kindref="compound">ImageGeneratorGoogle</ref>(session_id)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/kir/Desktop/py/API/src/ImageManager/ImageManager.py" line="38" column="1" bodyfile="C:/Users/kir/Desktop/py/API/src/ImageManager/ImageManager.py" bodystart="38" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classsrc_1_1_image_manager_1_1_image_manager_1_1_image_manager_1a72ef9f21452a12537f50d12508c1e900" prot="private" static="no" mutable="no">
+        <type></type>
+        <definition>src.ImageManager.ImageManager.ImageManager::__prompt_generator</definition>
+        <argsstring></argsstring>
+        <name>__prompt_generator</name>
+        <qualifiedname>src.ImageManager.ImageManager.ImageManager.__prompt_generator</qualifiedname>
+        <initializer>=  <ref refid="classsrc_1_1_image_prompt_generator_1_1_image_prompt_generator_1_1_image_prompt_generator" kindref="compound">ImagePromptGenerator</ref>(session_id)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/kir/Desktop/py/API/src/ImageManager/ImageManager.py" line="39" column="1" bodyfile="C:/Users/kir/Desktop/py/API/src/ImageManager/ImageManager.py" bodystart="39" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classsrc_1_1_image_manager_1_1_image_manager_1_1_image_manager_1adf109f7e341a2ada404f984e7ad2d986" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>None</type>
+        <definition> None src.ImageManager.ImageManager.ImageManager.__init__</definition>
+        <argsstring>(self, int session_id)</argsstring>
+        <name>__init__</name>
+        <qualifiedname>src.ImageManager.ImageManager.ImageManager.__init__</qualifiedname>
+        <param>
+          <type>self</type>
+          <defname>self</defname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>session_id</declname>
+        </param>
+        <briefdescription>
+<para>Инициализация менеджера изображений </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>session_id</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>ID сессии для организации файлов изображений </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/kir/Desktop/py/API/src/ImageManager/ImageManager.py" line="30" column="1" bodyfile="C:/Users/kir/Desktop/py/API/src/ImageManager/ImageManager.py" bodystart="30" bodyend="40"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrc_1_1_image_manager_1_1_image_manager_1_1_image_manager_1a3d93b2b2a90ff5fecaab453bbd9f2b22" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Optional[str]</type>
+        <definition> Optional[str] src.ImageManager.ImageManager.ImageManager.generate_character_portrait</definition>
+        <argsstring>(self, str character_name, str character_description)</argsstring>
+        <name>generate_character_portrait</name>
+        <qualifiedname>src.ImageManager.ImageManager.ImageManager.generate_character_portrait</qualifiedname>
+        <param>
+          <type>self</type>
+          <defname>self</defname>
+        </param>
+        <param>
+          <type>str</type>
+          <declname>character_name</declname>
+        </param>
+        <param>
+          <type>str</type>
+          <declname>character_description</declname>
+        </param>
+        <briefdescription>
+<para>Генерация портрета персонажа </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>character_name</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Имя персонажа </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>character_description</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Описание персонажа</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Optional[str] Путь к сохраненному портрету или None в случае ошибки </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/kir/Desktop/py/API/src/ImageManager/ImageManager.py" line="41" column="1" bodyfile="C:/Users/kir/Desktop/py/API/src/ImageManager/ImageManager.py" bodystart="41" bodyend="65"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrc_1_1_image_manager_1_1_image_manager_1_1_image_manager_1ac9ee1fea0ddc63d7373be64fc1924487" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Optional[str]</type>
+        <definition> Optional[str] src.ImageManager.ImageManager.ImageManager.generate_and_save_image</definition>
+        <argsstring>(self, str user_input, str actor_output, List[int] character_ids)</argsstring>
+        <name>generate_and_save_image</name>
+        <qualifiedname>src.ImageManager.ImageManager.ImageManager.generate_and_save_image</qualifiedname>
+        <param>
+          <type>self</type>
+          <defname>self</defname>
+        </param>
+        <param>
+          <type>str</type>
+          <declname>user_input</declname>
+        </param>
+        <param>
+          <type>str</type>
+          <declname>actor_output</declname>
+        </param>
+        <param>
+          <type>List</type>
+          <declname>character_ids</declname>
+          <array>[int]</array>
+        </param>
+        <briefdescription>
+<para>Генерация и сохранение изображения сцены </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>user_input</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Ввод пользователя </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>actor_output</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Описание сцены от актора </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>character_ids</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Список ID персонажей, участвующих в сцене</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Optional[str] Путь к сохраненному изображению или None в случае ошибки </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/kir/Desktop/py/API/src/ImageManager/ImageManager.py" line="66" column="1" bodyfile="C:/Users/kir/Desktop/py/API/src/ImageManager/ImageManager.py" bodystart="66" bodyend="108"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>Менеджер для управления генерацией и хранением изображений </para>
+    </briefdescription>
+    <detaileddescription>
+<para>Класс отвечает за:<itemizedlist>
+<listitem><para>Генерацию портретов персонажей</para>
+</listitem><listitem><para>Создание изображений сцен</para>
+</listitem><listitem><para>Управление файлами изображений</para>
+</listitem><listitem><para>Взаимодействие с базой данных для хранения информации об изображениях </para>
+</listitem></itemizedlist>
+</para>
+    </detaileddescription>
+    <location file="C:/Users/kir/Desktop/py/API/src/ImageManager/ImageManager.py" line="14" column="1" bodyfile="C:/Users/kir/Desktop/py/API/src/ImageManager/ImageManager.py" bodystart="14" bodyend="108"/>
+    <listofallmembers>
+      <member refid="classsrc_1_1_image_manager_1_1_image_manager_1_1_image_manager_1ae9ba57ed0c65ba1f56460d0cc94affff" prot="private" virt="non-virtual"><scope>src::ImageManager::ImageManager::ImageManager</scope><name>__db</name></member>
+      <member refid="classsrc_1_1_image_manager_1_1_image_manager_1_1_image_manager_1ae507231a3f50da5695b2a08c271c5f6e" prot="private" virt="non-virtual"><scope>src::ImageManager::ImageManager::ImageManager</scope><name>__image_generator</name></member>
+      <member refid="classsrc_1_1_image_manager_1_1_image_manager_1_1_image_manager_1adf109f7e341a2ada404f984e7ad2d986" prot="public" virt="non-virtual"><scope>src::ImageManager::ImageManager::ImageManager</scope><name>__init__</name></member>
+      <member refid="classsrc_1_1_image_manager_1_1_image_manager_1_1_image_manager_1a72ef9f21452a12537f50d12508c1e900" prot="private" virt="non-virtual"><scope>src::ImageManager::ImageManager::ImageManager</scope><name>__prompt_generator</name></member>
+      <member refid="classsrc_1_1_image_manager_1_1_image_manager_1_1_image_manager_1a3465ec8f770e1d18ac5dd5b9b8fbc456" prot="private" virt="non-virtual"><scope>src::ImageManager::ImageManager::ImageManager</scope><name>__session_id</name></member>
+      <member refid="classsrc_1_1_image_manager_1_1_image_manager_1_1_image_manager_1ac9ee1fea0ddc63d7373be64fc1924487" prot="public" virt="non-virtual"><scope>src::ImageManager::ImageManager::ImageManager</scope><name>generate_and_save_image</name></member>
+      <member refid="classsrc_1_1_image_manager_1_1_image_manager_1_1_image_manager_1a3d93b2b2a90ff5fecaab453bbd9f2b22" prot="public" virt="non-virtual"><scope>src::ImageManager::ImageManager::ImageManager</scope><name>generate_character_portrait</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

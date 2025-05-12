@@ -1,0 +1,106 @@
+\doxysection{Message\+Generator\+Deep\+Seek.\+py}
+\label{_message_generator_deep_seek_8py_source}\index{C:/Users/kir/Desktop/py/API/src/MessageGenerator/MessageGeneratorDeepSeek.py@{C:/Users/kir/Desktop/py/API/src/MessageGenerator/MessageGeneratorDeepSeek.py}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{keyword}{import}\ os}
+\DoxyCodeLine{00002\ \textcolor{keyword}{from}\ dotenv\ \textcolor{keyword}{import}\ load\_dotenv}
+\DoxyCodeLine{00003\ \textcolor{keyword}{from}\ typing\ \textcolor{keyword}{import}\ Optional,\ List,\ Dict}
+\DoxyCodeLine{00004\ \textcolor{keyword}{from}\ src.MessageGenerator.ProtocolMessageGenerator\ \textcolor{keyword}{import}\ ProtocolMessageGenerator}
+\DoxyCodeLine{00005\ \textcolor{keyword}{from}\ openai\ \textcolor{keyword}{import}\ OpenAI}
+\DoxyCodeLine{00006\ }
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ \textcolor{keyword}{class\ }MessageGeneratorDeepSeek(ProtocolMessageGenerator):}
+\DoxyCodeLine{00009\ \ \ \ \ \textcolor{stringliteral}{"{}"{}"{}!}}
+\DoxyCodeLine{00010\ \textcolor{stringliteral}{\ \ \ \ @brief\ Генератор\ сообщений\ с\ использованием\ DeepSeek\ API}}
+\DoxyCodeLine{00011\ \textcolor{stringliteral}{\ \ \ \ }}
+\DoxyCodeLine{00012\ \textcolor{stringliteral}{\ \ \ \ @details}}
+\DoxyCodeLine{00013\ \textcolor{stringliteral}{\ \ \ \ Реализует\ интерфейс\ ProtocolMessageGenerator\ для\ генерации\ сообщений}}
+\DoxyCodeLine{00014\ \textcolor{stringliteral}{\ \ \ \ через\ DeepSeek\ API,\ предоставляющий\ доступ\ к\ специализированным\ языковым\ моделям.}}
+\DoxyCodeLine{00015\ \textcolor{stringliteral}{\ \ \ \ "{}"{}"{}}}
+\DoxyCodeLine{00016\ \ \ \ \ \_\_client:\ OpenAI}
+\DoxyCodeLine{00017\ \ \ \ \ \_\_messages:\ List[Dict[str,\ str]]}
+\DoxyCodeLine{00018\ \ \ \ \ \_\_model:\ str}
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00020\ \ \ \ \ \textcolor{keyword}{def\ }\_\_init\_\_(self,\ model:\ str\ =\ \textcolor{stringliteral}{'deepseek-\/chat'})\ -\/>\ \textcolor{keywordtype}{None}:}
+\DoxyCodeLine{00021\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}"{}"{}!}}
+\DoxyCodeLine{00022\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ @brief\ Инициализация\ генератора\ сообщений}}
+\DoxyCodeLine{00023\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ }}
+\DoxyCodeLine{00024\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ @param\ model\ Название\ модели\ для\ генерации\ (по\ умолчанию\ 'deepseek-\/chat')}}
+\DoxyCodeLine{00025\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ "{}"{}"{}}}
+\DoxyCodeLine{00026\ \ \ \ \ \ \ \ \ load\_dotenv()}
+\DoxyCodeLine{00027\ \ \ \ \ \ \ \ \ self.\_\_client\ =\ OpenAI(api\_key=os.getenv(\textcolor{stringliteral}{"{}DeepSeek\_API\_KEY"{}}),\ base\_url=\textcolor{stringliteral}{"{}https://api.deepseek.com"{}})}
+\DoxyCodeLine{00028\ \ \ \ \ \ \ \ \ self.\_\_messages\ =\ []}
+\DoxyCodeLine{00029\ \ \ \ \ \ \ \ \ self.\_\_model\ =\ model}
+\DoxyCodeLine{00030\ }
+\DoxyCodeLine{00031\ \ \ \ \ \textcolor{keyword}{def\ }generate(self,\ input\_message:\ str,\ model:\ Optional[str]\ =\ \textcolor{keywordtype}{None})\ -\/>\ str:}
+\DoxyCodeLine{00032\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}"{}"{}!}}
+\DoxyCodeLine{00033\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ @brief\ Генерация\ ответа\ с\ использованием\ DeepSeek\ API}}
+\DoxyCodeLine{00034\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ }}
+\DoxyCodeLine{00035\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ @param\ input\_message\ Входное\ сообщение\ для\ обработки}}
+\DoxyCodeLine{00036\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ @param\ model\ Название\ модели\ для\ генерации\ (опционально)}}
+\DoxyCodeLine{00037\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ }}
+\DoxyCodeLine{00038\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ @return\ str\ Сгенерированный\ ответ}}
+\DoxyCodeLine{00039\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ "{}"{}"{}}}
+\DoxyCodeLine{00040\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ model\ \textcolor{keywordflow}{is}\ \textcolor{keywordtype}{None}\ \textcolor{keywordflow}{or}\ model\ ==\ \textcolor{stringliteral}{''}:}
+\DoxyCodeLine{00041\ \ \ \ \ \ \ \ \ \ \ \ \ model\ =\ self.\_\_model}
+\DoxyCodeLine{00042\ \ \ \ \ \ \ \ \ self.add\_user\_message(input\_message)}
+\DoxyCodeLine{00043\ \ \ \ \ \ \ \ \ completion\ =\ self.\_\_client.chat.completions.create(}
+\DoxyCodeLine{00044\ \ \ \ \ \ \ \ \ \ \ \ \ model=model,}
+\DoxyCodeLine{00045\ \ \ \ \ \ \ \ \ \ \ \ \ messages=self.\_\_messages,\ \ \textcolor{comment}{\#\ type:\ ignore}}
+\DoxyCodeLine{00046\ \ \ \ \ \ \ \ \ \ \ \ \ max\_tokens=1024,}
+\DoxyCodeLine{00047\ \ \ \ \ \ \ \ \ \ \ \ \ temperature=1,}
+\DoxyCodeLine{00048\ \ \ \ \ \ \ \ \ \ \ \ \ top\_p=1,}
+\DoxyCodeLine{00049\ \ \ \ \ \ \ \ \ \ \ \ \ stream=\textcolor{keyword}{False},}
+\DoxyCodeLine{00050\ \ \ \ \ \ \ \ \ \ \ \ \ stop=\textcolor{keywordtype}{None},}
+\DoxyCodeLine{00051\ \ \ \ \ \ \ \ \ )}
+\DoxyCodeLine{00052\ \ \ \ \ \ \ \ \ output:\ str\ =\ completion.choices[0].message.content\ \ \textcolor{comment}{\#\ type:\ ignore}}
+\DoxyCodeLine{00053\ }
+\DoxyCodeLine{00054\ \ \ \ \ \ \ \ \ self.add\_ai\_message(output)}
+\DoxyCodeLine{00055\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ output}
+\DoxyCodeLine{00056\ \ \ \ \ }
+\DoxyCodeLine{00057\ }
+\DoxyCodeLine{00058\ \ \ \ \ \textcolor{keyword}{def\ }add\_user\_message(self,\ message\_content:\ str)\ -\/>\ \textcolor{keywordtype}{None}:}
+\DoxyCodeLine{00059\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}"{}"{}!}}
+\DoxyCodeLine{00060\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ @brief\ Добавление\ сообщения\ пользователя\ в\ историю}}
+\DoxyCodeLine{00061\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ }}
+\DoxyCodeLine{00062\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ @param\ message\_content\ Текст\ сообщения\ пользователя}}
+\DoxyCodeLine{00063\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ "{}"{}"{}}}
+\DoxyCodeLine{00064\ \ \ \ \ \ \ \ \ formatted\_output:\ Dict[str,\ str]\ =\ \{}
+\DoxyCodeLine{00065\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}role"{}}:\ \textcolor{stringliteral}{'user'},}
+\DoxyCodeLine{00066\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}content"{}}:\ message\_content}
+\DoxyCodeLine{00067\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00068\ \ \ \ \ \ \ \ \ self.\_\_messages.append(formatted\_output)}
+\DoxyCodeLine{00069\ }
+\DoxyCodeLine{00070\ \ \ \ \ \textcolor{keyword}{def\ }add\_ai\_message(self,\ message\_content:\ str)\ -\/>\ \textcolor{keywordtype}{None}:}
+\DoxyCodeLine{00071\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}"{}"{}!}}
+\DoxyCodeLine{00072\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ @brief\ Добавление\ сообщения\ ИИ\ в\ историю}}
+\DoxyCodeLine{00073\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ }}
+\DoxyCodeLine{00074\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ @param\ message\_content\ Текст\ сообщения\ ИИ}}
+\DoxyCodeLine{00075\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ "{}"{}"{}}}
+\DoxyCodeLine{00076\ \ \ \ \ \ \ \ \ formatted\_output:\ Dict[str,\ str]\ =\ \{}
+\DoxyCodeLine{00077\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}role"{}}:\ \textcolor{stringliteral}{'assistant'},}
+\DoxyCodeLine{00078\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}content"{}}:\ message\_content}
+\DoxyCodeLine{00079\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00080\ \ \ \ \ \ \ \ \ self.\_\_messages.append(formatted\_output)}
+\DoxyCodeLine{00081\ }
+\DoxyCodeLine{00082\ \ \ \ \ \textcolor{keyword}{def\ }add\_system\_message(self,\ message\_content:\ str)\ -\/>\ \textcolor{keywordtype}{None}:}
+\DoxyCodeLine{00083\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}"{}"{}!}}
+\DoxyCodeLine{00084\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ @brief\ Добавление\ системного\ сообщения\ в\ историю}}
+\DoxyCodeLine{00085\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ }}
+\DoxyCodeLine{00086\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ @param\ message\_content\ Текст\ системного\ сообщения}}
+\DoxyCodeLine{00087\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ "{}"{}"{}}}
+\DoxyCodeLine{00088\ \ \ \ \ \ \ \ \ formatted\_output:\ Dict[str,\ str]\ =\ \{}
+\DoxyCodeLine{00089\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}role"{}}:\ \textcolor{stringliteral}{'system'},}
+\DoxyCodeLine{00090\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}content"{}}:\ message\_content}
+\DoxyCodeLine{00091\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00092\ \ \ \ \ \ \ \ \ self.\_\_messages.append(formatted\_output)}
+\DoxyCodeLine{00093\ }
+\DoxyCodeLine{00094\ \ \ \ \ \textcolor{keyword}{def\ }get\_message\_history(self)\ -\/>\ List[Dict[str,\ str]]:}
+\DoxyCodeLine{00095\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}"{}"{}!}}
+\DoxyCodeLine{00096\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ @brief\ Получение\ истории\ сообщений}}
+\DoxyCodeLine{00097\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ }}
+\DoxyCodeLine{00098\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ @return\ List[Dict[str,\ str]]\ Список\ сообщений\ в\ формате\ словарей}}
+\DoxyCodeLine{00099\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ "{}"{}"{}}}
+\DoxyCodeLine{00100\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ self.\_\_messages}
+
+\end{DoxyCode}

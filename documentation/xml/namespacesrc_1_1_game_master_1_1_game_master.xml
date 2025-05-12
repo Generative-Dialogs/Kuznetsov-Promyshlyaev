@@ -1,0 +1,13 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.13.2" xml:lang="ru">
+  <compounddef id="namespacesrc_1_1_game_master_1_1_game_master" kind="namespace" language="Python">
+    <compoundname>src::GameMaster::GameMaster</compoundname>
+    <innerclass refid="classsrc_1_1_game_master_1_1_game_master_1_1_game_master" prot="public">src::GameMaster::GameMaster::GameMaster</innerclass>
+    <innerclass refid="classsrc_1_1_game_master_1_1_game_master_1_1_player_death_exception" prot="public">src::GameMaster::GameMaster::PlayerDeathException</innerclass>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="C:/Users/kir/Desktop/py/API/src/GameMaster/GameMaster.py" line="1" column="1"/>
+  </compounddef>
+</doxygen>

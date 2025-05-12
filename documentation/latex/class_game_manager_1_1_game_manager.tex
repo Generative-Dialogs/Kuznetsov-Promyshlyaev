@@ -1,0 +1,143 @@
+\doxysection{Класс Game\+Manager.\+Game\+Manager}
+\label{class_game_manager_1_1_game_manager}\index{GameManager.GameManager@{GameManager.GameManager}}
+
+
+Менеджер игрового процесса  
+
+
+\doxysubsubsection*{Открытые члены}
+\begin{DoxyCompactItemize}
+\item 
+None \textbf{ \+\_\+\+\_\+init\+\_\+\+\_\+} (self, int session\+\_\+id)
+\begin{DoxyCompactList}\small\item\em Инициализация менеджера игры \end{DoxyCompactList}\item 
+Tuple[str, Optional[str]] \textbf{ process\+\_\+audio\+\_\+input} (self, str audio\+\_\+path, bool \textbf{ generate\+\_\+image}=True)
+\begin{DoxyCompactList}\small\item\em Обработка аудио ввода от пользователя \end{DoxyCompactList}\item 
+Tuple[str, Optional[str]] \textbf{ process\+\_\+input} (self, str user\+\_\+input, bool \textbf{ generate\+\_\+image}=True)
+\begin{DoxyCompactList}\small\item\em Обработка пользовательского ввода \end{DoxyCompactList}\item 
+Optional[str] \textbf{ generate\+\_\+image} (self, int sequence)
+\begin{DoxyCompactList}\small\item\em Генерация изображения для сообщения \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Подробное описание}
+Менеджер игрового процесса 
+
+Координирует взаимодействие между различными компонентами игры\+:
+\begin{DoxyItemize}
+\item Мастер игры (\doxyref{Game\+Master}{стр.}{classsrc_1_1_game_master_1_1_game_master_1_1_game_master})
+\item Менеджер изображений (\doxyref{Image\+Manager}{стр.}{classsrc_1_1_image_manager_1_1_image_manager_1_1_image_manager})
+\item База данных (\doxyref{Database\+Manager}{стр.}{classsrc_1_1_database_manager_1_1_database_manager_1_1_database_manager})
+\item Актор (\doxyref{Actor}{стр.}{classsrc_1_1_actor_1_1_actor_1_1_actor})
+\end{DoxyItemize}
+
+Отвечает за обработку пользовательского ввода и генерацию ответов, включая текстовые описания и изображения. 
+
+См. определение в файле \textbf{ Game\+Manager.\+py} строка \textbf{ 12}
+
+
+
+\doxysubsection{Конструктор(ы)}
+\index{GameManager.GameManager@{GameManager.GameManager}!\_\_init\_\_@{\_\_init\_\_}}
+\index{\_\_init\_\_@{\_\_init\_\_}!GameManager.GameManager@{GameManager.GameManager}}
+\doxysubsubsection{\_\_init\_\_()}
+{\footnotesize\ttfamily \label{class_game_manager_1_1_game_manager_a6383f10322032727e247ff60ce81f15a} 
+ None Game\+Manager.\+Game\+Manager.\+\_\+\+\_\+init\+\_\+\+\_\+ (\begin{DoxyParamCaption}\item[{}]{self}{, }\item[{int}]{session\+\_\+id}{}\end{DoxyParamCaption})}
+
+
+
+Инициализация менеджера игры 
+
+
+\begin{DoxyParams}{Аргументы}
+{\em session\+\_\+id} & ID игровой сессии\\
+\hline
+\end{DoxyParams}
+Создает новый экземпляр менеджера игры и инициализирует все необходимые компоненты для работы игровой сессии. 
+
+См. определение в файле \textbf{ Game\+Manager.\+py} строка \textbf{ 27}
+
+
+
+\doxysubsection{Методы}
+\index{GameManager.GameManager@{GameManager.GameManager}!generate\_image@{generate\_image}}
+\index{generate\_image@{generate\_image}!GameManager.GameManager@{GameManager.GameManager}}
+\doxysubsubsection{generate\_image()}
+{\footnotesize\ttfamily \label{class_game_manager_1_1_game_manager_a268def76d22d758ba6bab8ddcced4b75} 
+ Optional[str] Game\+Manager.\+Game\+Manager.\+generate\+\_\+image (\begin{DoxyParamCaption}\item[{}]{self}{, }\item[{int}]{sequence}{}\end{DoxyParamCaption})}
+
+
+
+Генерация изображения для сообщения 
+
+
+\begin{DoxyParams}{Аргументы}
+{\em sequence} & Номер последовательности сообщения\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Возвращает}
+Optional[str] Путь к сгенерированному изображению или None в случае ошибки
+\end{DoxyReturn}
+Генерирует изображение для указанного сообщения, используя данные из базы данных и активных персонажей. 
+
+См. определение в файле \textbf{ Game\+Manager.\+py} строка \textbf{ 101}
+
+\index{GameManager.GameManager@{GameManager.GameManager}!process\_audio\_input@{process\_audio\_input}}
+\index{process\_audio\_input@{process\_audio\_input}!GameManager.GameManager@{GameManager.GameManager}}
+\doxysubsubsection{process\_audio\_input()}
+{\footnotesize\ttfamily \label{class_game_manager_1_1_game_manager_a9d2e1bd15ba705ae42efbc0dcf1be035} 
+ Tuple[str, Optional[str]] Game\+Manager.\+Game\+Manager.\+process\+\_\+audio\+\_\+input (\begin{DoxyParamCaption}\item[{}]{self}{, }\item[{str}]{audio\+\_\+path}{, }\item[{bool }]{generate\+\_\+image}{ = {\ttfamily True}}\end{DoxyParamCaption})}
+
+
+
+Обработка аудио ввода от пользователя 
+
+
+\begin{DoxyParams}{Аргументы}
+{\em audio\+\_\+path} & Путь к аудиофайлу \\
+\hline
+{\em generate\+\_\+image} & Флаг генерации изображения (по умолчанию True)\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Возвращает}
+Tuple[str, Optional[str]] Кортеж из\+:
+\begin{DoxyItemize}
+\item Текстового ответа от мастера игры
+\item Пути к сгенерированному изображению (если успешно и generate\+\_\+image=True) или None
+\end{DoxyItemize}
+\end{DoxyReturn}
+Преобразует аудио в текст с помощью STT и обрабатывает полученный текст через process\+\_\+input. Использует язык сессии для распознавания речи. 
+
+См. определение в файле \textbf{ Game\+Manager.\+py} строка \textbf{ 44}
+
+\index{GameManager.GameManager@{GameManager.GameManager}!process\_input@{process\_input}}
+\index{process\_input@{process\_input}!GameManager.GameManager@{GameManager.GameManager}}
+\doxysubsubsection{process\_input()}
+{\footnotesize\ttfamily \label{class_game_manager_1_1_game_manager_a4322b2bdf33e7468c720e53233ffcbff} 
+ Tuple[str, Optional[str]] Game\+Manager.\+Game\+Manager.\+process\+\_\+input (\begin{DoxyParamCaption}\item[{}]{self}{, }\item[{str}]{user\+\_\+input}{, }\item[{bool }]{generate\+\_\+image}{ = {\ttfamily True}}\end{DoxyParamCaption})}
+
+
+
+Обработка пользовательского ввода 
+
+
+\begin{DoxyParams}{Аргументы}
+{\em user\+\_\+input} & Ввод пользователя \\
+\hline
+{\em generate\+\_\+image} & Флаг генерации изображения (по умолчанию True)\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Возвращает}
+Tuple[str, Optional[str]] Кортеж из\+:
+\begin{DoxyItemize}
+\item Текстового ответа от мастера игры
+\item Пути к сгенерированному изображению (если успешно и generate\+\_\+image=True) или None
+\end{DoxyItemize}
+\end{DoxyReturn}
+Обрабатывает пользовательский ввод, генерирует ответ и, при необходимости, создает изображение для текущей сцены. 
+
+См. определение в файле \textbf{ Game\+Manager.\+py} строка \textbf{ 73}
+
+
+
+Объявления и описания членов класса находятся в файле\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/kir/\+Desktop/py/\+API/src/\+Game\+Manager/Game\+Manager.\+py\end{DoxyCompactItemize}

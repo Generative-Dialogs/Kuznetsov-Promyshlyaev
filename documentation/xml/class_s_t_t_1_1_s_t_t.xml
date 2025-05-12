@@ -1,0 +1,392 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.13.2" xml:lang="ru">
+  <compounddef id="class_s_t_t_1_1_s_t_t" kind="class" language="Python" prot="public">
+    <compoundname>STT::STT</compoundname>
+    <sectiondef kind="private-static-attrib">
+      <memberdef kind="variable" id="class_s_t_t_1_1_s_t_t_1a135af9a06c5abce11d9f7d6dc11b66e4" prot="private" static="yes" mutable="no">
+        <type>Optional</type>
+        <definition>Optional STT.STT::__instance</definition>
+        <argsstring></argsstring>
+        <name>__instance</name>
+        <qualifiedname>STT.STT.__instance</qualifiedname>
+        <initializer>=  None</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/kir/Desktop/py/API/src/STT/STT.py" line="19" column="1" bodyfile="C:/Users/kir/Desktop/py/API/src/STT/STT.py" bodystart="19" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_s_t_t_1_1_s_t_t_1a18d65b38e82a8a6d2332dcb77448c334" prot="private" static="yes" mutable="no">
+        <type>Optional</type>
+        <definition>Optional STT.STT::__recognizer</definition>
+        <argsstring></argsstring>
+        <name>__recognizer</name>
+        <qualifiedname>STT.STT.__recognizer</qualifiedname>
+        <initializer>=  None</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/kir/Desktop/py/API/src/STT/STT.py" line="20" column="1" bodyfile="C:/Users/kir/Desktop/py/API/src/STT/STT.py" bodystart="20" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_s_t_t_1_1_s_t_t_1a31995431a1081b0e1fa5e22634677c63" prot="private" static="yes" mutable="no">
+        <type>int</type>
+        <definition>int STT.STT::__silence_duration_ms</definition>
+        <argsstring></argsstring>
+        <name>__silence_duration_ms</name>
+        <qualifiedname>STT.STT.__silence_duration_ms</qualifiedname>
+        <initializer>=  2000</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/kir/Desktop/py/API/src/STT/STT.py" line="21" column="1" bodyfile="C:/Users/kir/Desktop/py/API/src/STT/STT.py" bodystart="21" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_s_t_t_1_1_s_t_t_1a0eb5f46b9bbcfad3f8c5ea052d9d75dc" prot="private" static="yes" mutable="no">
+        <type>float</type>
+        <definition>float STT.STT::__energy_threshold</definition>
+        <argsstring></argsstring>
+        <name>__energy_threshold</name>
+        <qualifiedname>STT.STT.__energy_threshold</qualifiedname>
+        <initializer>=  300</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/kir/Desktop/py/API/src/STT/STT.py" line="22" column="1" bodyfile="C:/Users/kir/Desktop/py/API/src/STT/STT.py" bodystart="22" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_s_t_t_1_1_s_t_t_1a2f168079f8932bca18ff8ea847b01072" prot="private" static="yes" mutable="no">
+        <type>float</type>
+        <definition>float STT.STT::__pause_threshold</definition>
+        <argsstring></argsstring>
+        <name>__pause_threshold</name>
+        <qualifiedname>STT.STT.__pause_threshold</qualifiedname>
+        <initializer>=  0.8</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/kir/Desktop/py/API/src/STT/STT.py" line="23" column="1" bodyfile="C:/Users/kir/Desktop/py/API/src/STT/STT.py" bodystart="23" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_s_t_t_1_1_s_t_t_1a96f1b5f438df84284f82933791420440" prot="private" static="yes" mutable="no">
+        <type>bool</type>
+        <definition>bool STT.STT::__dynamic_energy_threshold</definition>
+        <argsstring></argsstring>
+        <name>__dynamic_energy_threshold</name>
+        <qualifiedname>STT.STT.__dynamic_energy_threshold</qualifiedname>
+        <initializer>=  True</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/kir/Desktop/py/API/src/STT/STT.py" line="24" column="1" bodyfile="C:/Users/kir/Desktop/py/API/src/STT/STT.py" bodystart="24" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_s_t_t_1_1_s_t_t_1add1948143ef0071a4e01484adf81ab04" prot="private" static="yes" mutable="no">
+        <type>dict</type>
+        <definition>dict STT.STT::__language_codes</definition>
+        <argsstring></argsstring>
+        <name>__language_codes</name>
+        <qualifiedname>STT.STT.__language_codes</qualifiedname>
+        <initializer>=  {
+        &quot;Russian&quot;: &quot;ru-RU&quot;,
+        &quot;English&quot;: &quot;en-US&quot;,
+        &quot;ru-RU&quot;: &quot;ru-RU&quot;,
+        &quot;en-US&quot;: &quot;en-US&quot;
+    }</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/kir/Desktop/py/API/src/STT/STT.py" line="27" column="1" bodyfile="C:/Users/kir/Desktop/py/API/src/STT/STT.py" bodystart="27" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_s_t_t_1_1_s_t_t_1a4ca8df1cdc6958d6ee4897155e8f95f6" prot="private" static="yes" mutable="no">
+        <type>str</type>
+        <definition>str STT.STT::__current_language</definition>
+        <argsstring></argsstring>
+        <name>__current_language</name>
+        <qualifiedname>STT.STT.__current_language</qualifiedname>
+        <initializer>=  &quot;Russian&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/kir/Desktop/py/API/src/STT/STT.py" line="35" column="1" bodyfile="C:/Users/kir/Desktop/py/API/src/STT/STT.py" bodystart="35" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_s_t_t_1_1_s_t_t_1a00806fedb423f01c5e88d7b05428ed42" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type> &apos;<ref refid="class_s_t_t_1_1_s_t_t" kindref="compound">STT</ref>&apos;</type>
+        <definition> &apos;STT&apos; STT.STT.__new__</definition>
+        <argsstring>(cls)</argsstring>
+        <name>__new__</name>
+        <qualifiedname>STT.STT.__new__</qualifiedname>
+        <param>
+          <type>cls</type>
+          <defname>cls</defname>
+        </param>
+        <briefdescription>
+<para>Создание единственного экземпляра класса </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para><ref refid="class_s_t_t_1_1_s_t_t" kindref="compound">STT</ref> Единственный экземпляр класса <ref refid="class_s_t_t_1_1_s_t_t" kindref="compound">STT</ref> </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/kir/Desktop/py/API/src/STT/STT.py" line="37" column="1" bodyfile="C:/Users/kir/Desktop/py/API/src/STT/STT.py" bodystart="37" bodyend="47"/>
+      </memberdef>
+      <memberdef kind="function" id="class_s_t_t_1_1_s_t_t_1afd1233e0d05b742a70ac41d656c39d7a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>None</type>
+        <definition> None STT.STT.__init__</definition>
+        <argsstring>(self)</argsstring>
+        <name>__init__</name>
+        <qualifiedname>STT.STT.__init__</qualifiedname>
+        <param>
+          <type>self</type>
+          <defname>self</defname>
+        </param>
+        <briefdescription>
+<para>Инициализация распознавателя речи </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="note"><para>Метод выполняется только при первом создании экземпляра </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/kir/Desktop/py/API/src/STT/STT.py" line="48" column="1" bodyfile="C:/Users/kir/Desktop/py/API/src/STT/STT.py" bodystart="48" bodyend="60"/>
+      </memberdef>
+      <memberdef kind="function" id="class_s_t_t_1_1_s_t_t_1a26c6ff8183dcc74ae777214092921ddf" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>None</type>
+        <definition> None STT.STT.set_language</definition>
+        <argsstring>(self, str language)</argsstring>
+        <name>set_language</name>
+        <qualifiedname>STT.STT.set_language</qualifiedname>
+        <param>
+          <type>self</type>
+          <defname>self</defname>
+        </param>
+        <param>
+          <type>str</type>
+          <declname>language</declname>
+        </param>
+        <briefdescription>
+<para>Установка языка распознавания </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>language</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Язык для распознавания (Russian/English или ru-RU/en-US)</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="exception"><parameteritem>
+<parameternamelist>
+<parametername>ValueError</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>если указанный язык не поддерживается </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/kir/Desktop/py/API/src/STT/STT.py" line="61" column="1" bodyfile="C:/Users/kir/Desktop/py/API/src/STT/STT.py" bodystart="61" bodyend="72"/>
+      </memberdef>
+      <memberdef kind="function" id="class_s_t_t_1_1_s_t_t_1a2834cb4380855d9beb3d8a70ac675523" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>str</type>
+        <definition> str STT.STT.get_language</definition>
+        <argsstring>(self)</argsstring>
+        <name>get_language</name>
+        <qualifiedname>STT.STT.get_language</qualifiedname>
+        <param>
+          <type>self</type>
+          <defname>self</defname>
+        </param>
+        <briefdescription>
+<para>Получение текущего языка распознавания </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>str Текущий язык распознавания </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/kir/Desktop/py/API/src/STT/STT.py" line="73" column="1" bodyfile="C:/Users/kir/Desktop/py/API/src/STT/STT.py" bodystart="73" bodyend="80"/>
+      </memberdef>
+      <memberdef kind="function" id="class_s_t_t_1_1_s_t_t_1ab26c7c8dcf0c6c835b4f596cac106d9b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>str</type>
+        <definition> str STT.STT.audio_to_text</definition>
+        <argsstring>(self, str audio_path)</argsstring>
+        <name>audio_to_text</name>
+        <qualifiedname>STT.STT.audio_to_text</qualifiedname>
+        <param>
+          <type>self</type>
+          <defname>self</defname>
+        </param>
+        <param>
+          <type>str</type>
+          <declname>audio_path</declname>
+        </param>
+        <briefdescription>
+<para>Преобразование аудиофайла в текст </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>audio_path</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Путь к аудиофайлу для распознавания</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>str Распознанный текст или сообщение об ошибке</para>
+</simplesect>
+<parameterlist kind="exception"><parameteritem>
+<parameternamelist>
+<parametername>sr.UnknownValueError</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>если речь не может быть распознана </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>sr.RequestError</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>если возникла ошибка при подключении к API </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/kir/Desktop/py/API/src/STT/STT.py" line="120" column="1" bodyfile="C:/Users/kir/Desktop/py/API/src/STT/STT.py" bodystart="120" bodyend="166"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-func">
+      <memberdef kind="function" id="class_s_t_t_1_1_s_t_t_1a06e540126c6521cfacfcb842adfcd347" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>str</type>
+        <definition> str STT.STT.__add_silence_padding</definition>
+        <argsstring>(self, str audio_path)</argsstring>
+        <name>__add_silence_padding</name>
+        <qualifiedname>STT.STT.__add_silence_padding</qualifiedname>
+        <param>
+          <type>self</type>
+          <defname>self</defname>
+        </param>
+        <param>
+          <type>str</type>
+          <declname>audio_path</declname>
+        </param>
+        <briefdescription>
+<para>Добавление тишины в начало аудиофайла </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>audio_path</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Путь к исходному аудиофайлу</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>str Путь к новому аудиофайлу с добавленной тишиной </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/kir/Desktop/py/API/src/STT/STT.py" line="81" column="1" bodyfile="C:/Users/kir/Desktop/py/API/src/STT/STT.py" bodystart="81" bodyend="107"/>
+      </memberdef>
+      <memberdef kind="function" id="class_s_t_t_1_1_s_t_t_1a6c0c83ad8bd5648101d8cd0d2207282f" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>None</type>
+        <definition> None STT.STT.__cleanup_temp_file</definition>
+        <argsstring>(self, str temp_path)</argsstring>
+        <name>__cleanup_temp_file</name>
+        <qualifiedname>STT.STT.__cleanup_temp_file</qualifiedname>
+        <param>
+          <type>self</type>
+          <defname>self</defname>
+        </param>
+        <param>
+          <type>str</type>
+          <declname>temp_path</declname>
+        </param>
+        <briefdescription>
+<para>Удаление временного файла </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>temp_path</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Путь к временному файлу </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/kir/Desktop/py/API/src/STT/STT.py" line="108" column="1" bodyfile="C:/Users/kir/Desktop/py/API/src/STT/STT.py" bodystart="108" bodyend="119"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>Класс для распознавания речи (Speech-to-Text) </para>
+    </briefdescription>
+    <detaileddescription>
+<para>Реализует паттерн Singleton для обеспечения единой точки доступа к функционалу распознавания речи. Использует библиотеку speech_recognition для преобразования аудио в текст.</para>
+<para><simplesect kind="note"><para>Поддерживает русский и английский языки для распознавания </para>
+</simplesect>
+</para>
+    </detaileddescription>
+    <location file="C:/Users/kir/Desktop/py/API/src/STT/STT.py" line="8" column="1" bodyfile="C:/Users/kir/Desktop/py/API/src/STT/STT.py" bodystart="8" bodyend="166"/>
+    <listofallmembers>
+      <member refid="class_s_t_t_1_1_s_t_t_1a06e540126c6521cfacfcb842adfcd347" prot="private" virt="non-virtual"><scope>STT::STT</scope><name>__add_silence_padding</name></member>
+      <member refid="class_s_t_t_1_1_s_t_t_1a6c0c83ad8bd5648101d8cd0d2207282f" prot="private" virt="non-virtual"><scope>STT::STT</scope><name>__cleanup_temp_file</name></member>
+      <member refid="class_s_t_t_1_1_s_t_t_1a4ca8df1cdc6958d6ee4897155e8f95f6" prot="private" virt="non-virtual"><scope>STT::STT</scope><name>__current_language</name></member>
+      <member refid="class_s_t_t_1_1_s_t_t_1a96f1b5f438df84284f82933791420440" prot="private" virt="non-virtual"><scope>STT::STT</scope><name>__dynamic_energy_threshold</name></member>
+      <member refid="class_s_t_t_1_1_s_t_t_1a0eb5f46b9bbcfad3f8c5ea052d9d75dc" prot="private" virt="non-virtual"><scope>STT::STT</scope><name>__energy_threshold</name></member>
+      <member refid="class_s_t_t_1_1_s_t_t_1afd1233e0d05b742a70ac41d656c39d7a" prot="public" virt="non-virtual"><scope>STT::STT</scope><name>__init__</name></member>
+      <member refid="class_s_t_t_1_1_s_t_t_1a135af9a06c5abce11d9f7d6dc11b66e4" prot="private" virt="non-virtual"><scope>STT::STT</scope><name>__instance</name></member>
+      <member refid="class_s_t_t_1_1_s_t_t_1add1948143ef0071a4e01484adf81ab04" prot="private" virt="non-virtual"><scope>STT::STT</scope><name>__language_codes</name></member>
+      <member refid="class_s_t_t_1_1_s_t_t_1a00806fedb423f01c5e88d7b05428ed42" prot="public" virt="non-virtual"><scope>STT::STT</scope><name>__new__</name></member>
+      <member refid="class_s_t_t_1_1_s_t_t_1a2f168079f8932bca18ff8ea847b01072" prot="private" virt="non-virtual"><scope>STT::STT</scope><name>__pause_threshold</name></member>
+      <member refid="class_s_t_t_1_1_s_t_t_1a18d65b38e82a8a6d2332dcb77448c334" prot="private" virt="non-virtual"><scope>STT::STT</scope><name>__recognizer</name></member>
+      <member refid="class_s_t_t_1_1_s_t_t_1a31995431a1081b0e1fa5e22634677c63" prot="private" virt="non-virtual"><scope>STT::STT</scope><name>__silence_duration_ms</name></member>
+      <member refid="class_s_t_t_1_1_s_t_t_1ab26c7c8dcf0c6c835b4f596cac106d9b" prot="public" virt="non-virtual"><scope>STT::STT</scope><name>audio_to_text</name></member>
+      <member refid="class_s_t_t_1_1_s_t_t_1a2834cb4380855d9beb3d8a70ac675523" prot="public" virt="non-virtual"><scope>STT::STT</scope><name>get_language</name></member>
+      <member refid="class_s_t_t_1_1_s_t_t_1a26c6ff8183dcc74ae777214092921ddf" prot="public" virt="non-virtual"><scope>STT::STT</scope><name>set_language</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

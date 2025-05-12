@@ -1,0 +1,226 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_class_s_t_t_1_1_s_t_t" xml:lang="ru">
+<title>Класс STT.STT</title>
+<indexterm><primary>STT.STT</primary></indexterm>
+<para>
+
+<para>Класс для распознавания речи (Speech-to-Text) </para>
+ 
+</para>
+<simplesect>
+    <title>Открытые члены    </title>
+        <itemizedlist>
+            <listitem><para> &apos;<link linkend="_class_s_t_t_1_1_s_t_t">STT</link>&apos; <link linkend="_class_s_t_t_1_1_s_t_t_1a00806fedb423f01c5e88d7b05428ed42">__new__</link> (cls)</para>
+
+<para>Создание единственного экземпляра класса </para>
+</listitem>
+            <listitem><para>None <link linkend="_class_s_t_t_1_1_s_t_t_1afd1233e0d05b742a70ac41d656c39d7a">__init__</link> (self)</para>
+
+<para>Инициализация распознавателя речи </para>
+</listitem>
+            <listitem><para>None <link linkend="_class_s_t_t_1_1_s_t_t_1a26c6ff8183dcc74ae777214092921ddf">set_language</link> (self, str language)</para>
+
+<para>Установка языка распознавания </para>
+</listitem>
+            <listitem><para>str <link linkend="_class_s_t_t_1_1_s_t_t_1a2834cb4380855d9beb3d8a70ac675523">get_language</link> (self)</para>
+
+<para>Получение текущего языка распознавания </para>
+</listitem>
+            <listitem><para>str <link linkend="_class_s_t_t_1_1_s_t_t_1ab26c7c8dcf0c6c835b4f596cac106d9b">audio_to_text</link> (self, str audio_path)</para>
+
+<para>Преобразование аудиофайла в текст </para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Подробное описание</title>
+
+<para>Класс для распознавания речи (Speech-to-Text) </para>
+
+
+
+<para>Реализует паттерн Singleton для обеспечения единой точки доступа к функционалу распознавания речи. Использует библиотеку speech_recognition для преобразования аудио в текст.</para>
+
+<para><note><title>Заметки</title>
+
+<para>Поддерживает русский и английский языки для распознавания </para>
+</note>
+</para>
+<para>
+См. определение в файле <link linkend="__s_t_t_8py_source">STT.py</link> строка <link linkend="__s_t_t_8py_source_1l00008">8</link></para>
+</section>
+<section>
+<title>Конструктор(ы)</title>
+<anchor xml:id="_class_s_t_t_1_1_s_t_t_1afd1233e0d05b742a70ac41d656c39d7a"/><section>
+    <title>__init__()</title>
+<indexterm><primary>__init__</primary><secondary>STT.STT</secondary></indexterm>
+<indexterm><primary>STT.STT</primary><secondary>__init__</secondary></indexterm>
+<para><computeroutput> None STT.STT.__init__ ( self)</computeroutput></para><para>
+
+<para>Инициализация распознавателя речи </para>
+</para>
+
+<para><note><title>Заметки</title>
+
+<para>Метод выполняется только при первом создании экземпляра </para>
+</note>
+</para>
+<para>
+См. определение в файле <link linkend="__s_t_t_8py_source">STT.py</link> строка <link linkend="__s_t_t_8py_source_1l00048">48</link></para>
+</section>
+</section>
+<section>
+<title>Методы</title>
+<anchor xml:id="_class_s_t_t_1_1_s_t_t_1a00806fedb423f01c5e88d7b05428ed42"/><section>
+    <title>__new__()</title>
+<indexterm><primary>__new__</primary><secondary>STT.STT</secondary></indexterm>
+<indexterm><primary>STT.STT</primary><secondary>__new__</secondary></indexterm>
+<para><computeroutput> &apos;<link linkend="_class_s_t_t_1_1_s_t_t">STT</link>&apos; STT.STT.__new__ ( cls)</computeroutput></para><para>
+
+<para>Создание единственного экземпляра класса </para>
+</para>
+
+<para><formalpara><title>Возвращает</title>
+
+<para><link linkend="_class_s_t_t_1_1_s_t_t">STT</link> Единственный экземпляр класса <link linkend="_class_s_t_t_1_1_s_t_t">STT</link> </para>
+</formalpara>
+</para>
+<para>
+См. определение в файле <link linkend="__s_t_t_8py_source">STT.py</link> строка <link linkend="__s_t_t_8py_source_1l00037">37</link></para>
+</section>
+<anchor xml:id="_class_s_t_t_1_1_s_t_t_1ab26c7c8dcf0c6c835b4f596cac106d9b"/><section>
+    <title>audio_to_text()</title>
+<indexterm><primary>audio_to_text</primary><secondary>STT.STT</secondary></indexterm>
+<indexterm><primary>STT.STT</primary><secondary>audio_to_text</secondary></indexterm>
+<para><computeroutput> str STT.STT.audio_to_text ( self, str audio_path)</computeroutput></para><para>
+
+<para>Преобразование аудиофайла в текст </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Аргументы</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>audio_path</entry><entry>
+<para>Путь к аудиофайлу для распознавания</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Возвращает</title>
+
+<para>str Распознанный текст или сообщение об ошибке</para>
+</formalpara>
+
+                <formalpara>
+                    <title>
+Исключения</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>sr.UnknownValueError</entry><entry>
+<para>если речь не может быть распознана </para>
+</entry>
+                            </row>
+                            <row>
+<entry>sr.RequestError</entry><entry>
+<para>если возникла ошибка при подключении к API </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+<para>
+См. определение в файле <link linkend="__s_t_t_8py_source">STT.py</link> строка <link linkend="__s_t_t_8py_source_1l00120">120</link></para>
+</section>
+<anchor xml:id="_class_s_t_t_1_1_s_t_t_1a2834cb4380855d9beb3d8a70ac675523"/><section>
+    <title>get_language()</title>
+<indexterm><primary>get_language</primary><secondary>STT.STT</secondary></indexterm>
+<indexterm><primary>STT.STT</primary><secondary>get_language</secondary></indexterm>
+<para><computeroutput> str STT.STT.get_language ( self)</computeroutput></para><para>
+
+<para>Получение текущего языка распознавания </para>
+</para>
+
+<para><formalpara><title>Возвращает</title>
+
+<para>str Текущий язык распознавания </para>
+</formalpara>
+</para>
+<para>
+См. определение в файле <link linkend="__s_t_t_8py_source">STT.py</link> строка <link linkend="__s_t_t_8py_source_1l00073">73</link></para>
+</section>
+<anchor xml:id="_class_s_t_t_1_1_s_t_t_1a26c6ff8183dcc74ae777214092921ddf"/><section>
+    <title>set_language()</title>
+<indexterm><primary>set_language</primary><secondary>STT.STT</secondary></indexterm>
+<indexterm><primary>STT.STT</primary><secondary>set_language</secondary></indexterm>
+<para><computeroutput> None STT.STT.set_language ( self, str language)</computeroutput></para><para>
+
+<para>Установка языка распознавания </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Аргументы</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>language</entry><entry>
+<para>Язык для распознавания (Russian/English или ru-RU/en-US)</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                
+                <formalpara>
+                    <title>
+Исключения</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>ValueError</entry><entry>
+<para>если указанный язык не поддерживается </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+<para>
+См. определение в файле <link linkend="__s_t_t_8py_source">STT.py</link> строка <link linkend="__s_t_t_8py_source_1l00061">61</link></para>
+</section>
+<para>
+Объявления и описания членов класса находятся в файле:</para>
+C:/Users/kir/Desktop/py/API/src/STT/STT.py</section>
+</section>

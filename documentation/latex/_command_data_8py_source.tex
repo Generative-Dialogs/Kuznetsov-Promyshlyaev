@@ -1,0 +1,85 @@
+\doxysection{Command\+Data.\+py}
+\label{_command_data_8py_source}\index{C:/Users/kir/Desktop/py/API/src/GameMaster/CommandData.py@{C:/Users/kir/Desktop/py/API/src/GameMaster/CommandData.py}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{keyword}{from}\ dataclasses\ \textcolor{keyword}{import}\ dataclass}
+\DoxyCodeLine{00002\ \textcolor{keyword}{from}\ typing\ \textcolor{keyword}{import}\ Optional}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{@dataclass}}
+\DoxyCodeLine{00005\ \textcolor{keyword}{class\ }CommandData:}
+\DoxyCodeLine{00006\ \ \ \ \ \textcolor{stringliteral}{"{}"{}"{}!}}
+\DoxyCodeLine{00007\ \textcolor{stringliteral}{\ \ \ \ @brief\ Базовый\ класс\ для\ всех\ команд\ в\ игровой\ системе}}
+\DoxyCodeLine{00008\ \textcolor{stringliteral}{\ \ \ \ }}
+\DoxyCodeLine{00009\ \textcolor{stringliteral}{\ \ \ \ @details}}
+\DoxyCodeLine{00010\ \textcolor{stringliteral}{\ \ \ \ Используется\ как\ маркер\ для\ типизации\ команд\ и\ обеспечивает}}
+\DoxyCodeLine{00011\ \textcolor{stringliteral}{\ \ \ \ единый\ интерфейс\ для\ всех\ типов\ команд\ в\ системе.}}
+\DoxyCodeLine{00012\ \textcolor{stringliteral}{\ \ \ \ "{}"{}"{}}}
+\DoxyCodeLine{00013\ \ \ \ \ \textcolor{keywordflow}{pass}}
+\DoxyCodeLine{00014\ }
+\DoxyCodeLine{00015\ @dataclass}
+\DoxyCodeLine{00016\ \textcolor{keyword}{class\ }CommandDataEnvironmentDescription(CommandData):}
+\DoxyCodeLine{00017\ \ \ \ \ \textcolor{stringliteral}{"{}"{}"{}!}}
+\DoxyCodeLine{00018\ \textcolor{stringliteral}{\ \ \ \ @brief\ Команда\ для\ описания\ окружения}}
+\DoxyCodeLine{00019\ \textcolor{stringliteral}{\ \ \ \ }}
+\DoxyCodeLine{00020\ \textcolor{stringliteral}{\ \ \ \ @details}}
+\DoxyCodeLine{00021\ \textcolor{stringliteral}{\ \ \ \ Используется\ для\ генерации\ описания\ текущего\ окружения,}}
+\DoxyCodeLine{00022\ \textcolor{stringliteral}{\ \ \ \ в\ котором\ находятся\ персонажи.}}
+\DoxyCodeLine{00023\ \textcolor{stringliteral}{\ \ \ \ }}
+\DoxyCodeLine{00024\ \textcolor{stringliteral}{\ \ \ \ @param\ description\ Текстовое\ описание\ окружения}}
+\DoxyCodeLine{00025\ \textcolor{stringliteral}{\ \ \ \ "{}"{}"{}}}
+\DoxyCodeLine{00026\ \ \ \ \ description:\ str}
+\DoxyCodeLine{00027\ }
+\DoxyCodeLine{00028\ \textcolor{preprocessor}{@dataclass}}
+\DoxyCodeLine{00029\ \textcolor{keyword}{class\ }CommandSelectCharacter(CommandData):}
+\DoxyCodeLine{00030\ \ \ \ \ \textcolor{stringliteral}{"{}"{}"{}!}}
+\DoxyCodeLine{00031\ \textcolor{stringliteral}{\ \ \ \ @brief\ Команда\ выбора\ персонажа\ для\ действия}}
+\DoxyCodeLine{00032\ \textcolor{stringliteral}{\ \ \ \ }}
+\DoxyCodeLine{00033\ \textcolor{stringliteral}{\ \ \ \ @details}}
+\DoxyCodeLine{00034\ \textcolor{stringliteral}{\ \ \ \ Определяет,\ какой\ персонаж\ выполняет\ действие\ и}}
+\DoxyCodeLine{00035\ \textcolor{stringliteral}{\ \ \ \ какое\ именно\ действие\ он\ выполняет.}}
+\DoxyCodeLine{00036\ \textcolor{stringliteral}{\ \ \ \ }}
+\DoxyCodeLine{00037\ \textcolor{stringliteral}{\ \ \ \ @param\ name\ Имя\ персонажа}}
+\DoxyCodeLine{00038\ \textcolor{stringliteral}{\ \ \ \ @param\ action\ Описание\ действия}}
+\DoxyCodeLine{00039\ \textcolor{stringliteral}{\ \ \ \ "{}"{}"{}}}
+\DoxyCodeLine{00040\ \ \ \ \ name:\ str}
+\DoxyCodeLine{00041\ \ \ \ \ action:\ str}
+\DoxyCodeLine{00042\ }
+\DoxyCodeLine{00043\ \textcolor{preprocessor}{@dataclass}}
+\DoxyCodeLine{00044\ \textcolor{keyword}{class\ }CommandCreateCharacter(CommandData):}
+\DoxyCodeLine{00045\ \ \ \ \ \textcolor{stringliteral}{"{}"{}"{}!}}
+\DoxyCodeLine{00046\ \textcolor{stringliteral}{\ \ \ \ @brief\ Команда\ создания\ нового\ персонажа}}
+\DoxyCodeLine{00047\ \textcolor{stringliteral}{\ \ \ \ }}
+\DoxyCodeLine{00048\ \textcolor{stringliteral}{\ \ \ \ @details}}
+\DoxyCodeLine{00049\ \textcolor{stringliteral}{\ \ \ \ Используется\ для\ добавления\ нового\ персонажа\ в\ игру}}
+\DoxyCodeLine{00050\ \textcolor{stringliteral}{\ \ \ \ с\ заданным\ именем\ и\ описанием.}}
+\DoxyCodeLine{00051\ \textcolor{stringliteral}{\ \ \ \ }}
+\DoxyCodeLine{00052\ \textcolor{stringliteral}{\ \ \ \ @param\ name\ Имя\ нового\ персонажа}}
+\DoxyCodeLine{00053\ \textcolor{stringliteral}{\ \ \ \ @param\ description\ Описание\ нового\ персонажа}}
+\DoxyCodeLine{00054\ \textcolor{stringliteral}{\ \ \ \ "{}"{}"{}}}
+\DoxyCodeLine{00055\ \ \ \ \ name:\ str}
+\DoxyCodeLine{00056\ \ \ \ \ description:\ str}
+\DoxyCodeLine{00057\ }
+\DoxyCodeLine{00058\ \textcolor{preprocessor}{@dataclass}}
+\DoxyCodeLine{00059\ \textcolor{keyword}{class\ }CommandOffTopic(CommandData):}
+\DoxyCodeLine{00060\ \ \ \ \ \textcolor{stringliteral}{"{}"{}"{}!}}
+\DoxyCodeLine{00061\ \textcolor{stringliteral}{\ \ \ \ @brief\ Команда\ для\ обработки\ внеигрового\ ввода}}
+\DoxyCodeLine{00062\ \textcolor{stringliteral}{\ \ \ \ }}
+\DoxyCodeLine{00063\ \textcolor{stringliteral}{\ \ \ \ @details}}
+\DoxyCodeLine{00064\ \textcolor{stringliteral}{\ \ \ \ Используется,\ когда\ ввод\ пользователя\ не\ относится}}
+\DoxyCodeLine{00065\ \textcolor{stringliteral}{\ \ \ \ к\ игровому\ процессу\ или\ нарушает\ правила\ игры.}}
+\DoxyCodeLine{00066\ \textcolor{stringliteral}{\ \ \ \ "{}"{}"{}}}
+\DoxyCodeLine{00067\ \ \ \ \ \textcolor{keywordflow}{pass}}
+\DoxyCodeLine{00068\ }
+\DoxyCodeLine{00069\ @dataclass}
+\DoxyCodeLine{00070\ \textcolor{keyword}{class\ }CommandPlayerDeath(CommandData):}
+\DoxyCodeLine{00071\ \ \ \ \ \textcolor{stringliteral}{"{}"{}"{}!}}
+\DoxyCodeLine{00072\ \textcolor{stringliteral}{\ \ \ \ @brief\ Команда\ смерти\ игрового\ персонажа}}
+\DoxyCodeLine{00073\ \textcolor{stringliteral}{\ \ \ \ }}
+\DoxyCodeLine{00074\ \textcolor{stringliteral}{\ \ \ \ @details}}
+\DoxyCodeLine{00075\ \textcolor{stringliteral}{\ \ \ \ Используется\ для\ обработки\ ситуации,\ когда}}
+\DoxyCodeLine{00076\ \textcolor{stringliteral}{\ \ \ \ игровой\ персонаж\ умирает,\ что\ приводит\ к}}
+\DoxyCodeLine{00077\ \textcolor{stringliteral}{\ \ \ \ завершению\ игровой\ сессии.}}
+\DoxyCodeLine{00078\ \textcolor{stringliteral}{\ \ \ \ "{}"{}"{}}}
+\DoxyCodeLine{00079\ \ \ \ \ \textcolor{keywordflow}{pass}\ }
+
+\end{DoxyCode}

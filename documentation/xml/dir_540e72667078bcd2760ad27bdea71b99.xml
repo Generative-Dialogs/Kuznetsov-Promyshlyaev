@@ -1,0 +1,13 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.13.2" xml:lang="ru">
+  <compounddef id="dir_540e72667078bcd2760ad27bdea71b99" kind="dir">
+    <compoundname>C:/Users/kir/Desktop/py/API/src/SessionManager</compoundname>
+    <innerfile refid="_session_manager_2____init_____8py">__init__.py</innerfile>
+    <innerfile refid="_session_manager_8py">SessionManager.py</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="C:/Users/kir/Desktop/py/API/src/SessionManager/"/>
+  </compounddef>
+</doxygen>

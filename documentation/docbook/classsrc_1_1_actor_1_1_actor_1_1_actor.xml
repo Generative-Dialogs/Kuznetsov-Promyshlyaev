@@ -1,0 +1,192 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_classsrc_1_1_actor_1_1_actor_1_1_actor" xml:lang="ru">
+<title>Класс src.Actor.Actor.Actor</title>
+<indexterm><primary>src.Actor.Actor.Actor</primary></indexterm>
+<para>
+
+<para>Реализация актора в игровой системе </para>
+ 
+</para>
+<simplesect>
+    <title>Открытые члены    </title>
+        <itemizedlist>
+            <listitem><para>None <link linkend="_classsrc_1_1_actor_1_1_actor_1_1_actor_1aa8ef3f312997a013b56e9512422c2ef6">__init__</link> (self, <link linkend="_classsrc_1_1_game_master_1_1_protocol_game_master_1_1_protocol_game_master">ProtocolGameMaster</link> game_master, int session_id, str language=&quot;English&quot;, bool fast_flg=True)</para>
+
+<para>Инициализация актора </para>
+</listitem>
+            <listitem><para>None <link linkend="_classsrc_1_1_actor_1_1_actor_1_1_actor_1a9d4e45216b2ba0b276ae82a62e7fa54b">update_active_characters</link> (self, Dict[str, str] characters)</para>
+
+<para>Обновление списка активных персонажей </para>
+</listitem>
+            <listitem><para>str <link linkend="_classsrc_1_1_actor_1_1_actor_1_1_actor_1a34ab83bb9801246351209a2a31f4fb06">get_detailed_action</link> (self, str game_master_output, str user_input)</para>
+
+<para>Получение детализированного описания действия </para>
+</listitem>
+            <listitem><para>List[Dict[str, str]] <link linkend="_classsrc_1_1_actor_1_1_actor_1_1_actor_1a338c52fc8f731dbf7695b5c7a8c9160a">get_message_history</link> (self)</para>
+
+<para>Получение истории сообщений </para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Подробное описание</title>
+
+<para>Реализация актора в игровой системе </para>
+
+
+
+<para>Класс отвечает за генерацию детализированных описаний действий и событий в игре. Преобразует команды мастера игры в нарративные описания с учетом контекста и активных персонажей. </para>
+<para>
+См. определение в файле <link linkend="__actor_8py_source">Actor.py</link> строка <link linkend="__actor_8py_source_1l00012">12</link></para>
+</section>
+<section>
+<title>Конструктор(ы)</title>
+<anchor xml:id="_classsrc_1_1_actor_1_1_actor_1_1_actor_1aa8ef3f312997a013b56e9512422c2ef6"/><section>
+    <title>__init__()</title>
+<indexterm><primary>__init__</primary><secondary>src.Actor.Actor.Actor</secondary></indexterm>
+<indexterm><primary>src.Actor.Actor.Actor</primary><secondary>__init__</secondary></indexterm>
+<para><computeroutput> None src.Actor.Actor.Actor.__init__ ( self, <link linkend="_classsrc_1_1_game_master_1_1_protocol_game_master_1_1_protocol_game_master">ProtocolGameMaster</link> game_master, int session_id, str  language = <computeroutput>&quot;English&quot;</computeroutput>
+, bool  fast_flg = <computeroutput>True</computeroutput>
+)</computeroutput></para><para>
+
+<para>Инициализация актора </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Аргументы</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>game_master</entry><entry>
+<para>Экземпляр мастера игры </para>
+</entry>
+                            </row>
+                            <row>
+<entry>session_id</entry><entry>
+<para>ID игровой сессии </para>
+</entry>
+                            </row>
+                            <row>
+<entry>language</entry><entry>
+<para>Язык генерации описаний (по умолчанию &quot;English&quot;) </para>
+</entry>
+                            </row>
+                            <row>
+<entry>fast_flg</entry><entry>
+<para>Флаг быстрого режима инициализации</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                Создает нового актора с заданными параметрами и инициализирует необходимые компоненты для генерации описаний. </para>
+<para>
+См. определение в файле <link linkend="__actor_8py_source">Actor.py</link> строка <link linkend="__actor_8py_source_1l00022">22</link></para>
+</section>
+</section>
+<section>
+<title>Методы</title>
+<anchor xml:id="_classsrc_1_1_actor_1_1_actor_1_1_actor_1a34ab83bb9801246351209a2a31f4fb06"/><section>
+    <title>get_detailed_action()</title>
+<indexterm><primary>get_detailed_action</primary><secondary>src.Actor.Actor.Actor</secondary></indexterm>
+<indexterm><primary>src.Actor.Actor.Actor</primary><secondary>get_detailed_action</secondary></indexterm>
+<para><computeroutput> str src.Actor.Actor.Actor.get_detailed_action ( self, str game_master_output, str user_input)</computeroutput></para><para>
+
+<para>Получение детализированного описания действия </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Аргументы</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>game_master_output</entry><entry>
+<para>Выходные данные мастера игры </para>
+</entry>
+                            </row>
+                            <row>
+<entry>user_input</entry><entry>
+<para>Ввод пользователя</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Возвращает</title>
+
+<para>str Детализированное описание действия</para>
+</formalpara>
+Генерирует подробное нарративное описание действия на основе команд мастера игры и контекста активных персонажей. Учитывает язык генерации и сохраняет историю сообщений. </para>
+<para>
+См. определение в файле <link linkend="__actor_8py_source">Actor.py</link> строка <link linkend="__actor_8py_source_1l00086">86</link></para>
+</section>
+<anchor xml:id="_classsrc_1_1_actor_1_1_actor_1_1_actor_1a338c52fc8f731dbf7695b5c7a8c9160a"/><section>
+    <title>get_message_history()</title>
+<indexterm><primary>get_message_history</primary><secondary>src.Actor.Actor.Actor</secondary></indexterm>
+<indexterm><primary>src.Actor.Actor.Actor</primary><secondary>get_message_history</secondary></indexterm>
+<para><computeroutput> List[Dict[str, str]] src.Actor.Actor.Actor.get_message_history ( self)</computeroutput></para><para>
+
+<para>Получение истории сообщений </para>
+</para>
+
+<para><formalpara><title>Возвращает</title>
+
+<para>List[Dict[str, str]] Список словарей с историей сообщений</para>
+</formalpara>
+Возвращает полную историю сообщений, включая системные сообщения, сообщения пользователя и ответы актора. </para>
+<para>
+См. определение в файле <link linkend="__actor_8py_source">Actor.py</link> строка <link linkend="__actor_8py_source_1l00131">131</link></para>
+</section>
+<anchor xml:id="_classsrc_1_1_actor_1_1_actor_1_1_actor_1a9d4e45216b2ba0b276ae82a62e7fa54b"/><section>
+    <title>update_active_characters()</title>
+<indexterm><primary>update_active_characters</primary><secondary>src.Actor.Actor.Actor</secondary></indexterm>
+<indexterm><primary>src.Actor.Actor.Actor</primary><secondary>update_active_characters</secondary></indexterm>
+<para><computeroutput> None src.Actor.Actor.Actor.update_active_characters ( self, Dict[str, str] characters)</computeroutput></para><para>
+
+<para>Обновление списка активных персонажей </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Аргументы</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>characters</entry><entry>
+<para>Словарь с именами и описаниями активных персонажей</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                Обновляет список персонажей, которые в данный момент присутствуют в сцене и могут участвовать в действиях. </para>
+<para>
+См. определение в файле <link linkend="__actor_8py_source">Actor.py</link> строка <link linkend="__actor_8py_source_1l00074">74</link></para>
+</section>
+<para>
+Объявления и описания членов класса находятся в файле:</para>
+C:/Users/kir/Desktop/py/API/src/Actor/Actor.py</section>
+</section>

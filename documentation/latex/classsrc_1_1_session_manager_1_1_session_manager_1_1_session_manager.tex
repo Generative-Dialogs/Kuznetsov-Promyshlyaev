@@ -1,0 +1,174 @@
+\doxysection{Класс src.\+Session\+Manager.\+Session\+Manager.\+Session\+Manager}
+\label{classsrc_1_1_session_manager_1_1_session_manager_1_1_session_manager}\index{src.SessionManager.SessionManager.SessionManager@{src.SessionManager.SessionManager.SessionManager}}
+
+
+Менеджер игровых сессий  
+
+
+\doxysubsubsection*{Открытые члены}
+\begin{DoxyCompactItemize}
+\item 
+None \textbf{ \+\_\+\+\_\+init\+\_\+\+\_\+} (self)
+\begin{DoxyCompactList}\small\item\em Инициализация менеджера сессий \end{DoxyCompactList}\item 
+int \textbf{ create\+\_\+user} (self)
+\begin{DoxyCompactList}\small\item\em Создание нового пользователя \end{DoxyCompactList}\item 
+\textbf{ Game\+Master} \textbf{ start\+\_\+session} (self, int session\+\_\+id)
+\begin{DoxyCompactList}\small\item\em Запуск или возобновление игровой сессии \end{DoxyCompactList}\item 
+Optional[\textbf{ Game\+Master}] \textbf{ get\+\_\+session} (self, int session\+\_\+id)
+\begin{DoxyCompactList}\small\item\em Получение активной игровой сессии \end{DoxyCompactList}\item 
+None \textbf{ delete\+\_\+user} (self, int user\+\_\+id)
+\begin{DoxyCompactList}\small\item\em Удаление всех данных пользователя \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Открытые атрибуты}
+\begin{DoxyCompactItemize}
+\item 
+\textbf{ db} = \textbf{ Database\+Manager}()
+\item 
+dict \textbf{ active\+\_\+sessions} = \{\}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Подробное описание}
+Менеджер игровых сессий 
+
+Класс отвечает за\+:
+\begin{DoxyItemize}
+\item Создание и управление игровыми сессиями
+\item Управление пользователями
+\item Взаимодействие с базой данных для хранения информации о сессиях 
+\end{DoxyItemize}
+
+См. определение в файле \textbf{ Session\+Manager.\+py} строка \textbf{ 7}
+
+
+
+\doxysubsection{Конструктор(ы)}
+\index{src.SessionManager.SessionManager.SessionManager@{src.SessionManager.SessionManager.SessionManager}!\_\_init\_\_@{\_\_init\_\_}}
+\index{\_\_init\_\_@{\_\_init\_\_}!src.SessionManager.SessionManager.SessionManager@{src.SessionManager.SessionManager.SessionManager}}
+\doxysubsubsection{\_\_init\_\_()}
+{\footnotesize\ttfamily \label{classsrc_1_1_session_manager_1_1_session_manager_1_1_session_manager_aa2005fc8b425dcfa8f4c96f0aa9f80f3} 
+ None src.\+Session\+Manager.\+Session\+Manager.\+Session\+Manager.\+\_\+\+\_\+init\+\_\+\+\_\+ (\begin{DoxyParamCaption}\item[{}]{self}{}\end{DoxyParamCaption})}
+
+
+
+Инициализация менеджера сессий 
+
+
+
+См. определение в файле \textbf{ Session\+Manager.\+py} строка \textbf{ 17}
+
+
+
+\doxysubsection{Методы}
+\index{src.SessionManager.SessionManager.SessionManager@{src.SessionManager.SessionManager.SessionManager}!create\_user@{create\_user}}
+\index{create\_user@{create\_user}!src.SessionManager.SessionManager.SessionManager@{src.SessionManager.SessionManager.SessionManager}}
+\doxysubsubsection{create\_user()}
+{\footnotesize\ttfamily \label{classsrc_1_1_session_manager_1_1_session_manager_1_1_session_manager_abd148d50854cccb0ff7e7c93d2147ed2} 
+ int src.\+Session\+Manager.\+Session\+Manager.\+Session\+Manager.\+create\+\_\+user (\begin{DoxyParamCaption}\item[{}]{self}{}\end{DoxyParamCaption})}
+
+
+
+Создание нового пользователя 
+
+\begin{DoxyReturn}{Возвращает}
+int ID созданного пользователя 
+\end{DoxyReturn}
+
+
+См. определение в файле \textbf{ Session\+Manager.\+py} строка \textbf{ 24}
+
+\index{src.SessionManager.SessionManager.SessionManager@{src.SessionManager.SessionManager.SessionManager}!delete\_user@{delete\_user}}
+\index{delete\_user@{delete\_user}!src.SessionManager.SessionManager.SessionManager@{src.SessionManager.SessionManager.SessionManager}}
+\doxysubsubsection{delete\_user()}
+{\footnotesize\ttfamily \label{classsrc_1_1_session_manager_1_1_session_manager_1_1_session_manager_aa656a9c75833127e301b8a22b506b257} 
+ None src.\+Session\+Manager.\+Session\+Manager.\+Session\+Manager.\+delete\+\_\+user (\begin{DoxyParamCaption}\item[{}]{self}{, }\item[{int}]{user\+\_\+id}{}\end{DoxyParamCaption})}
+
+
+
+Удаление всех данных пользователя 
+
+
+\begin{DoxyParams}{Аргументы}
+{\em user\+\_\+id} & ID пользователя \\
+\hline
+\end{DoxyParams}
+
+
+См. определение в файле \textbf{ Session\+Manager.\+py} строка \textbf{ 67}
+
+\index{src.SessionManager.SessionManager.SessionManager@{src.SessionManager.SessionManager.SessionManager}!get\_session@{get\_session}}
+\index{get\_session@{get\_session}!src.SessionManager.SessionManager.SessionManager@{src.SessionManager.SessionManager.SessionManager}}
+\doxysubsubsection{get\_session()}
+{\footnotesize\ttfamily \label{classsrc_1_1_session_manager_1_1_session_manager_1_1_session_manager_ada7c5043a8839d41f62fc6e5d0c3714f} 
+ Optional[\textbf{ Game\+Master}] src.\+Session\+Manager.\+Session\+Manager.\+Session\+Manager.\+get\+\_\+session (\begin{DoxyParamCaption}\item[{}]{self}{, }\item[{int}]{session\+\_\+id}{}\end{DoxyParamCaption})}
+
+
+
+Получение активной игровой сессии 
+
+
+\begin{DoxyParams}{Аргументы}
+{\em session\+\_\+id} & ID сессии\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Возвращает}
+Optional[\doxyref{Game\+Master}{стр.}{classsrc_1_1_game_master_1_1_game_master_1_1_game_master}] Объект мастера игры или None, если сессия не найдена 
+\end{DoxyReturn}
+
+
+См. определение в файле \textbf{ Session\+Manager.\+py} строка \textbf{ 57}
+
+\index{src.SessionManager.SessionManager.SessionManager@{src.SessionManager.SessionManager.SessionManager}!start\_session@{start\_session}}
+\index{start\_session@{start\_session}!src.SessionManager.SessionManager.SessionManager@{src.SessionManager.SessionManager.SessionManager}}
+\doxysubsubsection{start\_session()}
+{\footnotesize\ttfamily \label{classsrc_1_1_session_manager_1_1_session_manager_1_1_session_manager_a998efcf0b4c22cc5faf175a3c92eecb9} 
+ \textbf{ Game\+Master} src.\+Session\+Manager.\+Session\+Manager.\+Session\+Manager.\+start\+\_\+session (\begin{DoxyParamCaption}\item[{}]{self}{, }\item[{int}]{session\+\_\+id}{}\end{DoxyParamCaption})}
+
+
+
+Запуск или возобновление игровой сессии 
+
+
+\begin{DoxyParams}{Аргументы}
+{\em session\+\_\+id} & ID сессии\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Возвращает}
+\doxyref{Game\+Master}{стр.}{classsrc_1_1_game_master_1_1_game_master_1_1_game_master} Объект мастера игры для управления сессией
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Исключения}
+{\em Value\+Error} & если сессия не найдена \\
+\hline
+\end{DoxyExceptions}
+
+
+См. определение в файле \textbf{ Session\+Manager.\+py} строка \textbf{ 32}
+
+
+
+\doxysubsection{Данные класса}
+\index{src.SessionManager.SessionManager.SessionManager@{src.SessionManager.SessionManager.SessionManager}!active\_sessions@{active\_sessions}}
+\index{active\_sessions@{active\_sessions}!src.SessionManager.SessionManager.SessionManager@{src.SessionManager.SessionManager.SessionManager}}
+\doxysubsubsection{active\_sessions}
+{\footnotesize\ttfamily \label{classsrc_1_1_session_manager_1_1_session_manager_1_1_session_manager_ad18f61f47f308462113132ca2564eba0} 
+dict src.\+Session\+Manager.\+Session\+Manager.\+Session\+Manager.\+active\+\_\+sessions = \{\}}
+
+
+
+См. определение в файле \textbf{ Session\+Manager.\+py} строка \textbf{ 22}
+
+\index{src.SessionManager.SessionManager.SessionManager@{src.SessionManager.SessionManager.SessionManager}!db@{db}}
+\index{db@{db}!src.SessionManager.SessionManager.SessionManager@{src.SessionManager.SessionManager.SessionManager}}
+\doxysubsubsection{db}
+{\footnotesize\ttfamily \label{classsrc_1_1_session_manager_1_1_session_manager_1_1_session_manager_aeb0257a623292508922fb0b43f9de393} 
+src.\+Session\+Manager.\+Session\+Manager.\+Session\+Manager.\+db = \textbf{ Database\+Manager}()}
+
+
+
+См. определение в файле \textbf{ Session\+Manager.\+py} строка \textbf{ 21}
+
+
+
+Объявления и описания членов класса находятся в файле\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/kir/\+Desktop/py/\+API/src/\+Session\+Manager/Session\+Manager.\+py\end{DoxyCompactItemize}

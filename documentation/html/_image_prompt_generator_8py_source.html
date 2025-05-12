@@ -1,0 +1,261 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ru">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.13.2"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>My Project: Исходный файл C:/Users/kir/Desktop/py/API/src/ImagePromptGenerator/ImagePromptGenerator.py</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+  $(function() { init_search(); });
+/* @license-end */
+</script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">My Project
+   </div>
+  </td>
+    <td>        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <span id="MSearchSelect"                onmouseover="return searchBox.OnSearchSelectShow()"                onmouseout="return searchBox.OnSearchSelectHide()">&#160;</span>
+          <input type="text" id="MSearchField" value="" placeholder="Поиск" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.svg" alt=""/></a>
+          </span>
+        </div>
+</td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Создано системой Doxygen 1.13.2 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() { codefold.init(0); });
+/* @license-end */
+</script>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function(){initNavTree('_image_prompt_generator_8py_source.html',''); initResizable(true); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Загрузка...</div>
+<div class="SRStatus" id="Searching">Поиск...</div>
+<div class="SRStatus" id="NoMatches">Не найдено</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">ImagePromptGenerator.py</div></div>
+</div><!--header-->
+<div class="contents">
+<div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="keyword">from</span> typing <span class="keyword">import</span> List, Dict, Optional</div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="keyword">from</span> <a class="code hl_namespace" href="namespacesrc_1_1_message_generator_1_1_message_generator_open_router.html">src.MessageGenerator.MessageGeneratorOpenRouter</a> <span class="keyword">import</span> MessageGeneratorOpenRouter</div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="keyword">from</span> <a class="code hl_namespace" href="namespacesrc_1_1_database_manager_1_1_database_manager.html">src.DatabaseManager.DatabaseManager</a> <span class="keyword">import</span> DatabaseManager</div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="keyword">from</span> <a class="code hl_namespace" href="namespacesrc_1_1_descriptions_1_1_world_decription.html">src.Descriptions.WorldDecription</a> <span class="keyword">import</span> base_world_description</div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="keyword">import</span> logging</div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span> </div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span> </div>
+<div class="foldopen" id="foldopen00008" data-start="" data-end="">
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno"><a class="line" href="classsrc_1_1_image_prompt_generator_1_1_image_prompt_generator_1_1_image_prompt_generator.html">    8</a></span><span class="keyword">class </span><a class="code hl_class" href="classsrc_1_1_image_prompt_generator_1_1_image_prompt_generator_1_1_image_prompt_generator.html">ImagePromptGenerator</a>:</div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span>    <span class="stringliteral">&quot;&quot;&quot;!</span></div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="stringliteral">    @brief Генератор промптов для создания изображений</span></div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="stringliteral">    </span></div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="stringliteral">    @details</span></div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="stringliteral">    Класс отвечает за:</span></div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="stringliteral">    - Создание детальных промптов для генерации изображений</span></div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="stringliteral">    - Поддержание согласованности описаний персонажей</span></div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="stringliteral">    - Учет контекста сцены и действий</span></div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="stringliteral">    - Генерацию стилистически согласованных описаний</span></div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span><span class="stringliteral">    &quot;&quot;&quot;</span></div>
+<div class="foldopen" id="foldopen00019" data-start="" data-end="">
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno"><a class="line" href="classsrc_1_1_image_prompt_generator_1_1_image_prompt_generator_1_1_image_prompt_generator.html#a594f12f4fc1c80b4b7294dd45ebc9a0a">   19</a></span>    <span class="keyword">def </span><a class="code hl_function" href="classsrc_1_1_image_prompt_generator_1_1_image_prompt_generator_1_1_image_prompt_generator.html#a594f12f4fc1c80b4b7294dd45ebc9a0a">__init__</a>(self, session_id: int) -&gt; <span class="keywordtype">None</span>:</div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>        <span class="stringliteral">&quot;&quot;&quot;!</span></div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span><span class="stringliteral">        @brief Инициализация генератора промптов</span></div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span><span class="stringliteral">        </span></div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><span class="stringliteral">        @param session_id ID сессии для организации промптов</span></div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span><span class="stringliteral">        &quot;&quot;&quot;</span></div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>        self.<a class="code hl_variable" href="classsrc_1_1_image_prompt_generator_1_1_image_prompt_generator_1_1_image_prompt_generator.html#afec27a1711c202d0ef81038d31fd8da4">__session_id</a> = session_id</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>        self.<a class="code hl_variable" href="classsrc_1_1_image_prompt_generator_1_1_image_prompt_generator_1_1_image_prompt_generator.html#a280c3008385d9edcc1d7559e019c76fa">__messageGenerator</a> = <a class="code hl_class" href="classsrc_1_1_message_generator_1_1_message_generator_open_router_1_1_message_generator_open_router.html">MessageGeneratorOpenRouter</a>()</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>        self.<a class="code hl_variable" href="classsrc_1_1_image_prompt_generator_1_1_image_prompt_generator_1_1_image_prompt_generator.html#aca5715c387563a43cf6d858f2078c7be">__db</a> = <a class="code hl_class" href="classsrc_1_1_database_manager_1_1_database_manager_1_1_database_manager.html">DatabaseManager</a>()</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>        </div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>        start_message = f<span class="stringliteral">&#39;&#39;&#39;</span></div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span><span class="stringliteral">        You are an expert at creating detailed image generation prompts. Your task is to create a prompt that will generate an image showing the final state of a scene after described events.</span></div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span><span class="stringliteral"></span> </div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span><span class="stringliteral">        World Description:</span></div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span><span class="stringliteral">        {base_world_description}</span></div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span><span class="stringliteral"></span> </div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span><span class="stringliteral">        Guidelines for creating prompts:</span></div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span><span class="stringliteral">        1. Character Consistency:</span></div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span><span class="stringliteral">           - Maintain consistent appearance for each character across all images</span></div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span><span class="stringliteral">           - Update character appearance based on events (injuries, changes in clothing, etc.)</span></div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span><span class="stringliteral">           - Include detailed physical descriptions for each character</span></div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span><span class="stringliteral">           - Reference previous character descriptions to maintain consistency</span></div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span><span class="stringliteral">           - The image generation model will receive full character descriptions and their reference images</span></div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span><span class="stringliteral"></span> </div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span><span class="stringliteral">        2. Scene Composition:</span></div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span><span class="stringliteral">           - Show the final state of the scene after all actions</span></div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span><span class="stringliteral">           - Focus on what the player character sees at the moment</span></div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span><span class="stringliteral">           - Include all relevant characters and their positions</span></div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span><span class="stringliteral">           - Show environmental changes caused by events</span></div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span><span class="stringliteral">           - DO NOT include any text, words, or writing in the generated image</span></div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span><span class="stringliteral">           - The image should be purely visual without any text elements</span></div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span><span class="stringliteral"></span> </div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span><span class="stringliteral">        3. Visual Style:</span></div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span><span class="stringliteral">           - Use a consistent gloomy classical painting style</span></div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span><span class="stringliteral">           - Emphasize dramatic chiaroscuro lighting</span></div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span><span class="stringliteral">           - Use muted dark tones (charcoal black, deep navy, antique gold)</span></div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span><span class="stringliteral">           - Include Baroque/Romantic-era aesthetics</span></div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span><span class="stringliteral">           - Show weathered oil texture and cracked varnish aging</span></div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span><span class="stringliteral">           - Use somber atmospheric lighting</span></div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span><span class="stringliteral">           - Include Goya-esque melancholy and Caravaggio-inspired contrasts</span></div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span><span class="stringliteral">           - Add Turner-like stormy ambiance</span></div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span><span class="stringliteral">           - Include haunting ethereal undertones</span></div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span><span class="stringliteral">           - Show detailed brushwork on textures (stone, fabric)</span></div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span><span class="stringliteral">           - Use cold palette with crimson accents</span></div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span><span class="stringliteral">           - Include gothic decay motifs and misty spectral ambiance</span></div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span><span class="stringliteral"></span> </div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span><span class="stringliteral">        4. Technical Requirements:</span></div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span><span class="stringliteral">           - Be extremely detailed in descriptions</span></div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span><span class="stringliteral">           - Include specific colors, textures, and materials</span></div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span><span class="stringliteral">           - Specify lighting conditions and atmosphere</span></div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span><span class="stringliteral">           - Describe character expressions and body language</span></div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span><span class="stringliteral">           - Include environmental details and weather conditions</span></div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span><span class="stringliteral">           - Reference previous character appearances for consistency</span></div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span><span class="stringliteral">           - The image generation model will receive complete character descriptions and reference images</span></div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span><span class="stringliteral">           - Ensure no text or writing appears in the generated image</span></div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span><span class="stringliteral"></span> </div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span><span class="stringliteral">        Format your response as a single, detailed prompt without any additional text or explanations.</span></div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span><span class="stringliteral">        &#39;&#39;&#39;</span></div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span> </div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>        <span class="comment"># Load existing image prompts from database</span></div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>        image_prompts = self.<a class="code hl_variable" href="classsrc_1_1_image_prompt_generator_1_1_image_prompt_generator_1_1_image_prompt_generator.html#aca5715c387563a43cf6d858f2078c7be">__db</a>.get_image_prompts(session_id)</div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>        <span class="keywordflow">for</span> _, user_input, narrative_response, image_prompt <span class="keywordflow">in</span> image_prompts:</div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>            self.<a class="code hl_variable" href="classsrc_1_1_image_prompt_generator_1_1_image_prompt_generator_1_1_image_prompt_generator.html#a280c3008385d9edcc1d7559e019c76fa">__messageGenerator</a>.add_user_message(f<span class="stringliteral">&quot;User&#39;s action: {user_input}\nScene description: {narrative_response}&quot;</span>)</div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>            self.<a class="code hl_variable" href="classsrc_1_1_image_prompt_generator_1_1_image_prompt_generator_1_1_image_prompt_generator.html#a280c3008385d9edcc1d7559e019c76fa">__messageGenerator</a>.add_ai_message(image_prompt)</div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span> </div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>        <span class="comment"># Add the start message</span></div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>        self.<a class="code hl_variable" href="classsrc_1_1_image_prompt_generator_1_1_image_prompt_generator_1_1_image_prompt_generator.html#a280c3008385d9edcc1d7559e019c76fa">__messageGenerator</a>.add_system_message(start_message)</div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span> </div>
+</div>
+<div class="foldopen" id="foldopen00087" data-start="" data-end="">
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno"><a class="line" href="classsrc_1_1_image_prompt_generator_1_1_image_prompt_generator_1_1_image_prompt_generator.html#ad6a86ab3a3f04e4e23fd36d119d5dbdc">   87</a></span>    <span class="keyword">def </span><a class="code hl_function" href="classsrc_1_1_image_prompt_generator_1_1_image_prompt_generator_1_1_image_prompt_generator.html#ad6a86ab3a3f04e4e23fd36d119d5dbdc">generate_prompt</a>(self, user_input: str, system_output: str, character_ids: List[int]) -&gt; Optional[str]:</div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>        <span class="stringliteral">&quot;&quot;&quot;!</span></div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span><span class="stringliteral">        @brief Генерация промпта для создания изображения</span></div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span><span class="stringliteral">        </span></div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span><span class="stringliteral">        @param user_input Ввод пользователя</span></div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span><span class="stringliteral">        @param system_output Ответ системы</span></div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span><span class="stringliteral">        @param character_ids Список ID персонажей, участвующих в сцене</span></div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span><span class="stringliteral">        </span></div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span><span class="stringliteral">        @return Optional[str] Сгенерированный промпт или None в случае ошибки</span></div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span><span class="stringliteral">        &quot;&quot;&quot;</span></div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span>        <span class="keywordflow">try</span>:</div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span>            <span class="comment"># Get character information from database</span></div>
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span>            character_info = []</div>
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span>            <span class="keywordflow">for</span> char_id <span class="keywordflow">in</span> character_ids:</div>
+<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span>                character = self.<a class="code hl_variable" href="classsrc_1_1_image_prompt_generator_1_1_image_prompt_generator_1_1_image_prompt_generator.html#aca5715c387563a43cf6d858f2078c7be">__db</a>.get_character(char_id)</div>
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span>                <span class="keywordflow">if</span> character:</div>
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span>                    name, description = character</div>
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span>                    character_info.append(f<span class="stringliteral">&quot;{name}: {description}&quot;</span>)</div>
+<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span>            </div>
+<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span>            <span class="comment"># Construct the prompt with character information</span></div>
+<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span>            character_section = <span class="stringliteral">&quot;&quot;</span></div>
+<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span>            <span class="keywordflow">if</span> character_info:</div>
+<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span>                character_section = <span class="stringliteral">&quot;\n\nCharacter information:\n&quot;</span> + <span class="stringliteral">&quot;\n&quot;</span>.join(character_info)</div>
+<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span>            </div>
+<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span>            prompt = self.<a class="code hl_variable" href="classsrc_1_1_image_prompt_generator_1_1_image_prompt_generator_1_1_image_prompt_generator.html#a280c3008385d9edcc1d7559e019c76fa">__messageGenerator</a>.generate(</div>
+<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span>                f<span class="stringliteral">&#39;&#39;&#39;Don&#39;t describe the scenes of cruelty too colorfully. Scene description: {system_output} </span></div>
+<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span><span class="stringliteral">                \n It is character description image generation model also has this description and images of these characters: {character_section}&#39;&#39;&#39;</span>)</div>
+<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span>            character_section += <span class="stringliteral">&quot;\n\nImages of these characters are attached for reference. In the same order&quot;</span></div>
+<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span> </div>
+<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span>            prompt += character_section</div>
+<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span>            prompt += <span class="stringliteral">&quot;You can censor violent scenes if they don&#39;t comply with company policy.&quot;</span></div>
+<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span>            </div>
+<div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span>            <span class="comment"># Save the prompt to database</span></div>
+<div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span>            self.<a class="code hl_variable" href="classsrc_1_1_image_prompt_generator_1_1_image_prompt_generator_1_1_image_prompt_generator.html#aca5715c387563a43cf6d858f2078c7be">__db</a>.save_image_prompt(self.<a class="code hl_variable" href="classsrc_1_1_image_prompt_generator_1_1_image_prompt_generator_1_1_image_prompt_generator.html#afec27a1711c202d0ef81038d31fd8da4">__session_id</a>, user_input, system_output, prompt)</div>
+<div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span>            </div>
+<div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span>            <span class="keywordflow">return</span> prompt</div>
+<div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span>        <span class="keywordflow">except</span> Exception <span class="keyword">as</span> e:</div>
+<div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span>            logging.error(f<span class="stringliteral">&quot;Error generating image prompt: {str(e)}&quot;</span>)</div>
+<div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span>            <span class="keywordflow">return</span> <span class="keywordtype">None</span></div>
+<div class="line"><a id="l00126" name="l00126"></a><span class="lineno">  126</span> </div>
+</div>
+</div>
+<div class="ttc" id="aclasssrc_1_1_database_manager_1_1_database_manager_1_1_database_manager_html"><div class="ttname"><a href="classsrc_1_1_database_manager_1_1_database_manager_1_1_database_manager.html">src.DatabaseManager.DatabaseManager.DatabaseManager</a></div><div class="ttdoc">Менеджер базы данных для управления игровыми сессиями</div><div class="ttdef"><b>Определения</b> <a href="_database_manager_8py_source.html#l00008">DatabaseManager.py:8</a></div></div>
+<div class="ttc" id="aclasssrc_1_1_image_prompt_generator_1_1_image_prompt_generator_1_1_image_prompt_generator_html"><div class="ttname"><a href="classsrc_1_1_image_prompt_generator_1_1_image_prompt_generator_1_1_image_prompt_generator.html">src.ImagePromptGenerator.ImagePromptGenerator.ImagePromptGenerator</a></div><div class="ttdoc">Генератор промптов для создания изображений</div><div class="ttdef"><b>Определения</b> <a href="#l00008">ImagePromptGenerator.py:8</a></div></div>
+<div class="ttc" id="aclasssrc_1_1_image_prompt_generator_1_1_image_prompt_generator_1_1_image_prompt_generator_html_a280c3008385d9edcc1d7559e019c76fa"><div class="ttname"><a href="classsrc_1_1_image_prompt_generator_1_1_image_prompt_generator_1_1_image_prompt_generator.html#a280c3008385d9edcc1d7559e019c76fa">src.ImagePromptGenerator.ImagePromptGenerator.ImagePromptGenerator.__messageGenerator</a></div><div class="ttdeci">__messageGenerator</div><div class="ttdef"><b>Определения</b> <a href="#l00026">ImagePromptGenerator.py:26</a></div></div>
+<div class="ttc" id="aclasssrc_1_1_image_prompt_generator_1_1_image_prompt_generator_1_1_image_prompt_generator_html_a594f12f4fc1c80b4b7294dd45ebc9a0a"><div class="ttname"><a href="classsrc_1_1_image_prompt_generator_1_1_image_prompt_generator_1_1_image_prompt_generator.html#a594f12f4fc1c80b4b7294dd45ebc9a0a">src.ImagePromptGenerator.ImagePromptGenerator.ImagePromptGenerator.__init__</a></div><div class="ttdeci">None __init__(self, int session_id)</div><div class="ttdoc">Инициализация генератора промптов</div><div class="ttdef"><b>Определения</b> <a href="#l00019">ImagePromptGenerator.py:19</a></div></div>
+<div class="ttc" id="aclasssrc_1_1_image_prompt_generator_1_1_image_prompt_generator_1_1_image_prompt_generator_html_aca5715c387563a43cf6d858f2078c7be"><div class="ttname"><a href="classsrc_1_1_image_prompt_generator_1_1_image_prompt_generator_1_1_image_prompt_generator.html#aca5715c387563a43cf6d858f2078c7be">src.ImagePromptGenerator.ImagePromptGenerator.ImagePromptGenerator.__db</a></div><div class="ttdeci">__db</div><div class="ttdef"><b>Определения</b> <a href="#l00027">ImagePromptGenerator.py:27</a></div></div>
+<div class="ttc" id="aclasssrc_1_1_image_prompt_generator_1_1_image_prompt_generator_1_1_image_prompt_generator_html_ad6a86ab3a3f04e4e23fd36d119d5dbdc"><div class="ttname"><a href="classsrc_1_1_image_prompt_generator_1_1_image_prompt_generator_1_1_image_prompt_generator.html#ad6a86ab3a3f04e4e23fd36d119d5dbdc">src.ImagePromptGenerator.ImagePromptGenerator.ImagePromptGenerator.generate_prompt</a></div><div class="ttdeci">Optional[str] generate_prompt(self, str user_input, str system_output, List[int] character_ids)</div><div class="ttdoc">Генерация промпта для создания изображения</div><div class="ttdef"><b>Определения</b> <a href="#l00087">ImagePromptGenerator.py:87</a></div></div>
+<div class="ttc" id="aclasssrc_1_1_image_prompt_generator_1_1_image_prompt_generator_1_1_image_prompt_generator_html_afec27a1711c202d0ef81038d31fd8da4"><div class="ttname"><a href="classsrc_1_1_image_prompt_generator_1_1_image_prompt_generator_1_1_image_prompt_generator.html#afec27a1711c202d0ef81038d31fd8da4">src.ImagePromptGenerator.ImagePromptGenerator.ImagePromptGenerator.__session_id</a></div><div class="ttdeci">__session_id</div><div class="ttdef"><b>Определения</b> <a href="#l00025">ImagePromptGenerator.py:25</a></div></div>
+<div class="ttc" id="aclasssrc_1_1_message_generator_1_1_message_generator_open_router_1_1_message_generator_open_router_html"><div class="ttname"><a href="classsrc_1_1_message_generator_1_1_message_generator_open_router_1_1_message_generator_open_router.html">src.MessageGenerator.MessageGeneratorOpenRouter.MessageGeneratorOpenRouter</a></div><div class="ttdoc">Генератор сообщений с использованием OpenRouter API.</div><div class="ttdef"><b>Определения</b> <a href="_message_generator_open_router_8py_source.html#l00008">MessageGeneratorOpenRouter.py:8</a></div></div>
+<div class="ttc" id="anamespacesrc_1_1_database_manager_1_1_database_manager_html"><div class="ttname"><a href="namespacesrc_1_1_database_manager_1_1_database_manager.html">src.DatabaseManager.DatabaseManager</a></div><div class="ttdef"><b>Определения</b> <a href="_database_manager_8py_source.html#l00001">DatabaseManager.py:1</a></div></div>
+<div class="ttc" id="anamespacesrc_1_1_descriptions_1_1_world_decription_html"><div class="ttname"><a href="namespacesrc_1_1_descriptions_1_1_world_decription.html">src.Descriptions.WorldDecription</a></div><div class="ttdef"><b>Определения</b> <a href="_world_decription_8py_source.html#l00001">WorldDecription.py:1</a></div></div>
+<div class="ttc" id="anamespacesrc_1_1_message_generator_1_1_message_generator_open_router_html"><div class="ttname"><a href="namespacesrc_1_1_message_generator_1_1_message_generator_open_router.html">src.MessageGenerator.MessageGeneratorOpenRouter</a></div><div class="ttdef"><b>Определения</b> <a href="_message_generator_open_router_8py_source.html#l00001">MessageGeneratorOpenRouter.py:1</a></div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_15fe2cec17dffb22c04117b383426cd3.html">py</a></li><li class="navelem"><a class="el" href="dir_1bacb7a041c5d8e8f278a4dfcf4ef5b7.html">API</a></li><li class="navelem"><a class="el" href="dir_ba9bc6bf1fb8c5cfdc0d21d8ec27424e.html">src</a></li><li class="navelem"><a class="el" href="dir_eaa09915ff28484e08253593f2681bb6.html">ImagePromptGenerator</a></li><li class="navelem"><b>ImagePromptGenerator.py</b></li>
+    <li class="footer">Создано системой <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.13.2 </li>
+  </ul>
+</div>
+</body>
+</html>

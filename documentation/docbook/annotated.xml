@@ -1,0 +1,50 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_annotated" xml:lang="ru">
+<title>Классы</title>
+Классы с их кратким описанием.<link linkend="_classsrc_1_1_actor_1_1_actor_1_1_actor">src.Actor.Actor.Actor</link>
+<para>Реализация актора в игровой системе </para>
+<link linkend="_classsrc_1_1_game_master_1_1_command_data_1_1_command_create_character">src.GameMaster.CommandData.CommandCreateCharacter</link>
+<para>Команда создания нового персонажа </para>
+<link linkend="_classsrc_1_1_game_master_1_1_command_data_1_1_command_data">src.GameMaster.CommandData.CommandData</link>
+<para>Базовый класс для всех команд в игровой системе </para>
+<link linkend="_classsrc_1_1_game_master_1_1_command_data_1_1_command_data_environment_description">src.GameMaster.CommandData.CommandDataEnvironmentDescription</link>
+<para>Команда для описания окружения </para>
+<link linkend="_classsrc_1_1_game_master_1_1_command_data_1_1_command_off_topic">src.GameMaster.CommandData.CommandOffTopic</link>
+<para>Команда для обработки внеигрового ввода </para>
+<link linkend="_classsrc_1_1_game_master_1_1_command_data_1_1_command_player_death">src.GameMaster.CommandData.CommandPlayerDeath</link>
+<para>Команда смерти игрового персонажа </para>
+<link linkend="_classsrc_1_1_game_master_1_1_command_data_1_1_command_select_character">src.GameMaster.CommandData.CommandSelectCharacter</link>
+<para>Команда выбора персонажа для действия </para>
+<link linkend="_classsrc_1_1_database_manager_1_1_database_manager_1_1_database_manager">src.DatabaseManager.DatabaseManager.DatabaseManager</link>
+<para>Менеджер базы данных для управления игровыми сессиями </para>
+<link linkend="_class_game_manager_1_1_game_manager">GameManager.GameManager</link>
+<para>Менеджер игрового процесса </para>
+<link linkend="_classsrc_1_1_game_master_1_1_game_master_1_1_game_master">src.GameMaster.GameMaster.GameMaster</link>
+<para>Класс, управляющий игровым процессом и взаимодействием с игроком </para>
+<link linkend="_classsrc_1_1_image_generator_1_1_image_generator_google_1_1_image_generator_google">src.ImageGenerator.ImageGeneratorGoogle.ImageGeneratorGoogle</link>
+<para>Класс для генерации изображений с использованием Google Gemini API </para>
+<link linkend="_classsrc_1_1_image_generator_1_1_image_generator_protocol_1_1_image_generator_protocol">src.ImageGenerator.ImageGeneratorProtocol.ImageGeneratorProtocol</link>
+<para>Протокол для генерации изображений </para>
+<link linkend="_classsrc_1_1_image_manager_1_1_image_manager_1_1_image_manager">src.ImageManager.ImageManager.ImageManager</link>
+<para>Менеджер для управления генерацией и хранением изображений </para>
+<link linkend="_classsrc_1_1_image_prompt_generator_1_1_image_prompt_generator_1_1_image_prompt_generator">src.ImagePromptGenerator.ImagePromptGenerator.ImagePromptGenerator</link>
+<para>Генератор промптов для создания изображений </para>
+<link linkend="_classsrc_1_1_message_generator_1_1_message_generator_deep_seek_1_1_message_generator_deep_seek">src.MessageGenerator.MessageGeneratorDeepSeek.MessageGeneratorDeepSeek</link>
+<para>Генератор сообщений с использованием DeepSeek API </para>
+<link linkend="_classsrc_1_1_message_generator_1_1_message_generator_groq_1_1_message_generator_groq">src.MessageGenerator.MessageGeneratorGroq.MessageGeneratorGroq</link>
+<para>Генератор сообщений с использованием Groq API </para>
+<link linkend="_classsrc_1_1_message_generator_1_1_message_generator_open_router_1_1_message_generator_open_router">src.MessageGenerator.MessageGeneratorOpenRouter.MessageGeneratorOpenRouter</link>
+<para>Генератор сообщений с использованием OpenRouter API </para>
+<link linkend="_classsrc_1_1_game_master_1_1_game_master_1_1_player_death_exception">src.GameMaster.GameMaster.PlayerDeathException</link>
+<para>Исключение, возникающее при смерти игрового персонажа </para>
+<link linkend="_classsrc_1_1_actor_1_1_protocol_actor_1_1_protocol_actor">src.Actor.ProtocolActor.ProtocolActor</link>
+<para>Протокол для актора в игровой системе </para>
+<link linkend="_classsrc_1_1_game_master_1_1_protocol_game_master_1_1_protocol_game_master">src.GameMaster.ProtocolGameMaster.ProtocolGameMaster</link>
+<para>Протокол для мастера игры </para>
+<link linkend="_classsrc_1_1_message_generator_1_1_protocol_message_generator_1_1_protocol_message_generator">src.MessageGenerator.ProtocolMessageGenerator.ProtocolMessageGenerator</link>
+<para>Протокол для генерации сообщений </para>
+<link linkend="_classsrc_1_1_session_manager_1_1_session_manager_1_1_session_manager">src.SessionManager.SessionManager.SessionManager</link>
+<para>Менеджер игровых сессий </para>
+<link linkend="_class_s_t_t_1_1_s_t_t">STT.STT</link>
+<para>Класс для распознавания речи (Speech-to-Text) </para>
+</section>

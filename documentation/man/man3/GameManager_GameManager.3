@@ -1,0 +1,137 @@
+.TH "GameManager.GameManager" 3 "My Project" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+GameManager.GameManager \- Менеджер игрового процесса  
+
+.SH SYNOPSIS
+.br
+.PP
+.SS "Открытые члены"
+
+.in +1c
+.ti -1c
+.RI "None \fB__init__\fP (self, int session_id)"
+.br
+.RI "Инициализация менеджера игры "
+.ti -1c
+.RI "Tuple[str, Optional[str]] \fBprocess_audio_input\fP (self, str audio_path, bool \fBgenerate_image\fP=True)"
+.br
+.RI "Обработка аудио ввода от пользователя "
+.ti -1c
+.RI "Tuple[str, Optional[str]] \fBprocess_input\fP (self, str user_input, bool \fBgenerate_image\fP=True)"
+.br
+.RI "Обработка пользовательского ввода "
+.ti -1c
+.RI "Optional[str] \fBgenerate_image\fP (self, int sequence)"
+.br
+.RI "Генерация изображения для сообщения "
+.in -1c
+.SH "Подробное описание"
+.PP 
+Менеджер игрового процесса 
+
+Координирует взаимодействие между различными компонентами игры:
+.IP "\(bu" 2
+Мастер игры (\fBGameMaster\fP)
+.IP "\(bu" 2
+Менеджер изображений (\fBImageManager\fP)
+.IP "\(bu" 2
+База данных (\fBDatabaseManager\fP)
+.IP "\(bu" 2
+Актор (\fBActor\fP)
+.PP
+
+.PP
+Отвечает за обработку пользовательского ввода и генерацию ответов, включая текстовые описания и изображения\&. 
+.PP
+См\&. определение в файле \fBGameManager\&.py\fP строка \fB12\fP
+.SH "Конструктор(ы)"
+.PP 
+.SS " None GameManager\&.GameManager\&.__init__ ( self, int session_id)"
+
+.PP
+Инициализация менеджера игры 
+.PP
+\fBАргументы\fP
+.RS 4
+\fIsession_id\fP ID игровой сессии
+.RE
+.PP
+Создает новый экземпляр менеджера игры и инициализирует все необходимые компоненты для работы игровой сессии\&. 
+.PP
+См\&. определение в файле \fBGameManager\&.py\fP строка \fB27\fP
+.SH "Методы"
+.PP 
+.SS " Optional[str] GameManager\&.GameManager\&.generate_image ( self, int sequence)"
+
+.PP
+Генерация изображения для сообщения 
+.PP
+\fBАргументы\fP
+.RS 4
+\fIsequence\fP Номер последовательности сообщения
+.RE
+.PP
+\fBВозвращает\fP
+.RS 4
+Optional[str] Путь к сгенерированному изображению или None в случае ошибки
+.RE
+.PP
+Генерирует изображение для указанного сообщения, используя данные из базы данных и активных персонажей\&. 
+.PP
+См\&. определение в файле \fBGameManager\&.py\fP строка \fB101\fP
+.SS " Tuple[str, Optional[str]] GameManager\&.GameManager\&.process_audio_input ( self, str audio_path, bool  generate_image = \fRTrue\fP)"
+
+.PP
+Обработка аудио ввода от пользователя 
+.PP
+\fBАргументы\fP
+.RS 4
+\fIaudio_path\fP Путь к аудиофайлу 
+.br
+\fIgenerate_image\fP Флаг генерации изображения (по умолчанию True)
+.RE
+.PP
+\fBВозвращает\fP
+.RS 4
+Tuple[str, Optional[str]] Кортеж из:
+.IP "\(bu" 2
+Текстового ответа от мастера игры
+.IP "\(bu" 2
+Пути к сгенерированному изображению (если успешно и generate_image=True) или None
+.PP
+.RE
+.PP
+Преобразует аудио в текст с помощью STT и обрабатывает полученный текст через process_input\&. Использует язык сессии для распознавания речи\&. 
+.PP
+См\&. определение в файле \fBGameManager\&.py\fP строка \fB44\fP
+.SS " Tuple[str, Optional[str]] GameManager\&.GameManager\&.process_input ( self, str user_input, bool  generate_image = \fRTrue\fP)"
+
+.PP
+Обработка пользовательского ввода 
+.PP
+\fBАргументы\fP
+.RS 4
+\fIuser_input\fP Ввод пользователя 
+.br
+\fIgenerate_image\fP Флаг генерации изображения (по умолчанию True)
+.RE
+.PP
+\fBВозвращает\fP
+.RS 4
+Tuple[str, Optional[str]] Кортеж из:
+.IP "\(bu" 2
+Текстового ответа от мастера игры
+.IP "\(bu" 2
+Пути к сгенерированному изображению (если успешно и generate_image=True) или None
+.PP
+.RE
+.PP
+Обрабатывает пользовательский ввод, генерирует ответ и, при необходимости, создает изображение для текущей сцены\&. 
+.PP
+См\&. определение в файле \fBGameManager\&.py\fP строка \fB73\fP
+
+.SH "Автор"
+.PP 
+Автоматически создано Doxygen для My Project из исходного текста\&.

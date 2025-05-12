@@ -1,0 +1,12 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.13.2" xml:lang="ru">
+  <compounddef id="dir_15fe2cec17dffb22c04117b383426cd3" kind="dir">
+    <compoundname>C:/Users/kir/Desktop/py</compoundname>
+    <innerdir refid="dir_1bacb7a041c5d8e8f278a4dfcf4ef5b7">C:/Users/kir/Desktop/py/API</innerdir>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="C:/Users/kir/Desktop/py/"/>
+  </compounddef>
+</doxygen>

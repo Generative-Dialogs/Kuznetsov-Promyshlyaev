@@ -1,0 +1,459 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.13.2" xml:lang="ru">
+  <compounddef id="classsrc_1_1_game_master_1_1_game_master_1_1_game_master" kind="class" language="Python" prot="public">
+    <compoundname>src::GameMaster::GameMaster::GameMaster</compoundname>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="classsrc_1_1_game_master_1_1_game_master_1_1_game_master_1a163bdf238c24c30500cb4d758cd25b31" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>src.GameMaster.GameMaster.GameMaster::session_id</definition>
+        <argsstring></argsstring>
+        <name>session_id</name>
+        <qualifiedname>src.GameMaster.GameMaster.GameMaster.session_id</qualifiedname>
+        <initializer>=  session_id</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/kir/Desktop/py/API/src/GameMaster/GameMaster.py" line="57" column="1" bodyfile="C:/Users/kir/Desktop/py/API/src/GameMaster/GameMaster.py" bodystart="57" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classsrc_1_1_game_master_1_1_game_master_1_1_game_master_1a7fcc819f6b191473b29534ab67576211" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>src.GameMaster.GameMaster.GameMaster::db</definition>
+        <argsstring></argsstring>
+        <name>db</name>
+        <qualifiedname>src.GameMaster.GameMaster.GameMaster.db</qualifiedname>
+        <initializer>=  <ref refid="classsrc_1_1_database_manager_1_1_database_manager_1_1_database_manager" kindref="compound">DatabaseManager</ref>()</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/kir/Desktop/py/API/src/GameMaster/GameMaster.py" line="58" column="1" bodyfile="C:/Users/kir/Desktop/py/API/src/GameMaster/GameMaster.py" bodystart="58" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classsrc_1_1_game_master_1_1_game_master_1_1_game_master_1ab19b9e393d293c94e4643cd32c67d0dd" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>src.GameMaster.GameMaster.GameMaster::generate_character_images</definition>
+        <argsstring></argsstring>
+        <name>generate_character_images</name>
+        <qualifiedname>src.GameMaster.GameMaster.GameMaster.generate_character_images</qualifiedname>
+        <initializer>=  generate_character_images</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/kir/Desktop/py/API/src/GameMaster/GameMaster.py" line="59" column="1" bodyfile="C:/Users/kir/Desktop/py/API/src/GameMaster/GameMaster.py" bodystart="59" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classsrc_1_1_game_master_1_1_game_master_1_1_game_master_1aaebaf89191e3696ae060994b3cbd85bd" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>src.GameMaster.GameMaster.GameMaster::world_description</definition>
+        <argsstring></argsstring>
+        <name>world_description</name>
+        <qualifiedname>src.GameMaster.GameMaster.GameMaster.world_description</qualifiedname>
+        <initializer>=  world_description</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/kir/Desktop/py/API/src/GameMaster/GameMaster.py" line="66" column="1" bodyfile="C:/Users/kir/Desktop/py/API/src/GameMaster/GameMaster.py" bodystart="66" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classsrc_1_1_game_master_1_1_game_master_1_1_game_master_1a0bb1f23554cf5091cf4bffb1641d9be6" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>src.GameMaster.GameMaster.GameMaster::player_description</definition>
+        <argsstring></argsstring>
+        <name>player_description</name>
+        <qualifiedname>src.GameMaster.GameMaster.GameMaster.player_description</qualifiedname>
+        <initializer>=  player_description</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/kir/Desktop/py/API/src/GameMaster/GameMaster.py" line="67" column="1" bodyfile="C:/Users/kir/Desktop/py/API/src/GameMaster/GameMaster.py" bodystart="67" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classsrc_1_1_game_master_1_1_game_master_1_1_game_master_1aedb06b2bcc0533a886a217a19735151d" prot="public" static="no" mutable="no">
+        <type><ref refid="classsrc_1_1_message_generator_1_1_protocol_message_generator_1_1_protocol_message_generator" kindref="compound">ProtocolMessageGenerator</ref></type>
+        <definition>ProtocolMessageGenerator src.GameMaster.GameMaster.GameMaster::messageGenerator</definition>
+        <argsstring></argsstring>
+        <name>messageGenerator</name>
+        <qualifiedname>src.GameMaster.GameMaster.GameMaster.messageGenerator</qualifiedname>
+        <initializer>=  <ref refid="classsrc_1_1_message_generator_1_1_message_generator_open_router_1_1_message_generator_open_router" kindref="compound">MessageGeneratorOpenRouter</ref>()</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/kir/Desktop/py/API/src/GameMaster/GameMaster.py" line="69" column="1" bodyfile="C:/Users/kir/Desktop/py/API/src/GameMaster/GameMaster.py" bodystart="69" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classsrc_1_1_game_master_1_1_game_master_1_1_game_master_1ab5359c63c972052f22645b0d60df5c38" prot="public" static="no" mutable="no">
+        <type>dict</type>
+        <definition>dict src.GameMaster.GameMaster.GameMaster::characters</definition>
+        <argsstring></argsstring>
+        <name>characters</name>
+        <qualifiedname>src.GameMaster.GameMaster.GameMaster.characters</qualifiedname>
+        <initializer>=  {}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/kir/Desktop/py/API/src/GameMaster/GameMaster.py" line="70" column="1" bodyfile="C:/Users/kir/Desktop/py/API/src/GameMaster/GameMaster.py" bodystart="70" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classsrc_1_1_game_master_1_1_game_master_1_1_game_master_1ace910641bfd7d3f2a1421aecaea522dd" prot="private" static="no" mutable="no">
+        <type></type>
+        <definition>src.GameMaster.GameMaster.GameMaster::__actor</definition>
+        <argsstring></argsstring>
+        <name>__actor</name>
+        <qualifiedname>src.GameMaster.GameMaster.GameMaster.__actor</qualifiedname>
+        <initializer>=  <ref refid="classsrc_1_1_actor_1_1_actor_1_1_actor" kindref="compound">Actor</ref>(self, session_id,  fast_flg=fast_flg, language=language)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/kir/Desktop/py/API/src/GameMaster/GameMaster.py" line="71" column="1" bodyfile="C:/Users/kir/Desktop/py/API/src/GameMaster/GameMaster.py" bodystart="71" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classsrc_1_1_game_master_1_1_game_master_1_1_game_master_1ae450110ca0fd166f5a1cf036d7a42faa" prot="private" static="no" mutable="no">
+        <type></type>
+        <definition>src.GameMaster.GameMaster.GameMaster::__image_manager</definition>
+        <argsstring></argsstring>
+        <name>__image_manager</name>
+        <qualifiedname>src.GameMaster.GameMaster.GameMaster.__image_manager</qualifiedname>
+        <initializer>=  <ref refid="classsrc_1_1_image_manager_1_1_image_manager_1_1_image_manager" kindref="compound">ImageManager</ref>(session_id)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/kir/Desktop/py/API/src/GameMaster/GameMaster.py" line="72" column="1" bodyfile="C:/Users/kir/Desktop/py/API/src/GameMaster/GameMaster.py" bodystart="72" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classsrc_1_1_game_master_1_1_game_master_1_1_game_master_1a3d4c57cdc4cd784782f1fdb024610892" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>None</type>
+        <definition> None src.GameMaster.GameMaster.GameMaster.__init__</definition>
+        <argsstring>(self, int session_id, Optional[str] world_description=None, Optional[str] player_description=None, bool fast_flg=True, str language=&quot;English&quot;, bool generate_character_images=True)</argsstring>
+        <name>__init__</name>
+        <qualifiedname>src.GameMaster.GameMaster.GameMaster.__init__</qualifiedname>
+        <param>
+          <type>self</type>
+          <defname>self</defname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>session_id</declname>
+        </param>
+        <param>
+          <type>Optional</type>
+          <declname>world_description</declname>
+          <array>[str]</array>
+          <defval>None</defval>
+        </param>
+        <param>
+          <type>Optional</type>
+          <declname>player_description</declname>
+          <array>[str]</array>
+          <defval>None</defval>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>fast_flg</declname>
+          <defval>True</defval>
+        </param>
+        <param>
+          <type>str</type>
+          <declname>language</declname>
+          <defval>&quot;English&quot;</defval>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>generate_character_images</declname>
+          <defval>True</defval>
+        </param>
+        <briefdescription>
+<para>Инициализация мастера игры </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>session_id</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>ID игровой сессии </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>world_description</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Описание игрового мира (опционально) </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>player_description</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Описание игрового персонажа (опционально) </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>fast_flg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Флаг быстрого режима (опционально) </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>language</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Язык игры (опционально) </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>generate_character_images</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Флаг генерации изображений персонажей (опционально) </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/kir/Desktop/py/API/src/GameMaster/GameMaster.py" line="43" column="1" bodyfile="C:/Users/kir/Desktop/py/API/src/GameMaster/GameMaster.py" bodystart="46" bodyend="138"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrc_1_1_game_master_1_1_game_master_1_1_game_master_1ada31cf2e334f400a557e5cef5cfd4035" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>str</type>
+        <definition> str src.GameMaster.GameMaster.GameMaster.generate_answer</definition>
+        <argsstring>(self, str message)</argsstring>
+        <name>generate_answer</name>
+        <qualifiedname>src.GameMaster.GameMaster.GameMaster.generate_answer</qualifiedname>
+        <param>
+          <type>self</type>
+          <defname>self</defname>
+        </param>
+        <param>
+          <type>str</type>
+          <declname>message</declname>
+        </param>
+        <briefdescription>
+<para>Генерация ответа на сообщение игрока </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>message</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Сообщение игрока</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>str Ответ системы</para>
+</simplesect>
+<parameterlist kind="exception"><parameteritem>
+<parameternamelist>
+<parametername><ref refid="classsrc_1_1_game_master_1_1_game_master_1_1_player_death_exception" kindref="compound">PlayerDeathException</ref></parametername>
+</parameternamelist>
+<parameterdescription>
+<para>если игровой персонаж умирает </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/kir/Desktop/py/API/src/GameMaster/GameMaster.py" line="139" column="1" bodyfile="C:/Users/kir/Desktop/py/API/src/GameMaster/GameMaster.py" bodystart="139" bodyend="187"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrc_1_1_game_master_1_1_game_master_1_1_game_master_1af4b0a20324399ffd65811c0d5a7e72fb" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Tuple[List[<ref refid="classsrc_1_1_game_master_1_1_command_data_1_1_command_data" kindref="compound">CommandData</ref>], str]</type>
+        <definition> Tuple[List[CommandData], str] src.GameMaster.GameMaster.GameMaster.generate_instruction</definition>
+        <argsstring>(self, str message)</argsstring>
+        <name>generate_instruction</name>
+        <qualifiedname>src.GameMaster.GameMaster.GameMaster.generate_instruction</qualifiedname>
+        <param>
+          <type>self</type>
+          <defname>self</defname>
+        </param>
+        <param>
+          <type>str</type>
+          <declname>message</declname>
+        </param>
+        <briefdescription>
+<para>Генерация инструкций на основе сообщения </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>message</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Сообщение для обработки</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Tuple[List[<ref refid="classsrc_1_1_game_master_1_1_command_data_1_1_command_data" kindref="compound">CommandData</ref>], str] Кортеж из списка команд и текстового вывода</para>
+</simplesect>
+<simplesect kind="note"><para>Метод может выполнять повторные попытки генерации при некорректном формате </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/kir/Desktop/py/API/src/GameMaster/GameMaster.py" line="188" column="1" bodyfile="C:/Users/kir/Desktop/py/API/src/GameMaster/GameMaster.py" bodystart="188" bodyend="208"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrc_1_1_game_master_1_1_game_master_1_1_game_master_1aa80e8c47e27990d55aeb45ddf7512f05" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Tuple[Optional[List[<ref refid="classsrc_1_1_game_master_1_1_command_data_1_1_command_data" kindref="compound">CommandData</ref>]], str]</type>
+        <definition> Tuple[Optional[List[CommandData]], str] src.GameMaster.GameMaster.GameMaster.validate_and_parse</definition>
+        <argsstring>(self, str input_text)</argsstring>
+        <name>validate_and_parse</name>
+        <qualifiedname>src.GameMaster.GameMaster.GameMaster.validate_and_parse</qualifiedname>
+        <param>
+          <type>self</type>
+          <defname>self</defname>
+        </param>
+        <param>
+          <type>str</type>
+          <declname>input_text</declname>
+        </param>
+        <briefdescription>
+<para>Валидация и парсинг входного текста </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>input_text</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Текст для валидации и парсинга</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Tuple[Optional[List[<ref refid="classsrc_1_1_game_master_1_1_command_data_1_1_command_data" kindref="compound">CommandData</ref>]], str] Кортеж из списка команд (или None) и сообщения об ошибке </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/kir/Desktop/py/API/src/GameMaster/GameMaster.py" line="209" column="1" bodyfile="C:/Users/kir/Desktop/py/API/src/GameMaster/GameMaster.py" bodystart="209" bodyend="278"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrc_1_1_game_master_1_1_game_master_1_1_game_master_1a7f51c99f6a3adafdebc200086a1e71f2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Tuple[str, Set[str]]</type>
+        <definition> Tuple[str, Set[str]] src.GameMaster.GameMaster.GameMaster.parse_commands</definition>
+        <argsstring>(self, List[CommandData] commands)</argsstring>
+        <name>parse_commands</name>
+        <qualifiedname>src.GameMaster.GameMaster.GameMaster.parse_commands</qualifiedname>
+        <param>
+          <type>self</type>
+          <defname>self</defname>
+        </param>
+        <param>
+          <type>List</type>
+          <declname>commands</declname>
+          <array>[CommandData]</array>
+        </param>
+        <briefdescription>
+<para>Обработка списка команд </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>commands</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Список команд для обработки</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Tuple[str, Set[str]] Кортеж из текстового вывода и множества имен активных персонажей</para>
+</simplesect>
+<parameterlist kind="exception"><parameteritem>
+<parameternamelist>
+<parametername><ref refid="classsrc_1_1_game_master_1_1_game_master_1_1_player_death_exception" kindref="compound">PlayerDeathException</ref></parametername>
+</parameternamelist>
+<parameterdescription>
+<para>если встречена команда смерти игрока </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/kir/Desktop/py/API/src/GameMaster/GameMaster.py" line="279" column="1" bodyfile="C:/Users/kir/Desktop/py/API/src/GameMaster/GameMaster.py" bodystart="279" bodyend="315"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>Класс, управляющий игровым процессом и взаимодействием с игроком </para>
+    </briefdescription>
+    <detaileddescription>
+<para>Отвечает за:<itemizedlist>
+<listitem><para>Генерацию ответов на действия игрока</para>
+</listitem><listitem><para>Управление игровыми персонажами</para>
+</listitem><listitem><para>Поддержание целостности игрового мира</para>
+</listitem><listitem><para>Генерацию изображений</para>
+</listitem><listitem><para>Взаимодействие с базой данных</para>
+</listitem></itemizedlist>
+</para>
+<para><simplesect kind="note"><para>Реализует паттерн Singleton для обеспечения единой точки управления игровым процессом </para>
+</simplesect>
+</para>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="3">
+        <label>Protocol</label>
+      </node>
+      <node id="1">
+        <label>src.GameMaster.GameMaster.GameMaster</label>
+        <link refid="classsrc_1_1_game_master_1_1_game_master_1_1_game_master"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>messageGenerator</edgelabel>
+        </childnode>
+      </node>
+      <node id="2">
+        <label>src.MessageGenerator.ProtocolMessageGenerator.ProtocolMessageGenerator</label>
+        <link refid="classsrc_1_1_message_generator_1_1_protocol_message_generator_1_1_protocol_message_generator"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="C:/Users/kir/Desktop/py/API/src/GameMaster/GameMaster.py" line="29" column="1" bodyfile="C:/Users/kir/Desktop/py/API/src/GameMaster/GameMaster.py" bodystart="29" bodyend="315"/>
+    <listofallmembers>
+      <member refid="classsrc_1_1_game_master_1_1_game_master_1_1_game_master_1ace910641bfd7d3f2a1421aecaea522dd" prot="private" virt="non-virtual"><scope>src::GameMaster::GameMaster::GameMaster</scope><name>__actor</name></member>
+      <member refid="classsrc_1_1_game_master_1_1_game_master_1_1_game_master_1ae450110ca0fd166f5a1cf036d7a42faa" prot="private" virt="non-virtual"><scope>src::GameMaster::GameMaster::GameMaster</scope><name>__image_manager</name></member>
+      <member refid="classsrc_1_1_game_master_1_1_game_master_1_1_game_master_1a3d4c57cdc4cd784782f1fdb024610892" prot="public" virt="non-virtual"><scope>src::GameMaster::GameMaster::GameMaster</scope><name>__init__</name></member>
+      <member refid="classsrc_1_1_game_master_1_1_game_master_1_1_game_master_1ab5359c63c972052f22645b0d60df5c38" prot="public" virt="non-virtual"><scope>src::GameMaster::GameMaster::GameMaster</scope><name>characters</name></member>
+      <member refid="classsrc_1_1_game_master_1_1_game_master_1_1_game_master_1a7fcc819f6b191473b29534ab67576211" prot="public" virt="non-virtual"><scope>src::GameMaster::GameMaster::GameMaster</scope><name>db</name></member>
+      <member refid="classsrc_1_1_game_master_1_1_game_master_1_1_game_master_1ada31cf2e334f400a557e5cef5cfd4035" prot="public" virt="non-virtual"><scope>src::GameMaster::GameMaster::GameMaster</scope><name>generate_answer</name></member>
+      <member refid="classsrc_1_1_game_master_1_1_game_master_1_1_game_master_1ab19b9e393d293c94e4643cd32c67d0dd" prot="public" virt="non-virtual"><scope>src::GameMaster::GameMaster::GameMaster</scope><name>generate_character_images</name></member>
+      <member refid="classsrc_1_1_game_master_1_1_game_master_1_1_game_master_1af4b0a20324399ffd65811c0d5a7e72fb" prot="public" virt="non-virtual"><scope>src::GameMaster::GameMaster::GameMaster</scope><name>generate_instruction</name></member>
+      <member refid="classsrc_1_1_game_master_1_1_game_master_1_1_game_master_1aedb06b2bcc0533a886a217a19735151d" prot="public" virt="non-virtual"><scope>src::GameMaster::GameMaster::GameMaster</scope><name>messageGenerator</name></member>
+      <member refid="classsrc_1_1_game_master_1_1_game_master_1_1_game_master_1a7f51c99f6a3adafdebc200086a1e71f2" prot="public" virt="non-virtual"><scope>src::GameMaster::GameMaster::GameMaster</scope><name>parse_commands</name></member>
+      <member refid="classsrc_1_1_game_master_1_1_game_master_1_1_game_master_1a0bb1f23554cf5091cf4bffb1641d9be6" prot="public" virt="non-virtual"><scope>src::GameMaster::GameMaster::GameMaster</scope><name>player_description</name></member>
+      <member refid="classsrc_1_1_game_master_1_1_game_master_1_1_game_master_1a163bdf238c24c30500cb4d758cd25b31" prot="public" virt="non-virtual"><scope>src::GameMaster::GameMaster::GameMaster</scope><name>session_id</name></member>
+      <member refid="classsrc_1_1_game_master_1_1_game_master_1_1_game_master_1aa80e8c47e27990d55aeb45ddf7512f05" prot="public" virt="non-virtual"><scope>src::GameMaster::GameMaster::GameMaster</scope><name>validate_and_parse</name></member>
+      <member refid="classsrc_1_1_game_master_1_1_game_master_1_1_game_master_1aaebaf89191e3696ae060994b3cbd85bd" prot="public" virt="non-virtual"><scope>src::GameMaster::GameMaster::GameMaster</scope><name>world_description</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

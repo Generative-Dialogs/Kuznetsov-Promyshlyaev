@@ -1,0 +1,159 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_____main_____8py_source" xml:lang="ru">
+<title>__main__.py</title>
+<indexterm><primary>C:/Users/kir/Desktop/py/API/src/__main__.py</primary></indexterm>
+<programlisting linenumbering="unnumbered"><anchor xml:id="_____main_____8py_source_1l00001"/>00001 <emphasis role="comment">#!/usr/bin/env&#32;python3</emphasis>
+<anchor xml:id="_____main_____8py_source_1l00002"/>00002 <emphasis role="keyword">import</emphasis>&#32;os
+<anchor xml:id="_____main_____8py_source_1l00003"/>00003 <emphasis role="keyword">import</emphasis>&#32;sys
+<anchor xml:id="_____main_____8py_source_1l00004"/>00004 <emphasis role="keyword">import</emphasis>&#32;subprocess
+<anchor xml:id="_____main_____8py_source_1l00005"/>00005 <emphasis role="keyword">from</emphasis>&#32;typing&#32;<emphasis role="keyword">import</emphasis>&#32;Optional,&#32;Tuple
+<anchor xml:id="_____main_____8py_source_1l00006"/>00006 <emphasis role="keyword">from</emphasis>&#32;<link linkend="_namespacesrc_1_1_database_manager_1_1_database_manager">src.DatabaseManager.DatabaseManager</link>&#32;<emphasis role="keyword">import</emphasis>&#32;DatabaseManager
+<anchor xml:id="_____main_____8py_source_1l00007"/>00007 <emphasis role="keyword">from</emphasis>&#32;<link linkend="_namespacesrc_1_1_descriptions_1_1_character_decription">src.Descriptions.CharacterDecription</link>&#32;<emphasis role="keyword">import</emphasis>&#32;base_character_description
+<anchor xml:id="_____main_____8py_source_1l00008"/>00008 <emphasis role="keyword">from</emphasis>&#32;<link linkend="_namespacesrc_1_1_descriptions_1_1_world_decription">src.Descriptions.WorldDecription</link>&#32;<emphasis role="keyword">import</emphasis>&#32;base_world_description
+<anchor xml:id="_____main_____8py_source_1l00009"/>00009 <emphasis role="keyword">from</emphasis>&#32;<link linkend="_namespacesrc_1_1_image_prompt_generator_1_1_image_prompt_generator">src.ImagePromptGenerator.ImagePromptGenerator</link>&#32;<emphasis role="keyword">import</emphasis>&#32;ImagePromptGenerator
+<anchor xml:id="_____main_____8py_source_1l00010"/>00010 <emphasis role="keyword">from</emphasis>&#32;<link linkend="_namespacesrc_1_1_image_generator_1_1_image_generator_google">src.ImageGenerator.ImageGeneratorGoogle</link>&#32;<emphasis role="keyword">import</emphasis>&#32;ImageGeneratorGoogle
+<anchor xml:id="_____main_____8py_source_1l00011"/>00011 <emphasis role="keyword">from</emphasis>&#32;<link linkend="_namespacesrc_1_1_image_manager_1_1_image_manager">src.ImageManager.ImageManager</link>&#32;<emphasis role="keyword">import</emphasis>&#32;ImageManager
+<anchor xml:id="_____main_____8py_source_1l00012"/>00012 project_root&#32;=&#32;os.path.abspath(os.path.join(os.path.dirname(__file__),&#32;<emphasis role="stringliteral">&apos;..&apos;</emphasis>))
+<anchor xml:id="_____main_____8py_source_1l00013"/>00013 sys.path.insert(0,&#32;project_root)
+<anchor xml:id="_____main_____8py_source_1l00014"/>00014 
+<anchor xml:id="_____main_____8py_source_1l00015"/>00015 <emphasis role="keyword">from</emphasis>&#32;<link linkend="_namespacesrc_1_1_session_manager_1_1_session_manager">src.SessionManager.SessionManager</link>&#32;<emphasis role="keyword">import</emphasis>&#32;SessionManager
+<anchor xml:id="_____main_____8py_source_1l00016"/>00016 <emphasis role="keyword">from</emphasis>&#32;<link linkend="_namespacesrc_1_1_actor_1_1_actor">src.Actor.Actor</link>&#32;<emphasis role="keyword">import</emphasis>&#32;Actor
+<anchor xml:id="_____main_____8py_source_1l00017"/>00017 <emphasis role="keyword">from</emphasis>&#32;<link linkend="_namespacesrc_1_1_game_master_1_1_game_master">src.GameMaster.GameMaster</link>&#32;<emphasis role="keyword">import</emphasis>&#32;GameMaster
+<anchor xml:id="_____main_____8py_source_1l00018"/>00018 <emphasis role="keyword">from</emphasis>&#32;src.GameManager.GameManager&#32;<emphasis role="keyword">import</emphasis>&#32;GameManager
+<anchor xml:id="_____main_____8py_source_1l00019"/>00019 
+<anchor xml:id="_____main_____8py_source_1l00020"/>00020 
+<anchor xml:id="_____main_____8py_source_1l00021"/>00021 <emphasis role="keyword">def&#32;</emphasis>run_mypy()&#32;-&gt;&#32;None:
+<anchor xml:id="_____main_____8py_source_1l00022"/>00022 &#32;&#32;&#32;&#32;result&#32;=&#32;subprocess.run([<emphasis role="stringliteral">&apos;python&apos;</emphasis>,&#32;<emphasis role="stringliteral">&apos;-m&apos;</emphasis>,&#32;<emphasis role="stringliteral">&apos;mypy&apos;</emphasis>,&#32;<emphasis role="stringliteral">&apos;--show-error-codes&apos;</emphasis>,&#32;<emphasis role="stringliteral">&apos;src/&apos;</emphasis>],&#32;capture_output=<emphasis role="keyword">True</emphasis>,&#32;text=<emphasis role="keyword">True</emphasis>)
+<anchor xml:id="_____main_____8py_source_1l00023"/>00023 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;result.returncode&#32;!=&#32;0:
+<anchor xml:id="_____main_____8py_source_1l00024"/>00024 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;print(<emphasis role="stringliteral">&quot;Mypy&#32;check&#32;failed:&quot;</emphasis>)
+<anchor xml:id="_____main_____8py_source_1l00025"/>00025 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;print(result.stdout)
+<anchor xml:id="_____main_____8py_source_1l00026"/>00026 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;print(result.stderr)
+<anchor xml:id="_____main_____8py_source_1l00027"/>00027 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;sys.exit(1)
+<anchor xml:id="_____main_____8py_source_1l00028"/>00028 
+<anchor xml:id="_____main_____8py_source_1l00029"/>00029 
+<anchor xml:id="_____main_____8py_source_1l00030"/>00030 <emphasis role="keyword">def&#32;</emphasis>select_user(manager:&#32;SessionManager)&#32;-&gt;&#32;int:
+<anchor xml:id="_____main_____8py_source_1l00031"/>00031 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">while</emphasis>&#32;<emphasis role="keyword">True</emphasis>:
+<anchor xml:id="_____main_____8py_source_1l00032"/>00032 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;print(<emphasis role="stringliteral">&quot;\nAvailable&#32;users:&quot;</emphasis>)
+<anchor xml:id="_____main_____8py_source_1l00033"/>00033 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;users&#32;=&#32;manager.db.get_all_users()
+<anchor xml:id="_____main_____8py_source_1l00034"/>00034 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;users:
+<anchor xml:id="_____main_____8py_source_1l00035"/>00035 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;print(<emphasis role="stringliteral">&quot;Existing&#32;users:&quot;</emphasis>)
+<anchor xml:id="_____main_____8py_source_1l00036"/>00036 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">for</emphasis>&#32;user_id&#32;<emphasis role="keywordflow">in</emphasis>&#32;users:
+<anchor xml:id="_____main_____8py_source_1l00037"/>00037 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;print(f<emphasis role="stringliteral">&quot;User&#32;ID:&#32;{user_id}&quot;</emphasis>)
+<anchor xml:id="_____main_____8py_source_1l00038"/>00038 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;print(<emphasis role="stringliteral">&quot;\nOptions:&quot;</emphasis>)
+<anchor xml:id="_____main_____8py_source_1l00039"/>00039 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;print(<emphasis role="stringliteral">&quot;a.&#32;Select&#32;existing&#32;user&#32;(enter&#32;user&#32;ID)&quot;</emphasis>)
+<anchor xml:id="_____main_____8py_source_1l00040"/>00040 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;print(<emphasis role="stringliteral">&quot;b.&#32;Create&#32;new&#32;user&quot;</emphasis>)
+<anchor xml:id="_____main_____8py_source_1l00041"/>00041 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;choice&#32;=&#32;input(<emphasis role="stringliteral">&quot;Your&#32;choice:&#32;&quot;</emphasis>).strip()
+<anchor xml:id="_____main_____8py_source_1l00042"/>00042 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;
+<anchor xml:id="_____main_____8py_source_1l00043"/>00043 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;choice&#32;==&#32;<emphasis role="stringliteral">&quot;b&quot;</emphasis>:
+<anchor xml:id="_____main_____8py_source_1l00044"/>00044 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;manager.create_user()
+<anchor xml:id="_____main_____8py_source_1l00045"/>00045 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">elif</emphasis>&#32;choice.isdigit():
+<anchor xml:id="_____main_____8py_source_1l00046"/>00046 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;user_id&#32;=&#32;int(choice)
+<anchor xml:id="_____main_____8py_source_1l00047"/>00047 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;user_id&#32;<emphasis role="keywordflow">in</emphasis>&#32;users:
+<anchor xml:id="_____main_____8py_source_1l00048"/>00048 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;user_id
+<anchor xml:id="_____main_____8py_source_1l00049"/>00049 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;print(<emphasis role="stringliteral">&quot;Invalid&#32;choice.&#32;Please&#32;try&#32;again.&quot;</emphasis>)
+<anchor xml:id="_____main_____8py_source_1l00050"/>00050 
+<anchor xml:id="_____main_____8py_source_1l00051"/>00051 
+<anchor xml:id="_____main_____8py_source_1l00052"/>00052 <emphasis role="keyword">def&#32;</emphasis>select_session(manager:&#32;SessionManager,&#32;user_id:&#32;int)&#32;-&gt;&#32;Tuple[int,&#32;bool]:
+<anchor xml:id="_____main_____8py_source_1l00053"/>00053 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">while</emphasis>&#32;<emphasis role="keyword">True</emphasis>:
+<anchor xml:id="_____main_____8py_source_1l00054"/>00054 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;sessions&#32;=&#32;manager.db.get_user_sessions(user_id)
+<anchor xml:id="_____main_____8py_source_1l00055"/>00055 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;sessions:
+<anchor xml:id="_____main_____8py_source_1l00056"/>00056 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;print(<emphasis role="stringliteral">&quot;\nExisting&#32;sessions:&quot;</emphasis>)
+<anchor xml:id="_____main_____8py_source_1l00057"/>00057 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">for</emphasis>&#32;session_id,&#32;created_at,&#32;world_desc,&#32;player_desc&#32;<emphasis role="keywordflow">in</emphasis>&#32;sessions:
+<anchor xml:id="_____main_____8py_source_1l00058"/>00058 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;print(f<emphasis role="stringliteral">&quot;\nSession&#32;ID:&#32;{session_id}&quot;</emphasis>)
+<anchor xml:id="_____main_____8py_source_1l00059"/>00059 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;print(f<emphasis role="stringliteral">&quot;Created:&#32;{created_at}&quot;</emphasis>)
+<anchor xml:id="_____main_____8py_source_1l00060"/>00060 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;print(f<emphasis role="stringliteral">&quot;World:&#32;{world_desc[:50]}...&quot;</emphasis>)
+<anchor xml:id="_____main_____8py_source_1l00061"/>00061 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;print(f<emphasis role="stringliteral">&quot;Player:&#32;{player_desc[:50]}...&quot;</emphasis>)
+<anchor xml:id="_____main_____8py_source_1l00062"/>00062 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;print(<emphasis role="stringliteral">&quot;\nOptions:&quot;</emphasis>)
+<anchor xml:id="_____main_____8py_source_1l00063"/>00063 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;print(<emphasis role="stringliteral">&quot;a.&#32;Select&#32;existing&#32;session&#32;(enter&#32;session&#32;ID)&quot;</emphasis>)
+<anchor xml:id="_____main_____8py_source_1l00064"/>00064 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;print(<emphasis role="stringliteral">&quot;b.&#32;Create&#32;new&#32;session&quot;</emphasis>)
+<anchor xml:id="_____main_____8py_source_1l00065"/>00065 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;choice&#32;=&#32;input(<emphasis role="stringliteral">&quot;Your&#32;choice:&#32;&quot;</emphasis>).strip()
+<anchor xml:id="_____main_____8py_source_1l00066"/>00066 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">else</emphasis>:
+<anchor xml:id="_____main_____8py_source_1l00067"/>00067 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;choice&#32;=&#32;<emphasis role="stringliteral">&quot;b&quot;</emphasis>
+<anchor xml:id="_____main_____8py_source_1l00068"/>00068 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;
+<anchor xml:id="_____main_____8py_source_1l00069"/>00069 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;choice&#32;==&#32;<emphasis role="stringliteral">&quot;b&quot;</emphasis>:
+<anchor xml:id="_____main_____8py_source_1l00070"/>00070 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;print(<emphasis role="stringliteral">&quot;\nCreating&#32;new&#32;session:&quot;</emphasis>)
+<anchor xml:id="_____main_____8py_source_1l00071"/>00071 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;player_description&#32;=&#32;input(<emphasis role="stringliteral">&quot;\nEnter&#32;player&#32;description,&#32;print&#32;d&#32;for&#32;default\n&quot;</emphasis>)
+<anchor xml:id="_____main_____8py_source_1l00072"/>00072 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;language&#32;=&#32;select_language()
+<anchor xml:id="_____main_____8py_source_1l00073"/>00073 
+<anchor xml:id="_____main_____8py_source_1l00074"/>00074 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;player_description&#32;==&#32;<emphasis role="stringliteral">&quot;d&quot;</emphasis>:
+<anchor xml:id="_____main_____8py_source_1l00075"/>00075 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;player_description&#32;=&#32;base_character_description
+<anchor xml:id="_____main_____8py_source_1l00076"/>00076 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;session_id&#32;=&#32;manager.db.create_session(user_id,&#32;world_description=base_world_description,&#32;player_description=player_description,language=language)
+<anchor xml:id="_____main_____8py_source_1l00077"/>00077 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;session_id,&#32;<emphasis role="keyword">True</emphasis>
+<anchor xml:id="_____main_____8py_source_1l00078"/>00078 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;
+<anchor xml:id="_____main_____8py_source_1l00079"/>00079 
+<anchor xml:id="_____main_____8py_source_1l00080"/>00080 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;
+<anchor xml:id="_____main_____8py_source_1l00081"/>00081 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">elif</emphasis>&#32;choice.isdigit():
+<anchor xml:id="_____main_____8py_source_1l00082"/>00082 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;session_id&#32;=&#32;int(choice)
+<anchor xml:id="_____main_____8py_source_1l00083"/>00083 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">for</emphasis>&#32;existing_id,&#32;_,&#32;_,&#32;_&#32;<emphasis role="keywordflow">in</emphasis>&#32;sessions:
+<anchor xml:id="_____main_____8py_source_1l00084"/>00084 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;session_id&#32;==&#32;existing_id:
+<anchor xml:id="_____main_____8py_source_1l00085"/>00085 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;session_id,&#32;<emphasis role="keyword">False</emphasis>
+<anchor xml:id="_____main_____8py_source_1l00086"/>00086 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;
+<anchor xml:id="_____main_____8py_source_1l00087"/>00087 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;print(<emphasis role="stringliteral">&quot;Invalid&#32;choice.&#32;Please&#32;try&#32;again.&quot;</emphasis>)
+<anchor xml:id="_____main_____8py_source_1l00088"/>00088 
+<anchor xml:id="_____main_____8py_source_1l00089"/>00089 
+<anchor xml:id="_____main_____8py_source_1l00090"/>00090 <emphasis role="keyword">def&#32;</emphasis>select_language()&#32;-&gt;&#32;str:
+<anchor xml:id="_____main_____8py_source_1l00091"/>00091 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">while</emphasis>&#32;<emphasis role="keyword">True</emphasis>:
+<anchor xml:id="_____main_____8py_source_1l00092"/>00092 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;print(<emphasis role="stringliteral">&quot;\nSelect&#32;language:&quot;</emphasis>)
+<anchor xml:id="_____main_____8py_source_1l00093"/>00093 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;print(<emphasis role="stringliteral">&quot;1.&#32;English&#32;(en)&quot;</emphasis>)
+<anchor xml:id="_____main_____8py_source_1l00094"/>00094 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;print(<emphasis role="stringliteral">&quot;2.&#32;Russian&#32;(ru)&quot;</emphasis>)
+<anchor xml:id="_____main_____8py_source_1l00095"/>00095 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;choice&#32;=&#32;input(<emphasis role="stringliteral">&quot;Your&#32;choice&#32;(1-2):&#32;&quot;</emphasis>).strip()
+<anchor xml:id="_____main_____8py_source_1l00096"/>00096 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;
+<anchor xml:id="_____main_____8py_source_1l00097"/>00097 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;language_map&#32;=&#32;{
+<anchor xml:id="_____main_____8py_source_1l00098"/>00098 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="stringliteral">&quot;1&quot;</emphasis>:&#32;<emphasis role="stringliteral">&quot;English&quot;</emphasis>,
+<anchor xml:id="_____main_____8py_source_1l00099"/>00099 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="stringliteral">&quot;2&quot;</emphasis>:&#32;<emphasis role="stringliteral">&quot;Russian&quot;</emphasis>
+<anchor xml:id="_____main_____8py_source_1l00100"/>00100 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+<anchor xml:id="_____main_____8py_source_1l00101"/>00101 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;
+<anchor xml:id="_____main_____8py_source_1l00102"/>00102 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;choice&#32;<emphasis role="keywordflow">in</emphasis>&#32;language_map:
+<anchor xml:id="_____main_____8py_source_1l00103"/>00103 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;language_map[choice]
+<anchor xml:id="_____main_____8py_source_1l00104"/>00104 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;print(<emphasis role="stringliteral">&quot;Invalid&#32;choice.&#32;Please&#32;try&#32;again.&quot;</emphasis>)
+<anchor xml:id="_____main_____8py_source_1l00105"/>00105 
+<anchor xml:id="_____main_____8py_source_1l00106"/>00106 
+<anchor xml:id="_____main_____8py_source_1l00107"/>00107 <emphasis role="keyword">def&#32;</emphasis>main()&#32;-&gt;&#32;None:
+<anchor xml:id="_____main_____8py_source_1l00108"/>00108 &#32;&#32;&#32;&#32;manager&#32;=&#32;SessionManager()
+<anchor xml:id="_____main_____8py_source_1l00109"/>00109 &#32;&#32;&#32;&#32;
+<anchor xml:id="_____main_____8py_source_1l00110"/>00110 &#32;&#32;&#32;&#32;user_id&#32;=&#32;select_user(manager)
+<anchor xml:id="_____main_____8py_source_1l00111"/>00111 &#32;&#32;&#32;&#32;print(f<emphasis role="stringliteral">&quot;\nSelected&#32;User&#32;ID:&#32;{user_id}&quot;</emphasis>)
+<anchor xml:id="_____main_____8py_source_1l00112"/>00112 &#32;&#32;&#32;&#32;
+<anchor xml:id="_____main_____8py_source_1l00113"/>00113 &#32;&#32;&#32;&#32;session_id,&#32;is_new&#32;=&#32;select_session(manager,&#32;user_id)
+<anchor xml:id="_____main_____8py_source_1l00114"/>00114 &#32;&#32;&#32;&#32;print(f<emphasis role="stringliteral">&quot;\nSelected&#32;Session&#32;ID:&#32;{session_id}&quot;</emphasis>)
+<anchor xml:id="_____main_____8py_source_1l00115"/>00115 &#32;&#32;&#32;&#32;
+<anchor xml:id="_____main_____8py_source_1l00116"/>00116 
+<anchor xml:id="_____main_____8py_source_1l00117"/>00117 &#32;&#32;&#32;&#32;game_manager&#32;=&#32;<link linkend="_namespace_game_manager">GameManager</link>(session_id)
+<anchor xml:id="_____main_____8py_source_1l00118"/>00118 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">try</emphasis>:
+<anchor xml:id="_____main_____8py_source_1l00119"/>00119 
+<anchor xml:id="_____main_____8py_source_1l00120"/>00120 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;sessions&#32;=&#32;manager.db.get_user_sessions(user_id)
+<anchor xml:id="_____main_____8py_source_1l00121"/>00121 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;session_id&#32;=&#32;int(session_id)
+<anchor xml:id="_____main_____8py_source_1l00122"/>00122 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;any(session_id&#32;==&#32;existing_id&#32;<emphasis role="keywordflow">for</emphasis>&#32;existing_id,&#32;_,&#32;_,&#32;_&#32;<emphasis role="keywordflow">in</emphasis>&#32;sessions):
+<anchor xml:id="_____main_____8py_source_1l00123"/>00123 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;print(<emphasis role="stringliteral">&quot;\nMessage&#32;History:&quot;</emphasis>)
+<anchor xml:id="_____main_____8py_source_1l00124"/>00124 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;print(<emphasis role="stringliteral">&quot;=&quot;</emphasis>*50)
+<anchor xml:id="_____main_____8py_source_1l00125"/>00125 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;
+<anchor xml:id="_____main_____8py_source_1l00126"/>00126 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">#&#32;Get&#32;and&#32;display&#32;user&#32;messages</emphasis>
+<anchor xml:id="_____main_____8py_source_1l00127"/>00127 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;user_messages&#32;=&#32;manager.db.get_user_messages(session_id)
+<anchor xml:id="_____main_____8py_source_1l00128"/>00128 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">for</emphasis>&#32;seq,&#32;user_input,&#32;response&#32;<emphasis role="keywordflow">in</emphasis>&#32;user_messages:
+<anchor xml:id="_____main_____8py_source_1l00129"/>00129 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;print(f<emphasis role="stringliteral">&quot;\nMessage&#32;#{seq}&quot;</emphasis>)
+<anchor xml:id="_____main_____8py_source_1l00130"/>00130 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;print(f<emphasis role="stringliteral">&quot;User:&#32;{user_input}&quot;</emphasis>)
+<anchor xml:id="_____main_____8py_source_1l00131"/>00131 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;print(f<emphasis role="stringliteral">&quot;Response:&#32;{response}&quot;</emphasis>)
+<anchor xml:id="_____main_____8py_source_1l00132"/>00132 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;print(<emphasis role="stringliteral">&quot;-&quot;</emphasis>*30)
+<anchor xml:id="_____main_____8py_source_1l00133"/>00133 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;
+<anchor xml:id="_____main_____8py_source_1l00134"/>00134 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">except</emphasis>&#32;ValueError:
+<anchor xml:id="_____main_____8py_source_1l00135"/>00135 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">pass</emphasis>
+<anchor xml:id="_____main_____8py_source_1l00136"/>00136 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">while</emphasis>&#32;<emphasis role="keyword">True</emphasis>:
+<anchor xml:id="_____main_____8py_source_1l00137"/>00137 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;game_manager.generate_image(2)
+<anchor xml:id="_____main_____8py_source_1l00138"/>00138 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;print(<emphasis role="stringliteral">&quot;Enter&#32;your&#32;message:&quot;</emphasis>)
+<anchor xml:id="_____main_____8py_source_1l00139"/>00139 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;user_input&#32;=&#32;input().strip()
+<anchor xml:id="_____main_____8py_source_1l00140"/>00140 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;user_input.lower()&#32;==&#32;<emphasis role="stringliteral">&apos;quit&apos;</emphasis>:
+<anchor xml:id="_____main_____8py_source_1l00141"/>00141 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">break</emphasis>
+<anchor xml:id="_____main_____8py_source_1l00142"/>00142 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;
+<anchor xml:id="_____main_____8py_source_1l00143"/>00143 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">#&#32;Process&#32;input&#32;and&#32;get&#32;both&#32;narrative&#32;response&#32;and&#32;image&#32;path</emphasis>
+<anchor xml:id="_____main_____8py_source_1l00144"/>00144 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;narrative_response,&#32;image_path&#32;=&#32;game_manager.process_input(user_input,<emphasis role="keyword">True</emphasis>)
+<anchor xml:id="_____main_____8py_source_1l00145"/>00145 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;
+<anchor xml:id="_____main_____8py_source_1l00146"/>00146 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">#&#32;Display&#32;results</emphasis>
+<anchor xml:id="_____main_____8py_source_1l00147"/>00147 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;print(<emphasis role="stringliteral">&quot;\nNarrative&#32;Response:&quot;</emphasis>)
+<anchor xml:id="_____main_____8py_source_1l00148"/>00148 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;print(narrative_response)
+<anchor xml:id="_____main_____8py_source_1l00149"/>00149 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">#game_manager.generate_image(user_input,&#32;narrative_response)&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;</emphasis>
+<anchor xml:id="_____main_____8py_source_1l00150"/>00150 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;print(<emphasis role="stringliteral">&quot;\n&quot;</emphasis>&#32;+&#32;<emphasis role="stringliteral">&quot;=&quot;</emphasis>*50)
+<anchor xml:id="_____main_____8py_source_1l00151"/>00151 
+<anchor xml:id="_____main_____8py_source_1l00152"/>00152 <emphasis role="keywordflow">if</emphasis>&#32;__name__&#32;==&#32;<emphasis role="stringliteral">&quot;__main__&quot;</emphasis>:
+<anchor xml:id="_____main_____8py_source_1l00153"/>00153 &#32;&#32;&#32;&#32;run_mypy()
+<anchor xml:id="_____main_____8py_source_1l00154"/>00154 &#32;&#32;&#32;&#32;main()
+</programlisting></section>

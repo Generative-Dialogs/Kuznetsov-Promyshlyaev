@@ -1,0 +1,78 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="__session_manager_8py_source" xml:lang="ru">
+<title>SessionManager.py</title>
+<indexterm><primary>C:/Users/kir/Desktop/py/API/src/SessionManager/SessionManager.py</primary></indexterm>
+<programlisting linenumbering="unnumbered"><anchor xml:id="__session_manager_8py_source_1l00001"/>00001 <emphasis role="keyword">from</emphasis>&#32;typing&#32;<emphasis role="keyword">import</emphasis>&#32;Optional,&#32;Dict,&#32;List,&#32;Tuple,&#32;Any
+<anchor xml:id="__session_manager_8py_source_1l00002"/>00002 <emphasis role="keyword">from</emphasis>&#32;<link linkend="_namespacesrc_1_1_game_master_1_1_game_master">src.GameMaster.GameMaster</link>&#32;<emphasis role="keyword">import</emphasis>&#32;GameMaster
+<anchor xml:id="__session_manager_8py_source_1l00003"/>00003 <emphasis role="keyword">from</emphasis>&#32;<link linkend="_namespacesrc_1_1_database_manager_1_1_database_manager">src.DatabaseManager.DatabaseManager</link>&#32;<emphasis role="keyword">import</emphasis>&#32;DatabaseManager
+<anchor xml:id="__session_manager_8py_source_1l00004"/>00004 <emphasis role="keyword">from</emphasis>&#32;<link linkend="_namespacesrc_1_1_actor_1_1_actor">src.Actor.Actor</link>&#32;<emphasis role="keyword">import</emphasis>&#32;Actor
+<anchor xml:id="__session_manager_8py_source_1l00005"/>00005 <emphasis role="keyword">from</emphasis>&#32;<link linkend="_namespacesrc_1_1config">src.config</link>&#32;<emphasis role="keyword">import</emphasis>&#32;DATABASE_NAME
+<anchor xml:id="__session_manager_8py_source_1l00006"/>00006 
+<anchor xml:id="__session_manager_8py_source_1l00007"/><link linkend="_classsrc_1_1_session_manager_1_1_session_manager_1_1_session_manager">00007</link> <emphasis role="keyword">class&#32;</emphasis><link linkend="_classsrc_1_1_session_manager_1_1_session_manager_1_1_session_manager">SessionManager</link>:
+<anchor xml:id="__session_manager_8py_source_1l00008"/>00008 &#32;&#32;&#32;&#32;<emphasis role="stringliteral">&quot;&quot;&quot;!</emphasis>
+<anchor xml:id="__session_manager_8py_source_1l00009"/>00009 <emphasis role="stringliteral">&#32;&#32;&#32;&#32;@brief&#32;Менеджер&#32;игровых&#32;сессий</emphasis>
+<anchor xml:id="__session_manager_8py_source_1l00010"/>00010 <emphasis role="stringliteral">&#32;&#32;&#32;&#32;</emphasis>
+<anchor xml:id="__session_manager_8py_source_1l00011"/>00011 <emphasis role="stringliteral">&#32;&#32;&#32;&#32;@details</emphasis>
+<anchor xml:id="__session_manager_8py_source_1l00012"/>00012 <emphasis role="stringliteral">&#32;&#32;&#32;&#32;Класс&#32;отвечает&#32;за:</emphasis>
+<anchor xml:id="__session_manager_8py_source_1l00013"/>00013 <emphasis role="stringliteral">&#32;&#32;&#32;&#32;-&#32;Создание&#32;и&#32;управление&#32;игровыми&#32;сессиями</emphasis>
+<anchor xml:id="__session_manager_8py_source_1l00014"/>00014 <emphasis role="stringliteral">&#32;&#32;&#32;&#32;-&#32;Управление&#32;пользователями</emphasis>
+<anchor xml:id="__session_manager_8py_source_1l00015"/>00015 <emphasis role="stringliteral">&#32;&#32;&#32;&#32;-&#32;Взаимодействие&#32;с&#32;базой&#32;данных&#32;для&#32;хранения&#32;информации&#32;о&#32;сессиях</emphasis>
+<anchor xml:id="__session_manager_8py_source_1l00016"/>00016 <emphasis role="stringliteral">&#32;&#32;&#32;&#32;&quot;&quot;&quot;</emphasis>
+<anchor xml:id="__session_manager_8py_source_1l00017"/><link linkend="_classsrc_1_1_session_manager_1_1_session_manager_1_1_session_manager_1aa2005fc8b425dcfa8f4c96f0aa9f80f3">00017</link> &#32;&#32;&#32;&#32;<emphasis role="keyword">def&#32;</emphasis><link linkend="_classsrc_1_1_session_manager_1_1_session_manager_1_1_session_manager_1aa2005fc8b425dcfa8f4c96f0aa9f80f3">__init__</link>(self)&#32;-&gt;&#32;None:
+<anchor xml:id="__session_manager_8py_source_1l00018"/>00018 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="stringliteral">&quot;&quot;&quot;!</emphasis>
+<anchor xml:id="__session_manager_8py_source_1l00019"/>00019 <emphasis role="stringliteral">&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;@brief&#32;Инициализация&#32;менеджера&#32;сессий</emphasis>
+<anchor xml:id="__session_manager_8py_source_1l00020"/>00020 <emphasis role="stringliteral">&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&quot;&quot;&quot;</emphasis>
+<anchor xml:id="__session_manager_8py_source_1l00021"/>00021 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;self.<link linkend="_classsrc_1_1_session_manager_1_1_session_manager_1_1_session_manager_1aeb0257a623292508922fb0b43f9de393">db</link>&#32;=&#32;<link linkend="_classsrc_1_1_database_manager_1_1_database_manager_1_1_database_manager">DatabaseManager</link>()
+<anchor xml:id="__session_manager_8py_source_1l00022"/>00022 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;self.<link linkend="_classsrc_1_1_session_manager_1_1_session_manager_1_1_session_manager_1ad18f61f47f308462113132ca2564eba0">active_sessions</link>:&#32;Dict[int,&#32;GameMaster]&#32;=&#32;{}
+<anchor xml:id="__session_manager_8py_source_1l00023"/>00023 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;
+<anchor xml:id="__session_manager_8py_source_1l00024"/><link linkend="_classsrc_1_1_session_manager_1_1_session_manager_1_1_session_manager_1abd148d50854cccb0ff7e7c93d2147ed2">00024</link> &#32;&#32;&#32;&#32;<emphasis role="keyword">def&#32;</emphasis><link linkend="_classsrc_1_1_session_manager_1_1_session_manager_1_1_session_manager_1abd148d50854cccb0ff7e7c93d2147ed2">create_user</link>(self)&#32;-&gt;&#32;int:
+<anchor xml:id="__session_manager_8py_source_1l00025"/>00025 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="stringliteral">&quot;&quot;&quot;!</emphasis>
+<anchor xml:id="__session_manager_8py_source_1l00026"/>00026 <emphasis role="stringliteral">&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;@brief&#32;Создание&#32;нового&#32;пользователя</emphasis>
+<anchor xml:id="__session_manager_8py_source_1l00027"/>00027 <emphasis role="stringliteral">&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;</emphasis>
+<anchor xml:id="__session_manager_8py_source_1l00028"/>00028 <emphasis role="stringliteral">&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;@return&#32;int&#32;ID&#32;созданного&#32;пользователя</emphasis>
+<anchor xml:id="__session_manager_8py_source_1l00029"/>00029 <emphasis role="stringliteral">&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&quot;&quot;&quot;</emphasis>
+<anchor xml:id="__session_manager_8py_source_1l00030"/>00030 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;self.<link linkend="_classsrc_1_1_session_manager_1_1_session_manager_1_1_session_manager_1aeb0257a623292508922fb0b43f9de393">db</link>.<link linkend="_classsrc_1_1_session_manager_1_1_session_manager_1_1_session_manager_1abd148d50854cccb0ff7e7c93d2147ed2">create_user</link>()
+<anchor xml:id="__session_manager_8py_source_1l00031"/>00031 
+<anchor xml:id="__session_manager_8py_source_1l00032"/><link linkend="_classsrc_1_1_session_manager_1_1_session_manager_1_1_session_manager_1a998efcf0b4c22cc5faf175a3c92eecb9">00032</link> &#32;&#32;&#32;&#32;<emphasis role="keyword">def&#32;</emphasis><link linkend="_classsrc_1_1_session_manager_1_1_session_manager_1_1_session_manager_1a998efcf0b4c22cc5faf175a3c92eecb9">start_session</link>(self,&#32;session_id:&#32;int)&#32;-&gt;&#32;GameMaster:
+<anchor xml:id="__session_manager_8py_source_1l00033"/>00033 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="stringliteral">&quot;&quot;&quot;!</emphasis>
+<anchor xml:id="__session_manager_8py_source_1l00034"/>00034 <emphasis role="stringliteral">&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;@brief&#32;Запуск&#32;или&#32;возобновление&#32;игровой&#32;сессии</emphasis>
+<anchor xml:id="__session_manager_8py_source_1l00035"/>00035 <emphasis role="stringliteral">&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;</emphasis>
+<anchor xml:id="__session_manager_8py_source_1l00036"/>00036 <emphasis role="stringliteral">&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;@param&#32;session_id&#32;ID&#32;сессии</emphasis>
+<anchor xml:id="__session_manager_8py_source_1l00037"/>00037 <emphasis role="stringliteral">&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;</emphasis>
+<anchor xml:id="__session_manager_8py_source_1l00038"/>00038 <emphasis role="stringliteral">&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;@return&#32;GameMaster&#32;Объект&#32;мастера&#32;игры&#32;для&#32;управления&#32;сессией</emphasis>
+<anchor xml:id="__session_manager_8py_source_1l00039"/>00039 <emphasis role="stringliteral">&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;</emphasis>
+<anchor xml:id="__session_manager_8py_source_1l00040"/>00040 <emphasis role="stringliteral">&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;@throws&#32;ValueError&#32;если&#32;сессия&#32;не&#32;найдена</emphasis>
+<anchor xml:id="__session_manager_8py_source_1l00041"/>00041 <emphasis role="stringliteral">&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&quot;&quot;&quot;</emphasis>
+<anchor xml:id="__session_manager_8py_source_1l00042"/>00042 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;
+<anchor xml:id="__session_manager_8py_source_1l00043"/>00043 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">#&#32;Get&#32;session&#32;info</emphasis>
+<anchor xml:id="__session_manager_8py_source_1l00044"/>00044 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;session_info&#32;=&#32;self.<link linkend="_classsrc_1_1_session_manager_1_1_session_manager_1_1_session_manager_1aeb0257a623292508922fb0b43f9de393">db</link>.get_session_info(session_id)
+<anchor xml:id="__session_manager_8py_source_1l00045"/>00045 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;session_info&#32;<emphasis role="keywordflow">is</emphasis>&#32;<emphasis role="keywordtype">None</emphasis>:
+<anchor xml:id="__session_manager_8py_source_1l00046"/>00046 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">raise</emphasis>&#32;ValueError(f<emphasis role="stringliteral">&quot;Session&#32;{session_id}&#32;not&#32;found&quot;</emphasis>)
+<anchor xml:id="__session_manager_8py_source_1l00047"/>00047 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;
+<anchor xml:id="__session_manager_8py_source_1l00048"/>00048 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;world_description,&#32;player_description&#32;=&#32;session_info
+<anchor xml:id="__session_manager_8py_source_1l00049"/>00049 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;
+<anchor xml:id="__session_manager_8py_source_1l00050"/>00050 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">#&#32;Create&#32;game&#32;master</emphasis>
+<anchor xml:id="__session_manager_8py_source_1l00051"/>00051 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<link linkend="_classsrc_1_1_game_master_1_1_game_master_1_1_game_master">GameMaster</link>(
+<anchor xml:id="__session_manager_8py_source_1l00052"/>00052 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;session_id=session_id,
+<anchor xml:id="__session_manager_8py_source_1l00053"/>00053 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;world_description=world_description,
+<anchor xml:id="__session_manager_8py_source_1l00054"/>00054 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;player_description=player_description
+<anchor xml:id="__session_manager_8py_source_1l00055"/>00055 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;)
+<anchor xml:id="__session_manager_8py_source_1l00056"/>00056 
+<anchor xml:id="__session_manager_8py_source_1l00057"/><link linkend="_classsrc_1_1_session_manager_1_1_session_manager_1_1_session_manager_1ada7c5043a8839d41f62fc6e5d0c3714f">00057</link> &#32;&#32;&#32;&#32;<emphasis role="keyword">def&#32;</emphasis><link linkend="_classsrc_1_1_session_manager_1_1_session_manager_1_1_session_manager_1ada7c5043a8839d41f62fc6e5d0c3714f">get_session</link>(self,&#32;session_id:&#32;int)&#32;-&gt;&#32;Optional[GameMaster]:
+<anchor xml:id="__session_manager_8py_source_1l00058"/>00058 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="stringliteral">&quot;&quot;&quot;!</emphasis>
+<anchor xml:id="__session_manager_8py_source_1l00059"/>00059 <emphasis role="stringliteral">&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;@brief&#32;Получение&#32;активной&#32;игровой&#32;сессии</emphasis>
+<anchor xml:id="__session_manager_8py_source_1l00060"/>00060 <emphasis role="stringliteral">&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;</emphasis>
+<anchor xml:id="__session_manager_8py_source_1l00061"/>00061 <emphasis role="stringliteral">&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;@param&#32;session_id&#32;ID&#32;сессии</emphasis>
+<anchor xml:id="__session_manager_8py_source_1l00062"/>00062 <emphasis role="stringliteral">&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;</emphasis>
+<anchor xml:id="__session_manager_8py_source_1l00063"/>00063 <emphasis role="stringliteral">&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;@return&#32;Optional[GameMaster]&#32;Объект&#32;мастера&#32;игры&#32;или&#32;None,&#32;если&#32;сессия&#32;не&#32;найдена</emphasis>
+<anchor xml:id="__session_manager_8py_source_1l00064"/>00064 <emphasis role="stringliteral">&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&quot;&quot;&quot;</emphasis>
+<anchor xml:id="__session_manager_8py_source_1l00065"/>00065 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;self.<link linkend="_classsrc_1_1_session_manager_1_1_session_manager_1_1_session_manager_1ad18f61f47f308462113132ca2564eba0">active_sessions</link>.get(session_id)
+<anchor xml:id="__session_manager_8py_source_1l00066"/>00066 
+<anchor xml:id="__session_manager_8py_source_1l00067"/><link linkend="_classsrc_1_1_session_manager_1_1_session_manager_1_1_session_manager_1aa656a9c75833127e301b8a22b506b257">00067</link> &#32;&#32;&#32;&#32;<emphasis role="keyword">def&#32;</emphasis><link linkend="_classsrc_1_1_session_manager_1_1_session_manager_1_1_session_manager_1aa656a9c75833127e301b8a22b506b257">delete_user</link>(self,&#32;user_id:&#32;int)&#32;-&gt;&#32;<emphasis role="keywordtype">None</emphasis>:
+<anchor xml:id="__session_manager_8py_source_1l00068"/>00068 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="stringliteral">&quot;&quot;&quot;!</emphasis>
+<anchor xml:id="__session_manager_8py_source_1l00069"/>00069 <emphasis role="stringliteral">&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;@brief&#32;Удаление&#32;всех&#32;данных&#32;пользователя</emphasis>
+<anchor xml:id="__session_manager_8py_source_1l00070"/>00070 <emphasis role="stringliteral">&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;</emphasis>
+<anchor xml:id="__session_manager_8py_source_1l00071"/>00071 <emphasis role="stringliteral">&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;@param&#32;user_id&#32;ID&#32;пользователя</emphasis>
+<anchor xml:id="__session_manager_8py_source_1l00072"/>00072 <emphasis role="stringliteral">&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&quot;&quot;&quot;</emphasis>
+<anchor xml:id="__session_manager_8py_source_1l00073"/>00073 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;self.<link linkend="_classsrc_1_1_session_manager_1_1_session_manager_1_1_session_manager_1aeb0257a623292508922fb0b43f9de393">db</link>.delete_user_data(user_id)&#32;
+</programlisting></section>

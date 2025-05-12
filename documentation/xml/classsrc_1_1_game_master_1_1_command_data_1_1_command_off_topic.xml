@@ -1,0 +1,40 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.13.2" xml:lang="ru">
+  <compounddef id="classsrc_1_1_game_master_1_1_command_data_1_1_command_off_topic" kind="class" language="Python" prot="public">
+    <compoundname>src::GameMaster::CommandData::CommandOffTopic</compoundname>
+    <basecompoundref refid="classsrc_1_1_game_master_1_1_command_data_1_1_command_data" prot="public" virt="non-virtual">src.GameMaster.CommandData.CommandData</basecompoundref>
+    <briefdescription>
+<para>Команда для обработки внеигрового ввода </para>
+    </briefdescription>
+    <detaileddescription>
+<para>Используется, когда ввод пользователя не относится к игровому процессу или нарушает правила игры. </para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>src.GameMaster.CommandData.CommandOffTopic</label>
+        <link refid="classsrc_1_1_game_master_1_1_command_data_1_1_command_off_topic"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>src.GameMaster.CommandData.CommandData</label>
+        <link refid="classsrc_1_1_game_master_1_1_command_data_1_1_command_data"/>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>src.GameMaster.CommandData.CommandOffTopic</label>
+        <link refid="classsrc_1_1_game_master_1_1_command_data_1_1_command_off_topic"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>src.GameMaster.CommandData.CommandData</label>
+        <link refid="classsrc_1_1_game_master_1_1_command_data_1_1_command_data"/>
+      </node>
+    </collaborationgraph>
+    <location file="C:/Users/kir/Desktop/py/API/src/GameMaster/CommandData.py" line="59" column="1" bodyfile="C:/Users/kir/Desktop/py/API/src/GameMaster/CommandData.py" bodystart="59" bodyend="69"/>
+    <listofallmembers>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

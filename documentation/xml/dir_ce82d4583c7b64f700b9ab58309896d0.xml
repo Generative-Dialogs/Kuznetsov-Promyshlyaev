@@ -1,0 +1,14 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.13.2" xml:lang="ru">
+  <compounddef id="dir_ce82d4583c7b64f700b9ab58309896d0" kind="dir">
+    <compoundname>C:/Users/kir/Desktop/py/API/src/Descriptions</compoundname>
+    <innerfile refid="_descriptions_2____init_____8py">__init__.py</innerfile>
+    <innerfile refid="_character_decription_8py">CharacterDecription.py</innerfile>
+    <innerfile refid="_world_decription_8py">WorldDecription.py</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="C:/Users/kir/Desktop/py/API/src/Descriptions/"/>
+  </compounddef>
+</doxygen>

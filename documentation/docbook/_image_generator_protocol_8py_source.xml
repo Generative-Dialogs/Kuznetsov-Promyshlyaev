@@ -1,0 +1,27 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="__image_generator_protocol_8py_source" xml:lang="ru">
+<title>ImageGeneratorProtocol.py</title>
+<indexterm><primary>C:/Users/kir/Desktop/py/API/src/ImageGenerator/ImageGeneratorProtocol.py</primary></indexterm>
+<programlisting linenumbering="unnumbered"><anchor xml:id="__image_generator_protocol_8py_source_1l00001"/>00001 <emphasis role="keyword">from</emphasis>&#32;typing&#32;<emphasis role="keyword">import</emphasis>&#32;Protocol,&#32;Optional,&#32;List
+<anchor xml:id="__image_generator_protocol_8py_source_1l00002"/>00002 
+<anchor xml:id="__image_generator_protocol_8py_source_1l00003"/>00003 
+<anchor xml:id="__image_generator_protocol_8py_source_1l00004"/><link linkend="_classsrc_1_1_image_generator_1_1_image_generator_protocol_1_1_image_generator_protocol">00004</link> <emphasis role="keyword">class&#32;</emphasis><link linkend="_classsrc_1_1_image_generator_1_1_image_generator_protocol_1_1_image_generator_protocol">ImageGeneratorProtocol</link>(Protocol):
+<anchor xml:id="__image_generator_protocol_8py_source_1l00005"/>00005 &#32;&#32;&#32;&#32;<emphasis role="stringliteral">&quot;&quot;&quot;!</emphasis>
+<anchor xml:id="__image_generator_protocol_8py_source_1l00006"/>00006 <emphasis role="stringliteral">&#32;&#32;&#32;&#32;@brief&#32;Протокол&#32;для&#32;генерации&#32;изображений</emphasis>
+<anchor xml:id="__image_generator_protocol_8py_source_1l00007"/>00007 <emphasis role="stringliteral">&#32;&#32;&#32;&#32;</emphasis>
+<anchor xml:id="__image_generator_protocol_8py_source_1l00008"/>00008 <emphasis role="stringliteral">&#32;&#32;&#32;&#32;@details</emphasis>
+<anchor xml:id="__image_generator_protocol_8py_source_1l00009"/>00009 <emphasis role="stringliteral">&#32;&#32;&#32;&#32;Определяет&#32;интерфейс&#32;для&#32;классов,&#32;реализующих&#32;генерацию&#32;изображений.</emphasis>
+<anchor xml:id="__image_generator_protocol_8py_source_1l00010"/>00010 <emphasis role="stringliteral">&#32;&#32;&#32;&#32;Используется&#32;как&#32;контракт&#32;для&#32;различных&#32;реализаций&#32;генераторов&#32;изображений.</emphasis>
+<anchor xml:id="__image_generator_protocol_8py_source_1l00011"/>00011 <emphasis role="stringliteral">&#32;&#32;&#32;&#32;&quot;&quot;&quot;</emphasis>
+<anchor xml:id="__image_generator_protocol_8py_source_1l00012"/><link linkend="_classsrc_1_1_image_generator_1_1_image_generator_protocol_1_1_image_generator_protocol_1a67dc32bad76939e2ba372be83049fcbb">00012</link> &#32;&#32;&#32;&#32;<emphasis role="keyword">def&#32;</emphasis><link linkend="_classsrc_1_1_image_generator_1_1_image_generator_protocol_1_1_image_generator_protocol_1a67dc32bad76939e2ba372be83049fcbb">generate_image_response</link>(self,&#32;prompt:&#32;str,&#32;target_path:&#32;str,&#32;character_images:&#32;Optional[List[str]]&#32;=&#32;<emphasis role="keywordtype">None</emphasis>)&#32;-&gt;&#32;Optional[str]:
+<anchor xml:id="__image_generator_protocol_8py_source_1l00013"/>00013 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="stringliteral">&quot;&quot;&quot;!</emphasis>
+<anchor xml:id="__image_generator_protocol_8py_source_1l00014"/>00014 <emphasis role="stringliteral">&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;@brief&#32;Генерация&#32;изображения&#32;на&#32;основе&#32;промпта&#32;и&#32;опциональных&#32;изображений&#32;персонажей</emphasis>
+<anchor xml:id="__image_generator_protocol_8py_source_1l00015"/>00015 <emphasis role="stringliteral">&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;</emphasis>
+<anchor xml:id="__image_generator_protocol_8py_source_1l00016"/>00016 <emphasis role="stringliteral">&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;@param&#32;prompt&#32;Текстовый&#32;промпт&#32;для&#32;генерации&#32;изображения</emphasis>
+<anchor xml:id="__image_generator_protocol_8py_source_1l00017"/>00017 <emphasis role="stringliteral">&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;@param&#32;target_path&#32;Полный&#32;путь&#32;для&#32;сохранения&#32;изображения</emphasis>
+<anchor xml:id="__image_generator_protocol_8py_source_1l00018"/>00018 <emphasis role="stringliteral">&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;@param&#32;character_images&#32;Опциональный&#32;список&#32;путей&#32;к&#32;изображениям&#32;персонажей</emphasis>
+<anchor xml:id="__image_generator_protocol_8py_source_1l00019"/>00019 <emphasis role="stringliteral">&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;</emphasis>
+<anchor xml:id="__image_generator_protocol_8py_source_1l00020"/>00020 <emphasis role="stringliteral">&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;@return&#32;Optional[str]&#32;Путь&#32;к&#32;сохраненному&#32;изображению&#32;или&#32;None&#32;в&#32;случае&#32;ошибки</emphasis>
+<anchor xml:id="__image_generator_protocol_8py_source_1l00021"/>00021 <emphasis role="stringliteral">&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&quot;&quot;&quot;</emphasis>
+<anchor xml:id="__image_generator_protocol_8py_source_1l00022"/>00022 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;...&#32;
+</programlisting></section>

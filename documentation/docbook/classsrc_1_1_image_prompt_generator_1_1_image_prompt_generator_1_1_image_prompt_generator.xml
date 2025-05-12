@@ -1,0 +1,132 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_classsrc_1_1_image_prompt_generator_1_1_image_prompt_generator_1_1_image_prompt_generator" xml:lang="ru">
+<title>Класс src.ImagePromptGenerator.ImagePromptGenerator.ImagePromptGenerator</title>
+<indexterm><primary>src.ImagePromptGenerator.ImagePromptGenerator.ImagePromptGenerator</primary></indexterm>
+<para>
+
+<para>Генератор промптов для создания изображений </para>
+ 
+</para>
+<simplesect>
+    <title>Открытые члены    </title>
+        <itemizedlist>
+            <listitem><para>None <link linkend="_classsrc_1_1_image_prompt_generator_1_1_image_prompt_generator_1_1_image_prompt_generator_1a594f12f4fc1c80b4b7294dd45ebc9a0a">__init__</link> (self, int session_id)</para>
+
+<para>Инициализация генератора промптов </para>
+</listitem>
+            <listitem><para>Optional[str] <link linkend="_classsrc_1_1_image_prompt_generator_1_1_image_prompt_generator_1_1_image_prompt_generator_1ad6a86ab3a3f04e4e23fd36d119d5dbdc">generate_prompt</link> (self, str user_input, str system_output, List[int] character_ids)</para>
+
+<para>Генерация промпта для создания изображения </para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Подробное описание</title>
+
+<para>Генератор промптов для создания изображений </para>
+
+
+
+<para>Класс отвечает за:<itemizedlist>
+<listitem>
+<para>Создание детальных промптов для генерации изображений</para>
+</listitem><listitem>
+<para>Поддержание согласованности описаний персонажей</para>
+</listitem><listitem>
+<para>Учет контекста сцены и действий</para>
+</listitem><listitem>
+<para>Генерацию стилистически согласованных описаний </para>
+</listitem></itemizedlist>
+</para>
+<para>
+См. определение в файле <link linkend="__image_prompt_generator_8py_source">ImagePromptGenerator.py</link> строка <link linkend="__image_prompt_generator_8py_source_1l00008">8</link></para>
+</section>
+<section>
+<title>Конструктор(ы)</title>
+<anchor xml:id="_classsrc_1_1_image_prompt_generator_1_1_image_prompt_generator_1_1_image_prompt_generator_1a594f12f4fc1c80b4b7294dd45ebc9a0a"/><section>
+    <title>__init__()</title>
+<indexterm><primary>__init__</primary><secondary>src.ImagePromptGenerator.ImagePromptGenerator.ImagePromptGenerator</secondary></indexterm>
+<indexterm><primary>src.ImagePromptGenerator.ImagePromptGenerator.ImagePromptGenerator</primary><secondary>__init__</secondary></indexterm>
+<para><computeroutput> None src.ImagePromptGenerator.ImagePromptGenerator.ImagePromptGenerator.__init__ ( self, int session_id)</computeroutput></para><para>
+
+<para>Инициализация генератора промптов </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Аргументы</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>session_id</entry><entry>
+<para>ID сессии для организации промптов </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+<para>
+См. определение в файле <link linkend="__image_prompt_generator_8py_source">ImagePromptGenerator.py</link> строка <link linkend="__image_prompt_generator_8py_source_1l00019">19</link></para>
+</section>
+</section>
+<section>
+<title>Методы</title>
+<anchor xml:id="_classsrc_1_1_image_prompt_generator_1_1_image_prompt_generator_1_1_image_prompt_generator_1ad6a86ab3a3f04e4e23fd36d119d5dbdc"/><section>
+    <title>generate_prompt()</title>
+<indexterm><primary>generate_prompt</primary><secondary>src.ImagePromptGenerator.ImagePromptGenerator.ImagePromptGenerator</secondary></indexterm>
+<indexterm><primary>src.ImagePromptGenerator.ImagePromptGenerator.ImagePromptGenerator</primary><secondary>generate_prompt</secondary></indexterm>
+<para><computeroutput> Optional[str] src.ImagePromptGenerator.ImagePromptGenerator.ImagePromptGenerator.generate_prompt ( self, str user_input, str system_output, List[int] character_ids)</computeroutput></para><para>
+
+<para>Генерация промпта для создания изображения </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Аргументы</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>user_input</entry><entry>
+<para>Ввод пользователя </para>
+</entry>
+                            </row>
+                            <row>
+<entry>system_output</entry><entry>
+<para>Ответ системы </para>
+</entry>
+                            </row>
+                            <row>
+<entry>character_ids</entry><entry>
+<para>Список ID персонажей, участвующих в сцене</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Возвращает</title>
+
+<para>Optional[str] Сгенерированный промпт или None в случае ошибки </para>
+</formalpara>
+</para>
+<para>
+См. определение в файле <link linkend="__image_prompt_generator_8py_source">ImagePromptGenerator.py</link> строка <link linkend="__image_prompt_generator_8py_source_1l00087">87</link></para>
+</section>
+<para>
+Объявления и описания членов класса находятся в файле:</para>
+C:/Users/kir/Desktop/py/API/src/ImagePromptGenerator/ImagePromptGenerator.py</section>
+</section>

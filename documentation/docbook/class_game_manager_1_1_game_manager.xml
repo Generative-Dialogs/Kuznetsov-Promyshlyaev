@@ -1,0 +1,230 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_class_game_manager_1_1_game_manager" xml:lang="ru">
+<title>Класс GameManager.GameManager</title>
+<indexterm><primary>GameManager.GameManager</primary></indexterm>
+<para>
+
+<para>Менеджер игрового процесса </para>
+ 
+</para>
+<simplesect>
+    <title>Открытые члены    </title>
+        <itemizedlist>
+            <listitem><para>None <link linkend="_class_game_manager_1_1_game_manager_1a6383f10322032727e247ff60ce81f15a">__init__</link> (self, int session_id)</para>
+
+<para>Инициализация менеджера игры </para>
+</listitem>
+            <listitem><para>Tuple[str, Optional[str]] <link linkend="_class_game_manager_1_1_game_manager_1a9d2e1bd15ba705ae42efbc0dcf1be035">process_audio_input</link> (self, str audio_path, bool <link linkend="_class_game_manager_1_1_game_manager_1a268def76d22d758ba6bab8ddcced4b75">generate_image</link>=True)</para>
+
+<para>Обработка аудио ввода от пользователя </para>
+</listitem>
+            <listitem><para>Tuple[str, Optional[str]] <link linkend="_class_game_manager_1_1_game_manager_1a4322b2bdf33e7468c720e53233ffcbff">process_input</link> (self, str user_input, bool <link linkend="_class_game_manager_1_1_game_manager_1a268def76d22d758ba6bab8ddcced4b75">generate_image</link>=True)</para>
+
+<para>Обработка пользовательского ввода </para>
+</listitem>
+            <listitem><para>Optional[str] <link linkend="_class_game_manager_1_1_game_manager_1a268def76d22d758ba6bab8ddcced4b75">generate_image</link> (self, int sequence)</para>
+
+<para>Генерация изображения для сообщения </para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Подробное описание</title>
+
+<para>Менеджер игрового процесса </para>
+
+
+
+<para>Координирует взаимодействие между различными компонентами игры:<itemizedlist>
+<listitem>
+<para>Мастер игры (<link linkend="_classsrc_1_1_game_master_1_1_game_master_1_1_game_master">GameMaster</link>)</para>
+</listitem><listitem>
+<para>Менеджер изображений (<link linkend="_classsrc_1_1_image_manager_1_1_image_manager_1_1_image_manager">ImageManager</link>)</para>
+</listitem><listitem>
+<para>База данных (<link linkend="_classsrc_1_1_database_manager_1_1_database_manager_1_1_database_manager">DatabaseManager</link>)</para>
+</listitem><listitem>
+<para>Актор (<link linkend="_classsrc_1_1_actor_1_1_actor_1_1_actor">Actor</link>)</para>
+</listitem></itemizedlist>
+</para>
+
+<para>Отвечает за обработку пользовательского ввода и генерацию ответов, включая текстовые описания и изображения. </para>
+<para>
+См. определение в файле <link linkend="__game_manager_8py_source">GameManager.py</link> строка <link linkend="__game_manager_8py_source_1l00012">12</link></para>
+</section>
+<section>
+<title>Конструктор(ы)</title>
+<anchor xml:id="_class_game_manager_1_1_game_manager_1a6383f10322032727e247ff60ce81f15a"/><section>
+    <title>__init__()</title>
+<indexterm><primary>__init__</primary><secondary>GameManager.GameManager</secondary></indexterm>
+<indexterm><primary>GameManager.GameManager</primary><secondary>__init__</secondary></indexterm>
+<para><computeroutput> None GameManager.GameManager.__init__ ( self, int session_id)</computeroutput></para><para>
+
+<para>Инициализация менеджера игры </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Аргументы</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>session_id</entry><entry>
+<para>ID игровой сессии</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                Создает новый экземпляр менеджера игры и инициализирует все необходимые компоненты для работы игровой сессии. </para>
+<para>
+См. определение в файле <link linkend="__game_manager_8py_source">GameManager.py</link> строка <link linkend="__game_manager_8py_source_1l00027">27</link></para>
+</section>
+</section>
+<section>
+<title>Методы</title>
+<anchor xml:id="_class_game_manager_1_1_game_manager_1a268def76d22d758ba6bab8ddcced4b75"/><section>
+    <title>generate_image()</title>
+<indexterm><primary>generate_image</primary><secondary>GameManager.GameManager</secondary></indexterm>
+<indexterm><primary>GameManager.GameManager</primary><secondary>generate_image</secondary></indexterm>
+<para><computeroutput> Optional[str] GameManager.GameManager.generate_image ( self, int sequence)</computeroutput></para><para>
+
+<para>Генерация изображения для сообщения </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Аргументы</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>sequence</entry><entry>
+<para>Номер последовательности сообщения</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Возвращает</title>
+
+<para>Optional[str] Путь к сгенерированному изображению или None в случае ошибки</para>
+</formalpara>
+Генерирует изображение для указанного сообщения, используя данные из базы данных и активных персонажей. </para>
+<para>
+См. определение в файле <link linkend="__game_manager_8py_source">GameManager.py</link> строка <link linkend="__game_manager_8py_source_1l00101">101</link></para>
+</section>
+<anchor xml:id="_class_game_manager_1_1_game_manager_1a9d2e1bd15ba705ae42efbc0dcf1be035"/><section>
+    <title>process_audio_input()</title>
+<indexterm><primary>process_audio_input</primary><secondary>GameManager.GameManager</secondary></indexterm>
+<indexterm><primary>GameManager.GameManager</primary><secondary>process_audio_input</secondary></indexterm>
+<para><computeroutput> Tuple[str, Optional[str]] GameManager.GameManager.process_audio_input ( self, str audio_path, bool  generate_image = <computeroutput>True</computeroutput>
+)</computeroutput></para><para>
+
+<para>Обработка аудио ввода от пользователя </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Аргументы</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>audio_path</entry><entry>
+<para>Путь к аудиофайлу </para>
+</entry>
+                            </row>
+                            <row>
+<entry>generate_image</entry><entry>
+<para>Флаг генерации изображения (по умолчанию True)</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Возвращает</title>
+
+<para>Tuple[str, Optional[str]] Кортеж из:<itemizedlist>
+<listitem>
+<para>Текстового ответа от мастера игры</para>
+</listitem><listitem>
+<para>Пути к сгенерированному изображению (если успешно и generate_image=True) или None</para>
+</listitem></itemizedlist>
+</para>
+</formalpara>
+Преобразует аудио в текст с помощью STT и обрабатывает полученный текст через process_input. Использует язык сессии для распознавания речи. </para>
+<para>
+См. определение в файле <link linkend="__game_manager_8py_source">GameManager.py</link> строка <link linkend="__game_manager_8py_source_1l00044">44</link></para>
+</section>
+<anchor xml:id="_class_game_manager_1_1_game_manager_1a4322b2bdf33e7468c720e53233ffcbff"/><section>
+    <title>process_input()</title>
+<indexterm><primary>process_input</primary><secondary>GameManager.GameManager</secondary></indexterm>
+<indexterm><primary>GameManager.GameManager</primary><secondary>process_input</secondary></indexterm>
+<para><computeroutput> Tuple[str, Optional[str]] GameManager.GameManager.process_input ( self, str user_input, bool  generate_image = <computeroutput>True</computeroutput>
+)</computeroutput></para><para>
+
+<para>Обработка пользовательского ввода </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Аргументы</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>user_input</entry><entry>
+<para>Ввод пользователя </para>
+</entry>
+                            </row>
+                            <row>
+<entry>generate_image</entry><entry>
+<para>Флаг генерации изображения (по умолчанию True)</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Возвращает</title>
+
+<para>Tuple[str, Optional[str]] Кортеж из:<itemizedlist>
+<listitem>
+<para>Текстового ответа от мастера игры</para>
+</listitem><listitem>
+<para>Пути к сгенерированному изображению (если успешно и generate_image=True) или None</para>
+</listitem></itemizedlist>
+</para>
+</formalpara>
+Обрабатывает пользовательский ввод, генерирует ответ и, при необходимости, создает изображение для текущей сцены. </para>
+<para>
+См. определение в файле <link linkend="__game_manager_8py_source">GameManager.py</link> строка <link linkend="__game_manager_8py_source_1l00073">73</link></para>
+</section>
+<para>
+Объявления и описания членов класса находятся в файле:</para>
+C:/Users/kir/Desktop/py/API/src/GameManager/GameManager.py</section>
+</section>

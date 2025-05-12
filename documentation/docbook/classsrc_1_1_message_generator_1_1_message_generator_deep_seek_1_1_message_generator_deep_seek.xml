@@ -1,0 +1,269 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_classsrc_1_1_message_generator_1_1_message_generator_deep_seek_1_1_message_generator_deep_seek" xml:lang="ru">
+<title>Класс src.MessageGenerator.MessageGeneratorDeepSeek.MessageGeneratorDeepSeek</title>
+<indexterm><primary>src.MessageGenerator.MessageGeneratorDeepSeek.MessageGeneratorDeepSeek</primary></indexterm>
+<para>
+
+<para>Генератор сообщений с использованием DeepSeek API. </para>
+ 
+</para>
+<para>Граф наследования:src.MessageGenerator.MessageGeneratorDeepSeek.MessageGeneratorDeepSeek:    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="classsrc_1_1_message_generator_1_1_message_generator_deep_seek_1_1_message_generator_deep_seek.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Открытые члены    </title>
+        <itemizedlist>
+            <listitem><para>None <link linkend="_classsrc_1_1_message_generator_1_1_message_generator_deep_seek_1_1_message_generator_deep_seek_1ac67faa02a6bb34a7fd0b7d25554c20ef">__init__</link> (self, str model=&apos;deepseek-chat&apos;)</para>
+
+<para>Инициализация генератора сообщений </para>
+</listitem>
+            <listitem><para>str <link linkend="_classsrc_1_1_message_generator_1_1_message_generator_deep_seek_1_1_message_generator_deep_seek_1a68531f3d43ffeb6363d6efbf434048d4">generate</link> (self, str input_message, Optional[str] model=None)</para>
+
+<para>Генерация ответа с использованием DeepSeek API. </para>
+</listitem>
+            <listitem><para>None <link linkend="_classsrc_1_1_message_generator_1_1_message_generator_deep_seek_1_1_message_generator_deep_seek_1a92cd7430f9c81a8f5b6de9b0b4724111">add_user_message</link> (self, str message_content)</para>
+
+<para>Добавление сообщения пользователя в историю </para>
+</listitem>
+            <listitem><para>None <link linkend="_classsrc_1_1_message_generator_1_1_message_generator_deep_seek_1_1_message_generator_deep_seek_1a4ad1e859f543ce3e1cce49b8a1ffc7c0">add_ai_message</link> (self, str message_content)</para>
+
+<para>Добавление сообщения ИИ в историю </para>
+</listitem>
+            <listitem><para>None <link linkend="_classsrc_1_1_message_generator_1_1_message_generator_deep_seek_1_1_message_generator_deep_seek_1a36703bcdba3a8acfd2875370a2f43215">add_system_message</link> (self, str message_content)</para>
+
+<para>Добавление системного сообщения в историю </para>
+</listitem>
+            <listitem><para>List[Dict[str, str]] <link linkend="_classsrc_1_1_message_generator_1_1_message_generator_deep_seek_1_1_message_generator_deep_seek_1ad3dc50b0d644789063eede934d586d7e">get_message_history</link> (self)</para>
+
+<para>Получение истории сообщений </para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Подробное описание</title>
+
+<para>Генератор сообщений с использованием DeepSeek API. </para>
+
+
+
+<para>Реализует интерфейс <link linkend="_classsrc_1_1_message_generator_1_1_protocol_message_generator_1_1_protocol_message_generator">ProtocolMessageGenerator</link> для генерации сообщений через DeepSeek API, предоставляющий доступ к специализированным языковым моделям. </para>
+<para>
+См. определение в файле <link linkend="__message_generator_deep_seek_8py_source">MessageGeneratorDeepSeek.py</link> строка <link linkend="__message_generator_deep_seek_8py_source_1l00008">8</link></para>
+</section>
+<section>
+<title>Конструктор(ы)</title>
+<anchor xml:id="_classsrc_1_1_message_generator_1_1_message_generator_deep_seek_1_1_message_generator_deep_seek_1ac67faa02a6bb34a7fd0b7d25554c20ef"/><section>
+    <title>__init__()</title>
+<indexterm><primary>__init__</primary><secondary>src.MessageGenerator.MessageGeneratorDeepSeek.MessageGeneratorDeepSeek</secondary></indexterm>
+<indexterm><primary>src.MessageGenerator.MessageGeneratorDeepSeek.MessageGeneratorDeepSeek</primary><secondary>__init__</secondary></indexterm>
+<para><computeroutput> None src.MessageGenerator.MessageGeneratorDeepSeek.MessageGeneratorDeepSeek.__init__ ( self, str  model = <computeroutput>&apos;deepseek-chat&apos;</computeroutput>
+)</computeroutput></para><para>
+
+<para>Инициализация генератора сообщений </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Аргументы</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>model</entry><entry>
+<para>Название модели для генерации (по умолчанию &apos;deepseek-chat&apos;) </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+<para>
+См. определение в файле <link linkend="__message_generator_deep_seek_8py_source">MessageGeneratorDeepSeek.py</link> строка <link linkend="__message_generator_deep_seek_8py_source_1l00020">20</link></para>
+</section>
+</section>
+<section>
+<title>Методы</title>
+<anchor xml:id="_classsrc_1_1_message_generator_1_1_message_generator_deep_seek_1_1_message_generator_deep_seek_1a4ad1e859f543ce3e1cce49b8a1ffc7c0"/><section>
+    <title>add_ai_message()</title>
+<indexterm><primary>add_ai_message</primary><secondary>src.MessageGenerator.MessageGeneratorDeepSeek.MessageGeneratorDeepSeek</secondary></indexterm>
+<indexterm><primary>src.MessageGenerator.MessageGeneratorDeepSeek.MessageGeneratorDeepSeek</primary><secondary>add_ai_message</secondary></indexterm>
+<para><computeroutput> None src.MessageGenerator.MessageGeneratorDeepSeek.MessageGeneratorDeepSeek.add_ai_message ( self, str message_content)</computeroutput></para><para>
+
+<para>Добавление сообщения ИИ в историю </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Аргументы</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>message_content</entry><entry>
+<para>Текст сообщения ИИ </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+<para>
+Переопределяет метод предка <link linkend="_classsrc_1_1_message_generator_1_1_protocol_message_generator_1_1_protocol_message_generator_1afaffcee2207244df4fa8b5b398196062">src.MessageGenerator.ProtocolMessageGenerator.ProtocolMessageGenerator</link>.</para>
+<para>
+См. определение в файле <link linkend="__message_generator_deep_seek_8py_source">MessageGeneratorDeepSeek.py</link> строка <link linkend="__message_generator_deep_seek_8py_source_1l00070">70</link></para>
+</section>
+<anchor xml:id="_classsrc_1_1_message_generator_1_1_message_generator_deep_seek_1_1_message_generator_deep_seek_1a36703bcdba3a8acfd2875370a2f43215"/><section>
+    <title>add_system_message()</title>
+<indexterm><primary>add_system_message</primary><secondary>src.MessageGenerator.MessageGeneratorDeepSeek.MessageGeneratorDeepSeek</secondary></indexterm>
+<indexterm><primary>src.MessageGenerator.MessageGeneratorDeepSeek.MessageGeneratorDeepSeek</primary><secondary>add_system_message</secondary></indexterm>
+<para><computeroutput> None src.MessageGenerator.MessageGeneratorDeepSeek.MessageGeneratorDeepSeek.add_system_message ( self, str message_content)</computeroutput></para><para>
+
+<para>Добавление системного сообщения в историю </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Аргументы</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>message_content</entry><entry>
+<para>Текст системного сообщения </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+<para>
+Переопределяет метод предка <link linkend="_classsrc_1_1_message_generator_1_1_protocol_message_generator_1_1_protocol_message_generator_1a05e18c9670112887e7fd920ad79caf14">src.MessageGenerator.ProtocolMessageGenerator.ProtocolMessageGenerator</link>.</para>
+<para>
+См. определение в файле <link linkend="__message_generator_deep_seek_8py_source">MessageGeneratorDeepSeek.py</link> строка <link linkend="__message_generator_deep_seek_8py_source_1l00082">82</link></para>
+</section>
+<anchor xml:id="_classsrc_1_1_message_generator_1_1_message_generator_deep_seek_1_1_message_generator_deep_seek_1a92cd7430f9c81a8f5b6de9b0b4724111"/><section>
+    <title>add_user_message()</title>
+<indexterm><primary>add_user_message</primary><secondary>src.MessageGenerator.MessageGeneratorDeepSeek.MessageGeneratorDeepSeek</secondary></indexterm>
+<indexterm><primary>src.MessageGenerator.MessageGeneratorDeepSeek.MessageGeneratorDeepSeek</primary><secondary>add_user_message</secondary></indexterm>
+<para><computeroutput> None src.MessageGenerator.MessageGeneratorDeepSeek.MessageGeneratorDeepSeek.add_user_message ( self, str message_content)</computeroutput></para><para>
+
+<para>Добавление сообщения пользователя в историю </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Аргументы</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>message_content</entry><entry>
+<para>Текст сообщения пользователя </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+<para>
+Переопределяет метод предка <link linkend="_classsrc_1_1_message_generator_1_1_protocol_message_generator_1_1_protocol_message_generator_1acecf0dcf2a5261a36c56da5ab6e253e3">src.MessageGenerator.ProtocolMessageGenerator.ProtocolMessageGenerator</link>.</para>
+<para>
+См. определение в файле <link linkend="__message_generator_deep_seek_8py_source">MessageGeneratorDeepSeek.py</link> строка <link linkend="__message_generator_deep_seek_8py_source_1l00058">58</link></para>
+</section>
+<anchor xml:id="_classsrc_1_1_message_generator_1_1_message_generator_deep_seek_1_1_message_generator_deep_seek_1a68531f3d43ffeb6363d6efbf434048d4"/><section>
+    <title>generate()</title>
+<indexterm><primary>generate</primary><secondary>src.MessageGenerator.MessageGeneratorDeepSeek.MessageGeneratorDeepSeek</secondary></indexterm>
+<indexterm><primary>src.MessageGenerator.MessageGeneratorDeepSeek.MessageGeneratorDeepSeek</primary><secondary>generate</secondary></indexterm>
+<para><computeroutput> str src.MessageGenerator.MessageGeneratorDeepSeek.MessageGeneratorDeepSeek.generate ( self, str input_message, Optional[str]  model = <computeroutput>None</computeroutput>
+)</computeroutput></para><para>
+
+<para>Генерация ответа с использованием DeepSeek API. </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Аргументы</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>input_message</entry><entry>
+<para>Входное сообщение для обработки </para>
+</entry>
+                            </row>
+                            <row>
+<entry>model</entry><entry>
+<para>Название модели для генерации (опционально)</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Возвращает</title>
+
+<para>str Сгенерированный ответ </para>
+</formalpara>
+</para>
+<para>
+Переопределяет метод предка <link linkend="_classsrc_1_1_message_generator_1_1_protocol_message_generator_1_1_protocol_message_generator_1a3b2d9e3f4f31cce6400c8fe8b5329bf4">src.MessageGenerator.ProtocolMessageGenerator.ProtocolMessageGenerator</link>.</para>
+<para>
+См. определение в файле <link linkend="__message_generator_deep_seek_8py_source">MessageGeneratorDeepSeek.py</link> строка <link linkend="__message_generator_deep_seek_8py_source_1l00031">31</link></para>
+</section>
+<anchor xml:id="_classsrc_1_1_message_generator_1_1_message_generator_deep_seek_1_1_message_generator_deep_seek_1ad3dc50b0d644789063eede934d586d7e"/><section>
+    <title>get_message_history()</title>
+<indexterm><primary>get_message_history</primary><secondary>src.MessageGenerator.MessageGeneratorDeepSeek.MessageGeneratorDeepSeek</secondary></indexterm>
+<indexterm><primary>src.MessageGenerator.MessageGeneratorDeepSeek.MessageGeneratorDeepSeek</primary><secondary>get_message_history</secondary></indexterm>
+<para><computeroutput> List[Dict[str, str]] src.MessageGenerator.MessageGeneratorDeepSeek.MessageGeneratorDeepSeek.get_message_history ( self)</computeroutput></para><para>
+
+<para>Получение истории сообщений </para>
+</para>
+
+<para><formalpara><title>Возвращает</title>
+
+<para>List[Dict[str, str]] Список сообщений в формате словарей </para>
+</formalpara>
+</para>
+<para>
+Переопределяет метод предка <link linkend="_classsrc_1_1_message_generator_1_1_protocol_message_generator_1_1_protocol_message_generator_1a854ce7a11bf37223a2b51f465a0a7638">src.MessageGenerator.ProtocolMessageGenerator.ProtocolMessageGenerator</link>.</para>
+<para>
+См. определение в файле <link linkend="__message_generator_deep_seek_8py_source">MessageGeneratorDeepSeek.py</link> строка <link linkend="__message_generator_deep_seek_8py_source_1l00094">94</link></para>
+</section>
+<para>
+Объявления и описания членов класса находятся в файле:</para>
+C:/Users/kir/Desktop/py/API/src/MessageGenerator/MessageGeneratorDeepSeek.py</section>
+</section>

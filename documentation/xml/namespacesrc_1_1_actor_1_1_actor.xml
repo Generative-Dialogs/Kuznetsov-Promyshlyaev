@@ -1,0 +1,12 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.13.2" xml:lang="ru">
+  <compounddef id="namespacesrc_1_1_actor_1_1_actor" kind="namespace" language="Python">
+    <compoundname>src::Actor::Actor</compoundname>
+    <innerclass refid="classsrc_1_1_actor_1_1_actor_1_1_actor" prot="public">src::Actor::Actor::Actor</innerclass>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="C:/Users/kir/Desktop/py/API/src/Actor/Actor.py" line="1" column="1"/>
+  </compounddef>
+</doxygen>

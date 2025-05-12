@@ -1,0 +1,25 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.13.2" xml:lang="ru">
+  <compounddef id="_character_decription_8py" kind="file" language="Python">
+    <compoundname>CharacterDecription.py</compoundname>
+    <innernamespace refid="namespacesrc">src</innernamespace>
+    <innernamespace refid="namespacesrc_1_1_descriptions">src::Descriptions</innernamespace>
+    <innernamespace refid="namespacesrc_1_1_descriptions_1_1_character_decription">src::Descriptions::CharacterDecription</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="normal">base_character_name<sp/>=<sp/></highlight><highlight class="stringliteral">&apos;Roderick<sp/>the<sp/>Ironblade&apos;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal">base_character_description<sp/>=<sp/></highlight><highlight class="stringliteral">&apos;&apos;&apos;</highlight></codeline>
+<codeline lineno="4"><highlight class="stringliteral">A<sp/>tall,<sp/>burly<sp/>warrior<sp/>with<sp/>short<sp/>brown<sp/>hair<sp/>and<sp/>cold<sp/>blue-gray<sp/>eyes.<sp/>Roderick<sp/>is<sp/>a<sp/>former<sp/>knight<sp/>who<sp/>was<sp/>exiled<sp/>from<sp/>the<sp/>order<sp/>for<sp/>insubordination.<sp/>He<sp/>wears<sp/>time–darkened<sp/>armor<sp/>with<sp/>embossed<sp/>traces<sp/>of<sp/>old<sp/>battles,<sp/>and<sp/>always<sp/>carries<sp/>his<sp/>trusty<sp/>sword,<sp/>the<sp/>Bloody<sp/>Dawn,<sp/>enchanted<sp/>to<sp/>destroy<sp/>magic.</highlight></codeline>
+<codeline lineno="5"><highlight class="stringliteral"></highlight></codeline>
+<codeline lineno="6"><highlight class="stringliteral">Character:<sp/>cynical,<sp/>but<sp/>with<sp/>his<sp/>own<sp/>code<sp/>of<sp/>honor.<sp/>He<sp/>despises<sp/>liars<sp/>and<sp/>tyrants,<sp/>although<sp/>he<sp/>is<sp/>not<sp/>averse<sp/>to<sp/>cunning<sp/>to<sp/>achieve<sp/>the<sp/>goal.<sp/>He<sp/>often<sp/>grumbles,<sp/>but<sp/>protects<sp/>the<sp/>weak,<sp/>even<sp/>if<sp/>he<sp/>pretends<sp/>that<sp/>he<sp/>doesn&apos;t<sp/>care.</highlight></codeline>
+<codeline lineno="7"><highlight class="stringliteral"></highlight></codeline>
+<codeline lineno="8"><highlight class="stringliteral">Background:<sp/>Born<sp/>into<sp/>a<sp/>poor<sp/>peasant<sp/>family,<sp/>he<sp/>mastered<sp/>the<sp/>sword<sp/>early<sp/>and<sp/>joined<sp/>the<sp/>service<sp/>of<sp/>the<sp/>baron.<sp/>After<sp/>his<sp/>shameful<sp/>exile,<sp/>he<sp/>wanders,<sp/>running<sp/>dangerous<sp/>errands<sp/>in<sp/>order<sp/>to<sp/>survive.<sp/>His<sp/>name<sp/>is<sp/>known<sp/>as<sp/>the<sp/>&quot;killer<sp/>of<sp/>monsters<sp/>and<sp/>magicians.&quot;</highlight></codeline>
+<codeline lineno="9"><highlight class="stringliteral">&apos;&apos;&apos;</highlight><highlight class="normal"></highlight></codeline>
+    </programlisting>
+    <location file="C:/Users/kir/Desktop/py/API/src/Descriptions/CharacterDecription.py"/>
+  </compounddef>
+</doxygen>

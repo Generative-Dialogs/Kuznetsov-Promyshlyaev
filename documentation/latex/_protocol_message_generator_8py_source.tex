@@ -1,0 +1,60 @@
+\doxysection{Protocol\+Message\+Generator.\+py}
+\label{_protocol_message_generator_8py_source}\index{C:/Users/kir/Desktop/py/API/src/MessageGenerator/ProtocolMessageGenerator.py@{C:/Users/kir/Desktop/py/API/src/MessageGenerator/ProtocolMessageGenerator.py}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{keyword}{from}\ typing\ \textcolor{keyword}{import}\ Protocol,\ Optional,\ List,\ Dict}
+\DoxyCodeLine{00002\ }
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{keyword}{class\ }ProtocolMessageGenerator(Protocol):}
+\DoxyCodeLine{00005\ \ \ \ \ \textcolor{stringliteral}{"{}"{}"{}!}}
+\DoxyCodeLine{00006\ \textcolor{stringliteral}{\ \ \ \ @brief\ Протокол\ для\ генерации\ сообщений}}
+\DoxyCodeLine{00007\ \textcolor{stringliteral}{\ \ \ \ }}
+\DoxyCodeLine{00008\ \textcolor{stringliteral}{\ \ \ \ @details}}
+\DoxyCodeLine{00009\ \textcolor{stringliteral}{\ \ \ \ Определяет\ интерфейс\ для\ классов,\ реализующих\ генерацию\ сообщений.}}
+\DoxyCodeLine{00010\ \textcolor{stringliteral}{\ \ \ \ Используется\ как\ контракт\ для\ различных\ реализаций\ генераторов\ сообщений.}}
+\DoxyCodeLine{00011\ \textcolor{stringliteral}{\ \ \ \ "{}"{}"{}}}
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00013\ \ \ \ \ \textcolor{keyword}{def\ }generate(self,\ messages:\ str,\ model:\ str\ =\ \textcolor{stringliteral}{''})\ -\/>\ str:}
+\DoxyCodeLine{00014\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}"{}"{}!}}
+\DoxyCodeLine{00015\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ @brief\ Генерация\ ответа\ на\ основе\ входного\ сообщения}}
+\DoxyCodeLine{00016\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ }}
+\DoxyCodeLine{00017\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ @param\ messages\ Входное\ сообщение\ для\ обработки}}
+\DoxyCodeLine{00018\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ @param\ model\ Название\ модели\ для\ генерации\ (опционально)}}
+\DoxyCodeLine{00019\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ }}
+\DoxyCodeLine{00020\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ @return\ str\ Сгенерированный\ ответ}}
+\DoxyCodeLine{00021\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ "{}"{}"{}}}
+\DoxyCodeLine{00022\ \ \ \ \ \ \ \ \ ...}
+\DoxyCodeLine{00023\ }
+\DoxyCodeLine{00024\ \ \ \ \ \textcolor{keyword}{def\ }add\_user\_message(self,\ message:\ str)\ -\/>\ \textcolor{keywordtype}{None}:}
+\DoxyCodeLine{00025\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}"{}"{}!}}
+\DoxyCodeLine{00026\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ @brief\ Добавление\ сообщения\ пользователя\ в\ историю}}
+\DoxyCodeLine{00027\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ }}
+\DoxyCodeLine{00028\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ @param\ message\ Текст\ сообщения\ пользователя}}
+\DoxyCodeLine{00029\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ "{}"{}"{}}}
+\DoxyCodeLine{00030\ \ \ \ \ \ \ \ \ ...}
+\DoxyCodeLine{00031\ }
+\DoxyCodeLine{00032\ \ \ \ \ \textcolor{keyword}{def\ }add\_system\_message(self,\ message:\ str)\ -\/>\ \textcolor{keywordtype}{None}:}
+\DoxyCodeLine{00033\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}"{}"{}!}}
+\DoxyCodeLine{00034\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ @brief\ Добавление\ системного\ сообщения\ в\ историю}}
+\DoxyCodeLine{00035\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ }}
+\DoxyCodeLine{00036\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ @param\ message\ Текст\ системного\ сообщения}}
+\DoxyCodeLine{00037\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ "{}"{}"{}}}
+\DoxyCodeLine{00038\ \ \ \ \ \ \ \ \ ...}
+\DoxyCodeLine{00039\ }
+\DoxyCodeLine{00040\ \ \ \ \ \textcolor{keyword}{def\ }add\_ai\_message(self,\ message:\ str)\ -\/>\ \textcolor{keywordtype}{None}:}
+\DoxyCodeLine{00041\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}"{}"{}!}}
+\DoxyCodeLine{00042\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ @brief\ Добавление\ сообщения\ ИИ\ в\ историю}}
+\DoxyCodeLine{00043\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ }}
+\DoxyCodeLine{00044\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ @param\ message\ Текст\ сообщения\ ИИ}}
+\DoxyCodeLine{00045\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ "{}"{}"{}}}
+\DoxyCodeLine{00046\ \ \ \ \ \ \ \ \ ...}
+\DoxyCodeLine{00047\ }
+\DoxyCodeLine{00048\ \ \ \ \ \textcolor{keyword}{def\ }get\_message\_history(self)\ -\/>\ List[Dict[str,\ str]]:}
+\DoxyCodeLine{00049\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}"{}"{}!}}
+\DoxyCodeLine{00050\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ @brief\ Получение\ истории\ сообщений}}
+\DoxyCodeLine{00051\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ }}
+\DoxyCodeLine{00052\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ @return\ List[Dict[str,\ str]]\ Список\ сообщений\ в\ формате\ словарей}}
+\DoxyCodeLine{00053\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ "{}"{}"{}}}
+\DoxyCodeLine{00054\ \ \ \ \ \ \ \ \ ...}
+
+\end{DoxyCode}

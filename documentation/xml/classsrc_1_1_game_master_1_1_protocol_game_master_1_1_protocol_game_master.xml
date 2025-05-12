@@ -1,0 +1,191 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.13.2" xml:lang="ru">
+  <compounddef id="classsrc_1_1_game_master_1_1_protocol_game_master_1_1_protocol_game_master" kind="class" language="Python" prot="public">
+    <compoundname>src::GameMaster::ProtocolGameMaster::ProtocolGameMaster</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">Protocol</basecompoundref>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classsrc_1_1_game_master_1_1_protocol_game_master_1_1_protocol_game_master_1a6e421e6e57783f84be9b98d42cfb9af2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>str</type>
+        <definition> str src.GameMaster.ProtocolGameMaster.ProtocolGameMaster.generate_answer</definition>
+        <argsstring>(self, str message)</argsstring>
+        <name>generate_answer</name>
+        <qualifiedname>src.GameMaster.ProtocolGameMaster.ProtocolGameMaster.generate_answer</qualifiedname>
+        <param>
+          <type>self</type>
+          <defname>self</defname>
+        </param>
+        <param>
+          <type>str</type>
+          <declname>message</declname>
+        </param>
+        <briefdescription>
+<para>Генерация ответа на сообщение игрока </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>message</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Сообщение игрока </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>str Ответ системы </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/kir/Desktop/py/API/src/GameMaster/ProtocolGameMaster.py" line="18" column="1" bodyfile="C:/Users/kir/Desktop/py/API/src/GameMaster/ProtocolGameMaster.py" bodystart="18" bodyend="26"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrc_1_1_game_master_1_1_protocol_game_master_1_1_protocol_game_master_1ac842ff606b7dd24e62ff6e62f5163035" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Tuple[List[<ref refid="classsrc_1_1_game_master_1_1_command_data_1_1_command_data" kindref="compound">CommandData</ref>], str]</type>
+        <definition> Tuple[List[CommandData], str] src.GameMaster.ProtocolGameMaster.ProtocolGameMaster.generate_instruction</definition>
+        <argsstring>(self, str message)</argsstring>
+        <name>generate_instruction</name>
+        <qualifiedname>src.GameMaster.ProtocolGameMaster.ProtocolGameMaster.generate_instruction</qualifiedname>
+        <param>
+          <type>self</type>
+          <defname>self</defname>
+        </param>
+        <param>
+          <type>str</type>
+          <declname>message</declname>
+        </param>
+        <briefdescription>
+<para>Генерация инструкций на основе сообщения </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>message</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Сообщение для обработки </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Tuple[List[<ref refid="classsrc_1_1_game_master_1_1_command_data_1_1_command_data" kindref="compound">CommandData</ref>], str] Кортеж из списка команд и текстового вывода </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/kir/Desktop/py/API/src/GameMaster/ProtocolGameMaster.py" line="27" column="1" bodyfile="C:/Users/kir/Desktop/py/API/src/GameMaster/ProtocolGameMaster.py" bodystart="27" bodyend="35"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrc_1_1_game_master_1_1_protocol_game_master_1_1_protocol_game_master_1a2ca7cf4f8163b1dd4056a66403117f04" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Tuple[str, Set[str]]</type>
+        <definition> Tuple[str, Set[str]] src.GameMaster.ProtocolGameMaster.ProtocolGameMaster.parse_commands</definition>
+        <argsstring>(self, List[CommandData] commands)</argsstring>
+        <name>parse_commands</name>
+        <qualifiedname>src.GameMaster.ProtocolGameMaster.ProtocolGameMaster.parse_commands</qualifiedname>
+        <param>
+          <type>self</type>
+          <defname>self</defname>
+        </param>
+        <param>
+          <type>List</type>
+          <declname>commands</declname>
+          <array>[CommandData]</array>
+        </param>
+        <briefdescription>
+<para>Обработка списка команд </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>commands</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Список команд для обработки </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Tuple[str, Set[str]] Кортеж из текстового вывода и множества имен активных персонажей </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/kir/Desktop/py/API/src/GameMaster/ProtocolGameMaster.py" line="36" column="1" bodyfile="C:/Users/kir/Desktop/py/API/src/GameMaster/ProtocolGameMaster.py" bodystart="36" bodyend="44"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrc_1_1_game_master_1_1_protocol_game_master_1_1_protocol_game_master_1a8a9b7dd7fd2039e11dc803822e5f159c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Tuple[Optional[List[<ref refid="classsrc_1_1_game_master_1_1_command_data_1_1_command_data" kindref="compound">CommandData</ref>]], str]</type>
+        <definition> Tuple[Optional[List[CommandData]], str] src.GameMaster.ProtocolGameMaster.ProtocolGameMaster.validate_and_parse</definition>
+        <argsstring>(self, str input_text)</argsstring>
+        <name>validate_and_parse</name>
+        <qualifiedname>src.GameMaster.ProtocolGameMaster.ProtocolGameMaster.validate_and_parse</qualifiedname>
+        <param>
+          <type>self</type>
+          <defname>self</defname>
+        </param>
+        <param>
+          <type>str</type>
+          <declname>input_text</declname>
+        </param>
+        <briefdescription>
+<para>Валидация и парсинг входного текста </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>input_text</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Текст для валидации и парсинга </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Tuple[Optional[List[<ref refid="classsrc_1_1_game_master_1_1_command_data_1_1_command_data" kindref="compound">CommandData</ref>]], str] Кортеж из списка команд (или None) и сообщения об ошибке </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/kir/Desktop/py/API/src/GameMaster/ProtocolGameMaster.py" line="45" column="1" bodyfile="C:/Users/kir/Desktop/py/API/src/GameMaster/ProtocolGameMaster.py" bodystart="45" bodyend="53"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>Протокол для мастера игры </para>
+    </briefdescription>
+    <detaileddescription>
+<para>Определяет интерфейс для мастера игры, который отвечает за:<itemizedlist>
+<listitem><para>Генерацию ответов на действия игрока</para>
+</listitem><listitem><para>Управление игровыми персонажами</para>
+</listitem><listitem><para>Поддержание целостности игрового мира</para>
+</listitem><listitem><para>Обработку команд и инструкций </para>
+</listitem></itemizedlist>
+</para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>Protocol</label>
+      </node>
+      <node id="1">
+        <label>src.GameMaster.ProtocolGameMaster.ProtocolGameMaster</label>
+        <link refid="classsrc_1_1_game_master_1_1_protocol_game_master_1_1_protocol_game_master"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>Protocol</label>
+      </node>
+      <node id="1">
+        <label>src.GameMaster.ProtocolGameMaster.ProtocolGameMaster</label>
+        <link refid="classsrc_1_1_game_master_1_1_protocol_game_master_1_1_protocol_game_master"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="C:/Users/kir/Desktop/py/API/src/GameMaster/ProtocolGameMaster.py" line="4" column="1" bodyfile="C:/Users/kir/Desktop/py/API/src/GameMaster/ProtocolGameMaster.py" bodystart="4" bodyend="53"/>
+    <listofallmembers>
+      <member refid="classsrc_1_1_game_master_1_1_protocol_game_master_1_1_protocol_game_master_1a6e421e6e57783f84be9b98d42cfb9af2" prot="public" virt="non-virtual"><scope>src::GameMaster::ProtocolGameMaster::ProtocolGameMaster</scope><name>generate_answer</name></member>
+      <member refid="classsrc_1_1_game_master_1_1_protocol_game_master_1_1_protocol_game_master_1ac842ff606b7dd24e62ff6e62f5163035" prot="public" virt="non-virtual"><scope>src::GameMaster::ProtocolGameMaster::ProtocolGameMaster</scope><name>generate_instruction</name></member>
+      <member refid="classsrc_1_1_game_master_1_1_protocol_game_master_1_1_protocol_game_master_1a2ca7cf4f8163b1dd4056a66403117f04" prot="public" virt="non-virtual"><scope>src::GameMaster::ProtocolGameMaster::ProtocolGameMaster</scope><name>parse_commands</name></member>
+      <member refid="classsrc_1_1_game_master_1_1_protocol_game_master_1_1_protocol_game_master_1a8a9b7dd7fd2039e11dc803822e5f159c" prot="public" virt="non-virtual"><scope>src::GameMaster::ProtocolGameMaster::ProtocolGameMaster</scope><name>validate_and_parse</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

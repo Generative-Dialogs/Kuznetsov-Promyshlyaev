@@ -1,0 +1,41 @@
+{% extends 'game/base.html' %}
+
+{% block content %}
+<div class="max-w-4xl mx-auto">
+    <div class="flex justify-between items-center mb-8">
+        <h1 class="text-3xl font-bold text-gray-800">My Sessions</h1>
+        <a href="{% url 'create_session' %}" class="bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded">
+            New Session
+        </a>
+    </div>
+    
+    {% if sessions %}
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        {% for session in sessions %}
+        <div class="bg-white shadow-md rounded-lg overflow-hidden">
+            <div class="p-6">
+                <h2 class="text-xl font-semibold text-gray-800 mb-2">{{ session.title }}</h2>
+                <p class="text-gray-600 mb-4">{{ session.world_description|truncatewords:30 }}</p>
+                <div class="flex justify-between items-center">
+                    <span class="text-sm text-gray-500">
+                        Language: {{ session.get_language_display }}
+                    </span>
+                    <a href="{% url 'chat' session.id %}" 
+                       class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded">
+                        Continue
+                    </a>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    {% else %}
+    <div class="bg-white shadow-md rounded-lg p-6 text-center">
+        <p class="text-gray-600 mb-4">You don't have any sessions yet.</p>
+        <a href="{% url 'create_session' %}" class="bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded">
+            Create Your First Session
+        </a>
+    </div>
+    {% endif %}
+</div>
+{% endblock %} 

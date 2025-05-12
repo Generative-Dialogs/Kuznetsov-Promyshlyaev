@@ -1,0 +1,1654 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.13.2" xml:lang="ru">
+  <compounddef id="classsrc_1_1_database_manager_1_1_database_manager_1_1_database_manager" kind="class" language="Python" prot="public">
+    <compoundname>src::DatabaseManager::DatabaseManager::DatabaseManager</compoundname>
+    <sectiondef kind="protected-static-attrib">
+      <memberdef kind="variable" id="classsrc_1_1_database_manager_1_1_database_manager_1_1_database_manager_1a7ad3dcb044e31b90bf31806853bfc837" prot="protected" static="yes" mutable="no">
+        <type>&apos;<ref refid="classsrc_1_1_database_manager_1_1_database_manager_1_1_database_manager" kindref="compound">DatabaseManager</ref>&apos;</type>
+        <definition>&apos;DatabaseManager&apos; src.DatabaseManager.DatabaseManager.DatabaseManager::_instance</definition>
+        <argsstring></argsstring>
+        <name>_instance</name>
+        <qualifiedname>src.DatabaseManager.DatabaseManager.DatabaseManager._instance</qualifiedname>
+        <initializer>=  None</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/kir/Desktop/py/API/src/DatabaseManager/DatabaseManager.py" line="23" column="1" bodyfile="C:/Users/kir/Desktop/py/API/src/DatabaseManager/DatabaseManager.py" bodystart="23" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="classsrc_1_1_database_manager_1_1_database_manager_1_1_database_manager_1a0d4c59d10e40d5663df4c8308e9e9d15" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>src.DatabaseManager.DatabaseManager.DatabaseManager::db_path</definition>
+        <argsstring></argsstring>
+        <name>db_path</name>
+        <qualifiedname>src.DatabaseManager.DatabaseManager.DatabaseManager.db_path</qualifiedname>
+        <initializer>=  DATABASE_NAME</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/kir/Desktop/py/API/src/DatabaseManager/DatabaseManager.py" line="45" column="1" bodyfile="C:/Users/kir/Desktop/py/API/src/DatabaseManager/DatabaseManager.py" bodystart="45" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classsrc_1_1_database_manager_1_1_database_manager_1_1_database_manager_1ae8e9b4a5cf7f9c4a05276052a98528ee" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type> &apos;<ref refid="classsrc_1_1_database_manager_1_1_database_manager_1_1_database_manager" kindref="compound">DatabaseManager</ref>&apos;</type>
+        <definition> &apos;DatabaseManager&apos; src.DatabaseManager.DatabaseManager.DatabaseManager.__new__</definition>
+        <argsstring>(cls)</argsstring>
+        <name>__new__</name>
+        <qualifiedname>src.DatabaseManager.DatabaseManager.DatabaseManager.__new__</qualifiedname>
+        <param>
+          <type>cls</type>
+          <defname>cls</defname>
+        </param>
+        <briefdescription>
+<para>Реализация паттерна Singleton. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para><ref refid="classsrc_1_1_database_manager_1_1_database_manager_1_1_database_manager" kindref="compound">DatabaseManager</ref> Единственный экземпляр класса </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/kir/Desktop/py/API/src/DatabaseManager/DatabaseManager.py" line="26" column="1" bodyfile="C:/Users/kir/Desktop/py/API/src/DatabaseManager/DatabaseManager.py" bodystart="26" bodyend="37"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrc_1_1_database_manager_1_1_database_manager_1_1_database_manager_1ac07876128f530806fb845ee3ca550c8a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>None</type>
+        <definition> None src.DatabaseManager.DatabaseManager.DatabaseManager.__init__</definition>
+        <argsstring>(self)</argsstring>
+        <name>__init__</name>
+        <qualifiedname>src.DatabaseManager.DatabaseManager.DatabaseManager.__init__</qualifiedname>
+        <param>
+          <type>self</type>
+          <defname>self</defname>
+        </param>
+        <briefdescription>
+<para>Инициализация атрибутов экземпляра </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Устанавливает путь к базе данных и инициализирует структуру базы данных </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/kir/Desktop/py/API/src/DatabaseManager/DatabaseManager.py" line="38" column="1" bodyfile="C:/Users/kir/Desktop/py/API/src/DatabaseManager/DatabaseManager.py" bodystart="38" bodyend="47"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrc_1_1_database_manager_1_1_database_manager_1_1_database_manager_1a90bfa9b37df42c63ceabd1630c901025" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition> int src.DatabaseManager.DatabaseManager.DatabaseManager.create_user</definition>
+        <argsstring>(self)</argsstring>
+        <name>create_user</name>
+        <qualifiedname>src.DatabaseManager.DatabaseManager.DatabaseManager.create_user</qualifiedname>
+        <param>
+          <type>self</type>
+          <defname>self</defname>
+        </param>
+        <briefdescription>
+<para>Создание нового пользователя </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>int ID созданного пользователя</para>
+</simplesect>
+<parameterlist kind="exception"><parameteritem>
+<parameternamelist>
+<parametername>RuntimeError</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>если не удалось создать пользователя </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/kir/Desktop/py/API/src/DatabaseManager/DatabaseManager.py" line="192" column="1" bodyfile="C:/Users/kir/Desktop/py/API/src/DatabaseManager/DatabaseManager.py" bodystart="192" bodyend="208"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrc_1_1_database_manager_1_1_database_manager_1_1_database_manager_1ae5727ae5eb1a749423299458b67948d8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>List[int]</type>
+        <definition> List[int] src.DatabaseManager.DatabaseManager.DatabaseManager.get_all_users</definition>
+        <argsstring>(self)</argsstring>
+        <name>get_all_users</name>
+        <qualifiedname>src.DatabaseManager.DatabaseManager.DatabaseManager.get_all_users</qualifiedname>
+        <param>
+          <type>self</type>
+          <defname>self</defname>
+        </param>
+        <briefdescription>
+<para>Получение списка всех пользователей </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>List[int] Список ID всех пользователей </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/kir/Desktop/py/API/src/DatabaseManager/DatabaseManager.py" line="209" column="1" bodyfile="C:/Users/kir/Desktop/py/API/src/DatabaseManager/DatabaseManager.py" bodystart="209" bodyend="219"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrc_1_1_database_manager_1_1_database_manager_1_1_database_manager_1a4ef04a04c179b51dd3650ddd7f0a1044" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition> int src.DatabaseManager.DatabaseManager.DatabaseManager.create_session</definition>
+        <argsstring>(self, int user_id, str world_description, str player_description, str language=&quot;Russian&quot;)</argsstring>
+        <name>create_session</name>
+        <qualifiedname>src.DatabaseManager.DatabaseManager.DatabaseManager.create_session</qualifiedname>
+        <param>
+          <type>self</type>
+          <defname>self</defname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>user_id</declname>
+        </param>
+        <param>
+          <type>str</type>
+          <declname>world_description</declname>
+        </param>
+        <param>
+          <type>str</type>
+          <declname>player_description</declname>
+        </param>
+        <param>
+          <type>str</type>
+          <declname>language</declname>
+          <defval>&quot;Russian&quot;</defval>
+        </param>
+        <briefdescription>
+<para>Создание новой игровой сессии </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>user_id</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>ID пользователя </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>world_description</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Описание игрового мира </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>player_description</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Описание игрока </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>language</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Язык сессии (Russian/English)</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>int ID созданной сессии</para>
+</simplesect>
+<parameterlist kind="exception"><parameteritem>
+<parameternamelist>
+<parametername>ValueError</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>если указан неподдерживаемый язык </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>RuntimeError</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>если не удалось создать сессию </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/kir/Desktop/py/API/src/DatabaseManager/DatabaseManager.py" line="220" column="1" bodyfile="C:/Users/kir/Desktop/py/API/src/DatabaseManager/DatabaseManager.py" bodystart="220" bodyend="248"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrc_1_1_database_manager_1_1_database_manager_1_1_database_manager_1af7ba5da6c9851f8a7572ddd0b100e83a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>List[Tuple[int, str, str, str]]</type>
+        <definition> List[Tuple[int, str, str, str]] src.DatabaseManager.DatabaseManager.DatabaseManager.get_user_sessions</definition>
+        <argsstring>(self, int user_id)</argsstring>
+        <name>get_user_sessions</name>
+        <qualifiedname>src.DatabaseManager.DatabaseManager.DatabaseManager.get_user_sessions</qualifiedname>
+        <param>
+          <type>self</type>
+          <defname>self</defname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>user_id</declname>
+        </param>
+        <briefdescription>
+<para>Получение списка сессий пользователя </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>user_id</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>ID пользователя</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>List[Tuple[int, str, str, str]] Список кортежей (session_id, created_at, world_description, player_description) </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/kir/Desktop/py/API/src/DatabaseManager/DatabaseManager.py" line="249" column="1" bodyfile="C:/Users/kir/Desktop/py/API/src/DatabaseManager/DatabaseManager.py" bodystart="249" bodyend="265"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrc_1_1_database_manager_1_1_database_manager_1_1_database_manager_1a8b470f05c518dbf890db72c451494b36" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Optional[Tuple[str, str]]</type>
+        <definition> Optional[Tuple[str, str]] src.DatabaseManager.DatabaseManager.DatabaseManager.get_session_info</definition>
+        <argsstring>(self, int session_id)</argsstring>
+        <name>get_session_info</name>
+        <qualifiedname>src.DatabaseManager.DatabaseManager.DatabaseManager.get_session_info</qualifiedname>
+        <param>
+          <type>self</type>
+          <defname>self</defname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>session_id</declname>
+        </param>
+        <briefdescription>
+<para>Получение информации о сессии </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>session_id</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>ID сессии</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Optional[Tuple[str, str]] Кортеж (world_description, player_description) или None если сессия не найдена </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/kir/Desktop/py/API/src/DatabaseManager/DatabaseManager.py" line="266" column="1" bodyfile="C:/Users/kir/Desktop/py/API/src/DatabaseManager/DatabaseManager.py" bodystart="266" bodyend="282"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrc_1_1_database_manager_1_1_database_manager_1_1_database_manager_1a78b9f08ef4c174650284fb7ff55fa201" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>None</type>
+        <definition> None src.DatabaseManager.DatabaseManager.DatabaseManager.save_character</definition>
+        <argsstring>(self, int session_id, str name, str description)</argsstring>
+        <name>save_character</name>
+        <qualifiedname>src.DatabaseManager.DatabaseManager.DatabaseManager.save_character</qualifiedname>
+        <param>
+          <type>self</type>
+          <defname>self</defname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>session_id</declname>
+        </param>
+        <param>
+          <type>str</type>
+          <declname>name</declname>
+        </param>
+        <param>
+          <type>str</type>
+          <declname>description</declname>
+        </param>
+        <briefdescription>
+<para>Сохранение персонажа </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>session_id</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>ID сессии </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>name</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Имя персонажа </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>description</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Описание персонажа </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/kir/Desktop/py/API/src/DatabaseManager/DatabaseManager.py" line="283" column="1" bodyfile="C:/Users/kir/Desktop/py/API/src/DatabaseManager/DatabaseManager.py" bodystart="283" bodyend="298"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrc_1_1_database_manager_1_1_database_manager_1_1_database_manager_1ad57a9638af3e753cb56ac36905049a59" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>List[Tuple[str, str]]</type>
+        <definition> List[Tuple[str, str]] src.DatabaseManager.DatabaseManager.DatabaseManager.get_characters</definition>
+        <argsstring>(self, int session_id)</argsstring>
+        <name>get_characters</name>
+        <qualifiedname>src.DatabaseManager.DatabaseManager.DatabaseManager.get_characters</qualifiedname>
+        <param>
+          <type>self</type>
+          <defname>self</defname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>session_id</declname>
+        </param>
+        <briefdescription>
+<para>Получение списка персонажей сессии </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>session_id</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>ID сессии</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>List[Tuple[str, str]] Список кортежей (name, description) </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/kir/Desktop/py/API/src/DatabaseManager/DatabaseManager.py" line="299" column="1" bodyfile="C:/Users/kir/Desktop/py/API/src/DatabaseManager/DatabaseManager.py" bodystart="299" bodyend="314"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrc_1_1_database_manager_1_1_database_manager_1_1_database_manager_1a7ca1b98dcdd0b87151292b22868f1abd" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>None</type>
+        <definition> None src.DatabaseManager.DatabaseManager.DatabaseManager.save_user_message</definition>
+        <argsstring>(self, int session_id, str user_input, str response)</argsstring>
+        <name>save_user_message</name>
+        <qualifiedname>src.DatabaseManager.DatabaseManager.DatabaseManager.save_user_message</qualifiedname>
+        <param>
+          <type>self</type>
+          <defname>self</defname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>session_id</declname>
+        </param>
+        <param>
+          <type>str</type>
+          <declname>user_input</declname>
+        </param>
+        <param>
+          <type>str</type>
+          <declname>response</declname>
+        </param>
+        <briefdescription>
+<para>Сохранение сообщения пользователя </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>session_id</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>ID сессии </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>user_input</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Ввод пользователя </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>response</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Ответ системы </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/kir/Desktop/py/API/src/DatabaseManager/DatabaseManager.py" line="315" column="1" bodyfile="C:/Users/kir/Desktop/py/API/src/DatabaseManager/DatabaseManager.py" bodystart="315" bodyend="336"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrc_1_1_database_manager_1_1_database_manager_1_1_database_manager_1a6fce88139b93dc797e02b7b93777e3ac" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>None</type>
+        <definition> None src.DatabaseManager.DatabaseManager.DatabaseManager.save_master_message</definition>
+        <argsstring>(self, int session_id, str user_input, str master_output, str actor_output)</argsstring>
+        <name>save_master_message</name>
+        <qualifiedname>src.DatabaseManager.DatabaseManager.DatabaseManager.save_master_message</qualifiedname>
+        <param>
+          <type>self</type>
+          <defname>self</defname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>session_id</declname>
+        </param>
+        <param>
+          <type>str</type>
+          <declname>user_input</declname>
+        </param>
+        <param>
+          <type>str</type>
+          <declname>master_output</declname>
+        </param>
+        <param>
+          <type>str</type>
+          <declname>actor_output</declname>
+        </param>
+        <briefdescription>
+<para>Сохранение сообщения мастера игры </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>session_id</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>ID сессии </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>user_input</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Ввод пользователя </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>master_output</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Вывод мастера игры </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>actor_output</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Вывод актора </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/kir/Desktop/py/API/src/DatabaseManager/DatabaseManager.py" line="337" column="1" bodyfile="C:/Users/kir/Desktop/py/API/src/DatabaseManager/DatabaseManager.py" bodystart="337" bodyend="359"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrc_1_1_database_manager_1_1_database_manager_1_1_database_manager_1a89e3e3073c296d111a67339cbbcc9de5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>None</type>
+        <definition> None src.DatabaseManager.DatabaseManager.DatabaseManager.save_actor_message</definition>
+        <argsstring>(self, int session_id, str master_prompt, str actor_response)</argsstring>
+        <name>save_actor_message</name>
+        <qualifiedname>src.DatabaseManager.DatabaseManager.DatabaseManager.save_actor_message</qualifiedname>
+        <param>
+          <type>self</type>
+          <defname>self</defname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>session_id</declname>
+        </param>
+        <param>
+          <type>str</type>
+          <declname>master_prompt</declname>
+        </param>
+        <param>
+          <type>str</type>
+          <declname>actor_response</declname>
+        </param>
+        <briefdescription>
+<para>Сохранение сообщения актора </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>session_id</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>ID сессии </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>master_prompt</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Промпт мастера игры </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>actor_response</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Ответ актора </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/kir/Desktop/py/API/src/DatabaseManager/DatabaseManager.py" line="360" column="1" bodyfile="C:/Users/kir/Desktop/py/API/src/DatabaseManager/DatabaseManager.py" bodystart="360" bodyend="381"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrc_1_1_database_manager_1_1_database_manager_1_1_database_manager_1ad86bf1f4095f7ef32b50e3ce2d87bde7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>List[Tuple[int, str, str]]</type>
+        <definition> List[Tuple[int, str, str]] src.DatabaseManager.DatabaseManager.DatabaseManager.get_user_messages</definition>
+        <argsstring>(self, int session_id)</argsstring>
+        <name>get_user_messages</name>
+        <qualifiedname>src.DatabaseManager.DatabaseManager.DatabaseManager.get_user_messages</qualifiedname>
+        <param>
+          <type>self</type>
+          <defname>self</defname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>session_id</declname>
+        </param>
+        <briefdescription>
+<para>Получение истории сообщений пользователя </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>session_id</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>ID сессии</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>List[Tuple[int, str, str]] Список кортежей (sequence_number, user_input, response) </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/kir/Desktop/py/API/src/DatabaseManager/DatabaseManager.py" line="382" column="1" bodyfile="C:/Users/kir/Desktop/py/API/src/DatabaseManager/DatabaseManager.py" bodystart="382" bodyend="399"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrc_1_1_database_manager_1_1_database_manager_1_1_database_manager_1acb0c3701f33e33493c5f83e09d6b2582" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>List[Tuple[int, str, str, str]]</type>
+        <definition> List[Tuple[int, str, str, str]] src.DatabaseManager.DatabaseManager.DatabaseManager.get_master_messages</definition>
+        <argsstring>(self, int session_id)</argsstring>
+        <name>get_master_messages</name>
+        <qualifiedname>src.DatabaseManager.DatabaseManager.DatabaseManager.get_master_messages</qualifiedname>
+        <param>
+          <type>self</type>
+          <defname>self</defname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>session_id</declname>
+        </param>
+        <briefdescription>
+<para>Получение истории сообщений мастера игры </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>session_id</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>ID сессии</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>List[Tuple[int, str, str, str]] Список кортежей (sequence_number, user_input, master_output, actor_output) </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/kir/Desktop/py/API/src/DatabaseManager/DatabaseManager.py" line="400" column="1" bodyfile="C:/Users/kir/Desktop/py/API/src/DatabaseManager/DatabaseManager.py" bodystart="400" bodyend="417"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrc_1_1_database_manager_1_1_database_manager_1_1_database_manager_1a662d9f39b1dea0e44bed824197cb2232" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>List[Tuple[int, str, str]]</type>
+        <definition> List[Tuple[int, str, str]] src.DatabaseManager.DatabaseManager.DatabaseManager.get_actor_messages</definition>
+        <argsstring>(self, int session_id)</argsstring>
+        <name>get_actor_messages</name>
+        <qualifiedname>src.DatabaseManager.DatabaseManager.DatabaseManager.get_actor_messages</qualifiedname>
+        <param>
+          <type>self</type>
+          <defname>self</defname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>session_id</declname>
+        </param>
+        <briefdescription>
+<para>Получение истории сообщений актора </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>session_id</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>ID сессии</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>List[Tuple[int, str, str]] Список кортежей (sequence_number, master_prompt, actor_response) </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/kir/Desktop/py/API/src/DatabaseManager/DatabaseManager.py" line="418" column="1" bodyfile="C:/Users/kir/Desktop/py/API/src/DatabaseManager/DatabaseManager.py" bodystart="418" bodyend="435"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrc_1_1_database_manager_1_1_database_manager_1_1_database_manager_1a415f0d8b3bef38865370bddc8203e3ff" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>None</type>
+        <definition> None src.DatabaseManager.DatabaseManager.DatabaseManager.delete_session</definition>
+        <argsstring>(self, int session_id)</argsstring>
+        <name>delete_session</name>
+        <qualifiedname>src.DatabaseManager.DatabaseManager.DatabaseManager.delete_session</qualifiedname>
+        <param>
+          <type>self</type>
+          <defname>self</defname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>session_id</declname>
+        </param>
+        <briefdescription>
+<para>Удаление сессии и всех связанных с ней данных </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>session_id</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>ID сессии </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/kir/Desktop/py/API/src/DatabaseManager/DatabaseManager.py" line="436" column="1" bodyfile="C:/Users/kir/Desktop/py/API/src/DatabaseManager/DatabaseManager.py" bodystart="436" bodyend="448"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrc_1_1_database_manager_1_1_database_manager_1_1_database_manager_1a9f15c3a6da37337d517fe72327a261e3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>None</type>
+        <definition> None src.DatabaseManager.DatabaseManager.DatabaseManager.delete_user_data</definition>
+        <argsstring>(self, int user_id)</argsstring>
+        <name>delete_user_data</name>
+        <qualifiedname>src.DatabaseManager.DatabaseManager.DatabaseManager.delete_user_data</qualifiedname>
+        <param>
+          <type>self</type>
+          <defname>self</defname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>user_id</declname>
+        </param>
+        <briefdescription>
+<para>Удаление всех данных пользователя </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>user_id</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>ID пользователя </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/kir/Desktop/py/API/src/DatabaseManager/DatabaseManager.py" line="449" column="1" bodyfile="C:/Users/kir/Desktop/py/API/src/DatabaseManager/DatabaseManager.py" bodystart="449" bodyend="464"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrc_1_1_database_manager_1_1_database_manager_1_1_database_manager_1adbac8da66f7473e585fa1b1b4ab1d9c8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>None</type>
+        <definition> None src.DatabaseManager.DatabaseManager.DatabaseManager.save_game_master_prompt</definition>
+        <argsstring>(self, int session_id, str prompt_type, str prompt_content, str model_response)</argsstring>
+        <name>save_game_master_prompt</name>
+        <qualifiedname>src.DatabaseManager.DatabaseManager.DatabaseManager.save_game_master_prompt</qualifiedname>
+        <param>
+          <type>self</type>
+          <defname>self</defname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>session_id</declname>
+        </param>
+        <param>
+          <type>str</type>
+          <declname>prompt_type</declname>
+        </param>
+        <param>
+          <type>str</type>
+          <declname>prompt_content</declname>
+        </param>
+        <param>
+          <type>str</type>
+          <declname>model_response</declname>
+        </param>
+        <briefdescription>
+<para>Сохранение промпта мастера игры </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>session_id</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>ID сессии </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>prompt_type</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Тип промпта </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>prompt_content</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Содержимое промпта </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>model_response</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Ответ модели </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/kir/Desktop/py/API/src/DatabaseManager/DatabaseManager.py" line="465" column="1" bodyfile="C:/Users/kir/Desktop/py/API/src/DatabaseManager/DatabaseManager.py" bodystart="465" bodyend="481"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrc_1_1_database_manager_1_1_database_manager_1_1_database_manager_1a96f76fb4ab001ccbf497590b0b04281c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>None</type>
+        <definition> None src.DatabaseManager.DatabaseManager.DatabaseManager.save_actor_prompt</definition>
+        <argsstring>(self, int session_id, str prompt_content, str model_response)</argsstring>
+        <name>save_actor_prompt</name>
+        <qualifiedname>src.DatabaseManager.DatabaseManager.DatabaseManager.save_actor_prompt</qualifiedname>
+        <param>
+          <type>self</type>
+          <defname>self</defname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>session_id</declname>
+        </param>
+        <param>
+          <type>str</type>
+          <declname>prompt_content</declname>
+        </param>
+        <param>
+          <type>str</type>
+          <declname>model_response</declname>
+        </param>
+        <briefdescription>
+<para>Сохранение промпта актора </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>session_id</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>ID сессии </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>prompt_content</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Содержимое промпта </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>model_response</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Ответ модели </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/kir/Desktop/py/API/src/DatabaseManager/DatabaseManager.py" line="482" column="1" bodyfile="C:/Users/kir/Desktop/py/API/src/DatabaseManager/DatabaseManager.py" bodystart="482" bodyend="497"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrc_1_1_database_manager_1_1_database_manager_1_1_database_manager_1a9a1872c584c8c411e2915234baeb9eba" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>List[Tuple[str, str, str]]</type>
+        <definition> List[Tuple[str, str, str]] src.DatabaseManager.DatabaseManager.DatabaseManager.get_game_master_prompts</definition>
+        <argsstring>(self, int session_id)</argsstring>
+        <name>get_game_master_prompts</name>
+        <qualifiedname>src.DatabaseManager.DatabaseManager.DatabaseManager.get_game_master_prompts</qualifiedname>
+        <param>
+          <type>self</type>
+          <defname>self</defname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>session_id</declname>
+        </param>
+        <briefdescription>
+<para>Получение промптов мастера игры </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>session_id</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>ID сессии</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>List[Tuple[str, str, str]] Список кортежей (prompt_type, prompt_content, model_response) </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/kir/Desktop/py/API/src/DatabaseManager/DatabaseManager.py" line="498" column="1" bodyfile="C:/Users/kir/Desktop/py/API/src/DatabaseManager/DatabaseManager.py" bodystart="498" bodyend="515"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrc_1_1_database_manager_1_1_database_manager_1_1_database_manager_1a23c74e9358f840a3cdca80aa993758be" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>List[Tuple[str, str]]</type>
+        <definition> List[Tuple[str, str]] src.DatabaseManager.DatabaseManager.DatabaseManager.get_actor_prompts</definition>
+        <argsstring>(self, int session_id)</argsstring>
+        <name>get_actor_prompts</name>
+        <qualifiedname>src.DatabaseManager.DatabaseManager.DatabaseManager.get_actor_prompts</qualifiedname>
+        <param>
+          <type>self</type>
+          <defname>self</defname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>session_id</declname>
+        </param>
+        <briefdescription>
+<para>Получение промптов актора </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>session_id</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>ID сессии</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>List[Tuple[str, str]] Список кортежей (prompt_content, model_response) </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/kir/Desktop/py/API/src/DatabaseManager/DatabaseManager.py" line="516" column="1" bodyfile="C:/Users/kir/Desktop/py/API/src/DatabaseManager/DatabaseManager.py" bodystart="516" bodyend="533"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrc_1_1_database_manager_1_1_database_manager_1_1_database_manager_1a89252dc2b29611b424ecb352c99de987" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition> bool src.DatabaseManager.DatabaseManager.DatabaseManager.is_new_session_actor_prompt</definition>
+        <argsstring>(self, int session_id)</argsstring>
+        <name>is_new_session_actor_prompt</name>
+        <qualifiedname>src.DatabaseManager.DatabaseManager.DatabaseManager.is_new_session_actor_prompt</qualifiedname>
+        <param>
+          <type>self</type>
+          <defname>self</defname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>session_id</declname>
+        </param>
+        <briefdescription>
+<para>Проверка, является ли сессия новой для промптов актора </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>session_id</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>ID сессии</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>bool True если сессия новая, False если промпты уже существуют </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/kir/Desktop/py/API/src/DatabaseManager/DatabaseManager.py" line="534" column="1" bodyfile="C:/Users/kir/Desktop/py/API/src/DatabaseManager/DatabaseManager.py" bodystart="534" bodyend="550"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrc_1_1_database_manager_1_1_database_manager_1_1_database_manager_1a062acf7bf40d0d49920cceaa844318b0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition> bool src.DatabaseManager.DatabaseManager.DatabaseManager.is_new_session_gm_prompt</definition>
+        <argsstring>(self, int session_id)</argsstring>
+        <name>is_new_session_gm_prompt</name>
+        <qualifiedname>src.DatabaseManager.DatabaseManager.DatabaseManager.is_new_session_gm_prompt</qualifiedname>
+        <param>
+          <type>self</type>
+          <defname>self</defname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>session_id</declname>
+        </param>
+        <briefdescription>
+<para>Проверка, является ли сессия новой для промптов мастера игры </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>session_id</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>ID сессии</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>bool True если сессия новая, False если промпты уже существуют </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/kir/Desktop/py/API/src/DatabaseManager/DatabaseManager.py" line="551" column="1" bodyfile="C:/Users/kir/Desktop/py/API/src/DatabaseManager/DatabaseManager.py" bodystart="551" bodyend="567"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrc_1_1_database_manager_1_1_database_manager_1_1_database_manager_1a6bdafff6a250fc4aa977fed2611b6710" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>None</type>
+        <definition> None src.DatabaseManager.DatabaseManager.DatabaseManager.save_image_prompt</definition>
+        <argsstring>(self, int session_id, str user_input, str narrative_response, str image_prompt)</argsstring>
+        <name>save_image_prompt</name>
+        <qualifiedname>src.DatabaseManager.DatabaseManager.DatabaseManager.save_image_prompt</qualifiedname>
+        <param>
+          <type>self</type>
+          <defname>self</defname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>session_id</declname>
+        </param>
+        <param>
+          <type>str</type>
+          <declname>user_input</declname>
+        </param>
+        <param>
+          <type>str</type>
+          <declname>narrative_response</declname>
+        </param>
+        <param>
+          <type>str</type>
+          <declname>image_prompt</declname>
+        </param>
+        <briefdescription>
+<para>Сохранение промпта для генерации изображения </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>session_id</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>ID сессии </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>user_input</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Ввод пользователя </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>narrative_response</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Нарративный ответ </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>image_prompt</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Промпт для генерации изображения </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/kir/Desktop/py/API/src/DatabaseManager/DatabaseManager.py" line="568" column="1" bodyfile="C:/Users/kir/Desktop/py/API/src/DatabaseManager/DatabaseManager.py" bodystart="568" bodyend="590"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrc_1_1_database_manager_1_1_database_manager_1_1_database_manager_1af2ed9a550ccd1c8f98ff811f1e2938df" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>List[Tuple[int, str, str, str]]</type>
+        <definition> List[Tuple[int, str, str, str]] src.DatabaseManager.DatabaseManager.DatabaseManager.get_image_prompts</definition>
+        <argsstring>(self, int session_id)</argsstring>
+        <name>get_image_prompts</name>
+        <qualifiedname>src.DatabaseManager.DatabaseManager.DatabaseManager.get_image_prompts</qualifiedname>
+        <param>
+          <type>self</type>
+          <defname>self</defname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>session_id</declname>
+        </param>
+        <briefdescription>
+<para>Получение промптов для генерации изображений </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>session_id</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>ID сессии</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>List[Tuple[int, str, str, str]] Список кортежей (sequence_number, user_input, narrative_response, image_prompt) </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/kir/Desktop/py/API/src/DatabaseManager/DatabaseManager.py" line="591" column="1" bodyfile="C:/Users/kir/Desktop/py/API/src/DatabaseManager/DatabaseManager.py" bodystart="591" bodyend="608"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrc_1_1_database_manager_1_1_database_manager_1_1_database_manager_1a28df3ea877ad1afa4aab83d911b15b62" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>None</type>
+        <definition> None src.DatabaseManager.DatabaseManager.DatabaseManager.save_active_characters</definition>
+        <argsstring>(self, int session_id, int sequence_number, List[int] character_ids)</argsstring>
+        <name>save_active_characters</name>
+        <qualifiedname>src.DatabaseManager.DatabaseManager.DatabaseManager.save_active_characters</qualifiedname>
+        <param>
+          <type>self</type>
+          <defname>self</defname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>session_id</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>sequence_number</declname>
+        </param>
+        <param>
+          <type>List</type>
+          <declname>character_ids</declname>
+          <array>[int]</array>
+        </param>
+        <briefdescription>
+<para>Сохранение активных персонажей для конкретного номера последовательности в сессии </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>session_id</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>ID сессии </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>sequence_number</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Номер последовательности промпта мастера </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>character_ids</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Список ID персонажей, которые в данный момент активны</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="exception"><parameteritem>
+<parameternamelist>
+<parametername>Exception</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>если произошла ошибка при сохранении </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/kir/Desktop/py/API/src/DatabaseManager/DatabaseManager.py" line="609" column="1" bodyfile="C:/Users/kir/Desktop/py/API/src/DatabaseManager/DatabaseManager.py" bodystart="609" bodyend="637"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrc_1_1_database_manager_1_1_database_manager_1_1_database_manager_1ac0e4345b683038740e4d9720a00fca6d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>List[str]</type>
+        <definition> List[str] src.DatabaseManager.DatabaseManager.DatabaseManager.get_active_characters</definition>
+        <argsstring>(self, int session_id, int sequence_number)</argsstring>
+        <name>get_active_characters</name>
+        <qualifiedname>src.DatabaseManager.DatabaseManager.DatabaseManager.get_active_characters</qualifiedname>
+        <param>
+          <type>self</type>
+          <defname>self</defname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>session_id</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>sequence_number</declname>
+        </param>
+        <briefdescription>
+<para>Получение списка активных персонажей для конкретного номера последовательности в сессии </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>session_id</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>ID сессии </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>sequence_number</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Номер последовательности промпта мастера</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>List[str] Список имен активных персонажей</para>
+</simplesect>
+<parameterlist kind="exception"><parameteritem>
+<parameternamelist>
+<parametername>Exception</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>если произошла ошибка при получении данных </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/kir/Desktop/py/API/src/DatabaseManager/DatabaseManager.py" line="638" column="1" bodyfile="C:/Users/kir/Desktop/py/API/src/DatabaseManager/DatabaseManager.py" bodystart="638" bodyend="662"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrc_1_1_database_manager_1_1_database_manager_1_1_database_manager_1a7e4425052cdd6ee6ba50c65ce565e010" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>None</type>
+        <definition> None src.DatabaseManager.DatabaseManager.DatabaseManager.update_active_characters</definition>
+        <argsstring>(self, int session_id, int sequence_number, List[int] character_ids)</argsstring>
+        <name>update_active_characters</name>
+        <qualifiedname>src.DatabaseManager.DatabaseManager.DatabaseManager.update_active_characters</qualifiedname>
+        <param>
+          <type>self</type>
+          <defname>self</defname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>session_id</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>sequence_number</declname>
+        </param>
+        <param>
+          <type>List</type>
+          <declname>character_ids</declname>
+          <array>[int]</array>
+        </param>
+        <briefdescription>
+<para>Обновление списка активных персонажей для конкретного номера последовательности в сессии </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>session_id</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>ID сессии </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>sequence_number</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Номер последовательности промпта мастера </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>character_ids</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Список ID персонажей, которые в данный момент активны </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/kir/Desktop/py/API/src/DatabaseManager/DatabaseManager.py" line="663" column="1" bodyfile="C:/Users/kir/Desktop/py/API/src/DatabaseManager/DatabaseManager.py" bodystart="663" bodyend="672"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrc_1_1_database_manager_1_1_database_manager_1_1_database_manager_1ad487ccaff17690e1b0063da99ffacae6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Optional[Tuple[str, str]]</type>
+        <definition> Optional[Tuple[str, str]] src.DatabaseManager.DatabaseManager.DatabaseManager.get_character</definition>
+        <argsstring>(self, int character_id)</argsstring>
+        <name>get_character</name>
+        <qualifiedname>src.DatabaseManager.DatabaseManager.DatabaseManager.get_character</qualifiedname>
+        <param>
+          <type>self</type>
+          <defname>self</defname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>character_id</declname>
+        </param>
+        <briefdescription>
+<para>Получение информации о персонаже по ID. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>character_id</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>ID персонажа</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Optional[Tuple[str, str]] Кортеж (name, description) или None если персонаж не найден</para>
+</simplesect>
+<parameterlist kind="exception"><parameteritem>
+<parameternamelist>
+<parametername>Exception</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>если произошла ошибка при получении данных </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/kir/Desktop/py/API/src/DatabaseManager/DatabaseManager.py" line="673" column="1" bodyfile="C:/Users/kir/Desktop/py/API/src/DatabaseManager/DatabaseManager.py" bodystart="673" bodyend="695"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrc_1_1_database_manager_1_1_database_manager_1_1_database_manager_1ac3ca7f87598cfa981e29de5b60aadadf" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>List[int]</type>
+        <definition> List[int] src.DatabaseManager.DatabaseManager.DatabaseManager.get_active_characters_ids</definition>
+        <argsstring>(self, int session_id, int sequence_number)</argsstring>
+        <name>get_active_characters_ids</name>
+        <qualifiedname>src.DatabaseManager.DatabaseManager.DatabaseManager.get_active_characters_ids</qualifiedname>
+        <param>
+          <type>self</type>
+          <defname>self</defname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>session_id</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>sequence_number</declname>
+        </param>
+        <briefdescription>
+<para>Получение ID активных персонажей для конкретного номера последовательности в сессии </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>session_id</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>ID сессии </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>sequence_number</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Номер последовательности промпта мастера</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>List[int] Список ID активных персонажей</para>
+</simplesect>
+<parameterlist kind="exception"><parameteritem>
+<parameternamelist>
+<parametername>Exception</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>если произошла ошибка при получении данных </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/kir/Desktop/py/API/src/DatabaseManager/DatabaseManager.py" line="696" column="1" bodyfile="C:/Users/kir/Desktop/py/API/src/DatabaseManager/DatabaseManager.py" bodystart="696" bodyend="719"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrc_1_1_database_manager_1_1_database_manager_1_1_database_manager_1abd4dc8956da9fdb1ea64343e4000d363" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Optional[Tuple[str, str]]</type>
+        <definition> Optional[Tuple[str, str]] src.DatabaseManager.DatabaseManager.DatabaseManager.get_user_message</definition>
+        <argsstring>(self, int session_id, int sequence)</argsstring>
+        <name>get_user_message</name>
+        <qualifiedname>src.DatabaseManager.DatabaseManager.DatabaseManager.get_user_message</qualifiedname>
+        <param>
+          <type>self</type>
+          <defname>self</defname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>session_id</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>sequence</declname>
+        </param>
+        <briefdescription>
+<para>Получение конкретного сообщения пользователя по номеру последовательности </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>session_id</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>ID сессии </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>sequence</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Номер последовательности сообщения</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Optional[Tuple[str, str]] Кортеж (user_input, response) или None если сообщение не найдено</para>
+</simplesect>
+<parameterlist kind="exception"><parameteritem>
+<parameternamelist>
+<parametername>Exception</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>если произошла ошибка при получении данных </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/kir/Desktop/py/API/src/DatabaseManager/DatabaseManager.py" line="720" column="1" bodyfile="C:/Users/kir/Desktop/py/API/src/DatabaseManager/DatabaseManager.py" bodystart="720" bodyend="744"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrc_1_1_database_manager_1_1_database_manager_1_1_database_manager_1a36029029cb0970d72a9a6ce0bc05b6d3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Optional[int]</type>
+        <definition> Optional[int] src.DatabaseManager.DatabaseManager.DatabaseManager.get_character_id</definition>
+        <argsstring>(self, int session_id, str name)</argsstring>
+        <name>get_character_id</name>
+        <qualifiedname>src.DatabaseManager.DatabaseManager.DatabaseManager.get_character_id</qualifiedname>
+        <param>
+          <type>self</type>
+          <defname>self</defname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>session_id</declname>
+        </param>
+        <param>
+          <type>str</type>
+          <declname>name</declname>
+        </param>
+        <briefdescription>
+<para>Получение ID персонажа по ID сессии и имени </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>session_id</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>ID сессии </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>name</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Имя персонажа</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Optional[int] ID персонажа или None если персонаж не найден</para>
+</simplesect>
+<parameterlist kind="exception"><parameteritem>
+<parameternamelist>
+<parametername>Exception</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>если произошла ошибка при получении данных </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/kir/Desktop/py/API/src/DatabaseManager/DatabaseManager.py" line="745" column="1" bodyfile="C:/Users/kir/Desktop/py/API/src/DatabaseManager/DatabaseManager.py" bodystart="745" bodyend="768"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrc_1_1_database_manager_1_1_database_manager_1_1_database_manager_1a52d0357efb41c804f645c5e42e1560eb" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>str</type>
+        <definition> str src.DatabaseManager.DatabaseManager.DatabaseManager.get_session_language</definition>
+        <argsstring>(self, int session_id)</argsstring>
+        <name>get_session_language</name>
+        <qualifiedname>src.DatabaseManager.DatabaseManager.DatabaseManager.get_session_language</qualifiedname>
+        <param>
+          <type>self</type>
+          <defname>self</defname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>session_id</declname>
+        </param>
+        <briefdescription>
+<para>Получение языка сессии </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>session_id</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>ID сессии</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>str Язык сессии (Russian/English)</para>
+</simplesect>
+<parameterlist kind="exception"><parameteritem>
+<parameternamelist>
+<parametername>RuntimeError</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>если сессия не найдена </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/kir/Desktop/py/API/src/DatabaseManager/DatabaseManager.py" line="769" column="1" bodyfile="C:/Users/kir/Desktop/py/API/src/DatabaseManager/DatabaseManager.py" bodystart="769" bodyend="788"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="protected-func">
+      <memberdef kind="function" id="classsrc_1_1_database_manager_1_1_database_manager_1_1_database_manager_1ab455f7780512cbb276d0725bae1e6df4" prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>None</type>
+        <definition> None src.DatabaseManager.DatabaseManager.DatabaseManager._init_database</definition>
+        <argsstring>(self)</argsstring>
+        <name>_init_database</name>
+        <qualifiedname>src.DatabaseManager.DatabaseManager.DatabaseManager._init_database</qualifiedname>
+        <param>
+          <type>self</type>
+          <defname>self</defname>
+        </param>
+        <briefdescription>
+<para>Инициализация структуры базы данных </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Создает все необходимые таблицы, если они не существуют:<itemizedlist>
+<listitem><para>users: информация о пользователях</para>
+</listitem><listitem><para>sessions: игровые сессии</para>
+</listitem><listitem><para>characters: персонажи</para>
+</listitem><listitem><para>active_characters: активные персонажи в сессии</para>
+</listitem><listitem><para>user_messages: история сообщений пользователя</para>
+</listitem><listitem><para>master_messages: история сообщений мастера игры</para>
+</listitem><listitem><para>actor_messages: история сообщений актора</para>
+</listitem><listitem><para>game_master_prompts: промпты для мастера игры</para>
+</listitem><listitem><para>actor_prompts: промпты для актора</para>
+</listitem><listitem><para>image_prompts: промпты для генерации изображений </para>
+</listitem></itemizedlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/kir/Desktop/py/API/src/DatabaseManager/DatabaseManager.py" line="48" column="1" bodyfile="C:/Users/kir/Desktop/py/API/src/DatabaseManager/DatabaseManager.py" bodystart="48" bodyend="191"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>Менеджер базы данных для управления игровыми сессиями </para>
+    </briefdescription>
+    <detaileddescription>
+<para>Реализует паттерн Singleton для обеспечения единой точки доступа к базе данных. Управляет всеми операциями с базой данных, включая:<itemizedlist>
+<listitem><para>Пользователей и их сессии</para>
+</listitem><listitem><para>Персонажей и их описания</para>
+</listitem><listitem><para>Историю сообщений и диалогов</para>
+</listitem><listitem><para>Промпты для генерации контента</para>
+</listitem><listitem><para>Изображения и их промпты</para>
+</listitem></itemizedlist>
+</para>
+<para><simplesect kind="note"><para>Класс использует SQLite в качестве системы управления базами данных </para>
+</simplesect>
+</para>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="1">
+        <label>src.DatabaseManager.DatabaseManager.DatabaseManager</label>
+        <link refid="classsrc_1_1_database_manager_1_1_database_manager_1_1_database_manager"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>_instance</edgelabel>
+        </childnode>
+      </node>
+      <node id="2">
+        <label>src.DatabaseManager.DatabaseManager.DatabaseManager</label>
+        <link refid="classsrc_1_1_database_manager_1_1_database_manager_1_1_database_manager"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>_instance</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="C:/Users/kir/Desktop/py/API/src/DatabaseManager/DatabaseManager.py" line="8" column="1" bodyfile="C:/Users/kir/Desktop/py/API/src/DatabaseManager/DatabaseManager.py" bodystart="8" bodyend="788"/>
+    <listofallmembers>
+      <member refid="classsrc_1_1_database_manager_1_1_database_manager_1_1_database_manager_1ac07876128f530806fb845ee3ca550c8a" prot="public" virt="non-virtual"><scope>src::DatabaseManager::DatabaseManager::DatabaseManager</scope><name>__init__</name></member>
+      <member refid="classsrc_1_1_database_manager_1_1_database_manager_1_1_database_manager_1ae8e9b4a5cf7f9c4a05276052a98528ee" prot="public" virt="non-virtual"><scope>src::DatabaseManager::DatabaseManager::DatabaseManager</scope><name>__new__</name></member>
+      <member refid="classsrc_1_1_database_manager_1_1_database_manager_1_1_database_manager_1ab455f7780512cbb276d0725bae1e6df4" prot="protected" virt="non-virtual"><scope>src::DatabaseManager::DatabaseManager::DatabaseManager</scope><name>_init_database</name></member>
+      <member refid="classsrc_1_1_database_manager_1_1_database_manager_1_1_database_manager_1a7ad3dcb044e31b90bf31806853bfc837" prot="protected" virt="non-virtual"><scope>src::DatabaseManager::DatabaseManager::DatabaseManager</scope><name>_instance</name></member>
+      <member refid="classsrc_1_1_database_manager_1_1_database_manager_1_1_database_manager_1a4ef04a04c179b51dd3650ddd7f0a1044" prot="public" virt="non-virtual"><scope>src::DatabaseManager::DatabaseManager::DatabaseManager</scope><name>create_session</name></member>
+      <member refid="classsrc_1_1_database_manager_1_1_database_manager_1_1_database_manager_1a90bfa9b37df42c63ceabd1630c901025" prot="public" virt="non-virtual"><scope>src::DatabaseManager::DatabaseManager::DatabaseManager</scope><name>create_user</name></member>
+      <member refid="classsrc_1_1_database_manager_1_1_database_manager_1_1_database_manager_1a0d4c59d10e40d5663df4c8308e9e9d15" prot="public" virt="non-virtual"><scope>src::DatabaseManager::DatabaseManager::DatabaseManager</scope><name>db_path</name></member>
+      <member refid="classsrc_1_1_database_manager_1_1_database_manager_1_1_database_manager_1a415f0d8b3bef38865370bddc8203e3ff" prot="public" virt="non-virtual"><scope>src::DatabaseManager::DatabaseManager::DatabaseManager</scope><name>delete_session</name></member>
+      <member refid="classsrc_1_1_database_manager_1_1_database_manager_1_1_database_manager_1a9f15c3a6da37337d517fe72327a261e3" prot="public" virt="non-virtual"><scope>src::DatabaseManager::DatabaseManager::DatabaseManager</scope><name>delete_user_data</name></member>
+      <member refid="classsrc_1_1_database_manager_1_1_database_manager_1_1_database_manager_1ac0e4345b683038740e4d9720a00fca6d" prot="public" virt="non-virtual"><scope>src::DatabaseManager::DatabaseManager::DatabaseManager</scope><name>get_active_characters</name></member>
+      <member refid="classsrc_1_1_database_manager_1_1_database_manager_1_1_database_manager_1ac3ca7f87598cfa981e29de5b60aadadf" prot="public" virt="non-virtual"><scope>src::DatabaseManager::DatabaseManager::DatabaseManager</scope><name>get_active_characters_ids</name></member>
+      <member refid="classsrc_1_1_database_manager_1_1_database_manager_1_1_database_manager_1a662d9f39b1dea0e44bed824197cb2232" prot="public" virt="non-virtual"><scope>src::DatabaseManager::DatabaseManager::DatabaseManager</scope><name>get_actor_messages</name></member>
+      <member refid="classsrc_1_1_database_manager_1_1_database_manager_1_1_database_manager_1a23c74e9358f840a3cdca80aa993758be" prot="public" virt="non-virtual"><scope>src::DatabaseManager::DatabaseManager::DatabaseManager</scope><name>get_actor_prompts</name></member>
+      <member refid="classsrc_1_1_database_manager_1_1_database_manager_1_1_database_manager_1ae5727ae5eb1a749423299458b67948d8" prot="public" virt="non-virtual"><scope>src::DatabaseManager::DatabaseManager::DatabaseManager</scope><name>get_all_users</name></member>
+      <member refid="classsrc_1_1_database_manager_1_1_database_manager_1_1_database_manager_1ad487ccaff17690e1b0063da99ffacae6" prot="public" virt="non-virtual"><scope>src::DatabaseManager::DatabaseManager::DatabaseManager</scope><name>get_character</name></member>
+      <member refid="classsrc_1_1_database_manager_1_1_database_manager_1_1_database_manager_1a36029029cb0970d72a9a6ce0bc05b6d3" prot="public" virt="non-virtual"><scope>src::DatabaseManager::DatabaseManager::DatabaseManager</scope><name>get_character_id</name></member>
+      <member refid="classsrc_1_1_database_manager_1_1_database_manager_1_1_database_manager_1ad57a9638af3e753cb56ac36905049a59" prot="public" virt="non-virtual"><scope>src::DatabaseManager::DatabaseManager::DatabaseManager</scope><name>get_characters</name></member>
+      <member refid="classsrc_1_1_database_manager_1_1_database_manager_1_1_database_manager_1a9a1872c584c8c411e2915234baeb9eba" prot="public" virt="non-virtual"><scope>src::DatabaseManager::DatabaseManager::DatabaseManager</scope><name>get_game_master_prompts</name></member>
+      <member refid="classsrc_1_1_database_manager_1_1_database_manager_1_1_database_manager_1af2ed9a550ccd1c8f98ff811f1e2938df" prot="public" virt="non-virtual"><scope>src::DatabaseManager::DatabaseManager::DatabaseManager</scope><name>get_image_prompts</name></member>
+      <member refid="classsrc_1_1_database_manager_1_1_database_manager_1_1_database_manager_1acb0c3701f33e33493c5f83e09d6b2582" prot="public" virt="non-virtual"><scope>src::DatabaseManager::DatabaseManager::DatabaseManager</scope><name>get_master_messages</name></member>
+      <member refid="classsrc_1_1_database_manager_1_1_database_manager_1_1_database_manager_1a8b470f05c518dbf890db72c451494b36" prot="public" virt="non-virtual"><scope>src::DatabaseManager::DatabaseManager::DatabaseManager</scope><name>get_session_info</name></member>
+      <member refid="classsrc_1_1_database_manager_1_1_database_manager_1_1_database_manager_1a52d0357efb41c804f645c5e42e1560eb" prot="public" virt="non-virtual"><scope>src::DatabaseManager::DatabaseManager::DatabaseManager</scope><name>get_session_language</name></member>
+      <member refid="classsrc_1_1_database_manager_1_1_database_manager_1_1_database_manager_1abd4dc8956da9fdb1ea64343e4000d363" prot="public" virt="non-virtual"><scope>src::DatabaseManager::DatabaseManager::DatabaseManager</scope><name>get_user_message</name></member>
+      <member refid="classsrc_1_1_database_manager_1_1_database_manager_1_1_database_manager_1ad86bf1f4095f7ef32b50e3ce2d87bde7" prot="public" virt="non-virtual"><scope>src::DatabaseManager::DatabaseManager::DatabaseManager</scope><name>get_user_messages</name></member>
+      <member refid="classsrc_1_1_database_manager_1_1_database_manager_1_1_database_manager_1af7ba5da6c9851f8a7572ddd0b100e83a" prot="public" virt="non-virtual"><scope>src::DatabaseManager::DatabaseManager::DatabaseManager</scope><name>get_user_sessions</name></member>
+      <member refid="classsrc_1_1_database_manager_1_1_database_manager_1_1_database_manager_1a89252dc2b29611b424ecb352c99de987" prot="public" virt="non-virtual"><scope>src::DatabaseManager::DatabaseManager::DatabaseManager</scope><name>is_new_session_actor_prompt</name></member>
+      <member refid="classsrc_1_1_database_manager_1_1_database_manager_1_1_database_manager_1a062acf7bf40d0d49920cceaa844318b0" prot="public" virt="non-virtual"><scope>src::DatabaseManager::DatabaseManager::DatabaseManager</scope><name>is_new_session_gm_prompt</name></member>
+      <member refid="classsrc_1_1_database_manager_1_1_database_manager_1_1_database_manager_1a28df3ea877ad1afa4aab83d911b15b62" prot="public" virt="non-virtual"><scope>src::DatabaseManager::DatabaseManager::DatabaseManager</scope><name>save_active_characters</name></member>
+      <member refid="classsrc_1_1_database_manager_1_1_database_manager_1_1_database_manager_1a89e3e3073c296d111a67339cbbcc9de5" prot="public" virt="non-virtual"><scope>src::DatabaseManager::DatabaseManager::DatabaseManager</scope><name>save_actor_message</name></member>
+      <member refid="classsrc_1_1_database_manager_1_1_database_manager_1_1_database_manager_1a96f76fb4ab001ccbf497590b0b04281c" prot="public" virt="non-virtual"><scope>src::DatabaseManager::DatabaseManager::DatabaseManager</scope><name>save_actor_prompt</name></member>
+      <member refid="classsrc_1_1_database_manager_1_1_database_manager_1_1_database_manager_1a78b9f08ef4c174650284fb7ff55fa201" prot="public" virt="non-virtual"><scope>src::DatabaseManager::DatabaseManager::DatabaseManager</scope><name>save_character</name></member>
+      <member refid="classsrc_1_1_database_manager_1_1_database_manager_1_1_database_manager_1adbac8da66f7473e585fa1b1b4ab1d9c8" prot="public" virt="non-virtual"><scope>src::DatabaseManager::DatabaseManager::DatabaseManager</scope><name>save_game_master_prompt</name></member>
+      <member refid="classsrc_1_1_database_manager_1_1_database_manager_1_1_database_manager_1a6bdafff6a250fc4aa977fed2611b6710" prot="public" virt="non-virtual"><scope>src::DatabaseManager::DatabaseManager::DatabaseManager</scope><name>save_image_prompt</name></member>
+      <member refid="classsrc_1_1_database_manager_1_1_database_manager_1_1_database_manager_1a6fce88139b93dc797e02b7b93777e3ac" prot="public" virt="non-virtual"><scope>src::DatabaseManager::DatabaseManager::DatabaseManager</scope><name>save_master_message</name></member>
+      <member refid="classsrc_1_1_database_manager_1_1_database_manager_1_1_database_manager_1a7ca1b98dcdd0b87151292b22868f1abd" prot="public" virt="non-virtual"><scope>src::DatabaseManager::DatabaseManager::DatabaseManager</scope><name>save_user_message</name></member>
+      <member refid="classsrc_1_1_database_manager_1_1_database_manager_1_1_database_manager_1a7e4425052cdd6ee6ba50c65ce565e010" prot="public" virt="non-virtual"><scope>src::DatabaseManager::DatabaseManager::DatabaseManager</scope><name>update_active_characters</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

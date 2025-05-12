@@ -1,0 +1,31 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_classsrc_1_1_game_master_1_1_game_master_1_1_player_death_exception" xml:lang="ru">
+<title>Класс src.GameMaster.GameMaster.PlayerDeathException</title>
+<indexterm><primary>src.GameMaster.GameMaster.PlayerDeathException</primary></indexterm>
+<para>
+
+<para>Исключение, возникающее при смерти игрового персонажа </para>
+ 
+</para>
+<para>Граф наследования:src.GameMaster.GameMaster.PlayerDeathException:    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="classsrc_1_1_game_master_1_1_game_master_1_1_player_death_exception.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<section>
+<title>Подробное описание</title>
+
+<para>Исключение, возникающее при смерти игрового персонажа </para>
+
+
+
+<para>Выбрасывается, когда игровой персонаж умирает, что приводит к завершению сессии и блокировке дальнейшего ввода. </para>
+<para>
+См. определение в файле <link linkend="__game_master_8py_source">GameMaster.py</link> строка <link linkend="__game_master_8py_source_1l00018">18</link></para>
+<para>
+Объявления и описания членов класса находятся в файле:</para>
+C:/Users/kir/Desktop/py/API/src/GameMaster/GameMaster.py</section>
+</section>

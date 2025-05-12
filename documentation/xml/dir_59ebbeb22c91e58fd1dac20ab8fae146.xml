@@ -1,0 +1,16 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.13.2" xml:lang="ru">
+  <compounddef id="dir_59ebbeb22c91e58fd1dac20ab8fae146" kind="dir">
+    <compoundname>C:/Users/kir/Desktop/py/API/src/GameMaster</compoundname>
+    <innerfile refid="_game_master_2____init_____8py">__init__.py</innerfile>
+    <innerfile refid="_command_data_8py">CommandData.py</innerfile>
+    <innerfile refid="_game_master_8py">GameMaster.py</innerfile>
+    <innerfile refid="_game_master_promts_8py">GameMasterPromts.py</innerfile>
+    <innerfile refid="_protocol_game_master_8py">ProtocolGameMaster.py</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="C:/Users/kir/Desktop/py/API/src/GameMaster/"/>
+  </compounddef>
+</doxygen>

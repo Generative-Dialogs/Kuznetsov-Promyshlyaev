@@ -1,0 +1,185 @@
+\doxysection{Класс src.\+Message\+Generator.\+Message\+Generator\+Deep\+Seek.\+Message\+Generator\+Deep\+Seek}
+\label{classsrc_1_1_message_generator_1_1_message_generator_deep_seek_1_1_message_generator_deep_seek}\index{src.MessageGenerator.MessageGeneratorDeepSeek.MessageGeneratorDeepSeek@{src.MessageGenerator.MessageGeneratorDeepSeek.MessageGeneratorDeepSeek}}
+
+
+Генератор сообщений с использованием Deep\+Seek API.  
+
+
+Граф наследования\+:src.\+Message\+Generator.\+Message\+Generator\+Deep\+Seek.\+Message\+Generator\+Deep\+Seek\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{classsrc_1_1_message_generator_1_1_message_generator_deep_seek_1_1_message_generator_deep_seek}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Открытые члены}
+\begin{DoxyCompactItemize}
+\item 
+None \textbf{ \+\_\+\+\_\+init\+\_\+\+\_\+} (self, str model=\textquotesingle{}deepseek-\/chat\textquotesingle{})
+\begin{DoxyCompactList}\small\item\em Инициализация генератора сообщений \end{DoxyCompactList}\item 
+str \textbf{ generate} (self, str input\+\_\+message, Optional[str] model=None)
+\begin{DoxyCompactList}\small\item\em Генерация ответа с использованием Deep\+Seek API. \end{DoxyCompactList}\item 
+None \textbf{ add\+\_\+user\+\_\+message} (self, str message\+\_\+content)
+\begin{DoxyCompactList}\small\item\em Добавление сообщения пользователя в историю \end{DoxyCompactList}\item 
+None \textbf{ add\+\_\+ai\+\_\+message} (self, str message\+\_\+content)
+\begin{DoxyCompactList}\small\item\em Добавление сообщения ИИ в историю \end{DoxyCompactList}\item 
+None \textbf{ add\+\_\+system\+\_\+message} (self, str message\+\_\+content)
+\begin{DoxyCompactList}\small\item\em Добавление системного сообщения в историю \end{DoxyCompactList}\item 
+List[Dict[str, str]] \textbf{ get\+\_\+message\+\_\+history} (self)
+\begin{DoxyCompactList}\small\item\em Получение истории сообщений \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Подробное описание}
+Генератор сообщений с использованием Deep\+Seek API. 
+
+Реализует интерфейс \doxyref{Protocol\+Message\+Generator}{стр.}{classsrc_1_1_message_generator_1_1_protocol_message_generator_1_1_protocol_message_generator} для генерации сообщений через Deep\+Seek API, предоставляющий доступ к специализированным языковым моделям. 
+
+См. определение в файле \textbf{ Message\+Generator\+Deep\+Seek.\+py} строка \textbf{ 8}
+
+
+
+\doxysubsection{Конструктор(ы)}
+\index{src.MessageGenerator.MessageGeneratorDeepSeek.MessageGeneratorDeepSeek@{src.MessageGenerator.MessageGeneratorDeepSeek.MessageGeneratorDeepSeek}!\_\_init\_\_@{\_\_init\_\_}}
+\index{\_\_init\_\_@{\_\_init\_\_}!src.MessageGenerator.MessageGeneratorDeepSeek.MessageGeneratorDeepSeek@{src.MessageGenerator.MessageGeneratorDeepSeek.MessageGeneratorDeepSeek}}
+\doxysubsubsection{\_\_init\_\_()}
+{\footnotesize\ttfamily \label{classsrc_1_1_message_generator_1_1_message_generator_deep_seek_1_1_message_generator_deep_seek_ac67faa02a6bb34a7fd0b7d25554c20ef} 
+ None src.\+Message\+Generator.\+Message\+Generator\+Deep\+Seek.\+Message\+Generator\+Deep\+Seek.\+\_\+\+\_\+init\+\_\+\+\_\+ (\begin{DoxyParamCaption}\item[{}]{self}{, }\item[{str }]{model}{ = {\ttfamily \textquotesingle{}deepseek-\/chat\textquotesingle{}}}\end{DoxyParamCaption})}
+
+
+
+Инициализация генератора сообщений 
+
+
+\begin{DoxyParams}{Аргументы}
+{\em model} & Название модели для генерации (по умолчанию \textquotesingle{}deepseek-\/chat\textquotesingle{}) \\
+\hline
+\end{DoxyParams}
+
+
+См. определение в файле \textbf{ Message\+Generator\+Deep\+Seek.\+py} строка \textbf{ 20}
+
+
+
+\doxysubsection{Методы}
+\index{src.MessageGenerator.MessageGeneratorDeepSeek.MessageGeneratorDeepSeek@{src.MessageGenerator.MessageGeneratorDeepSeek.MessageGeneratorDeepSeek}!add\_ai\_message@{add\_ai\_message}}
+\index{add\_ai\_message@{add\_ai\_message}!src.MessageGenerator.MessageGeneratorDeepSeek.MessageGeneratorDeepSeek@{src.MessageGenerator.MessageGeneratorDeepSeek.MessageGeneratorDeepSeek}}
+\doxysubsubsection{add\_ai\_message()}
+{\footnotesize\ttfamily \label{classsrc_1_1_message_generator_1_1_message_generator_deep_seek_1_1_message_generator_deep_seek_a4ad1e859f543ce3e1cce49b8a1ffc7c0} 
+ None src.\+Message\+Generator.\+Message\+Generator\+Deep\+Seek.\+Message\+Generator\+Deep\+Seek.\+add\+\_\+ai\+\_\+message (\begin{DoxyParamCaption}\item[{}]{self}{, }\item[{str}]{message\+\_\+content}{}\end{DoxyParamCaption})}
+
+
+
+Добавление сообщения ИИ в историю 
+
+
+\begin{DoxyParams}{Аргументы}
+{\em message\+\_\+content} & Текст сообщения ИИ \\
+\hline
+\end{DoxyParams}
+
+
+Переопределяет метод предка \textbf{ src.\+Message\+Generator.\+Protocol\+Message\+Generator.\+Protocol\+Message\+Generator} \doxyref{}{стр.}{classsrc_1_1_message_generator_1_1_protocol_message_generator_1_1_protocol_message_generator_afaffcee2207244df4fa8b5b398196062}.
+
+
+
+См. определение в файле \textbf{ Message\+Generator\+Deep\+Seek.\+py} строка \textbf{ 70}
+
+\index{src.MessageGenerator.MessageGeneratorDeepSeek.MessageGeneratorDeepSeek@{src.MessageGenerator.MessageGeneratorDeepSeek.MessageGeneratorDeepSeek}!add\_system\_message@{add\_system\_message}}
+\index{add\_system\_message@{add\_system\_message}!src.MessageGenerator.MessageGeneratorDeepSeek.MessageGeneratorDeepSeek@{src.MessageGenerator.MessageGeneratorDeepSeek.MessageGeneratorDeepSeek}}
+\doxysubsubsection{add\_system\_message()}
+{\footnotesize\ttfamily \label{classsrc_1_1_message_generator_1_1_message_generator_deep_seek_1_1_message_generator_deep_seek_a36703bcdba3a8acfd2875370a2f43215} 
+ None src.\+Message\+Generator.\+Message\+Generator\+Deep\+Seek.\+Message\+Generator\+Deep\+Seek.\+add\+\_\+system\+\_\+message (\begin{DoxyParamCaption}\item[{}]{self}{, }\item[{str}]{message\+\_\+content}{}\end{DoxyParamCaption})}
+
+
+
+Добавление системного сообщения в историю 
+
+
+\begin{DoxyParams}{Аргументы}
+{\em message\+\_\+content} & Текст системного сообщения \\
+\hline
+\end{DoxyParams}
+
+
+Переопределяет метод предка \textbf{ src.\+Message\+Generator.\+Protocol\+Message\+Generator.\+Protocol\+Message\+Generator} \doxyref{}{стр.}{classsrc_1_1_message_generator_1_1_protocol_message_generator_1_1_protocol_message_generator_a05e18c9670112887e7fd920ad79caf14}.
+
+
+
+См. определение в файле \textbf{ Message\+Generator\+Deep\+Seek.\+py} строка \textbf{ 82}
+
+\index{src.MessageGenerator.MessageGeneratorDeepSeek.MessageGeneratorDeepSeek@{src.MessageGenerator.MessageGeneratorDeepSeek.MessageGeneratorDeepSeek}!add\_user\_message@{add\_user\_message}}
+\index{add\_user\_message@{add\_user\_message}!src.MessageGenerator.MessageGeneratorDeepSeek.MessageGeneratorDeepSeek@{src.MessageGenerator.MessageGeneratorDeepSeek.MessageGeneratorDeepSeek}}
+\doxysubsubsection{add\_user\_message()}
+{\footnotesize\ttfamily \label{classsrc_1_1_message_generator_1_1_message_generator_deep_seek_1_1_message_generator_deep_seek_a92cd7430f9c81a8f5b6de9b0b4724111} 
+ None src.\+Message\+Generator.\+Message\+Generator\+Deep\+Seek.\+Message\+Generator\+Deep\+Seek.\+add\+\_\+user\+\_\+message (\begin{DoxyParamCaption}\item[{}]{self}{, }\item[{str}]{message\+\_\+content}{}\end{DoxyParamCaption})}
+
+
+
+Добавление сообщения пользователя в историю 
+
+
+\begin{DoxyParams}{Аргументы}
+{\em message\+\_\+content} & Текст сообщения пользователя \\
+\hline
+\end{DoxyParams}
+
+
+Переопределяет метод предка \textbf{ src.\+Message\+Generator.\+Protocol\+Message\+Generator.\+Protocol\+Message\+Generator} \doxyref{}{стр.}{classsrc_1_1_message_generator_1_1_protocol_message_generator_1_1_protocol_message_generator_acecf0dcf2a5261a36c56da5ab6e253e3}.
+
+
+
+См. определение в файле \textbf{ Message\+Generator\+Deep\+Seek.\+py} строка \textbf{ 58}
+
+\index{src.MessageGenerator.MessageGeneratorDeepSeek.MessageGeneratorDeepSeek@{src.MessageGenerator.MessageGeneratorDeepSeek.MessageGeneratorDeepSeek}!generate@{generate}}
+\index{generate@{generate}!src.MessageGenerator.MessageGeneratorDeepSeek.MessageGeneratorDeepSeek@{src.MessageGenerator.MessageGeneratorDeepSeek.MessageGeneratorDeepSeek}}
+\doxysubsubsection{generate()}
+{\footnotesize\ttfamily \label{classsrc_1_1_message_generator_1_1_message_generator_deep_seek_1_1_message_generator_deep_seek_a68531f3d43ffeb6363d6efbf434048d4} 
+ str src.\+Message\+Generator.\+Message\+Generator\+Deep\+Seek.\+Message\+Generator\+Deep\+Seek.\+generate (\begin{DoxyParamCaption}\item[{}]{self}{, }\item[{str}]{input\+\_\+message}{, }\item[{Optional[str] }]{model}{ = {\ttfamily None}}\end{DoxyParamCaption})}
+
+
+
+Генерация ответа с использованием Deep\+Seek API. 
+
+
+\begin{DoxyParams}{Аргументы}
+{\em input\+\_\+message} & Входное сообщение для обработки \\
+\hline
+{\em model} & Название модели для генерации (опционально)\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Возвращает}
+str Сгенерированный ответ 
+\end{DoxyReturn}
+
+
+Переопределяет метод предка \textbf{ src.\+Message\+Generator.\+Protocol\+Message\+Generator.\+Protocol\+Message\+Generator} \doxyref{}{стр.}{classsrc_1_1_message_generator_1_1_protocol_message_generator_1_1_protocol_message_generator_a3b2d9e3f4f31cce6400c8fe8b5329bf4}.
+
+
+
+См. определение в файле \textbf{ Message\+Generator\+Deep\+Seek.\+py} строка \textbf{ 31}
+
+\index{src.MessageGenerator.MessageGeneratorDeepSeek.MessageGeneratorDeepSeek@{src.MessageGenerator.MessageGeneratorDeepSeek.MessageGeneratorDeepSeek}!get\_message\_history@{get\_message\_history}}
+\index{get\_message\_history@{get\_message\_history}!src.MessageGenerator.MessageGeneratorDeepSeek.MessageGeneratorDeepSeek@{src.MessageGenerator.MessageGeneratorDeepSeek.MessageGeneratorDeepSeek}}
+\doxysubsubsection{get\_message\_history()}
+{\footnotesize\ttfamily \label{classsrc_1_1_message_generator_1_1_message_generator_deep_seek_1_1_message_generator_deep_seek_ad3dc50b0d644789063eede934d586d7e} 
+ List[Dict[str, str]] src.\+Message\+Generator.\+Message\+Generator\+Deep\+Seek.\+Message\+Generator\+Deep\+Seek.\+get\+\_\+message\+\_\+history (\begin{DoxyParamCaption}\item[{}]{self}{}\end{DoxyParamCaption})}
+
+
+
+Получение истории сообщений 
+
+\begin{DoxyReturn}{Возвращает}
+List[Dict[str, str]] Список сообщений в формате словарей 
+\end{DoxyReturn}
+
+
+Переопределяет метод предка \textbf{ src.\+Message\+Generator.\+Protocol\+Message\+Generator.\+Protocol\+Message\+Generator} \doxyref{}{стр.}{classsrc_1_1_message_generator_1_1_protocol_message_generator_1_1_protocol_message_generator_a854ce7a11bf37223a2b51f465a0a7638}.
+
+
+
+См. определение в файле \textbf{ Message\+Generator\+Deep\+Seek.\+py} строка \textbf{ 94}
+
+
+
+Объявления и описания членов класса находятся в файле\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/kir/\+Desktop/py/\+API/src/\+Message\+Generator/Message\+Generator\+Deep\+Seek.\+py\end{DoxyCompactItemize}

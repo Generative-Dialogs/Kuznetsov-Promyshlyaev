@@ -1,0 +1,17 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.13.2" xml:lang="ru">
+  <compounddef id="namespacesrc_1_1_game_master_1_1_command_data" kind="namespace" language="Python">
+    <compoundname>src::GameMaster::CommandData</compoundname>
+    <innerclass refid="classsrc_1_1_game_master_1_1_command_data_1_1_command_create_character" prot="public">src::GameMaster::CommandData::CommandCreateCharacter</innerclass>
+    <innerclass refid="classsrc_1_1_game_master_1_1_command_data_1_1_command_data" prot="public">src::GameMaster::CommandData::CommandData</innerclass>
+    <innerclass refid="classsrc_1_1_game_master_1_1_command_data_1_1_command_data_environment_description" prot="public">src::GameMaster::CommandData::CommandDataEnvironmentDescription</innerclass>
+    <innerclass refid="classsrc_1_1_game_master_1_1_command_data_1_1_command_off_topic" prot="public">src::GameMaster::CommandData::CommandOffTopic</innerclass>
+    <innerclass refid="classsrc_1_1_game_master_1_1_command_data_1_1_command_player_death" prot="public">src::GameMaster::CommandData::CommandPlayerDeath</innerclass>
+    <innerclass refid="classsrc_1_1_game_master_1_1_command_data_1_1_command_select_character" prot="public">src::GameMaster::CommandData::CommandSelectCharacter</innerclass>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="C:/Users/kir/Desktop/py/API/src/GameMaster/CommandData.py" line="1" column="1"/>
+  </compounddef>
+</doxygen>

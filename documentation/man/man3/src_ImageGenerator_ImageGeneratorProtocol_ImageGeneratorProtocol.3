@@ -1,0 +1,58 @@
+.TH "src.ImageGenerator.ImageGeneratorProtocol.ImageGeneratorProtocol" 3 "My Project" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+src.ImageGenerator.ImageGeneratorProtocol.ImageGeneratorProtocol \- Протокол для генерации изображений  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Базовые классы:Protocol\&.
+.PP
+Производные классы:\fBsrc\&.ImageGenerator\&.ImageGeneratorGoogle\&.ImageGeneratorGoogle\fP\&.
+.SS "Открытые члены"
+
+.in +1c
+.ti -1c
+.RI "Optional[str] \fBgenerate_image_response\fP (self, str prompt, str target_path, Optional[List[str]] character_images=None)"
+.br
+.RI "Генерация изображения на основе промпта и опциональных изображений персонажей "
+.in -1c
+.SH "Подробное описание"
+.PP 
+Протокол для генерации изображений 
+
+Определяет интерфейс для классов, реализующих генерацию изображений\&. Используется как контракт для различных реализаций генераторов изображений\&. 
+.PP
+См\&. определение в файле \fBImageGeneratorProtocol\&.py\fP строка \fB4\fP
+.SH "Методы"
+.PP 
+.SS " Optional[str] src\&.ImageGenerator\&.ImageGeneratorProtocol\&.ImageGeneratorProtocol\&.generate_image_response ( self, str prompt, str target_path, Optional[List[str]]  character_images = \fRNone\fP)"
+
+.PP
+Генерация изображения на основе промпта и опциональных изображений персонажей 
+.PP
+\fBАргументы\fP
+.RS 4
+\fIprompt\fP Текстовый промпт для генерации изображения 
+.br
+\fItarget_path\fP Полный путь для сохранения изображения 
+.br
+\fIcharacter_images\fP Опциональный список путей к изображениям персонажей
+.RE
+.PP
+\fBВозвращает\fP
+.RS 4
+Optional[str] Путь к сохраненному изображению или None в случае ошибки 
+.RE
+.PP
+
+.PP
+Переопределяется в \fBsrc\&.ImageGenerator\&.ImageGeneratorGoogle\&.ImageGeneratorGoogle\fP\&.
+.PP
+См\&. определение в файле \fBImageGeneratorProtocol\&.py\fP строка \fB12\fP
+
+.SH "Автор"
+.PP 
+Автоматически создано Doxygen для My Project из исходного текста\&.

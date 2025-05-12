@@ -1,0 +1,214 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.13.2" xml:lang="ru">
+  <compounddef id="classsrc_1_1_session_manager_1_1_session_manager_1_1_session_manager" kind="class" language="Python" prot="public">
+    <compoundname>src::SessionManager::SessionManager::SessionManager</compoundname>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="classsrc_1_1_session_manager_1_1_session_manager_1_1_session_manager_1aeb0257a623292508922fb0b43f9de393" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>src.SessionManager.SessionManager.SessionManager::db</definition>
+        <argsstring></argsstring>
+        <name>db</name>
+        <qualifiedname>src.SessionManager.SessionManager.SessionManager.db</qualifiedname>
+        <initializer>=  <ref refid="classsrc_1_1_database_manager_1_1_database_manager_1_1_database_manager" kindref="compound">DatabaseManager</ref>()</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/kir/Desktop/py/API/src/SessionManager/SessionManager.py" line="21" column="1" bodyfile="C:/Users/kir/Desktop/py/API/src/SessionManager/SessionManager.py" bodystart="21" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classsrc_1_1_session_manager_1_1_session_manager_1_1_session_manager_1ad18f61f47f308462113132ca2564eba0" prot="public" static="no" mutable="no">
+        <type>dict</type>
+        <definition>dict src.SessionManager.SessionManager.SessionManager::active_sessions</definition>
+        <argsstring></argsstring>
+        <name>active_sessions</name>
+        <qualifiedname>src.SessionManager.SessionManager.SessionManager.active_sessions</qualifiedname>
+        <initializer>=  {}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/kir/Desktop/py/API/src/SessionManager/SessionManager.py" line="22" column="1" bodyfile="C:/Users/kir/Desktop/py/API/src/SessionManager/SessionManager.py" bodystart="22" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classsrc_1_1_session_manager_1_1_session_manager_1_1_session_manager_1aa2005fc8b425dcfa8f4c96f0aa9f80f3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>None</type>
+        <definition> None src.SessionManager.SessionManager.SessionManager.__init__</definition>
+        <argsstring>(self)</argsstring>
+        <name>__init__</name>
+        <qualifiedname>src.SessionManager.SessionManager.SessionManager.__init__</qualifiedname>
+        <param>
+          <type>self</type>
+          <defname>self</defname>
+        </param>
+        <briefdescription>
+<para>Инициализация менеджера сессий </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/kir/Desktop/py/API/src/SessionManager/SessionManager.py" line="17" column="1" bodyfile="C:/Users/kir/Desktop/py/API/src/SessionManager/SessionManager.py" bodystart="17" bodyend="23"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrc_1_1_session_manager_1_1_session_manager_1_1_session_manager_1abd148d50854cccb0ff7e7c93d2147ed2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition> int src.SessionManager.SessionManager.SessionManager.create_user</definition>
+        <argsstring>(self)</argsstring>
+        <name>create_user</name>
+        <qualifiedname>src.SessionManager.SessionManager.SessionManager.create_user</qualifiedname>
+        <param>
+          <type>self</type>
+          <defname>self</defname>
+        </param>
+        <briefdescription>
+<para>Создание нового пользователя </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>int ID созданного пользователя </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/kir/Desktop/py/API/src/SessionManager/SessionManager.py" line="24" column="1" bodyfile="C:/Users/kir/Desktop/py/API/src/SessionManager/SessionManager.py" bodystart="24" bodyend="31"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrc_1_1_session_manager_1_1_session_manager_1_1_session_manager_1a998efcf0b4c22cc5faf175a3c92eecb9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classsrc_1_1_game_master_1_1_game_master_1_1_game_master" kindref="compound">GameMaster</ref></type>
+        <definition> GameMaster src.SessionManager.SessionManager.SessionManager.start_session</definition>
+        <argsstring>(self, int session_id)</argsstring>
+        <name>start_session</name>
+        <qualifiedname>src.SessionManager.SessionManager.SessionManager.start_session</qualifiedname>
+        <param>
+          <type>self</type>
+          <defname>self</defname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>session_id</declname>
+        </param>
+        <briefdescription>
+<para>Запуск или возобновление игровой сессии </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>session_id</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>ID сессии</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><ref refid="classsrc_1_1_game_master_1_1_game_master_1_1_game_master" kindref="compound">GameMaster</ref> Объект мастера игры для управления сессией</para>
+</simplesect>
+<parameterlist kind="exception"><parameteritem>
+<parameternamelist>
+<parametername>ValueError</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>если сессия не найдена </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/kir/Desktop/py/API/src/SessionManager/SessionManager.py" line="32" column="1" bodyfile="C:/Users/kir/Desktop/py/API/src/SessionManager/SessionManager.py" bodystart="32" bodyend="56"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrc_1_1_session_manager_1_1_session_manager_1_1_session_manager_1ada7c5043a8839d41f62fc6e5d0c3714f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Optional[<ref refid="classsrc_1_1_game_master_1_1_game_master_1_1_game_master" kindref="compound">GameMaster</ref>]</type>
+        <definition> Optional[GameMaster] src.SessionManager.SessionManager.SessionManager.get_session</definition>
+        <argsstring>(self, int session_id)</argsstring>
+        <name>get_session</name>
+        <qualifiedname>src.SessionManager.SessionManager.SessionManager.get_session</qualifiedname>
+        <param>
+          <type>self</type>
+          <defname>self</defname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>session_id</declname>
+        </param>
+        <briefdescription>
+<para>Получение активной игровой сессии </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>session_id</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>ID сессии</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Optional[<ref refid="classsrc_1_1_game_master_1_1_game_master_1_1_game_master" kindref="compound">GameMaster</ref>] Объект мастера игры или None, если сессия не найдена </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/kir/Desktop/py/API/src/SessionManager/SessionManager.py" line="57" column="1" bodyfile="C:/Users/kir/Desktop/py/API/src/SessionManager/SessionManager.py" bodystart="57" bodyend="66"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrc_1_1_session_manager_1_1_session_manager_1_1_session_manager_1aa656a9c75833127e301b8a22b506b257" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>None</type>
+        <definition> None src.SessionManager.SessionManager.SessionManager.delete_user</definition>
+        <argsstring>(self, int user_id)</argsstring>
+        <name>delete_user</name>
+        <qualifiedname>src.SessionManager.SessionManager.SessionManager.delete_user</qualifiedname>
+        <param>
+          <type>self</type>
+          <defname>self</defname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>user_id</declname>
+        </param>
+        <briefdescription>
+<para>Удаление всех данных пользователя </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>user_id</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>ID пользователя </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/kir/Desktop/py/API/src/SessionManager/SessionManager.py" line="67" column="1" bodyfile="C:/Users/kir/Desktop/py/API/src/SessionManager/SessionManager.py" bodystart="67" bodyend="74"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>Менеджер игровых сессий </para>
+    </briefdescription>
+    <detaileddescription>
+<para>Класс отвечает за:<itemizedlist>
+<listitem><para>Создание и управление игровыми сессиями</para>
+</listitem><listitem><para>Управление пользователями</para>
+</listitem><listitem><para>Взаимодействие с базой данных для хранения информации о сессиях </para>
+</listitem></itemizedlist>
+</para>
+    </detaileddescription>
+    <location file="C:/Users/kir/Desktop/py/API/src/SessionManager/SessionManager.py" line="7" column="1" bodyfile="C:/Users/kir/Desktop/py/API/src/SessionManager/SessionManager.py" bodystart="7" bodyend="74"/>
+    <listofallmembers>
+      <member refid="classsrc_1_1_session_manager_1_1_session_manager_1_1_session_manager_1aa2005fc8b425dcfa8f4c96f0aa9f80f3" prot="public" virt="non-virtual"><scope>src::SessionManager::SessionManager::SessionManager</scope><name>__init__</name></member>
+      <member refid="classsrc_1_1_session_manager_1_1_session_manager_1_1_session_manager_1ad18f61f47f308462113132ca2564eba0" prot="public" virt="non-virtual"><scope>src::SessionManager::SessionManager::SessionManager</scope><name>active_sessions</name></member>
+      <member refid="classsrc_1_1_session_manager_1_1_session_manager_1_1_session_manager_1abd148d50854cccb0ff7e7c93d2147ed2" prot="public" virt="non-virtual"><scope>src::SessionManager::SessionManager::SessionManager</scope><name>create_user</name></member>
+      <member refid="classsrc_1_1_session_manager_1_1_session_manager_1_1_session_manager_1aeb0257a623292508922fb0b43f9de393" prot="public" virt="non-virtual"><scope>src::SessionManager::SessionManager::SessionManager</scope><name>db</name></member>
+      <member refid="classsrc_1_1_session_manager_1_1_session_manager_1_1_session_manager_1aa656a9c75833127e301b8a22b506b257" prot="public" virt="non-virtual"><scope>src::SessionManager::SessionManager::SessionManager</scope><name>delete_user</name></member>
+      <member refid="classsrc_1_1_session_manager_1_1_session_manager_1_1_session_manager_1ada7c5043a8839d41f62fc6e5d0c3714f" prot="public" virt="non-virtual"><scope>src::SessionManager::SessionManager::SessionManager</scope><name>get_session</name></member>
+      <member refid="classsrc_1_1_session_manager_1_1_session_manager_1_1_session_manager_1a998efcf0b4c22cc5faf175a3c92eecb9" prot="public" virt="non-virtual"><scope>src::SessionManager::SessionManager::SessionManager</scope><name>start_session</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

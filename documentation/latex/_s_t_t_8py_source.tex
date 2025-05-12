@@ -1,0 +1,182 @@
+\doxysection{STT.\+py}
+\label{_s_t_t_8py_source}\index{C:/Users/kir/Desktop/py/API/src/STT/STT.py@{C:/Users/kir/Desktop/py/API/src/STT/STT.py}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{keyword}{import}\ speech\_recognition\ \textcolor{keyword}{as}\ sr\ \ \textcolor{comment}{\#\ type:\ ignore}}
+\DoxyCodeLine{00002\ \textcolor{keyword}{from}\ typing\ \textcolor{keyword}{import}\ Optional,\ Dict}
+\DoxyCodeLine{00003\ \textcolor{keyword}{import}\ numpy\ \textcolor{keyword}{as}\ np}
+\DoxyCodeLine{00004\ \textcolor{keyword}{from}\ pydub\ \textcolor{keyword}{import}\ AudioSegment\ \ \textcolor{comment}{\#\ type:\ ignore}}
+\DoxyCodeLine{00005\ \textcolor{keyword}{import}\ os}
+\DoxyCodeLine{00006\ }
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ \textcolor{keyword}{class\ }STT:}
+\DoxyCodeLine{00009\ \ \ \ \ \textcolor{stringliteral}{"{}"{}"{}!}}
+\DoxyCodeLine{00010\ \textcolor{stringliteral}{\ \ \ \ @brief\ Класс\ для\ распознавания\ речи\ (Speech-\/to-\/Text)}}
+\DoxyCodeLine{00011\ \textcolor{stringliteral}{\ \ \ \ }}
+\DoxyCodeLine{00012\ \textcolor{stringliteral}{\ \ \ \ @details}}
+\DoxyCodeLine{00013\ \textcolor{stringliteral}{\ \ \ \ Реализует\ паттерн\ Singleton\ для\ обеспечения\ единой\ точки\ доступа}}
+\DoxyCodeLine{00014\ \textcolor{stringliteral}{\ \ \ \ к\ функционалу\ распознавания\ речи.\ Использует\ библиотеку\ speech\_recognition}}
+\DoxyCodeLine{00015\ \textcolor{stringliteral}{\ \ \ \ для\ преобразования\ аудио\ в\ текст.}}
+\DoxyCodeLine{00016\ \textcolor{stringliteral}{\ \ \ \ }}
+\DoxyCodeLine{00017\ \textcolor{stringliteral}{\ \ \ \ @note\ Поддерживает\ русский\ и\ английский\ языки\ для\ распознавания}}
+\DoxyCodeLine{00018\ \textcolor{stringliteral}{\ \ \ \ "{}"{}"{}}}
+\DoxyCodeLine{00019\ \ \ \ \ \_\_instance:\ Optional[\textcolor{stringliteral}{'STT'}]\ =\ \textcolor{keywordtype}{None}}
+\DoxyCodeLine{00020\ \ \ \ \ \_\_recognizer:\ Optional[sr.Recognizer]\ =\ \textcolor{keywordtype}{None}}
+\DoxyCodeLine{00021\ \ \ \ \ \_\_silence\_duration\_ms:\ int\ =\ 2000\ \ \textcolor{comment}{\#\ 2\ секунды\ тишины\ в\ начале}}
+\DoxyCodeLine{00022\ \ \ \ \ \_\_energy\_threshold:\ float\ =\ 300\ \ \textcolor{comment}{\#\ Порог\ энергии\ для\ определения\ речи}}
+\DoxyCodeLine{00023\ \ \ \ \ \_\_pause\_threshold:\ float\ =\ 0.8\ \ \textcolor{comment}{\#\ Порог\ паузы\ между\ словами}}
+\DoxyCodeLine{00024\ \ \ \ \ \_\_dynamic\_energy\_threshold:\ bool\ =\ \textcolor{keyword}{True}\ \ \textcolor{comment}{\#\ Динамическая\ настройка\ порога\ энергии}}
+\DoxyCodeLine{00025\ \ \ \ \ }
+\DoxyCodeLine{00026\ \ \ \ \ \textcolor{comment}{\#\ Словарь\ соответствия\ языков\ и\ их\ кодов}}
+\DoxyCodeLine{00027\ \ \ \ \ \_\_language\_codes:\ Dict[str,\ str]\ =\ \{}
+\DoxyCodeLine{00028\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}Russian"{}}:\ \textcolor{stringliteral}{"{}ru-\/RU"{}},}
+\DoxyCodeLine{00029\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}English"{}}:\ \textcolor{stringliteral}{"{}en-\/US"{}},}
+\DoxyCodeLine{00030\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}ru-\/RU"{}}:\ \textcolor{stringliteral}{"{}ru-\/RU"{}},}
+\DoxyCodeLine{00031\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}en-\/US"{}}:\ \textcolor{stringliteral}{"{}en-\/US"{}}}
+\DoxyCodeLine{00032\ \ \ \ \ \}}
+\DoxyCodeLine{00033\ \ \ \ \ }
+\DoxyCodeLine{00034\ \ \ \ \ \textcolor{comment}{\#\ Текущий\ язык\ распознавания}}
+\DoxyCodeLine{00035\ \ \ \ \ \_\_current\_language:\ str\ =\ \textcolor{stringliteral}{"{}Russian"{}}}
+\DoxyCodeLine{00036\ }
+\DoxyCodeLine{00037\ \ \ \ \ \textcolor{keyword}{def\ }\_\_new\_\_(cls)\ -\/>\ 'STT':}
+\DoxyCodeLine{00038\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}"{}"{}!}}
+\DoxyCodeLine{00039\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ @brief\ Создание\ единственного\ экземпляра\ класса}}
+\DoxyCodeLine{00040\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ }}
+\DoxyCodeLine{00041\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ @return\ STT\ Единственный\ экземпляр\ класса\ STT}}
+\DoxyCodeLine{00042\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ "{}"{}"{}}}
+\DoxyCodeLine{00043\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ cls.\_\_instance\ \textcolor{keywordflow}{is}\ \textcolor{keywordtype}{None}:}
+\DoxyCodeLine{00044\ \ \ \ \ \ \ \ \ \ \ \ \ cls.\_\_instance\ =\ super(STT,\ cls).\_\_new\_\_(cls)}
+\DoxyCodeLine{00045\ \ \ \ \ \ \ \ \ \ \ \ \ cls.\_\_recognizer\ =\ sr.Recognizer()}
+\DoxyCodeLine{00046\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ cls.\_\_instance}
+\DoxyCodeLine{00047\ }
+\DoxyCodeLine{00048\ \ \ \ \ \textcolor{keyword}{def\ }\_\_init\_\_(self)\ -\/>\ None:}
+\DoxyCodeLine{00049\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}"{}"{}!}}
+\DoxyCodeLine{00050\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ @brief\ Инициализация\ распознавателя\ речи}}
+\DoxyCodeLine{00051\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ }}
+\DoxyCodeLine{00052\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ @note\ Метод\ выполняется\ только\ при\ первом\ создании\ экземпляра}}
+\DoxyCodeLine{00053\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ "{}"{}"{}}}
+\DoxyCodeLine{00054\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ self.\_\_recognizer\ \textcolor{keywordflow}{is}\ \textcolor{keywordtype}{None}:}
+\DoxyCodeLine{00055\ \ \ \ \ \ \ \ \ \ \ \ \ self.\_\_recognizer\ =\ sr.Recognizer()}
+\DoxyCodeLine{00056\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{\#\ Настройка\ параметров\ распознавателя}}
+\DoxyCodeLine{00057\ \ \ \ \ \ \ \ \ \ \ \ \ self.\_\_recognizer.energy\_threshold\ =\ self.\_\_energy\_threshold}
+\DoxyCodeLine{00058\ \ \ \ \ \ \ \ \ \ \ \ \ self.\_\_recognizer.pause\_threshold\ =\ self.\_\_pause\_threshold}
+\DoxyCodeLine{00059\ \ \ \ \ \ \ \ \ \ \ \ \ self.\_\_recognizer.dynamic\_energy\_threshold\ =\ self.\_\_dynamic\_energy\_threshold}
+\DoxyCodeLine{00060\ }
+\DoxyCodeLine{00061\ \ \ \ \ \textcolor{keyword}{def\ }set\_language(self,\ language:\ str)\ -\/>\ \textcolor{keywordtype}{None}:}
+\DoxyCodeLine{00062\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}"{}"{}!}}
+\DoxyCodeLine{00063\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ @brief\ Установка\ языка\ распознавания}}
+\DoxyCodeLine{00064\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ }}
+\DoxyCodeLine{00065\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ @param\ language\ Язык\ для\ распознавания\ (Russian/English\ или\ ru-\/RU/en-\/US)}}
+\DoxyCodeLine{00066\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ }}
+\DoxyCodeLine{00067\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ @throws\ ValueError\ если\ указанный\ язык\ не\ поддерживается}}
+\DoxyCodeLine{00068\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ "{}"{}"{}}}
+\DoxyCodeLine{00069\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ language\ \textcolor{keywordflow}{not}\ \textcolor{keywordflow}{in}\ self.\_\_language\_codes:}
+\DoxyCodeLine{00070\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{raise}\ ValueError(f\textcolor{stringliteral}{"{}Неподдерживаемый\ язык:\ \{language\}.\ Поддерживаемые\ языки:\ \{',\ '.join(self.\_\_language\_codes.keys())\}"{}})}
+\DoxyCodeLine{00071\ \ \ \ \ \ \ \ \ self.\_\_current\_language\ =\ language}
+\DoxyCodeLine{00072\ }
+\DoxyCodeLine{00073\ \ \ \ \ \textcolor{keyword}{def\ }get\_language(self)\ -\/>\ str:}
+\DoxyCodeLine{00074\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}"{}"{}!}}
+\DoxyCodeLine{00075\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ @brief\ Получение\ текущего\ языка\ распознавания}}
+\DoxyCodeLine{00076\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ }}
+\DoxyCodeLine{00077\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ @return\ str\ Текущий\ язык\ распознавания}}
+\DoxyCodeLine{00078\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ "{}"{}"{}}}
+\DoxyCodeLine{00079\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ self.\_\_current\_language}
+\DoxyCodeLine{00080\ }
+\DoxyCodeLine{00081\ \ \ \ \ \textcolor{keyword}{def\ }\_\_add\_silence\_padding(self,\ audio\_path:\ str)\ -\/>\ str:}
+\DoxyCodeLine{00082\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}"{}"{}!}}
+\DoxyCodeLine{00083\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ @brief\ Добавление\ тишины\ в\ начало\ аудиофайла}}
+\DoxyCodeLine{00084\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ }}
+\DoxyCodeLine{00085\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ @param\ audio\_path\ Путь\ к\ исходному\ аудиофайлу}}
+\DoxyCodeLine{00086\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ }}
+\DoxyCodeLine{00087\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ @return\ str\ Путь\ к\ новому\ аудиофайлу\ с\ добавленной\ тишиной}}
+\DoxyCodeLine{00088\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ "{}"{}"{}}}
+\DoxyCodeLine{00089\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{try}:}
+\DoxyCodeLine{00090\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{\#\ Загрузка\ аудиофайла}}
+\DoxyCodeLine{00091\ \ \ \ \ \ \ \ \ \ \ \ \ audio\ =\ AudioSegment.from\_file(audio\_path)}
+\DoxyCodeLine{00092\ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00093\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{\#\ Создание\ тишины}}
+\DoxyCodeLine{00094\ \ \ \ \ \ \ \ \ \ \ \ \ silence\ =\ AudioSegment.silent(duration=self.\_\_silence\_duration\_ms)}
+\DoxyCodeLine{00095\ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00096\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{\#\ Добавление\ тишины\ в\ начало}}
+\DoxyCodeLine{00097\ \ \ \ \ \ \ \ \ \ \ \ \ audio\_with\_silence\ =\ silence\ +\ audio}
+\DoxyCodeLine{00098\ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00099\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{\#\ Создание\ временного\ файла}}
+\DoxyCodeLine{00100\ \ \ \ \ \ \ \ \ \ \ \ \ temp\_path\ =\ audio\_path.replace(\textcolor{stringliteral}{'.wav'},\ \textcolor{stringliteral}{'\_with\_silence.wav'})}
+\DoxyCodeLine{00101\ \ \ \ \ \ \ \ \ \ \ \ \ audio\_with\_silence.export(temp\_path,\ format=\textcolor{stringliteral}{"{}wav"{}})}
+\DoxyCodeLine{00102\ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00103\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ temp\_path}
+\DoxyCodeLine{00104\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{except}\ Exception\ \textcolor{keyword}{as}\ e:}
+\DoxyCodeLine{00105\ \ \ \ \ \ \ \ \ \ \ \ \ print(f\textcolor{stringliteral}{"{}Ошибка\ при\ добавлении\ тишины:\ \{str(e)\}"{}})}
+\DoxyCodeLine{00106\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ audio\_path}
+\DoxyCodeLine{00107\ }
+\DoxyCodeLine{00108\ \ \ \ \ \textcolor{keyword}{def\ }\_\_cleanup\_temp\_file(self,\ temp\_path:\ str)\ -\/>\ \textcolor{keywordtype}{None}:}
+\DoxyCodeLine{00109\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}"{}"{}!}}
+\DoxyCodeLine{00110\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ @brief\ Удаление\ временного\ файла}}
+\DoxyCodeLine{00111\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ }}
+\DoxyCodeLine{00112\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ @param\ temp\_path\ Путь\ к\ временному\ файлу}}
+\DoxyCodeLine{00113\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ "{}"{}"{}}}
+\DoxyCodeLine{00114\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{try}:}
+\DoxyCodeLine{00115\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ os.path.exists(temp\_path)\ \textcolor{keywordflow}{and}\ \textcolor{stringliteral}{'\_with\_silence.wav'}\ \textcolor{keywordflow}{in}\ temp\_path:}
+\DoxyCodeLine{00116\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ os.remove(temp\_path)}
+\DoxyCodeLine{00117\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{except}\ Exception\ \textcolor{keyword}{as}\ e:}
+\DoxyCodeLine{00118\ \ \ \ \ \ \ \ \ \ \ \ \ print(f\textcolor{stringliteral}{"{}Ошибка\ при\ удалении\ временного\ файла:\ \{str(e)\}"{}})}
+\DoxyCodeLine{00119\ }
+\DoxyCodeLine{00120\ \ \ \ \ \textcolor{keyword}{def\ }audio\_to\_text(self,\ audio\_path:\ str)\ -\/>\ str:}
+\DoxyCodeLine{00121\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}"{}"{}!}}
+\DoxyCodeLine{00122\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ @brief\ Преобразование\ аудиофайла\ в\ текст}}
+\DoxyCodeLine{00123\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ }}
+\DoxyCodeLine{00124\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ @param\ audio\_path\ Путь\ к\ аудиофайлу\ для\ распознавания}}
+\DoxyCodeLine{00125\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ }}
+\DoxyCodeLine{00126\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ @return\ str\ Распознанный\ текст\ или\ сообщение\ об\ ошибке}}
+\DoxyCodeLine{00127\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ }}
+\DoxyCodeLine{00128\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ @throws\ sr.UnknownValueError\ если\ речь\ не\ может\ быть\ распознана}}
+\DoxyCodeLine{00129\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ @throws\ sr.RequestError\ если\ возникла\ ошибка\ при\ подключении\ к\ API}}
+\DoxyCodeLine{00130\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ "{}"{}"{}}}
+\DoxyCodeLine{00131\ \ \ \ \ \ \ \ \ temp\_path\ =\ \textcolor{keywordtype}{None}}
+\DoxyCodeLine{00132\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{try}:}
+\DoxyCodeLine{00133\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{\#\ Добавляем\ тишину\ в\ начало\ файла}}
+\DoxyCodeLine{00134\ \ \ \ \ \ \ \ \ \ \ \ \ temp\_path\ =\ self.\_\_add\_silence\_padding(audio\_path)}
+\DoxyCodeLine{00135\ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00136\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ self.\_\_recognizer\ \textcolor{keywordflow}{is}\ \textcolor{keywordtype}{None}:}
+\DoxyCodeLine{00137\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{stringliteral}{"{}Ошибка:\ распознаватель\ речи\ не\ инициализирован"{}}}
+\DoxyCodeLine{00138\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00139\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{with}\ sr.AudioFile(temp\_path)\ \textcolor{keyword}{as}\ source:}
+\DoxyCodeLine{00140\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{\#\ Настройка\ распознавателя\ для\ уменьшения\ шума}}
+\DoxyCodeLine{00141\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ self.\_\_recognizer.adjust\_for\_ambient\_noise(source,\ duration=0.5)}
+\DoxyCodeLine{00142\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ audio\_data\ =\ self.\_\_recognizer.record(source)}
+\DoxyCodeLine{00143\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00144\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{\#\ Получаем\ код\ языка\ для\ Google\ Speech\ Recognition}}
+\DoxyCodeLine{00145\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ language\_code\ =\ self.\_\_language\_codes[self.\_\_current\_language]}
+\DoxyCodeLine{00146\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00147\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{\#\ Сначала\ пробуем\ использовать\ Google\ Speech\ Recognition}}
+\DoxyCodeLine{00148\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{try}:}
+\DoxyCodeLine{00149\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ text\ =\ self.\_\_recognizer.recognize\_google(audio\_data,\ language=language\_code)}
+\DoxyCodeLine{00150\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ str(text)}
+\DoxyCodeLine{00151\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{except}\ (sr.UnknownValueError,\ sr.RequestError):}
+\DoxyCodeLine{00152\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{\#\ Если\ Google\ не\ сработал,\ пробуем\ Sphinx}}
+\DoxyCodeLine{00153\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{try}:}
+\DoxyCodeLine{00154\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ text\ =\ self.\_\_recognizer.recognize\_sphinx(audio\_data,\ language=language\_code)}
+\DoxyCodeLine{00155\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ str(text)}
+\DoxyCodeLine{00156\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{except}\ (sr.UnknownValueError,\ sr.RequestError):}
+\DoxyCodeLine{00157\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{stringliteral}{"{}Речь\ не\ распознана"{}}}
+\DoxyCodeLine{00158\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{except}\ Exception\ \textcolor{keyword}{as}\ e:}
+\DoxyCodeLine{00159\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ f\textcolor{stringliteral}{"{}Ошибка\ при\ обработке\ аудио:\ \{str(e)\}"{}}}
+\DoxyCodeLine{00160\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{finally}:}
+\DoxyCodeLine{00161\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{\#\ Удаляем\ временный\ файл}}
+\DoxyCodeLine{00162\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ temp\_path:}
+\DoxyCodeLine{00163\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ self.\_\_cleanup\_temp\_file(temp\_path)}
+\DoxyCodeLine{00164\ }
+\DoxyCodeLine{00165\ }
+\DoxyCodeLine{00166\ \textcolor{comment}{\#\ Пример\ использования}}
+\DoxyCodeLine{00167\ \textcolor{keywordflow}{if}\ \_\_name\_\_\ ==\ \textcolor{stringliteral}{"{}\_\_main\_\_"{}}:}
+\DoxyCodeLine{00168\ \ \ \ \ stt\ =\ STT()}
+\DoxyCodeLine{00169\ \ \ \ \ }
+\DoxyCodeLine{00170\ \ \ \ \ \textcolor{comment}{\#\ Установка\ языка\ (можно\ использовать\ "{}Russian"{}/"{}English"{}\ или\ "{}ru-\/RU"{}/"{}en-\/US"{})}}
+\DoxyCodeLine{00171\ \ \ \ \ stt.set\_language(\textcolor{stringliteral}{"{}Russian"{}})}
+\DoxyCodeLine{00172\ \ \ \ \ }
+\DoxyCodeLine{00173\ \ \ \ \ \textcolor{keywordflow}{for}\ i\ \textcolor{keywordflow}{in}\ range(1,\ 5+1):}
+\DoxyCodeLine{00174\ \ \ \ \ \ \ \ \ audio\_file\ =\ f\textcolor{stringliteral}{"{}Audio/test/\{i\}.wav"{}}}
+\DoxyCodeLine{00175\ \ \ \ \ \ \ \ \ result\ =\ stt.audio\_to\_text(audio\_file)}
+\DoxyCodeLine{00176\ \ \ \ \ \ \ \ \ print(f\textcolor{stringliteral}{"{}Файл\ \{i\}:\ \{result\}"{}})}
+
+\end{DoxyCode}

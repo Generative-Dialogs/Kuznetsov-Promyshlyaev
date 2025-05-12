@@ -1,0 +1,12 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.13.2" xml:lang="ru">
+  <compounddef id="dir_814a0ff088737b94f0ce35fea5e10d9d" kind="dir">
+    <compoundname>C:/Users/kir/Desktop/py/API/src/GameManager</compoundname>
+    <innerfile refid="_game_manager_8py">GameManager.py</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="C:/Users/kir/Desktop/py/API/src/GameManager/"/>
+  </compounddef>
+</doxygen>

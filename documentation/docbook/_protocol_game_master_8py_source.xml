@@ -1,0 +1,57 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="__protocol_game_master_8py_source" xml:lang="ru">
+<title>ProtocolGameMaster.py</title>
+<indexterm><primary>C:/Users/kir/Desktop/py/API/src/GameMaster/ProtocolGameMaster.py</primary></indexterm>
+<programlisting linenumbering="unnumbered"><anchor xml:id="__protocol_game_master_8py_source_1l00001"/>00001 <emphasis role="keyword">from</emphasis>&#32;typing&#32;<emphasis role="keyword">import</emphasis>&#32;Protocol,&#32;Optional,&#32;List,&#32;Tuple,&#32;Set
+<anchor xml:id="__protocol_game_master_8py_source_1l00002"/>00002 <emphasis role="keyword">from</emphasis>&#32;<link linkend="_namespacesrc_1_1_game_master_1_1_command_data">src.GameMaster.CommandData</link>&#32;<emphasis role="keyword">import</emphasis>&#32;CommandData
+<anchor xml:id="__protocol_game_master_8py_source_1l00003"/>00003 
+<anchor xml:id="__protocol_game_master_8py_source_1l00004"/><link linkend="_classsrc_1_1_game_master_1_1_protocol_game_master_1_1_protocol_game_master">00004</link> <emphasis role="keyword">class&#32;</emphasis><link linkend="_classsrc_1_1_game_master_1_1_protocol_game_master_1_1_protocol_game_master">ProtocolGameMaster</link>(Protocol):
+<anchor xml:id="__protocol_game_master_8py_source_1l00005"/>00005 &#32;&#32;&#32;&#32;<emphasis role="stringliteral">&quot;&quot;&quot;!</emphasis>
+<anchor xml:id="__protocol_game_master_8py_source_1l00006"/>00006 <emphasis role="stringliteral">&#32;&#32;&#32;&#32;@brief&#32;Протокол&#32;для&#32;мастера&#32;игры</emphasis>
+<anchor xml:id="__protocol_game_master_8py_source_1l00007"/>00007 <emphasis role="stringliteral">&#32;&#32;&#32;&#32;</emphasis>
+<anchor xml:id="__protocol_game_master_8py_source_1l00008"/>00008 <emphasis role="stringliteral">&#32;&#32;&#32;&#32;@details</emphasis>
+<anchor xml:id="__protocol_game_master_8py_source_1l00009"/>00009 <emphasis role="stringliteral">&#32;&#32;&#32;&#32;Определяет&#32;интерфейс&#32;для&#32;мастера&#32;игры,&#32;который&#32;отвечает&#32;за:</emphasis>
+<anchor xml:id="__protocol_game_master_8py_source_1l00010"/>00010 <emphasis role="stringliteral">&#32;&#32;&#32;&#32;-&#32;Генерацию&#32;ответов&#32;на&#32;действия&#32;игрока</emphasis>
+<anchor xml:id="__protocol_game_master_8py_source_1l00011"/>00011 <emphasis role="stringliteral">&#32;&#32;&#32;&#32;-&#32;Управление&#32;игровыми&#32;персонажами</emphasis>
+<anchor xml:id="__protocol_game_master_8py_source_1l00012"/>00012 <emphasis role="stringliteral">&#32;&#32;&#32;&#32;-&#32;Поддержание&#32;целостности&#32;игрового&#32;мира</emphasis>
+<anchor xml:id="__protocol_game_master_8py_source_1l00013"/>00013 <emphasis role="stringliteral">&#32;&#32;&#32;&#32;-&#32;Обработку&#32;команд&#32;и&#32;инструкций</emphasis>
+<anchor xml:id="__protocol_game_master_8py_source_1l00014"/>00014 <emphasis role="stringliteral">&#32;&#32;&#32;&#32;&quot;&quot;&quot;</emphasis>
+<anchor xml:id="__protocol_game_master_8py_source_1l00015"/>00015 &#32;&#32;&#32;&#32;world_description:&#32;str
+<anchor xml:id="__protocol_game_master_8py_source_1l00016"/>00016 &#32;&#32;&#32;&#32;player_description:&#32;str
+<anchor xml:id="__protocol_game_master_8py_source_1l00017"/>00017 &#32;&#32;&#32;&#32;
+<anchor xml:id="__protocol_game_master_8py_source_1l00018"/><link linkend="_classsrc_1_1_game_master_1_1_protocol_game_master_1_1_protocol_game_master_1a6e421e6e57783f84be9b98d42cfb9af2">00018</link> &#32;&#32;&#32;&#32;<emphasis role="keyword">def&#32;</emphasis><link linkend="_classsrc_1_1_game_master_1_1_protocol_game_master_1_1_protocol_game_master_1a6e421e6e57783f84be9b98d42cfb9af2">generate_answer</link>(self,&#32;message:&#32;str)&#32;-&gt;&#32;str:
+<anchor xml:id="__protocol_game_master_8py_source_1l00019"/>00019 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="stringliteral">&quot;&quot;&quot;!</emphasis>
+<anchor xml:id="__protocol_game_master_8py_source_1l00020"/>00020 <emphasis role="stringliteral">&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;@brief&#32;Генерация&#32;ответа&#32;на&#32;сообщение&#32;игрока</emphasis>
+<anchor xml:id="__protocol_game_master_8py_source_1l00021"/>00021 <emphasis role="stringliteral">&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;</emphasis>
+<anchor xml:id="__protocol_game_master_8py_source_1l00022"/>00022 <emphasis role="stringliteral">&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;@param&#32;message&#32;Сообщение&#32;игрока</emphasis>
+<anchor xml:id="__protocol_game_master_8py_source_1l00023"/>00023 <emphasis role="stringliteral">&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;@return&#32;str&#32;Ответ&#32;системы</emphasis>
+<anchor xml:id="__protocol_game_master_8py_source_1l00024"/>00024 <emphasis role="stringliteral">&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&quot;&quot;&quot;</emphasis>
+<anchor xml:id="__protocol_game_master_8py_source_1l00025"/>00025 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;...
+<anchor xml:id="__protocol_game_master_8py_source_1l00026"/>00026 
+<anchor xml:id="__protocol_game_master_8py_source_1l00027"/><link linkend="_classsrc_1_1_game_master_1_1_protocol_game_master_1_1_protocol_game_master_1ac842ff606b7dd24e62ff6e62f5163035">00027</link> &#32;&#32;&#32;&#32;<emphasis role="keyword">def&#32;</emphasis><link linkend="_classsrc_1_1_game_master_1_1_protocol_game_master_1_1_protocol_game_master_1ac842ff606b7dd24e62ff6e62f5163035">generate_instruction</link>(self,&#32;message:&#32;str)&#32;-&gt;&#32;Tuple[List[CommandData],&#32;str]:
+<anchor xml:id="__protocol_game_master_8py_source_1l00028"/>00028 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="stringliteral">&quot;&quot;&quot;!</emphasis>
+<anchor xml:id="__protocol_game_master_8py_source_1l00029"/>00029 <emphasis role="stringliteral">&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;@brief&#32;Генерация&#32;инструкций&#32;на&#32;основе&#32;сообщения</emphasis>
+<anchor xml:id="__protocol_game_master_8py_source_1l00030"/>00030 <emphasis role="stringliteral">&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;</emphasis>
+<anchor xml:id="__protocol_game_master_8py_source_1l00031"/>00031 <emphasis role="stringliteral">&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;@param&#32;message&#32;Сообщение&#32;для&#32;обработки</emphasis>
+<anchor xml:id="__protocol_game_master_8py_source_1l00032"/>00032 <emphasis role="stringliteral">&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;@return&#32;Tuple[List[CommandData],&#32;str]&#32;Кортеж&#32;из&#32;списка&#32;команд&#32;и&#32;текстового&#32;вывода</emphasis>
+<anchor xml:id="__protocol_game_master_8py_source_1l00033"/>00033 <emphasis role="stringliteral">&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&quot;&quot;&quot;</emphasis>
+<anchor xml:id="__protocol_game_master_8py_source_1l00034"/>00034 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;...
+<anchor xml:id="__protocol_game_master_8py_source_1l00035"/>00035 
+<anchor xml:id="__protocol_game_master_8py_source_1l00036"/><link linkend="_classsrc_1_1_game_master_1_1_protocol_game_master_1_1_protocol_game_master_1a2ca7cf4f8163b1dd4056a66403117f04">00036</link> &#32;&#32;&#32;&#32;<emphasis role="keyword">def&#32;</emphasis><link linkend="_classsrc_1_1_game_master_1_1_protocol_game_master_1_1_protocol_game_master_1a2ca7cf4f8163b1dd4056a66403117f04">parse_commands</link>(self,&#32;commands:&#32;List[CommandData])&#32;-&gt;&#32;Tuple[str,&#32;Set[str]]:
+<anchor xml:id="__protocol_game_master_8py_source_1l00037"/>00037 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="stringliteral">&quot;&quot;&quot;!</emphasis>
+<anchor xml:id="__protocol_game_master_8py_source_1l00038"/>00038 <emphasis role="stringliteral">&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;@brief&#32;Обработка&#32;списка&#32;команд</emphasis>
+<anchor xml:id="__protocol_game_master_8py_source_1l00039"/>00039 <emphasis role="stringliteral">&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;</emphasis>
+<anchor xml:id="__protocol_game_master_8py_source_1l00040"/>00040 <emphasis role="stringliteral">&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;@param&#32;commands&#32;Список&#32;команд&#32;для&#32;обработки</emphasis>
+<anchor xml:id="__protocol_game_master_8py_source_1l00041"/>00041 <emphasis role="stringliteral">&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;@return&#32;Tuple[str,&#32;Set[str]]&#32;Кортеж&#32;из&#32;текстового&#32;вывода&#32;и&#32;множества&#32;имен&#32;активных&#32;персонажей</emphasis>
+<anchor xml:id="__protocol_game_master_8py_source_1l00042"/>00042 <emphasis role="stringliteral">&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&quot;&quot;&quot;</emphasis>
+<anchor xml:id="__protocol_game_master_8py_source_1l00043"/>00043 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;...
+<anchor xml:id="__protocol_game_master_8py_source_1l00044"/>00044 
+<anchor xml:id="__protocol_game_master_8py_source_1l00045"/><link linkend="_classsrc_1_1_game_master_1_1_protocol_game_master_1_1_protocol_game_master_1a8a9b7dd7fd2039e11dc803822e5f159c">00045</link> &#32;&#32;&#32;&#32;<emphasis role="keyword">def&#32;</emphasis><link linkend="_classsrc_1_1_game_master_1_1_protocol_game_master_1_1_protocol_game_master_1a8a9b7dd7fd2039e11dc803822e5f159c">validate_and_parse</link>(self,&#32;input_text:&#32;str)&#32;-&gt;&#32;Tuple[Optional[List[CommandData]],&#32;str]:
+<anchor xml:id="__protocol_game_master_8py_source_1l00046"/>00046 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="stringliteral">&quot;&quot;&quot;!</emphasis>
+<anchor xml:id="__protocol_game_master_8py_source_1l00047"/>00047 <emphasis role="stringliteral">&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;@brief&#32;Валидация&#32;и&#32;парсинг&#32;входного&#32;текста</emphasis>
+<anchor xml:id="__protocol_game_master_8py_source_1l00048"/>00048 <emphasis role="stringliteral">&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;</emphasis>
+<anchor xml:id="__protocol_game_master_8py_source_1l00049"/>00049 <emphasis role="stringliteral">&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;@param&#32;input_text&#32;Текст&#32;для&#32;валидации&#32;и&#32;парсинга</emphasis>
+<anchor xml:id="__protocol_game_master_8py_source_1l00050"/>00050 <emphasis role="stringliteral">&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;@return&#32;Tuple[Optional[List[CommandData]],&#32;str]&#32;Кортеж&#32;из&#32;списка&#32;команд&#32;(или&#32;None)&#32;и&#32;сообщения&#32;об&#32;ошибке</emphasis>
+<anchor xml:id="__protocol_game_master_8py_source_1l00051"/>00051 <emphasis role="stringliteral">&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&quot;&quot;&quot;</emphasis>
+<anchor xml:id="__protocol_game_master_8py_source_1l00052"/>00052 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;...
+</programlisting></section>

@@ -1,0 +1,149 @@
+.TH "src.SessionManager.SessionManager.SessionManager" 3 "My Project" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+src.SessionManager.SessionManager.SessionManager \- Менеджер игровых сессий  
+
+.SH SYNOPSIS
+.br
+.PP
+.SS "Открытые члены"
+
+.in +1c
+.ti -1c
+.RI "None \fB__init__\fP (self)"
+.br
+.RI "Инициализация менеджера сессий "
+.ti -1c
+.RI "int \fBcreate_user\fP (self)"
+.br
+.RI "Создание нового пользователя "
+.ti -1c
+.RI "\fBGameMaster\fP \fBstart_session\fP (self, int session_id)"
+.br
+.RI "Запуск или возобновление игровой сессии "
+.ti -1c
+.RI "Optional[\fBGameMaster\fP] \fBget_session\fP (self, int session_id)"
+.br
+.RI "Получение активной игровой сессии "
+.ti -1c
+.RI "None \fBdelete_user\fP (self, int user_id)"
+.br
+.RI "Удаление всех данных пользователя "
+.in -1c
+.SS "Открытые атрибуты"
+
+.in +1c
+.ti -1c
+.RI "\fBdb\fP = \fBDatabaseManager\fP()"
+.br
+.ti -1c
+.RI "dict \fBactive_sessions\fP = {}"
+.br
+.in -1c
+.SH "Подробное описание"
+.PP 
+Менеджер игровых сессий 
+
+Класс отвечает за:
+.IP "\(bu" 2
+Создание и управление игровыми сессиями
+.IP "\(bu" 2
+Управление пользователями
+.IP "\(bu" 2
+Взаимодействие с базой данных для хранения информации о сессиях 
+.PP
+
+.PP
+См\&. определение в файле \fBSessionManager\&.py\fP строка \fB7\fP
+.SH "Конструктор(ы)"
+.PP 
+.SS " None src\&.SessionManager\&.SessionManager\&.SessionManager\&.__init__ ( self)"
+
+.PP
+Инициализация менеджера сессий 
+.PP
+См\&. определение в файле \fBSessionManager\&.py\fP строка \fB17\fP
+.SH "Методы"
+.PP 
+.SS " int src\&.SessionManager\&.SessionManager\&.SessionManager\&.create_user ( self)"
+
+.PP
+Создание нового пользователя 
+.PP
+\fBВозвращает\fP
+.RS 4
+int ID созданного пользователя 
+.RE
+.PP
+
+.PP
+См\&. определение в файле \fBSessionManager\&.py\fP строка \fB24\fP
+.SS " None src\&.SessionManager\&.SessionManager\&.SessionManager\&.delete_user ( self, int user_id)"
+
+.PP
+Удаление всех данных пользователя 
+.PP
+\fBАргументы\fP
+.RS 4
+\fIuser_id\fP ID пользователя 
+.RE
+.PP
+
+.PP
+См\&. определение в файле \fBSessionManager\&.py\fP строка \fB67\fP
+.SS " Optional[\fBGameMaster\fP] src\&.SessionManager\&.SessionManager\&.SessionManager\&.get_session ( self, int session_id)"
+
+.PP
+Получение активной игровой сессии 
+.PP
+\fBАргументы\fP
+.RS 4
+\fIsession_id\fP ID сессии
+.RE
+.PP
+\fBВозвращает\fP
+.RS 4
+Optional[\fBGameMaster\fP] Объект мастера игры или None, если сессия не найдена 
+.RE
+.PP
+
+.PP
+См\&. определение в файле \fBSessionManager\&.py\fP строка \fB57\fP
+.SS " \fBGameMaster\fP src\&.SessionManager\&.SessionManager\&.SessionManager\&.start_session ( self, int session_id)"
+
+.PP
+Запуск или возобновление игровой сессии 
+.PP
+\fBАргументы\fP
+.RS 4
+\fIsession_id\fP ID сессии
+.RE
+.PP
+\fBВозвращает\fP
+.RS 4
+\fBGameMaster\fP Объект мастера игры для управления сессией
+.RE
+.PP
+\fBИсключения\fP
+.RS 4
+\fIValueError\fP если сессия не найдена 
+.RE
+.PP
+
+.PP
+См\&. определение в файле \fBSessionManager\&.py\fP строка \fB32\fP
+.SH "Данные класса"
+.PP 
+.SS "dict src\&.SessionManager\&.SessionManager\&.SessionManager\&.active_sessions = {}"
+
+.PP
+См\&. определение в файле \fBSessionManager\&.py\fP строка \fB22\fP
+.SS "src\&.SessionManager\&.SessionManager\&.SessionManager\&.db = \fBDatabaseManager\fP()"
+
+.PP
+См\&. определение в файле \fBSessionManager\&.py\fP строка \fB21\fP
+
+.SH "Автор"
+.PP 
+Автоматически создано Doxygen для My Project из исходного текста\&.

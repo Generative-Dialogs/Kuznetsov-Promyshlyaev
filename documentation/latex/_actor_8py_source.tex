@@ -1,0 +1,147 @@
+\doxysection{Actor.\+py}
+\label{_actor_8py_source}\index{C:/Users/kir/Desktop/py/API/src/Actor/Actor.py@{C:/Users/kir/Desktop/py/API/src/Actor/Actor.py}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{keyword}{from}\ src.GameMaster.ProtocolGameMaster\ \textcolor{keyword}{import}\ ProtocolGameMaster}
+\DoxyCodeLine{00002\ \textcolor{keyword}{from}\ src.MessageGenerator.ProtocolMessageGenerator\ \textcolor{keyword}{import}\ ProtocolMessageGenerator}
+\DoxyCodeLine{00003\ \textcolor{keyword}{from}\ src.MessageGenerator.MessageGeneratorGroq\ \textcolor{keyword}{import}\ MessageGeneratorGroq}
+\DoxyCodeLine{00004\ \textcolor{keyword}{from}\ typing\ \textcolor{keyword}{import}\ List,\ Dict,\ Optional}
+\DoxyCodeLine{00005\ \textcolor{keyword}{import}\ json}
+\DoxyCodeLine{00006\ \textcolor{keyword}{from}\ src.DatabaseManager.DatabaseManager\ \textcolor{keyword}{import}\ DatabaseManager}
+\DoxyCodeLine{00007\ \textcolor{keyword}{from}\ src.MessageGenerator.MessageGeneratorOpenRouter\ \textcolor{keyword}{import}\ MessageGeneratorOpenRouter}
+\DoxyCodeLine{00008\ \textcolor{keyword}{from}\ src.Actor.ActorPromts\ \textcolor{keyword}{import}\ start\_message}
+\DoxyCodeLine{00009\ \textcolor{keyword}{from}\ src.GameMaster.GameMasterPromts\ \textcolor{keyword}{import}\ off\_topic\_message\_eng,\ off\_topic\_message\_ru}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00012\ \textcolor{keyword}{class\ }Actor:}
+\DoxyCodeLine{00013\ \ \ \ \ \textcolor{stringliteral}{"{}"{}"{}!}}
+\DoxyCodeLine{00014\ \textcolor{stringliteral}{\ \ \ \ @brief\ Реализация\ актора\ в\ игровой\ системе}}
+\DoxyCodeLine{00015\ \textcolor{stringliteral}{\ \ \ \ }}
+\DoxyCodeLine{00016\ \textcolor{stringliteral}{\ \ \ \ @details}}
+\DoxyCodeLine{00017\ \textcolor{stringliteral}{\ \ \ \ Класс\ отвечает\ за\ генерацию\ детализированных\ описаний}}
+\DoxyCodeLine{00018\ \textcolor{stringliteral}{\ \ \ \ действий\ и\ событий\ в\ игре.\ Преобразует\ команды\ мастера}}
+\DoxyCodeLine{00019\ \textcolor{stringliteral}{\ \ \ \ игры\ в\ нарративные\ описания\ с\ учетом\ контекста\ и\ активных\ персонажей.}}
+\DoxyCodeLine{00020\ \textcolor{stringliteral}{\ \ \ \ "{}"{}"{}}}
+\DoxyCodeLine{00021\ \ \ \ \ }
+\DoxyCodeLine{00022\ \ \ \ \ \textcolor{keyword}{def\ }\_\_init\_\_(self,\ game\_master:\ ProtocolGameMaster,\ session\_id:\ int,\ language:\ str\ =\ \textcolor{stringliteral}{"{}English"{}},\ fast\_flg:\ bool\ =\ \textcolor{keyword}{True})\ -\/>\ \textcolor{keywordtype}{None}:}
+\DoxyCodeLine{00023\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}"{}"{}!}}
+\DoxyCodeLine{00024\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ @brief\ Инициализация\ актора}}
+\DoxyCodeLine{00025\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ }}
+\DoxyCodeLine{00026\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ @param\ game\_master\ Экземпляр\ мастера\ игры}}
+\DoxyCodeLine{00027\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ @param\ session\_id\ ID\ игровой\ сессии}}
+\DoxyCodeLine{00028\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ @param\ language\ Язык\ генерации\ описаний\ (по\ умолчанию\ "{}English"{})}}
+\DoxyCodeLine{00029\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ @param\ fast\_flg\ Флаг\ быстрого\ режима\ инициализации}}
+\DoxyCodeLine{00030\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ }}
+\DoxyCodeLine{00031\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ @details}}
+\DoxyCodeLine{00032\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ Создает\ нового\ актора\ с\ заданными\ параметрами\ и\ инициализирует}}
+\DoxyCodeLine{00033\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ необходимые\ компоненты\ для\ генерации\ описаний.}}
+\DoxyCodeLine{00034\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ "{}"{}"{}}}
+\DoxyCodeLine{00035\ \ \ \ \ \ \ \ \ self.\_\_game\_master\ =\ game\_master}
+\DoxyCodeLine{00036\ \ \ \ \ \ \ \ \ self.\_\_session\_id\ =\ session\_id}
+\DoxyCodeLine{00037\ \ \ \ \ \ \ \ \ self.\_\_language\ =\ language}
+\DoxyCodeLine{00038\ \ \ \ \ \ \ \ \ self.\_\_messageGenerator\ =\ MessageGeneratorOpenRouter()}
+\DoxyCodeLine{00039\ \ \ \ \ \ \ \ \ self.\_\_active\_characters:\ Dict[str,\ str]\ =\ \{\}}
+\DoxyCodeLine{00040\ \ \ \ \ \ \ \ \ self.\_\_db\ =\ DatabaseManager()}
+\DoxyCodeLine{00041\ }
+\DoxyCodeLine{00042\ \ \ \ \ \ \ \ \ formatted\_start\_message:\ str\ =\ f\textcolor{stringliteral}{'''}}
+\DoxyCodeLine{00043\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \{start\_message\}}}
+\DoxyCodeLine{00044\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ Story\ world\ context:\ \{game\_master.world\_description\}}}
+\DoxyCodeLine{00045\ \textcolor{stringliteral}{}}
+\DoxyCodeLine{00046\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ Important:\ All\ your\ responses\ must\ be\ in\ \{language\}\ language.}}
+\DoxyCodeLine{00047\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ If\ you\ understand\ these\ guidelines,\ write\ "{}Ready\ to\ narrate\ concisely"{}.}}
+\DoxyCodeLine{00048\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ '''}}
+\DoxyCodeLine{00049\ }
+\DoxyCodeLine{00050\ \ \ \ \ \ \ \ \ is\_new\_session\ =\ self.\_\_db.is\_new\_session\_actor\_prompt(session\_id)}
+\DoxyCodeLine{00051\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00052\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ is\_new\_session:}
+\DoxyCodeLine{00053\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ fast\_flg:}
+\DoxyCodeLine{00054\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ self.\_\_messageGenerator.add\_system\_message(formatted\_start\_message)}
+\DoxyCodeLine{00055\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ response\ =\ \textcolor{stringliteral}{"{}Ready\ to\ narrate\ concisely"{}}}
+\DoxyCodeLine{00056\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ self.\_\_messageGenerator.add\_ai\_message(response)}
+\DoxyCodeLine{00057\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ self.\_\_db.save\_actor\_prompt(session\_id,\ formatted\_start\_message,\ response)}
+\DoxyCodeLine{00058\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{00059\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ response\ =\ self.\_\_messageGenerator.generate(formatted\_start\_message)}
+\DoxyCodeLine{00060\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ self.\_\_db.save\_actor\_prompt(session\_id,\ formatted\_start\_message,\ response)}
+\DoxyCodeLine{00061\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ print(response)}
+\DoxyCodeLine{00062\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{00063\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{\#\ Load\ prompts\ from\ database\ for\ existing\ session}}
+\DoxyCodeLine{00064\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ prompt\_content,\ model\_response\ \textcolor{keywordflow}{in}\ self.\_\_db.get\_actor\_prompts(session\_id):}
+\DoxyCodeLine{00065\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ self.\_\_messageGenerator.add\_system\_message(prompt\_content)}
+\DoxyCodeLine{00066\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ self.\_\_messageGenerator.add\_ai\_message(model\_response)}
+\DoxyCodeLine{00067\ }
+\DoxyCodeLine{00068\ \ \ \ \ \ \ \ \ \textcolor{comment}{\#\ Load\ actor\ message\ history}}
+\DoxyCodeLine{00069\ \ \ \ \ \ \ \ \ actor\_history\ =\ self.\_\_db.get\_actor\_messages(session\_id)}
+\DoxyCodeLine{00070\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ \_,\ master\_prompt,\ actor\_response\ \textcolor{keywordflow}{in}\ actor\_history:}
+\DoxyCodeLine{00071\ \ \ \ \ \ \ \ \ \ \ \ \ self.\_\_messageGenerator.add\_user\_message(master\_prompt)}
+\DoxyCodeLine{00072\ \ \ \ \ \ \ \ \ \ \ \ \ self.\_\_messageGenerator.add\_ai\_message(actor\_response)}
+\DoxyCodeLine{00073\ }
+\DoxyCodeLine{00074\ \ \ \ \ \textcolor{keyword}{def\ }update\_active\_characters(self,\ characters:\ Dict[str,\ str])\ -\/>\ \textcolor{keywordtype}{None}:}
+\DoxyCodeLine{00075\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}"{}"{}!}}
+\DoxyCodeLine{00076\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ @brief\ Обновление\ списка\ активных\ персонажей}}
+\DoxyCodeLine{00077\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ }}
+\DoxyCodeLine{00078\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ @param\ characters\ Словарь\ с\ именами\ и\ описаниями\ активных\ персонажей}}
+\DoxyCodeLine{00079\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ }}
+\DoxyCodeLine{00080\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ @details}}
+\DoxyCodeLine{00081\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ Обновляет\ список\ персонажей,\ которые\ в\ данный\ момент}}
+\DoxyCodeLine{00082\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ присутствуют\ в\ сцене\ и\ могут\ участвовать\ в\ действиях.}}
+\DoxyCodeLine{00083\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ "{}"{}"{}}}
+\DoxyCodeLine{00084\ \ \ \ \ \ \ \ \ self.\_\_active\_characters\ =\ characters}
+\DoxyCodeLine{00085\ }
+\DoxyCodeLine{00086\ \ \ \ \ \textcolor{keyword}{def\ }get\_detailed\_action(self,\ game\_master\_output:\ str,\ user\_input:\ str)\ -\/>\ str:}
+\DoxyCodeLine{00087\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}"{}"{}!}}
+\DoxyCodeLine{00088\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ @brief\ Получение\ детализированного\ описания\ действия}}
+\DoxyCodeLine{00089\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ }}
+\DoxyCodeLine{00090\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ @param\ game\_master\_output\ Выходные\ данные\ мастера\ игры}}
+\DoxyCodeLine{00091\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ @param\ user\_input\ Ввод\ пользователя}}
+\DoxyCodeLine{00092\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ }}
+\DoxyCodeLine{00093\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ @return\ str\ Детализированное\ описание\ действия}}
+\DoxyCodeLine{00094\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ }}
+\DoxyCodeLine{00095\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ @details}}
+\DoxyCodeLine{00096\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ Генерирует\ подробное\ нарративное\ описание\ действия}}
+\DoxyCodeLine{00097\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ на\ основе\ команд\ мастера\ игры\ и\ контекста\ активных\ персонажей.}}
+\DoxyCodeLine{00098\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ Учитывает\ язык\ генерации\ и\ сохраняет\ историю\ сообщений.}}
+\DoxyCodeLine{00099\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ "{}"{}"{}}}
+\DoxyCodeLine{00100\ \ \ \ \ \ \ \ \ \textcolor{comment}{\#\ Format\ character\ information}}
+\DoxyCodeLine{00101\ \ \ \ \ \ \ \ \ characters\_info\ =\ \textcolor{stringliteral}{"{}\(\backslash\)n"{}}.join([f\textcolor{stringliteral}{"{}\{name\}:\ \{desc\}"{}}\ \textcolor{keywordflow}{for}\ name,\ desc\ \textcolor{keywordflow}{in}\ self.\_\_active\_characters.items()])}
+\DoxyCodeLine{00102\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ game\_master\_output\ ==\ off\_topic\_message\_eng:}
+\DoxyCodeLine{00103\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ self.\_\_language\ ==\ \textcolor{stringliteral}{'Russian'}:}
+\DoxyCodeLine{00104\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ response\ =\ off\_topic\_message\_ru}
+\DoxyCodeLine{00105\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{00106\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ response\ =\ \ off\_topic\_message\_eng}
+\DoxyCodeLine{00107\ \ \ \ \ \ \ \ \ \ \ \ \ self.\_\_db.save\_actor\_message(self.\_\_session\_id,\ game\_master\_output,\ response)}
+\DoxyCodeLine{00108\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ response}
+\DoxyCodeLine{00109\ }
+\DoxyCodeLine{00110\ \ \ \ \ \ \ \ \ narration\_prompt\ =\ f\textcolor{stringliteral}{'''}}
+\DoxyCodeLine{00111\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ Current\ scene\ characters:}}
+\DoxyCodeLine{00112\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \{characters\_info\}}}
+\DoxyCodeLine{00113\ \textcolor{stringliteral}{}}
+\DoxyCodeLine{00114\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ User's\ input:\ "{}\{user\_input\}"{}}}
+\DoxyCodeLine{00115\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ Game\ Master's\ output:\ \{game\_master\_output\}}}
+\DoxyCodeLine{00116\ \textcolor{stringliteral}{}}
+\DoxyCodeLine{00117\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ Transform\ this\ into\ a\ concise\ narrative\ following\ the\ established\ guidelines.}}
+\DoxyCodeLine{00118\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ Remember:}}
+\DoxyCodeLine{00119\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ Never\ describe\ a\ dialogue,\ write\ what\ it\ says.}}
+\DoxyCodeLine{00120\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ If\ you\ have\ been\ given\ an\ answer\ with\ specific\ details,\ they\ should\ be\ described\ if\ this\ is\ important\ information\ for\ the\ plot\ that\ the\ character\ obviously\ sees.\ If\ this\ information\ is\ part\ of\ the\ dialogue,\ describe\ it\ if\ a\ normal\ conversation\ between\ people\ involves\ the\ disclosure\ of\ this\ information.}}
+\DoxyCodeLine{00121\ \textcolor{stringliteral}{}}
+\DoxyCodeLine{00122\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ '''}}
+\DoxyCodeLine{00123\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00124\ \ \ \ \ \ \ \ \ response\ =\ self.\_\_messageGenerator.generate(narration\_prompt)}
+\DoxyCodeLine{00125\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00126\ \ \ \ \ \ \ \ \ \textcolor{comment}{\#\ Save\ to\ database}}
+\DoxyCodeLine{00127\ \ \ \ \ \ \ \ \ self.\_\_db.save\_actor\_message(self.\_\_session\_id,\ game\_master\_output,\ response)}
+\DoxyCodeLine{00128\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00129\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ response}
+\DoxyCodeLine{00130\ }
+\DoxyCodeLine{00131\ \ \ \ \ \textcolor{keyword}{def\ }get\_message\_history(self)\ -\/>\ List[Dict[str,\ str]]:}
+\DoxyCodeLine{00132\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}"{}"{}!}}
+\DoxyCodeLine{00133\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ @brief\ Получение\ истории\ сообщений}}
+\DoxyCodeLine{00134\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ }}
+\DoxyCodeLine{00135\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ @return\ List[Dict[str,\ str]]\ Список\ словарей\ с\ историей\ сообщений}}
+\DoxyCodeLine{00136\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ }}
+\DoxyCodeLine{00137\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ @details}}
+\DoxyCodeLine{00138\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ Возвращает\ полную\ историю\ сообщений,\ включая\ системные}}
+\DoxyCodeLine{00139\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ сообщения,\ сообщения\ пользователя\ и\ ответы\ актора.}}
+\DoxyCodeLine{00140\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ "{}"{}"{}}}
+\DoxyCodeLine{00141\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ self.\_\_messageGenerator.get\_message\_history()}
+
+\end{DoxyCode}

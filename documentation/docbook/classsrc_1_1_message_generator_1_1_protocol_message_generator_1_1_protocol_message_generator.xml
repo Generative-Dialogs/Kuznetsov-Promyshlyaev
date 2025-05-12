@@ -1,0 +1,228 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_classsrc_1_1_message_generator_1_1_protocol_message_generator_1_1_protocol_message_generator" xml:lang="ru">
+<title>Класс src.MessageGenerator.ProtocolMessageGenerator.ProtocolMessageGenerator</title>
+<indexterm><primary>src.MessageGenerator.ProtocolMessageGenerator.ProtocolMessageGenerator</primary></indexterm>
+<para>
+
+<para>Протокол для генерации сообщений </para>
+ 
+</para>
+<para>Граф наследования:src.MessageGenerator.ProtocolMessageGenerator.ProtocolMessageGenerator:    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="classsrc_1_1_message_generator_1_1_protocol_message_generator_1_1_protocol_message_generator.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Открытые члены    </title>
+        <itemizedlist>
+            <listitem><para>str <link linkend="_classsrc_1_1_message_generator_1_1_protocol_message_generator_1_1_protocol_message_generator_1a3b2d9e3f4f31cce6400c8fe8b5329bf4">generate</link> (self, str messages, str model=&apos;&apos;)</para>
+
+<para>Генерация ответа на основе входного сообщения </para>
+</listitem>
+            <listitem><para>None <link linkend="_classsrc_1_1_message_generator_1_1_protocol_message_generator_1_1_protocol_message_generator_1acecf0dcf2a5261a36c56da5ab6e253e3">add_user_message</link> (self, str message)</para>
+
+<para>Добавление сообщения пользователя в историю </para>
+</listitem>
+            <listitem><para>None <link linkend="_classsrc_1_1_message_generator_1_1_protocol_message_generator_1_1_protocol_message_generator_1a05e18c9670112887e7fd920ad79caf14">add_system_message</link> (self, str message)</para>
+
+<para>Добавление системного сообщения в историю </para>
+</listitem>
+            <listitem><para>None <link linkend="_classsrc_1_1_message_generator_1_1_protocol_message_generator_1_1_protocol_message_generator_1afaffcee2207244df4fa8b5b398196062">add_ai_message</link> (self, str message)</para>
+
+<para>Добавление сообщения ИИ в историю </para>
+</listitem>
+            <listitem><para>List[Dict[str, str]] <link linkend="_classsrc_1_1_message_generator_1_1_protocol_message_generator_1_1_protocol_message_generator_1a854ce7a11bf37223a2b51f465a0a7638">get_message_history</link> (self)</para>
+
+<para>Получение истории сообщений </para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Подробное описание</title>
+
+<para>Протокол для генерации сообщений </para>
+
+
+
+<para>Определяет интерфейс для классов, реализующих генерацию сообщений. Используется как контракт для различных реализаций генераторов сообщений. </para>
+<para>
+См. определение в файле <link linkend="__protocol_message_generator_8py_source">ProtocolMessageGenerator.py</link> строка <link linkend="__protocol_message_generator_8py_source_1l00004">4</link></para>
+</section>
+<section>
+<title>Методы</title>
+<anchor xml:id="_classsrc_1_1_message_generator_1_1_protocol_message_generator_1_1_protocol_message_generator_1afaffcee2207244df4fa8b5b398196062"/><section>
+    <title>add_ai_message()</title>
+<indexterm><primary>add_ai_message</primary><secondary>src.MessageGenerator.ProtocolMessageGenerator.ProtocolMessageGenerator</secondary></indexterm>
+<indexterm><primary>src.MessageGenerator.ProtocolMessageGenerator.ProtocolMessageGenerator</primary><secondary>add_ai_message</secondary></indexterm>
+<para><computeroutput> None src.MessageGenerator.ProtocolMessageGenerator.ProtocolMessageGenerator.add_ai_message ( self, str message)</computeroutput></para><para>
+
+<para>Добавление сообщения ИИ в историю </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Аргументы</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>message</entry><entry>
+<para>Текст сообщения ИИ </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+<para>
+Переопределяется в <link linkend="_classsrc_1_1_message_generator_1_1_message_generator_deep_seek_1_1_message_generator_deep_seek_1a4ad1e859f543ce3e1cce49b8a1ffc7c0">src.MessageGenerator.MessageGeneratorDeepSeek.MessageGeneratorDeepSeek</link>, <link linkend="_classsrc_1_1_message_generator_1_1_message_generator_groq_1_1_message_generator_groq_1ad1bbe107a0b4808269d42ce6d60f34ef">src.MessageGenerator.MessageGeneratorGroq.MessageGeneratorGroq</link> и <link linkend="_classsrc_1_1_message_generator_1_1_message_generator_open_router_1_1_message_generator_open_router_1aa5d3cc3f60a9d6fa9dd5b3953ddeb96d">src.MessageGenerator.MessageGeneratorOpenRouter.MessageGeneratorOpenRouter</link>.</para>
+<para>
+См. определение в файле <link linkend="__protocol_message_generator_8py_source">ProtocolMessageGenerator.py</link> строка <link linkend="__protocol_message_generator_8py_source_1l00040">40</link></para>
+</section>
+<anchor xml:id="_classsrc_1_1_message_generator_1_1_protocol_message_generator_1_1_protocol_message_generator_1a05e18c9670112887e7fd920ad79caf14"/><section>
+    <title>add_system_message()</title>
+<indexterm><primary>add_system_message</primary><secondary>src.MessageGenerator.ProtocolMessageGenerator.ProtocolMessageGenerator</secondary></indexterm>
+<indexterm><primary>src.MessageGenerator.ProtocolMessageGenerator.ProtocolMessageGenerator</primary><secondary>add_system_message</secondary></indexterm>
+<para><computeroutput> None src.MessageGenerator.ProtocolMessageGenerator.ProtocolMessageGenerator.add_system_message ( self, str message)</computeroutput></para><para>
+
+<para>Добавление системного сообщения в историю </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Аргументы</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>message</entry><entry>
+<para>Текст системного сообщения </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+<para>
+Переопределяется в <link linkend="_classsrc_1_1_message_generator_1_1_message_generator_deep_seek_1_1_message_generator_deep_seek_1a36703bcdba3a8acfd2875370a2f43215">src.MessageGenerator.MessageGeneratorDeepSeek.MessageGeneratorDeepSeek</link>, <link linkend="_classsrc_1_1_message_generator_1_1_message_generator_groq_1_1_message_generator_groq_1a253ab4ceb6fdaa120ea1f4163bd95fcb">src.MessageGenerator.MessageGeneratorGroq.MessageGeneratorGroq</link> и <link linkend="_classsrc_1_1_message_generator_1_1_message_generator_open_router_1_1_message_generator_open_router_1a1fb2452d509bfbf2b1bcf924265fe386">src.MessageGenerator.MessageGeneratorOpenRouter.MessageGeneratorOpenRouter</link>.</para>
+<para>
+См. определение в файле <link linkend="__protocol_message_generator_8py_source">ProtocolMessageGenerator.py</link> строка <link linkend="__protocol_message_generator_8py_source_1l00032">32</link></para>
+</section>
+<anchor xml:id="_classsrc_1_1_message_generator_1_1_protocol_message_generator_1_1_protocol_message_generator_1acecf0dcf2a5261a36c56da5ab6e253e3"/><section>
+    <title>add_user_message()</title>
+<indexterm><primary>add_user_message</primary><secondary>src.MessageGenerator.ProtocolMessageGenerator.ProtocolMessageGenerator</secondary></indexterm>
+<indexterm><primary>src.MessageGenerator.ProtocolMessageGenerator.ProtocolMessageGenerator</primary><secondary>add_user_message</secondary></indexterm>
+<para><computeroutput> None src.MessageGenerator.ProtocolMessageGenerator.ProtocolMessageGenerator.add_user_message ( self, str message)</computeroutput></para><para>
+
+<para>Добавление сообщения пользователя в историю </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Аргументы</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>message</entry><entry>
+<para>Текст сообщения пользователя </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+<para>
+Переопределяется в <link linkend="_classsrc_1_1_message_generator_1_1_message_generator_deep_seek_1_1_message_generator_deep_seek_1a92cd7430f9c81a8f5b6de9b0b4724111">src.MessageGenerator.MessageGeneratorDeepSeek.MessageGeneratorDeepSeek</link>, <link linkend="_classsrc_1_1_message_generator_1_1_message_generator_groq_1_1_message_generator_groq_1a49e6e6a49d276e60130573614ac8b09b">src.MessageGenerator.MessageGeneratorGroq.MessageGeneratorGroq</link> и <link linkend="_classsrc_1_1_message_generator_1_1_message_generator_open_router_1_1_message_generator_open_router_1af52bb8a0267ae1b4daa825306d899a7e">src.MessageGenerator.MessageGeneratorOpenRouter.MessageGeneratorOpenRouter</link>.</para>
+<para>
+См. определение в файле <link linkend="__protocol_message_generator_8py_source">ProtocolMessageGenerator.py</link> строка <link linkend="__protocol_message_generator_8py_source_1l00024">24</link></para>
+</section>
+<anchor xml:id="_classsrc_1_1_message_generator_1_1_protocol_message_generator_1_1_protocol_message_generator_1a3b2d9e3f4f31cce6400c8fe8b5329bf4"/><section>
+    <title>generate()</title>
+<indexterm><primary>generate</primary><secondary>src.MessageGenerator.ProtocolMessageGenerator.ProtocolMessageGenerator</secondary></indexterm>
+<indexterm><primary>src.MessageGenerator.ProtocolMessageGenerator.ProtocolMessageGenerator</primary><secondary>generate</secondary></indexterm>
+<para><computeroutput> str src.MessageGenerator.ProtocolMessageGenerator.ProtocolMessageGenerator.generate ( self, str messages, str  model = <computeroutput>&apos;&apos;</computeroutput>
+)</computeroutput></para><para>
+
+<para>Генерация ответа на основе входного сообщения </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Аргументы</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>messages</entry><entry>
+<para>Входное сообщение для обработки </para>
+</entry>
+                            </row>
+                            <row>
+<entry>model</entry><entry>
+<para>Название модели для генерации (опционально)</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Возвращает</title>
+
+<para>str Сгенерированный ответ </para>
+</formalpara>
+</para>
+<para>
+Переопределяется в <link linkend="_classsrc_1_1_message_generator_1_1_message_generator_deep_seek_1_1_message_generator_deep_seek_1a68531f3d43ffeb6363d6efbf434048d4">src.MessageGenerator.MessageGeneratorDeepSeek.MessageGeneratorDeepSeek</link>, <link linkend="_classsrc_1_1_message_generator_1_1_message_generator_groq_1_1_message_generator_groq_1a55c476ecd34d9391f86fd20c0ccd93c5">src.MessageGenerator.MessageGeneratorGroq.MessageGeneratorGroq</link> и <link linkend="_classsrc_1_1_message_generator_1_1_message_generator_open_router_1_1_message_generator_open_router_1a15028a5b1b03263bf167d0b962b6a8ed">src.MessageGenerator.MessageGeneratorOpenRouter.MessageGeneratorOpenRouter</link>.</para>
+<para>
+См. определение в файле <link linkend="__protocol_message_generator_8py_source">ProtocolMessageGenerator.py</link> строка <link linkend="__protocol_message_generator_8py_source_1l00013">13</link></para>
+</section>
+<anchor xml:id="_classsrc_1_1_message_generator_1_1_protocol_message_generator_1_1_protocol_message_generator_1a854ce7a11bf37223a2b51f465a0a7638"/><section>
+    <title>get_message_history()</title>
+<indexterm><primary>get_message_history</primary><secondary>src.MessageGenerator.ProtocolMessageGenerator.ProtocolMessageGenerator</secondary></indexterm>
+<indexterm><primary>src.MessageGenerator.ProtocolMessageGenerator.ProtocolMessageGenerator</primary><secondary>get_message_history</secondary></indexterm>
+<para><computeroutput> List[Dict[str, str]] src.MessageGenerator.ProtocolMessageGenerator.ProtocolMessageGenerator.get_message_history ( self)</computeroutput></para><para>
+
+<para>Получение истории сообщений </para>
+</para>
+
+<para><formalpara><title>Возвращает</title>
+
+<para>List[Dict[str, str]] Список сообщений в формате словарей </para>
+</formalpara>
+</para>
+<para>
+Переопределяется в <link linkend="_classsrc_1_1_message_generator_1_1_message_generator_deep_seek_1_1_message_generator_deep_seek_1ad3dc50b0d644789063eede934d586d7e">src.MessageGenerator.MessageGeneratorDeepSeek.MessageGeneratorDeepSeek</link>, <link linkend="_classsrc_1_1_message_generator_1_1_message_generator_groq_1_1_message_generator_groq_1af59bda1d70f1580e1cdab0402b87a1fd">src.MessageGenerator.MessageGeneratorGroq.MessageGeneratorGroq</link> и <link linkend="_classsrc_1_1_message_generator_1_1_message_generator_open_router_1_1_message_generator_open_router_1a7578f9aa506627b7e8de5e6b322f401e">src.MessageGenerator.MessageGeneratorOpenRouter.MessageGeneratorOpenRouter</link>.</para>
+<para>
+См. определение в файле <link linkend="__protocol_message_generator_8py_source">ProtocolMessageGenerator.py</link> строка <link linkend="__protocol_message_generator_8py_source_1l00048">48</link></para>
+</section>
+<para>
+Объявления и описания членов класса находятся в файле:</para>
+C:/Users/kir/Desktop/py/API/src/MessageGenerator/ProtocolMessageGenerator.py</section>
+</section>

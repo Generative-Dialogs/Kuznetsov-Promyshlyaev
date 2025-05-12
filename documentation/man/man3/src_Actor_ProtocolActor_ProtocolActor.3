@@ -1,0 +1,50 @@
+.TH "src.Actor.ProtocolActor.ProtocolActor" 3 "My Project" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+src.Actor.ProtocolActor.ProtocolActor \- Протокол для актора в игровой системе  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Базовые классы:Protocol\&.
+.SS "Открытые члены"
+
+.in +1c
+.ti -1c
+.RI "str \fBget_detailed_action\fP (self, str game_master_output)"
+.br
+.RI "Получение детализированного описания действия "
+.in -1c
+.SH "Подробное описание"
+.PP 
+Протокол для актора в игровой системе 
+
+Определяет интерфейс для актора, который отвечает за генерацию детализированных действий и описаний в игре\&. Актор преобразует команды мастера игры в нарративные описания\&. 
+.PP
+См\&. определение в файле \fBProtocolActor\&.py\fP строка \fB6\fP
+.SH "Методы"
+.PP 
+.SS " str src\&.Actor\&.ProtocolActor\&.ProtocolActor\&.get_detailed_action ( self, str game_master_output)"
+
+.PP
+Получение детализированного описания действия 
+.PP
+\fBАргументы\fP
+.RS 4
+\fIgame_master_output\fP Выходные данные мастера игры 
+.RE
+.PP
+\fBВозвращает\fP
+.RS 4
+str Детализированное описание действия
+.RE
+.PP
+Преобразует команды мастера игры в подробное нарративное описание действий и событий\&. 
+.PP
+См\&. определение в файле \fBProtocolActor\&.py\fP строка \fB20\fP
+
+.SH "Автор"
+.PP 
+Автоматически создано Doxygen для My Project из исходного текста\&.

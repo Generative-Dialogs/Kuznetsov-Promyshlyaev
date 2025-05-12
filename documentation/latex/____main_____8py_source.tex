@@ -1,0 +1,160 @@
+\doxysection{\+\_\+\+\_\+main\+\_\+\+\_\+.\+py}
+\label{____main_____8py_source}\index{C:/Users/kir/Desktop/py/API/src/\_\_main\_\_.py@{C:/Users/kir/Desktop/py/API/src/\_\_main\_\_.py}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{\#!/usr/bin/env\ python3}}
+\DoxyCodeLine{00002\ \textcolor{keyword}{import}\ os}
+\DoxyCodeLine{00003\ \textcolor{keyword}{import}\ sys}
+\DoxyCodeLine{00004\ \textcolor{keyword}{import}\ subprocess}
+\DoxyCodeLine{00005\ \textcolor{keyword}{from}\ typing\ \textcolor{keyword}{import}\ Optional,\ Tuple}
+\DoxyCodeLine{00006\ \textcolor{keyword}{from}\ src.DatabaseManager.DatabaseManager\ \textcolor{keyword}{import}\ DatabaseManager}
+\DoxyCodeLine{00007\ \textcolor{keyword}{from}\ src.Descriptions.CharacterDecription\ \textcolor{keyword}{import}\ base\_character\_description}
+\DoxyCodeLine{00008\ \textcolor{keyword}{from}\ src.Descriptions.WorldDecription\ \textcolor{keyword}{import}\ base\_world\_description}
+\DoxyCodeLine{00009\ \textcolor{keyword}{from}\ src.ImagePromptGenerator.ImagePromptGenerator\ \textcolor{keyword}{import}\ ImagePromptGenerator}
+\DoxyCodeLine{00010\ \textcolor{keyword}{from}\ src.ImageGenerator.ImageGeneratorGoogle\ \textcolor{keyword}{import}\ ImageGeneratorGoogle}
+\DoxyCodeLine{00011\ \textcolor{keyword}{from}\ src.ImageManager.ImageManager\ \textcolor{keyword}{import}\ ImageManager}
+\DoxyCodeLine{00012\ project\_root\ =\ os.path.abspath(os.path.join(os.path.dirname(\_\_file\_\_),\ \textcolor{stringliteral}{'..'}))}
+\DoxyCodeLine{00013\ sys.path.insert(0,\ project\_root)}
+\DoxyCodeLine{00014\ }
+\DoxyCodeLine{00015\ \textcolor{keyword}{from}\ src.SessionManager.SessionManager\ \textcolor{keyword}{import}\ SessionManager}
+\DoxyCodeLine{00016\ \textcolor{keyword}{from}\ src.Actor.Actor\ \textcolor{keyword}{import}\ Actor}
+\DoxyCodeLine{00017\ \textcolor{keyword}{from}\ src.GameMaster.GameMaster\ \textcolor{keyword}{import}\ GameMaster}
+\DoxyCodeLine{00018\ \textcolor{keyword}{from}\ src.GameManager.GameManager\ \textcolor{keyword}{import}\ GameManager}
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00020\ }
+\DoxyCodeLine{00021\ \textcolor{keyword}{def\ }run\_mypy()\ -\/>\ None:}
+\DoxyCodeLine{00022\ \ \ \ \ result\ =\ subprocess.run([\textcolor{stringliteral}{'python'},\ \textcolor{stringliteral}{'-\/m'},\ \textcolor{stringliteral}{'mypy'},\ \textcolor{stringliteral}{'-\/-\/show-\/error-\/codes'},\ \textcolor{stringliteral}{'src/'}],\ capture\_output=\textcolor{keyword}{True},\ text=\textcolor{keyword}{True})}
+\DoxyCodeLine{00023\ \ \ \ \ \textcolor{keywordflow}{if}\ result.returncode\ !=\ 0:}
+\DoxyCodeLine{00024\ \ \ \ \ \ \ \ \ print(\textcolor{stringliteral}{"{}Mypy\ check\ failed:"{}})}
+\DoxyCodeLine{00025\ \ \ \ \ \ \ \ \ print(result.stdout)}
+\DoxyCodeLine{00026\ \ \ \ \ \ \ \ \ print(result.stderr)}
+\DoxyCodeLine{00027\ \ \ \ \ \ \ \ \ sys.exit(1)}
+\DoxyCodeLine{00028\ }
+\DoxyCodeLine{00029\ }
+\DoxyCodeLine{00030\ \textcolor{keyword}{def\ }select\_user(manager:\ SessionManager)\ -\/>\ int:}
+\DoxyCodeLine{00031\ \ \ \ \ \textcolor{keywordflow}{while}\ \textcolor{keyword}{True}:}
+\DoxyCodeLine{00032\ \ \ \ \ \ \ \ \ print(\textcolor{stringliteral}{"{}\(\backslash\)nAvailable\ users:"{}})}
+\DoxyCodeLine{00033\ \ \ \ \ \ \ \ \ users\ =\ manager.db.get\_all\_users()}
+\DoxyCodeLine{00034\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ users:}
+\DoxyCodeLine{00035\ \ \ \ \ \ \ \ \ \ \ \ \ print(\textcolor{stringliteral}{"{}Existing\ users:"{}})}
+\DoxyCodeLine{00036\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ user\_id\ \textcolor{keywordflow}{in}\ users:}
+\DoxyCodeLine{00037\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ print(f\textcolor{stringliteral}{"{}User\ ID:\ \{user\_id\}"{}})}
+\DoxyCodeLine{00038\ \ \ \ \ \ \ \ \ print(\textcolor{stringliteral}{"{}\(\backslash\)nOptions:"{}})}
+\DoxyCodeLine{00039\ \ \ \ \ \ \ \ \ print(\textcolor{stringliteral}{"{}a.\ Select\ existing\ user\ (enter\ user\ ID)"{}})}
+\DoxyCodeLine{00040\ \ \ \ \ \ \ \ \ print(\textcolor{stringliteral}{"{}b.\ Create\ new\ user"{}})}
+\DoxyCodeLine{00041\ \ \ \ \ \ \ \ \ choice\ =\ input(\textcolor{stringliteral}{"{}Your\ choice:\ "{}}).strip()}
+\DoxyCodeLine{00042\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00043\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ choice\ ==\ \textcolor{stringliteral}{"{}b"{}}:}
+\DoxyCodeLine{00044\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ manager.create\_user()}
+\DoxyCodeLine{00045\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{elif}\ choice.isdigit():}
+\DoxyCodeLine{00046\ \ \ \ \ \ \ \ \ \ \ \ \ user\_id\ =\ int(choice)}
+\DoxyCodeLine{00047\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ user\_id\ \textcolor{keywordflow}{in}\ users:}
+\DoxyCodeLine{00048\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ user\_id}
+\DoxyCodeLine{00049\ \ \ \ \ \ \ \ \ print(\textcolor{stringliteral}{"{}Invalid\ choice.\ Please\ try\ again."{}})}
+\DoxyCodeLine{00050\ }
+\DoxyCodeLine{00051\ }
+\DoxyCodeLine{00052\ \textcolor{keyword}{def\ }select\_session(manager:\ SessionManager,\ user\_id:\ int)\ -\/>\ Tuple[int,\ bool]:}
+\DoxyCodeLine{00053\ \ \ \ \ \textcolor{keywordflow}{while}\ \textcolor{keyword}{True}:}
+\DoxyCodeLine{00054\ \ \ \ \ \ \ \ \ sessions\ =\ manager.db.get\_user\_sessions(user\_id)}
+\DoxyCodeLine{00055\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ sessions:}
+\DoxyCodeLine{00056\ \ \ \ \ \ \ \ \ \ \ \ \ print(\textcolor{stringliteral}{"{}\(\backslash\)nExisting\ sessions:"{}})}
+\DoxyCodeLine{00057\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ session\_id,\ created\_at,\ world\_desc,\ player\_desc\ \textcolor{keywordflow}{in}\ sessions:}
+\DoxyCodeLine{00058\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ print(f\textcolor{stringliteral}{"{}\(\backslash\)nSession\ ID:\ \{session\_id\}"{}})}
+\DoxyCodeLine{00059\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ print(f\textcolor{stringliteral}{"{}Created:\ \{created\_at\}"{}})}
+\DoxyCodeLine{00060\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ print(f\textcolor{stringliteral}{"{}World:\ \{world\_desc[:50]\}..."{}})}
+\DoxyCodeLine{00061\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ print(f\textcolor{stringliteral}{"{}Player:\ \{player\_desc[:50]\}..."{}})}
+\DoxyCodeLine{00062\ \ \ \ \ \ \ \ \ \ \ \ \ print(\textcolor{stringliteral}{"{}\(\backslash\)nOptions:"{}})}
+\DoxyCodeLine{00063\ \ \ \ \ \ \ \ \ \ \ \ \ print(\textcolor{stringliteral}{"{}a.\ Select\ existing\ session\ (enter\ session\ ID)"{}})}
+\DoxyCodeLine{00064\ \ \ \ \ \ \ \ \ \ \ \ \ print(\textcolor{stringliteral}{"{}b.\ Create\ new\ session"{}})}
+\DoxyCodeLine{00065\ \ \ \ \ \ \ \ \ \ \ \ \ choice\ =\ input(\textcolor{stringliteral}{"{}Your\ choice:\ "{}}).strip()}
+\DoxyCodeLine{00066\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{00067\ \ \ \ \ \ \ \ \ \ \ \ \ choice\ =\ \textcolor{stringliteral}{"{}b"{}}}
+\DoxyCodeLine{00068\ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00069\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ choice\ ==\ \textcolor{stringliteral}{"{}b"{}}:}
+\DoxyCodeLine{00070\ \ \ \ \ \ \ \ \ \ \ \ \ print(\textcolor{stringliteral}{"{}\(\backslash\)nCreating\ new\ session:"{}})}
+\DoxyCodeLine{00071\ \ \ \ \ \ \ \ \ \ \ \ \ player\_description\ =\ input(\textcolor{stringliteral}{"{}\(\backslash\)nEnter\ player\ description,\ print\ d\ for\ default\(\backslash\)n"{}})}
+\DoxyCodeLine{00072\ \ \ \ \ \ \ \ \ \ \ \ \ language\ =\ select\_language()}
+\DoxyCodeLine{00073\ }
+\DoxyCodeLine{00074\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ player\_description\ ==\ \textcolor{stringliteral}{"{}d"{}}:}
+\DoxyCodeLine{00075\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ player\_description\ =\ base\_character\_description}
+\DoxyCodeLine{00076\ \ \ \ \ \ \ \ \ \ \ \ \ session\_id\ =\ manager.db.create\_session(user\_id,\ world\_description=base\_world\_description,\ player\_description=player\_description,language=language)}
+\DoxyCodeLine{00077\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ session\_id,\ \textcolor{keyword}{True}}
+\DoxyCodeLine{00078\ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00079\ }
+\DoxyCodeLine{00080\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00081\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{elif}\ choice.isdigit():}
+\DoxyCodeLine{00082\ \ \ \ \ \ \ \ \ \ \ \ \ session\_id\ =\ int(choice)}
+\DoxyCodeLine{00083\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ existing\_id,\ \_,\ \_,\ \_\ \textcolor{keywordflow}{in}\ sessions:}
+\DoxyCodeLine{00084\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ session\_id\ ==\ existing\_id:}
+\DoxyCodeLine{00085\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ session\_id,\ \textcolor{keyword}{False}}
+\DoxyCodeLine{00086\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00087\ \ \ \ \ \ \ \ \ print(\textcolor{stringliteral}{"{}Invalid\ choice.\ Please\ try\ again."{}})}
+\DoxyCodeLine{00088\ }
+\DoxyCodeLine{00089\ }
+\DoxyCodeLine{00090\ \textcolor{keyword}{def\ }select\_language()\ -\/>\ str:}
+\DoxyCodeLine{00091\ \ \ \ \ \textcolor{keywordflow}{while}\ \textcolor{keyword}{True}:}
+\DoxyCodeLine{00092\ \ \ \ \ \ \ \ \ print(\textcolor{stringliteral}{"{}\(\backslash\)nSelect\ language:"{}})}
+\DoxyCodeLine{00093\ \ \ \ \ \ \ \ \ print(\textcolor{stringliteral}{"{}1.\ English\ (en)"{}})}
+\DoxyCodeLine{00094\ \ \ \ \ \ \ \ \ print(\textcolor{stringliteral}{"{}2.\ Russian\ (ru)"{}})}
+\DoxyCodeLine{00095\ \ \ \ \ \ \ \ \ choice\ =\ input(\textcolor{stringliteral}{"{}Your\ choice\ (1-\/2):\ "{}}).strip()}
+\DoxyCodeLine{00096\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00097\ \ \ \ \ \ \ \ \ language\_map\ =\ \{}
+\DoxyCodeLine{00098\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}1"{}}:\ \textcolor{stringliteral}{"{}English"{}},}
+\DoxyCodeLine{00099\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}2"{}}:\ \textcolor{stringliteral}{"{}Russian"{}}}
+\DoxyCodeLine{00100\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00101\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00102\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ choice\ \textcolor{keywordflow}{in}\ language\_map:}
+\DoxyCodeLine{00103\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ language\_map[choice]}
+\DoxyCodeLine{00104\ \ \ \ \ \ \ \ \ print(\textcolor{stringliteral}{"{}Invalid\ choice.\ Please\ try\ again."{}})}
+\DoxyCodeLine{00105\ }
+\DoxyCodeLine{00106\ }
+\DoxyCodeLine{00107\ \textcolor{keyword}{def\ }main()\ -\/>\ None:}
+\DoxyCodeLine{00108\ \ \ \ \ manager\ =\ SessionManager()}
+\DoxyCodeLine{00109\ \ \ \ \ }
+\DoxyCodeLine{00110\ \ \ \ \ user\_id\ =\ select\_user(manager)}
+\DoxyCodeLine{00111\ \ \ \ \ print(f\textcolor{stringliteral}{"{}\(\backslash\)nSelected\ User\ ID:\ \{user\_id\}"{}})}
+\DoxyCodeLine{00112\ \ \ \ \ }
+\DoxyCodeLine{00113\ \ \ \ \ session\_id,\ is\_new\ =\ select\_session(manager,\ user\_id)}
+\DoxyCodeLine{00114\ \ \ \ \ print(f\textcolor{stringliteral}{"{}\(\backslash\)nSelected\ Session\ ID:\ \{session\_id\}"{}})}
+\DoxyCodeLine{00115\ \ \ \ \ }
+\DoxyCodeLine{00116\ }
+\DoxyCodeLine{00117\ \ \ \ \ game\_manager\ =\ GameManager(session\_id)}
+\DoxyCodeLine{00118\ \ \ \ \ \textcolor{keywordflow}{try}:}
+\DoxyCodeLine{00119\ }
+\DoxyCodeLine{00120\ \ \ \ \ \ \ \ \ sessions\ =\ manager.db.get\_user\_sessions(user\_id)}
+\DoxyCodeLine{00121\ \ \ \ \ \ \ \ \ session\_id\ =\ int(session\_id)}
+\DoxyCodeLine{00122\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ any(session\_id\ ==\ existing\_id\ \textcolor{keywordflow}{for}\ existing\_id,\ \_,\ \_,\ \_\ \textcolor{keywordflow}{in}\ sessions):}
+\DoxyCodeLine{00123\ \ \ \ \ \ \ \ \ \ \ \ \ print(\textcolor{stringliteral}{"{}\(\backslash\)nMessage\ History:"{}})}
+\DoxyCodeLine{00124\ \ \ \ \ \ \ \ \ \ \ \ \ print(\textcolor{stringliteral}{"{}="{}}*50)}
+\DoxyCodeLine{00125\ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00126\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{\#\ Get\ and\ display\ user\ messages}}
+\DoxyCodeLine{00127\ \ \ \ \ \ \ \ \ \ \ \ \ user\_messages\ =\ manager.db.get\_user\_messages(session\_id)}
+\DoxyCodeLine{00128\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ seq,\ user\_input,\ response\ \textcolor{keywordflow}{in}\ user\_messages:}
+\DoxyCodeLine{00129\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ print(f\textcolor{stringliteral}{"{}\(\backslash\)nMessage\ \#\{seq\}"{}})}
+\DoxyCodeLine{00130\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ print(f\textcolor{stringliteral}{"{}User:\ \{user\_input\}"{}})}
+\DoxyCodeLine{00131\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ print(f\textcolor{stringliteral}{"{}Response:\ \{response\}"{}})}
+\DoxyCodeLine{00132\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ print(\textcolor{stringliteral}{"{}-\/"{}}*30)}
+\DoxyCodeLine{00133\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00134\ \ \ \ \ \textcolor{keywordflow}{except}\ ValueError:}
+\DoxyCodeLine{00135\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{pass}}
+\DoxyCodeLine{00136\ \ \ \ \ \textcolor{keywordflow}{while}\ \textcolor{keyword}{True}:}
+\DoxyCodeLine{00137\ \ \ \ \ \ \ \ \ game\_manager.generate\_image(2)}
+\DoxyCodeLine{00138\ \ \ \ \ \ \ \ \ print(\textcolor{stringliteral}{"{}Enter\ your\ message:"{}})}
+\DoxyCodeLine{00139\ \ \ \ \ \ \ \ \ user\_input\ =\ input().strip()}
+\DoxyCodeLine{00140\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ user\_input.lower()\ ==\ \textcolor{stringliteral}{'quit'}:}
+\DoxyCodeLine{00141\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break}}
+\DoxyCodeLine{00142\ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00143\ \ \ \ \ \ \ \ \ \textcolor{comment}{\#\ Process\ input\ and\ get\ both\ narrative\ response\ and\ image\ path}}
+\DoxyCodeLine{00144\ \ \ \ \ \ \ \ \ narrative\_response,\ image\_path\ =\ game\_manager.process\_input(user\_input,\textcolor{keyword}{True})}
+\DoxyCodeLine{00145\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00146\ \ \ \ \ \ \ \ \ \textcolor{comment}{\#\ Display\ results}}
+\DoxyCodeLine{00147\ \ \ \ \ \ \ \ \ print(\textcolor{stringliteral}{"{}\(\backslash\)nNarrative\ Response:"{}})}
+\DoxyCodeLine{00148\ \ \ \ \ \ \ \ \ print(narrative\_response)}
+\DoxyCodeLine{00149\ \ \ \ \ \ \ \ \ \textcolor{comment}{\#game\_manager.generate\_image(user\_input,\ narrative\_response)\ \ \ \ \ \ \ \ \ \ \ \ }}
+\DoxyCodeLine{00150\ \ \ \ \ \ \ \ \ print(\textcolor{stringliteral}{"{}\(\backslash\)n"{}}\ +\ \textcolor{stringliteral}{"{}="{}}*50)}
+\DoxyCodeLine{00151\ }
+\DoxyCodeLine{00152\ \textcolor{keywordflow}{if}\ \_\_name\_\_\ ==\ \textcolor{stringliteral}{"{}\_\_main\_\_"{}}:}
+\DoxyCodeLine{00153\ \ \ \ \ run\_mypy()}
+\DoxyCodeLine{00154\ \ \ \ \ main()}
+
+\end{DoxyCode}

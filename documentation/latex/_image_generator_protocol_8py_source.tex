@@ -1,0 +1,28 @@
+\doxysection{Image\+Generator\+Protocol.\+py}
+\label{_image_generator_protocol_8py_source}\index{C:/Users/kir/Desktop/py/API/src/ImageGenerator/ImageGeneratorProtocol.py@{C:/Users/kir/Desktop/py/API/src/ImageGenerator/ImageGeneratorProtocol.py}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{keyword}{from}\ typing\ \textcolor{keyword}{import}\ Protocol,\ Optional,\ List}
+\DoxyCodeLine{00002\ }
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{keyword}{class\ }ImageGeneratorProtocol(Protocol):}
+\DoxyCodeLine{00005\ \ \ \ \ \textcolor{stringliteral}{"{}"{}"{}!}}
+\DoxyCodeLine{00006\ \textcolor{stringliteral}{\ \ \ \ @brief\ Протокол\ для\ генерации\ изображений}}
+\DoxyCodeLine{00007\ \textcolor{stringliteral}{\ \ \ \ }}
+\DoxyCodeLine{00008\ \textcolor{stringliteral}{\ \ \ \ @details}}
+\DoxyCodeLine{00009\ \textcolor{stringliteral}{\ \ \ \ Определяет\ интерфейс\ для\ классов,\ реализующих\ генерацию\ изображений.}}
+\DoxyCodeLine{00010\ \textcolor{stringliteral}{\ \ \ \ Используется\ как\ контракт\ для\ различных\ реализаций\ генераторов\ изображений.}}
+\DoxyCodeLine{00011\ \textcolor{stringliteral}{\ \ \ \ "{}"{}"{}}}
+\DoxyCodeLine{00012\ \ \ \ \ \textcolor{keyword}{def\ }generate\_image\_response(self,\ prompt:\ str,\ target\_path:\ str,\ character\_images:\ Optional[List[str]]\ =\ \textcolor{keywordtype}{None})\ -\/>\ Optional[str]:}
+\DoxyCodeLine{00013\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}"{}"{}!}}
+\DoxyCodeLine{00014\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ @brief\ Генерация\ изображения\ на\ основе\ промпта\ и\ опциональных\ изображений\ персонажей}}
+\DoxyCodeLine{00015\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ }}
+\DoxyCodeLine{00016\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ @param\ prompt\ Текстовый\ промпт\ для\ генерации\ изображения}}
+\DoxyCodeLine{00017\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ @param\ target\_path\ Полный\ путь\ для\ сохранения\ изображения}}
+\DoxyCodeLine{00018\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ @param\ character\_images\ Опциональный\ список\ путей\ к\ изображениям\ персонажей}}
+\DoxyCodeLine{00019\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ }}
+\DoxyCodeLine{00020\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ @return\ Optional[str]\ Путь\ к\ сохраненному\ изображению\ или\ None\ в\ случае\ ошибки}}
+\DoxyCodeLine{00021\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ "{}"{}"{}}}
+\DoxyCodeLine{00022\ \ \ \ \ \ \ \ \ ...\ }
+
+\end{DoxyCode}

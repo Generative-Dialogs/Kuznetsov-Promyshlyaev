@@ -1,0 +1,112 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.13.2" xml:lang="ru">
+  <compounddef id="namespacesrc_1_1_game_master_1_1_game_master_promts" kind="namespace" language="Python">
+    <compoundname>src::GameMaster::GameMasterPromts</compoundname>
+    <sectiondef kind="var">
+      <memberdef kind="variable" id="_game_master_promts_8py_1aaf2f8fbf8674417dac103dc6b021a1b1" prot="public" static="no" mutable="no">
+        <type>str</type>
+        <definition>str src::GameMaster::GameMasterPromts.correct_formatting</definition>
+        <argsstring></argsstring>
+        <name>correct_formatting</name>
+        <qualifiedname>src.GameMaster.GameMasterPromts.correct_formatting</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/kir/Desktop/py/API/src/GameMaster/GameMasterPromts.py" line="1" column="1" bodyfile="C:/Users/kir/Desktop/py/API/src/GameMaster/GameMasterPromts.py" bodystart="1" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="_game_master_promts_8py_1a475efef684ec18b7d5679fb106004312" prot="public" static="no" mutable="no">
+        <type>str</type>
+        <definition>str src::GameMaster::GameMasterPromts.start_message</definition>
+        <argsstring></argsstring>
+        <name>start_message</name>
+        <qualifiedname>src.GameMaster.GameMasterPromts.start_message</qualifiedname>
+        <initializer>=  f&apos;&apos;&apos;
+You are a Game Master for a tabletop role-playing game. Your role is to describe the world&apos;s reactions to player actions while maintaining consistency and realism.
+
+{correct_formatting}
+
+If you understand these guidelines, respond with &quot;Understood&quot;.
+&apos;&apos;&apos;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/kir/Desktop/py/API/src/GameMaster/GameMasterPromts.py" line="81" column="1" bodyfile="C:/Users/kir/Desktop/py/API/src/GameMaster/GameMasterPromts.py" bodystart="81" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="_game_master_promts_8py_1aed60faa1910f5ef00558a8221da3b5f5" prot="public" static="no" mutable="no">
+        <type>str</type>
+        <definition>str src::GameMaster::GameMasterPromts.world_description_start</definition>
+        <argsstring></argsstring>
+        <name>world_description_start</name>
+        <qualifiedname>src.GameMaster.GameMasterPromts.world_description_start</qualifiedname>
+        <initializer>=  &apos;&apos;&apos;
+Below is the world description for our game. All your responses must align with these rules and the world&apos;s established reality. If you understand, respond with &quot;Understood&quot;.
+&apos;&apos;&apos;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/kir/Desktop/py/API/src/GameMaster/GameMasterPromts.py" line="89" column="1" bodyfile="C:/Users/kir/Desktop/py/API/src/GameMaster/GameMasterPromts.py" bodystart="89" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="_game_master_promts_8py_1ac432329b4135ab4f2c4506889d018cd2" prot="public" static="no" mutable="no">
+        <type>str</type>
+        <definition>str src::GameMaster::GameMasterPromts.character_name_start</definition>
+        <argsstring></argsstring>
+        <name>character_name_start</name>
+        <qualifiedname>src.GameMaster.GameMasterPromts.character_name_start</qualifiedname>
+        <initializer>=  &apos;&apos;&apos;
+Here is the player character&apos;s name and description. Remember, you cannot describe events from the player&apos;s perspective - the player controls their own actions. If you understand, respond with &quot;Understood&quot;.
+&apos;&apos;&apos;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/kir/Desktop/py/API/src/GameMaster/GameMasterPromts.py" line="93" column="1" bodyfile="C:/Users/kir/Desktop/py/API/src/GameMaster/GameMasterPromts.py" bodystart="93" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="_game_master_promts_8py_1a3ded5cecac704b24b97a541fa3440d53" prot="public" static="no" mutable="no">
+        <type>str</type>
+        <definition>str src::GameMaster::GameMasterPromts.off_topic_message_eng</definition>
+        <argsstring></argsstring>
+        <name>off_topic_message_eng</name>
+        <qualifiedname>src.GameMaster.GameMasterPromts.off_topic_message_eng</qualifiedname>
+        <initializer>=  &apos;Input is off-topic&apos;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/kir/Desktop/py/API/src/GameMaster/GameMasterPromts.py" line="97" column="1" bodyfile="C:/Users/kir/Desktop/py/API/src/GameMaster/GameMasterPromts.py" bodystart="97" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="_game_master_promts_8py_1a8e256f55f4864a33e386b55813f7635d" prot="public" static="no" mutable="no">
+        <type>str</type>
+        <definition>str src::GameMaster::GameMasterPromts.off_topic_message_ru</definition>
+        <argsstring></argsstring>
+        <name>off_topic_message_ru</name>
+        <qualifiedname>src.GameMaster.GameMasterPromts.off_topic_message_ru</qualifiedname>
+        <initializer>=  &apos;Ввод не по теме&apos;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/kir/Desktop/py/API/src/GameMaster/GameMasterPromts.py" line="98" column="1" bodyfile="C:/Users/kir/Desktop/py/API/src/GameMaster/GameMasterPromts.py" bodystart="98" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="C:/Users/kir/Desktop/py/API/src/GameMaster/GameMasterPromts.py" line="1" column="1"/>
+  </compounddef>
+</doxygen>

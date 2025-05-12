@@ -1,0 +1,139 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_classsrc_1_1_image_generator_1_1_image_generator_google_1_1_image_generator_google" xml:lang="ru">
+<title>Класс src.ImageGenerator.ImageGeneratorGoogle.ImageGeneratorGoogle</title>
+<indexterm><primary>src.ImageGenerator.ImageGeneratorGoogle.ImageGeneratorGoogle</primary></indexterm>
+<para>
+
+<para>Класс для генерации изображений с использованием Google Gemini API. </para>
+ 
+</para>
+<para>Граф наследования:src.ImageGenerator.ImageGeneratorGoogle.ImageGeneratorGoogle:    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="classsrc_1_1_image_generator_1_1_image_generator_google_1_1_image_generator_google.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Открытые члены    </title>
+        <itemizedlist>
+            <listitem><para>None <link linkend="_classsrc_1_1_image_generator_1_1_image_generator_google_1_1_image_generator_google_1a2069327fc05d70f8c2f6f488c2abfa05">__init__</link> (self, int session_id)</para>
+
+<para>Инициализация генератора изображений </para>
+</listitem>
+            <listitem><para>Optional[str] <link linkend="_classsrc_1_1_image_generator_1_1_image_generator_google_1_1_image_generator_google_1a3470aae404ebe3e833362ae57500e44f">generate_image_response</link> (self, str prompt, str target_path, Optional[List[str]] character_images=None)</para>
+
+<para>Генерация изображения с использованием Gemini API. </para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Подробное описание</title>
+
+<para>Класс для генерации изображений с использованием Google Gemini API. </para>
+
+
+
+<para>Реализует интерфейс <link linkend="_classsrc_1_1_image_generator_1_1_image_generator_protocol_1_1_image_generator_protocol">ImageGeneratorProtocol</link> для генерации изображений. Использует Google Gemini API для создания изображений на основе текстовых промптов и опциональных изображений персонажей.</para>
+
+<para><note><title>Заметки</title>
+
+<para>Требуется прокси/vpn для работы с Google API </para>
+</note>
+</para>
+<para>
+См. определение в файле <link linkend="__image_generator_google_8py_source">ImageGeneratorGoogle.py</link> строка <link linkend="__image_generator_google_8py_source_1l00013">13</link></para>
+</section>
+<section>
+<title>Конструктор(ы)</title>
+<anchor xml:id="_classsrc_1_1_image_generator_1_1_image_generator_google_1_1_image_generator_google_1a2069327fc05d70f8c2f6f488c2abfa05"/><section>
+    <title>__init__()</title>
+<indexterm><primary>__init__</primary><secondary>src.ImageGenerator.ImageGeneratorGoogle.ImageGeneratorGoogle</secondary></indexterm>
+<indexterm><primary>src.ImageGenerator.ImageGeneratorGoogle.ImageGeneratorGoogle</primary><secondary>__init__</secondary></indexterm>
+<para><computeroutput> None src.ImageGenerator.ImageGeneratorGoogle.ImageGeneratorGoogle.__init__ ( self, int session_id)</computeroutput></para><para>
+
+<para>Инициализация генератора изображений </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Аргументы</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>session_id</entry><entry>
+<para>ID сессии для организации файлов изображений </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+<para>
+См. определение в файле <link linkend="__image_generator_google_8py_source">ImageGeneratorGoogle.py</link> строка <link linkend="__image_generator_google_8py_source_1l00027">27</link></para>
+</section>
+</section>
+<section>
+<title>Методы</title>
+<anchor xml:id="_classsrc_1_1_image_generator_1_1_image_generator_google_1_1_image_generator_google_1a3470aae404ebe3e833362ae57500e44f"/><section>
+    <title>generate_image_response()</title>
+<indexterm><primary>generate_image_response</primary><secondary>src.ImageGenerator.ImageGeneratorGoogle.ImageGeneratorGoogle</secondary></indexterm>
+<indexterm><primary>src.ImageGenerator.ImageGeneratorGoogle.ImageGeneratorGoogle</primary><secondary>generate_image_response</secondary></indexterm>
+<para><computeroutput> Optional[str] src.ImageGenerator.ImageGeneratorGoogle.ImageGeneratorGoogle.generate_image_response ( self, str prompt, str target_path, Optional[List[str]]  character_images = <computeroutput>None</computeroutput>
+)</computeroutput></para><para>
+
+<para>Генерация изображения с использованием Gemini API. </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Аргументы</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>prompt</entry><entry>
+<para>Текстовый промпт для генерации изображения </para>
+</entry>
+                            </row>
+                            <row>
+<entry>target_path</entry><entry>
+<para>Полный путь для сохранения изображения </para>
+</entry>
+                            </row>
+                            <row>
+<entry>character_images</entry><entry>
+<para>Опциональный список путей к изображениям персонажей</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Возвращает</title>
+
+<para>Optional[str] Путь к сохраненному изображению или None в случае ошибки </para>
+</formalpara>
+</para>
+<para>
+Переопределяет метод предка <link linkend="_classsrc_1_1_image_generator_1_1_image_generator_protocol_1_1_image_generator_protocol_1a67dc32bad76939e2ba372be83049fcbb">src.ImageGenerator.ImageGeneratorProtocol.ImageGeneratorProtocol</link>.</para>
+<para>
+См. определение в файле <link linkend="__image_generator_google_8py_source">ImageGeneratorGoogle.py</link> строка <link linkend="__image_generator_google_8py_source_1l00065">65</link></para>
+</section>
+<para>
+Объявления и описания членов класса находятся в файле:</para>
+C:/Users/kir/Desktop/py/API/src/ImageGenerator/ImageGeneratorGoogle.py</section>
+</section>

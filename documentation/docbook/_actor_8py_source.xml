@@ -1,0 +1,146 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="__actor_8py_source" xml:lang="ru">
+<title>Actor.py</title>
+<indexterm><primary>C:/Users/kir/Desktop/py/API/src/Actor/Actor.py</primary></indexterm>
+<programlisting linenumbering="unnumbered"><anchor xml:id="__actor_8py_source_1l00001"/>00001 <emphasis role="keyword">from</emphasis>&#32;<link linkend="_namespacesrc_1_1_game_master_1_1_protocol_game_master">src.GameMaster.ProtocolGameMaster</link>&#32;<emphasis role="keyword">import</emphasis>&#32;ProtocolGameMaster
+<anchor xml:id="__actor_8py_source_1l00002"/>00002 <emphasis role="keyword">from</emphasis>&#32;<link linkend="_namespacesrc_1_1_message_generator_1_1_protocol_message_generator">src.MessageGenerator.ProtocolMessageGenerator</link>&#32;<emphasis role="keyword">import</emphasis>&#32;ProtocolMessageGenerator
+<anchor xml:id="__actor_8py_source_1l00003"/>00003 <emphasis role="keyword">from</emphasis>&#32;<link linkend="_namespacesrc_1_1_message_generator_1_1_message_generator_groq">src.MessageGenerator.MessageGeneratorGroq</link>&#32;<emphasis role="keyword">import</emphasis>&#32;MessageGeneratorGroq
+<anchor xml:id="__actor_8py_source_1l00004"/>00004 <emphasis role="keyword">from</emphasis>&#32;typing&#32;<emphasis role="keyword">import</emphasis>&#32;List,&#32;Dict,&#32;Optional
+<anchor xml:id="__actor_8py_source_1l00005"/>00005 <emphasis role="keyword">import</emphasis>&#32;json
+<anchor xml:id="__actor_8py_source_1l00006"/>00006 <emphasis role="keyword">from</emphasis>&#32;<link linkend="_namespacesrc_1_1_database_manager_1_1_database_manager">src.DatabaseManager.DatabaseManager</link>&#32;<emphasis role="keyword">import</emphasis>&#32;DatabaseManager
+<anchor xml:id="__actor_8py_source_1l00007"/>00007 <emphasis role="keyword">from</emphasis>&#32;<link linkend="_namespacesrc_1_1_message_generator_1_1_message_generator_open_router">src.MessageGenerator.MessageGeneratorOpenRouter</link>&#32;<emphasis role="keyword">import</emphasis>&#32;MessageGeneratorOpenRouter
+<anchor xml:id="__actor_8py_source_1l00008"/>00008 <emphasis role="keyword">from</emphasis>&#32;<link linkend="_namespacesrc_1_1_actor_1_1_actor_promts">src.Actor.ActorPromts</link>&#32;<emphasis role="keyword">import</emphasis>&#32;start_message
+<anchor xml:id="__actor_8py_source_1l00009"/>00009 <emphasis role="keyword">from</emphasis>&#32;<link linkend="_namespacesrc_1_1_game_master_1_1_game_master_promts">src.GameMaster.GameMasterPromts</link>&#32;<emphasis role="keyword">import</emphasis>&#32;off_topic_message_eng,&#32;off_topic_message_ru
+<anchor xml:id="__actor_8py_source_1l00010"/>00010 
+<anchor xml:id="__actor_8py_source_1l00011"/>00011 
+<anchor xml:id="__actor_8py_source_1l00012"/><link linkend="_classsrc_1_1_actor_1_1_actor_1_1_actor">00012</link> <emphasis role="keyword">class&#32;</emphasis><link linkend="_classsrc_1_1_actor_1_1_actor_1_1_actor">Actor</link>:
+<anchor xml:id="__actor_8py_source_1l00013"/>00013 &#32;&#32;&#32;&#32;<emphasis role="stringliteral">&quot;&quot;&quot;!</emphasis>
+<anchor xml:id="__actor_8py_source_1l00014"/>00014 <emphasis role="stringliteral">&#32;&#32;&#32;&#32;@brief&#32;Реализация&#32;актора&#32;в&#32;игровой&#32;системе</emphasis>
+<anchor xml:id="__actor_8py_source_1l00015"/>00015 <emphasis role="stringliteral">&#32;&#32;&#32;&#32;</emphasis>
+<anchor xml:id="__actor_8py_source_1l00016"/>00016 <emphasis role="stringliteral">&#32;&#32;&#32;&#32;@details</emphasis>
+<anchor xml:id="__actor_8py_source_1l00017"/>00017 <emphasis role="stringliteral">&#32;&#32;&#32;&#32;Класс&#32;отвечает&#32;за&#32;генерацию&#32;детализированных&#32;описаний</emphasis>
+<anchor xml:id="__actor_8py_source_1l00018"/>00018 <emphasis role="stringliteral">&#32;&#32;&#32;&#32;действий&#32;и&#32;событий&#32;в&#32;игре.&#32;Преобразует&#32;команды&#32;мастера</emphasis>
+<anchor xml:id="__actor_8py_source_1l00019"/>00019 <emphasis role="stringliteral">&#32;&#32;&#32;&#32;игры&#32;в&#32;нарративные&#32;описания&#32;с&#32;учетом&#32;контекста&#32;и&#32;активных&#32;персонажей.</emphasis>
+<anchor xml:id="__actor_8py_source_1l00020"/>00020 <emphasis role="stringliteral">&#32;&#32;&#32;&#32;&quot;&quot;&quot;</emphasis>
+<anchor xml:id="__actor_8py_source_1l00021"/>00021 &#32;&#32;&#32;&#32;
+<anchor xml:id="__actor_8py_source_1l00022"/><link linkend="_classsrc_1_1_actor_1_1_actor_1_1_actor_1aa8ef3f312997a013b56e9512422c2ef6">00022</link> &#32;&#32;&#32;&#32;<emphasis role="keyword">def&#32;</emphasis><link linkend="_classsrc_1_1_actor_1_1_actor_1_1_actor_1aa8ef3f312997a013b56e9512422c2ef6">__init__</link>(self,&#32;game_master:&#32;ProtocolGameMaster,&#32;session_id:&#32;int,&#32;language:&#32;str&#32;=&#32;<emphasis role="stringliteral">&quot;English&quot;</emphasis>,&#32;fast_flg:&#32;bool&#32;=&#32;<emphasis role="keyword">True</emphasis>)&#32;-&gt;&#32;<emphasis role="keywordtype">None</emphasis>:
+<anchor xml:id="__actor_8py_source_1l00023"/>00023 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="stringliteral">&quot;&quot;&quot;!</emphasis>
+<anchor xml:id="__actor_8py_source_1l00024"/>00024 <emphasis role="stringliteral">&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;@brief&#32;Инициализация&#32;актора</emphasis>
+<anchor xml:id="__actor_8py_source_1l00025"/>00025 <emphasis role="stringliteral">&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;</emphasis>
+<anchor xml:id="__actor_8py_source_1l00026"/>00026 <emphasis role="stringliteral">&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;@param&#32;game_master&#32;Экземпляр&#32;мастера&#32;игры</emphasis>
+<anchor xml:id="__actor_8py_source_1l00027"/>00027 <emphasis role="stringliteral">&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;@param&#32;session_id&#32;ID&#32;игровой&#32;сессии</emphasis>
+<anchor xml:id="__actor_8py_source_1l00028"/>00028 <emphasis role="stringliteral">&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;@param&#32;language&#32;Язык&#32;генерации&#32;описаний&#32;(по&#32;умолчанию&#32;&quot;English&quot;)</emphasis>
+<anchor xml:id="__actor_8py_source_1l00029"/>00029 <emphasis role="stringliteral">&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;@param&#32;fast_flg&#32;Флаг&#32;быстрого&#32;режима&#32;инициализации</emphasis>
+<anchor xml:id="__actor_8py_source_1l00030"/>00030 <emphasis role="stringliteral">&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;</emphasis>
+<anchor xml:id="__actor_8py_source_1l00031"/>00031 <emphasis role="stringliteral">&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;@details</emphasis>
+<anchor xml:id="__actor_8py_source_1l00032"/>00032 <emphasis role="stringliteral">&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;Создает&#32;нового&#32;актора&#32;с&#32;заданными&#32;параметрами&#32;и&#32;инициализирует</emphasis>
+<anchor xml:id="__actor_8py_source_1l00033"/>00033 <emphasis role="stringliteral">&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;необходимые&#32;компоненты&#32;для&#32;генерации&#32;описаний.</emphasis>
+<anchor xml:id="__actor_8py_source_1l00034"/>00034 <emphasis role="stringliteral">&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&quot;&quot;&quot;</emphasis>
+<anchor xml:id="__actor_8py_source_1l00035"/>00035 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;self.<link linkend="_classsrc_1_1_actor_1_1_actor_1_1_actor_1a02cd4b4f8cabdc862915f21a5a09e2f6">__game_master</link>&#32;=&#32;game_master
+<anchor xml:id="__actor_8py_source_1l00036"/>00036 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;self.<link linkend="_classsrc_1_1_actor_1_1_actor_1_1_actor_1a555c09b922592195dbe5d6046e8c59bc">__session_id</link>&#32;=&#32;session_id
+<anchor xml:id="__actor_8py_source_1l00037"/>00037 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;self.<link linkend="_classsrc_1_1_actor_1_1_actor_1_1_actor_1a9ee4717958973cf596c6fe1b9b68bd6f">__language</link>&#32;=&#32;language
+<anchor xml:id="__actor_8py_source_1l00038"/>00038 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;self.<link linkend="_classsrc_1_1_actor_1_1_actor_1_1_actor_1af49f26ff10c887f0648b90254cfa170e">__messageGenerator</link>&#32;=&#32;<link linkend="_classsrc_1_1_message_generator_1_1_message_generator_open_router_1_1_message_generator_open_router">MessageGeneratorOpenRouter</link>()
+<anchor xml:id="__actor_8py_source_1l00039"/>00039 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;self.<link linkend="_classsrc_1_1_actor_1_1_actor_1_1_actor_1a742d0360a74e41c074f8366f85bd82b0">__active_characters</link>:&#32;Dict[str,&#32;str]&#32;=&#32;{}
+<anchor xml:id="__actor_8py_source_1l00040"/>00040 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;self.<link linkend="_classsrc_1_1_actor_1_1_actor_1_1_actor_1a0608dc0a8d05e278fd85449d79635dc3">__db</link>&#32;=&#32;<link linkend="_classsrc_1_1_database_manager_1_1_database_manager_1_1_database_manager">DatabaseManager</link>()
+<anchor xml:id="__actor_8py_source_1l00041"/>00041 
+<anchor xml:id="__actor_8py_source_1l00042"/>00042 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;formatted_start_message:&#32;str&#32;=&#32;f<emphasis role="stringliteral">&apos;&apos;&apos;</emphasis>
+<anchor xml:id="__actor_8py_source_1l00043"/>00043 <emphasis role="stringliteral">&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{start_message}</emphasis>
+<anchor xml:id="__actor_8py_source_1l00044"/>00044 <emphasis role="stringliteral">&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;Story&#32;world&#32;context:&#32;{game_master.world_description}</emphasis>
+<anchor xml:id="__actor_8py_source_1l00045"/>00045 <emphasis role="stringliteral"></emphasis>
+<anchor xml:id="__actor_8py_source_1l00046"/>00046 <emphasis role="stringliteral">&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;Important:&#32;All&#32;your&#32;responses&#32;must&#32;be&#32;in&#32;{language}&#32;language.</emphasis>
+<anchor xml:id="__actor_8py_source_1l00047"/>00047 <emphasis role="stringliteral">&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;If&#32;you&#32;understand&#32;these&#32;guidelines,&#32;write&#32;&quot;Ready&#32;to&#32;narrate&#32;concisely&quot;.</emphasis>
+<anchor xml:id="__actor_8py_source_1l00048"/>00048 <emphasis role="stringliteral">&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&apos;&apos;&apos;</emphasis>
+<anchor xml:id="__actor_8py_source_1l00049"/>00049 
+<anchor xml:id="__actor_8py_source_1l00050"/>00050 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;is_new_session&#32;=&#32;self.<link linkend="_classsrc_1_1_actor_1_1_actor_1_1_actor_1a0608dc0a8d05e278fd85449d79635dc3">__db</link>.is_new_session_actor_prompt(session_id)
+<anchor xml:id="__actor_8py_source_1l00051"/>00051 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;
+<anchor xml:id="__actor_8py_source_1l00052"/>00052 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;is_new_session:
+<anchor xml:id="__actor_8py_source_1l00053"/>00053 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;fast_flg:
+<anchor xml:id="__actor_8py_source_1l00054"/>00054 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;self.<link linkend="_classsrc_1_1_actor_1_1_actor_1_1_actor_1af49f26ff10c887f0648b90254cfa170e">__messageGenerator</link>.add_system_message(formatted_start_message)
+<anchor xml:id="__actor_8py_source_1l00055"/>00055 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;response&#32;=&#32;<emphasis role="stringliteral">&quot;Ready&#32;to&#32;narrate&#32;concisely&quot;</emphasis>
+<anchor xml:id="__actor_8py_source_1l00056"/>00056 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;self.<link linkend="_classsrc_1_1_actor_1_1_actor_1_1_actor_1af49f26ff10c887f0648b90254cfa170e">__messageGenerator</link>.add_ai_message(response)
+<anchor xml:id="__actor_8py_source_1l00057"/>00057 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;self.<link linkend="_classsrc_1_1_actor_1_1_actor_1_1_actor_1a0608dc0a8d05e278fd85449d79635dc3">__db</link>.save_actor_prompt(session_id,&#32;formatted_start_message,&#32;response)
+<anchor xml:id="__actor_8py_source_1l00058"/>00058 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">else</emphasis>:
+<anchor xml:id="__actor_8py_source_1l00059"/>00059 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;response&#32;=&#32;self.<link linkend="_classsrc_1_1_actor_1_1_actor_1_1_actor_1af49f26ff10c887f0648b90254cfa170e">__messageGenerator</link>.generate(formatted_start_message)
+<anchor xml:id="__actor_8py_source_1l00060"/>00060 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;self.<link linkend="_classsrc_1_1_actor_1_1_actor_1_1_actor_1a0608dc0a8d05e278fd85449d79635dc3">__db</link>.save_actor_prompt(session_id,&#32;formatted_start_message,&#32;response)
+<anchor xml:id="__actor_8py_source_1l00061"/>00061 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;print(response)
+<anchor xml:id="__actor_8py_source_1l00062"/>00062 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">else</emphasis>:
+<anchor xml:id="__actor_8py_source_1l00063"/>00063 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">#&#32;Load&#32;prompts&#32;from&#32;database&#32;for&#32;existing&#32;session</emphasis>
+<anchor xml:id="__actor_8py_source_1l00064"/>00064 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">for</emphasis>&#32;prompt_content,&#32;model_response&#32;<emphasis role="keywordflow">in</emphasis>&#32;self.<link linkend="_classsrc_1_1_actor_1_1_actor_1_1_actor_1a0608dc0a8d05e278fd85449d79635dc3">__db</link>.get_actor_prompts(session_id):
+<anchor xml:id="__actor_8py_source_1l00065"/>00065 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;self.<link linkend="_classsrc_1_1_actor_1_1_actor_1_1_actor_1af49f26ff10c887f0648b90254cfa170e">__messageGenerator</link>.add_system_message(prompt_content)
+<anchor xml:id="__actor_8py_source_1l00066"/>00066 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;self.<link linkend="_classsrc_1_1_actor_1_1_actor_1_1_actor_1af49f26ff10c887f0648b90254cfa170e">__messageGenerator</link>.add_ai_message(model_response)
+<anchor xml:id="__actor_8py_source_1l00067"/>00067 
+<anchor xml:id="__actor_8py_source_1l00068"/>00068 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">#&#32;Load&#32;actor&#32;message&#32;history</emphasis>
+<anchor xml:id="__actor_8py_source_1l00069"/>00069 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;actor_history&#32;=&#32;self.<link linkend="_classsrc_1_1_actor_1_1_actor_1_1_actor_1a0608dc0a8d05e278fd85449d79635dc3">__db</link>.get_actor_messages(session_id)
+<anchor xml:id="__actor_8py_source_1l00070"/>00070 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">for</emphasis>&#32;_,&#32;master_prompt,&#32;actor_response&#32;<emphasis role="keywordflow">in</emphasis>&#32;actor_history:
+<anchor xml:id="__actor_8py_source_1l00071"/>00071 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;self.<link linkend="_classsrc_1_1_actor_1_1_actor_1_1_actor_1af49f26ff10c887f0648b90254cfa170e">__messageGenerator</link>.add_user_message(master_prompt)
+<anchor xml:id="__actor_8py_source_1l00072"/>00072 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;self.<link linkend="_classsrc_1_1_actor_1_1_actor_1_1_actor_1af49f26ff10c887f0648b90254cfa170e">__messageGenerator</link>.add_ai_message(actor_response)
+<anchor xml:id="__actor_8py_source_1l00073"/>00073 
+<anchor xml:id="__actor_8py_source_1l00074"/><link linkend="_classsrc_1_1_actor_1_1_actor_1_1_actor_1a9d4e45216b2ba0b276ae82a62e7fa54b">00074</link> &#32;&#32;&#32;&#32;<emphasis role="keyword">def&#32;</emphasis><link linkend="_classsrc_1_1_actor_1_1_actor_1_1_actor_1a9d4e45216b2ba0b276ae82a62e7fa54b">update_active_characters</link>(self,&#32;characters:&#32;Dict[str,&#32;str])&#32;-&gt;&#32;<emphasis role="keywordtype">None</emphasis>:
+<anchor xml:id="__actor_8py_source_1l00075"/>00075 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="stringliteral">&quot;&quot;&quot;!</emphasis>
+<anchor xml:id="__actor_8py_source_1l00076"/>00076 <emphasis role="stringliteral">&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;@brief&#32;Обновление&#32;списка&#32;активных&#32;персонажей</emphasis>
+<anchor xml:id="__actor_8py_source_1l00077"/>00077 <emphasis role="stringliteral">&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;</emphasis>
+<anchor xml:id="__actor_8py_source_1l00078"/>00078 <emphasis role="stringliteral">&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;@param&#32;characters&#32;Словарь&#32;с&#32;именами&#32;и&#32;описаниями&#32;активных&#32;персонажей</emphasis>
+<anchor xml:id="__actor_8py_source_1l00079"/>00079 <emphasis role="stringliteral">&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;</emphasis>
+<anchor xml:id="__actor_8py_source_1l00080"/>00080 <emphasis role="stringliteral">&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;@details</emphasis>
+<anchor xml:id="__actor_8py_source_1l00081"/>00081 <emphasis role="stringliteral">&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;Обновляет&#32;список&#32;персонажей,&#32;которые&#32;в&#32;данный&#32;момент</emphasis>
+<anchor xml:id="__actor_8py_source_1l00082"/>00082 <emphasis role="stringliteral">&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;присутствуют&#32;в&#32;сцене&#32;и&#32;могут&#32;участвовать&#32;в&#32;действиях.</emphasis>
+<anchor xml:id="__actor_8py_source_1l00083"/>00083 <emphasis role="stringliteral">&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&quot;&quot;&quot;</emphasis>
+<anchor xml:id="__actor_8py_source_1l00084"/>00084 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;self.<link linkend="_classsrc_1_1_actor_1_1_actor_1_1_actor_1a742d0360a74e41c074f8366f85bd82b0">__active_characters</link>&#32;=&#32;characters
+<anchor xml:id="__actor_8py_source_1l00085"/>00085 
+<anchor xml:id="__actor_8py_source_1l00086"/><link linkend="_classsrc_1_1_actor_1_1_actor_1_1_actor_1a34ab83bb9801246351209a2a31f4fb06">00086</link> &#32;&#32;&#32;&#32;<emphasis role="keyword">def&#32;</emphasis><link linkend="_classsrc_1_1_actor_1_1_actor_1_1_actor_1a34ab83bb9801246351209a2a31f4fb06">get_detailed_action</link>(self,&#32;game_master_output:&#32;str,&#32;user_input:&#32;str)&#32;-&gt;&#32;str:
+<anchor xml:id="__actor_8py_source_1l00087"/>00087 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="stringliteral">&quot;&quot;&quot;!</emphasis>
+<anchor xml:id="__actor_8py_source_1l00088"/>00088 <emphasis role="stringliteral">&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;@brief&#32;Получение&#32;детализированного&#32;описания&#32;действия</emphasis>
+<anchor xml:id="__actor_8py_source_1l00089"/>00089 <emphasis role="stringliteral">&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;</emphasis>
+<anchor xml:id="__actor_8py_source_1l00090"/>00090 <emphasis role="stringliteral">&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;@param&#32;game_master_output&#32;Выходные&#32;данные&#32;мастера&#32;игры</emphasis>
+<anchor xml:id="__actor_8py_source_1l00091"/>00091 <emphasis role="stringliteral">&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;@param&#32;user_input&#32;Ввод&#32;пользователя</emphasis>
+<anchor xml:id="__actor_8py_source_1l00092"/>00092 <emphasis role="stringliteral">&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;</emphasis>
+<anchor xml:id="__actor_8py_source_1l00093"/>00093 <emphasis role="stringliteral">&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;@return&#32;str&#32;Детализированное&#32;описание&#32;действия</emphasis>
+<anchor xml:id="__actor_8py_source_1l00094"/>00094 <emphasis role="stringliteral">&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;</emphasis>
+<anchor xml:id="__actor_8py_source_1l00095"/>00095 <emphasis role="stringliteral">&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;@details</emphasis>
+<anchor xml:id="__actor_8py_source_1l00096"/>00096 <emphasis role="stringliteral">&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;Генерирует&#32;подробное&#32;нарративное&#32;описание&#32;действия</emphasis>
+<anchor xml:id="__actor_8py_source_1l00097"/>00097 <emphasis role="stringliteral">&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;на&#32;основе&#32;команд&#32;мастера&#32;игры&#32;и&#32;контекста&#32;активных&#32;персонажей.</emphasis>
+<anchor xml:id="__actor_8py_source_1l00098"/>00098 <emphasis role="stringliteral">&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;Учитывает&#32;язык&#32;генерации&#32;и&#32;сохраняет&#32;историю&#32;сообщений.</emphasis>
+<anchor xml:id="__actor_8py_source_1l00099"/>00099 <emphasis role="stringliteral">&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&quot;&quot;&quot;</emphasis>
+<anchor xml:id="__actor_8py_source_1l00100"/>00100 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">#&#32;Format&#32;character&#32;information</emphasis>
+<anchor xml:id="__actor_8py_source_1l00101"/>00101 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;characters_info&#32;=&#32;<emphasis role="stringliteral">&quot;\n&quot;</emphasis>.join([f<emphasis role="stringliteral">&quot;{name}:&#32;{desc}&quot;</emphasis>&#32;<emphasis role="keywordflow">for</emphasis>&#32;name,&#32;desc&#32;<emphasis role="keywordflow">in</emphasis>&#32;self.<link linkend="_classsrc_1_1_actor_1_1_actor_1_1_actor_1a742d0360a74e41c074f8366f85bd82b0">__active_characters</link>.items()])
+<anchor xml:id="__actor_8py_source_1l00102"/>00102 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;game_master_output&#32;==&#32;off_topic_message_eng:
+<anchor xml:id="__actor_8py_source_1l00103"/>00103 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;self.<link linkend="_classsrc_1_1_actor_1_1_actor_1_1_actor_1a9ee4717958973cf596c6fe1b9b68bd6f">__language</link>&#32;==&#32;<emphasis role="stringliteral">&apos;Russian&apos;</emphasis>:
+<anchor xml:id="__actor_8py_source_1l00104"/>00104 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;response&#32;=&#32;off_topic_message_ru
+<anchor xml:id="__actor_8py_source_1l00105"/>00105 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">else</emphasis>:
+<anchor xml:id="__actor_8py_source_1l00106"/>00106 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;response&#32;=&#32;&#32;off_topic_message_eng
+<anchor xml:id="__actor_8py_source_1l00107"/>00107 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;self.<link linkend="_classsrc_1_1_actor_1_1_actor_1_1_actor_1a0608dc0a8d05e278fd85449d79635dc3">__db</link>.save_actor_message(self.<link linkend="_classsrc_1_1_actor_1_1_actor_1_1_actor_1a555c09b922592195dbe5d6046e8c59bc">__session_id</link>,&#32;game_master_output,&#32;response)
+<anchor xml:id="__actor_8py_source_1l00108"/>00108 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;response
+<anchor xml:id="__actor_8py_source_1l00109"/>00109 
+<anchor xml:id="__actor_8py_source_1l00110"/>00110 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;narration_prompt&#32;=&#32;f<emphasis role="stringliteral">&apos;&apos;&apos;</emphasis>
+<anchor xml:id="__actor_8py_source_1l00111"/>00111 <emphasis role="stringliteral">&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;Current&#32;scene&#32;characters:</emphasis>
+<anchor xml:id="__actor_8py_source_1l00112"/>00112 <emphasis role="stringliteral">&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{characters_info}</emphasis>
+<anchor xml:id="__actor_8py_source_1l00113"/>00113 <emphasis role="stringliteral"></emphasis>
+<anchor xml:id="__actor_8py_source_1l00114"/>00114 <emphasis role="stringliteral">&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;User&apos;s&#32;input:&#32;&quot;{user_input}&quot;</emphasis>
+<anchor xml:id="__actor_8py_source_1l00115"/>00115 <emphasis role="stringliteral">&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;Game&#32;Master&apos;s&#32;output:&#32;{game_master_output}</emphasis>
+<anchor xml:id="__actor_8py_source_1l00116"/>00116 <emphasis role="stringliteral"></emphasis>
+<anchor xml:id="__actor_8py_source_1l00117"/>00117 <emphasis role="stringliteral">&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;Transform&#32;this&#32;into&#32;a&#32;concise&#32;narrative&#32;following&#32;the&#32;established&#32;guidelines.</emphasis>
+<anchor xml:id="__actor_8py_source_1l00118"/>00118 <emphasis role="stringliteral">&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;Remember:</emphasis>
+<anchor xml:id="__actor_8py_source_1l00119"/>00119 <emphasis role="stringliteral">&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;Never&#32;describe&#32;a&#32;dialogue,&#32;write&#32;what&#32;it&#32;says.</emphasis>
+<anchor xml:id="__actor_8py_source_1l00120"/>00120 <emphasis role="stringliteral">&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;If&#32;you&#32;have&#32;been&#32;given&#32;an&#32;answer&#32;with&#32;specific&#32;details,&#32;they&#32;should&#32;be&#32;described&#32;if&#32;this&#32;is&#32;important&#32;information&#32;for&#32;the&#32;plot&#32;that&#32;the&#32;character&#32;obviously&#32;sees.&#32;If&#32;this&#32;information&#32;is&#32;part&#32;of&#32;the&#32;dialogue,&#32;describe&#32;it&#32;if&#32;a&#32;normal&#32;conversation&#32;between&#32;people&#32;involves&#32;the&#32;disclosure&#32;of&#32;this&#32;information.</emphasis>
+<anchor xml:id="__actor_8py_source_1l00121"/>00121 <emphasis role="stringliteral"></emphasis>
+<anchor xml:id="__actor_8py_source_1l00122"/>00122 <emphasis role="stringliteral">&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&apos;&apos;&apos;</emphasis>
+<anchor xml:id="__actor_8py_source_1l00123"/>00123 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;
+<anchor xml:id="__actor_8py_source_1l00124"/>00124 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;response&#32;=&#32;self.<link linkend="_classsrc_1_1_actor_1_1_actor_1_1_actor_1af49f26ff10c887f0648b90254cfa170e">__messageGenerator</link>.generate(narration_prompt)
+<anchor xml:id="__actor_8py_source_1l00125"/>00125 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;
+<anchor xml:id="__actor_8py_source_1l00126"/>00126 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">#&#32;Save&#32;to&#32;database</emphasis>
+<anchor xml:id="__actor_8py_source_1l00127"/>00127 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;self.<link linkend="_classsrc_1_1_actor_1_1_actor_1_1_actor_1a0608dc0a8d05e278fd85449d79635dc3">__db</link>.save_actor_message(self.<link linkend="_classsrc_1_1_actor_1_1_actor_1_1_actor_1a555c09b922592195dbe5d6046e8c59bc">__session_id</link>,&#32;game_master_output,&#32;response)
+<anchor xml:id="__actor_8py_source_1l00128"/>00128 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;
+<anchor xml:id="__actor_8py_source_1l00129"/>00129 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;response
+<anchor xml:id="__actor_8py_source_1l00130"/>00130 
+<anchor xml:id="__actor_8py_source_1l00131"/><link linkend="_classsrc_1_1_actor_1_1_actor_1_1_actor_1a338c52fc8f731dbf7695b5c7a8c9160a">00131</link> &#32;&#32;&#32;&#32;<emphasis role="keyword">def&#32;</emphasis><link linkend="_classsrc_1_1_actor_1_1_actor_1_1_actor_1a338c52fc8f731dbf7695b5c7a8c9160a">get_message_history</link>(self)&#32;-&gt;&#32;List[Dict[str,&#32;str]]:
+<anchor xml:id="__actor_8py_source_1l00132"/>00132 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="stringliteral">&quot;&quot;&quot;!</emphasis>
+<anchor xml:id="__actor_8py_source_1l00133"/>00133 <emphasis role="stringliteral">&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;@brief&#32;Получение&#32;истории&#32;сообщений</emphasis>
+<anchor xml:id="__actor_8py_source_1l00134"/>00134 <emphasis role="stringliteral">&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;</emphasis>
+<anchor xml:id="__actor_8py_source_1l00135"/>00135 <emphasis role="stringliteral">&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;@return&#32;List[Dict[str,&#32;str]]&#32;Список&#32;словарей&#32;с&#32;историей&#32;сообщений</emphasis>
+<anchor xml:id="__actor_8py_source_1l00136"/>00136 <emphasis role="stringliteral">&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;</emphasis>
+<anchor xml:id="__actor_8py_source_1l00137"/>00137 <emphasis role="stringliteral">&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;@details</emphasis>
+<anchor xml:id="__actor_8py_source_1l00138"/>00138 <emphasis role="stringliteral">&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;Возвращает&#32;полную&#32;историю&#32;сообщений,&#32;включая&#32;системные</emphasis>
+<anchor xml:id="__actor_8py_source_1l00139"/>00139 <emphasis role="stringliteral">&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;сообщения,&#32;сообщения&#32;пользователя&#32;и&#32;ответы&#32;актора.</emphasis>
+<anchor xml:id="__actor_8py_source_1l00140"/>00140 <emphasis role="stringliteral">&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&quot;&quot;&quot;</emphasis>
+<anchor xml:id="__actor_8py_source_1l00141"/>00141 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;self.<link linkend="_classsrc_1_1_actor_1_1_actor_1_1_actor_1af49f26ff10c887f0648b90254cfa170e">__messageGenerator</link>.<link linkend="_classsrc_1_1_actor_1_1_actor_1_1_actor_1a338c52fc8f731dbf7695b5c7a8c9160a">get_message_history</link>()
+</programlisting></section>

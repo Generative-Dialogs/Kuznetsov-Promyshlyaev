@@ -1,0 +1,109 @@
+.TH "src.Actor.Actor.Actor" 3 "My Project" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+src.Actor.Actor.Actor \- Реализация актора в игровой системе  
+
+.SH SYNOPSIS
+.br
+.PP
+.SS "Открытые члены"
+
+.in +1c
+.ti -1c
+.RI "None \fB__init__\fP (self, \fBProtocolGameMaster\fP game_master, int session_id, str language='English', bool fast_flg=True)"
+.br
+.RI "Инициализация актора "
+.ti -1c
+.RI "None \fBupdate_active_characters\fP (self, Dict[str, str] characters)"
+.br
+.RI "Обновление списка активных персонажей "
+.ti -1c
+.RI "str \fBget_detailed_action\fP (self, str game_master_output, str user_input)"
+.br
+.RI "Получение детализированного описания действия "
+.ti -1c
+.RI "List[Dict[str, str]] \fBget_message_history\fP (self)"
+.br
+.RI "Получение истории сообщений "
+.in -1c
+.SH "Подробное описание"
+.PP 
+Реализация актора в игровой системе 
+
+Класс отвечает за генерацию детализированных описаний действий и событий в игре\&. Преобразует команды мастера игры в нарративные описания с учетом контекста и активных персонажей\&. 
+.PP
+См\&. определение в файле \fBActor\&.py\fP строка \fB12\fP
+.SH "Конструктор(ы)"
+.PP 
+.SS " None src\&.Actor\&.Actor\&.Actor\&.__init__ ( self, \fBProtocolGameMaster\fP game_master, int session_id, str  language = \fR'English'\fP, bool  fast_flg = \fRTrue\fP)"
+
+.PP
+Инициализация актора 
+.PP
+\fBАргументы\fP
+.RS 4
+\fIgame_master\fP Экземпляр мастера игры 
+.br
+\fIsession_id\fP ID игровой сессии 
+.br
+\fIlanguage\fP Язык генерации описаний (по умолчанию "English") 
+.br
+\fIfast_flg\fP Флаг быстрого режима инициализации
+.RE
+.PP
+Создает нового актора с заданными параметрами и инициализирует необходимые компоненты для генерации описаний\&. 
+.PP
+См\&. определение в файле \fBActor\&.py\fP строка \fB22\fP
+.SH "Методы"
+.PP 
+.SS " str src\&.Actor\&.Actor\&.Actor\&.get_detailed_action ( self, str game_master_output, str user_input)"
+
+.PP
+Получение детализированного описания действия 
+.PP
+\fBАргументы\fP
+.RS 4
+\fIgame_master_output\fP Выходные данные мастера игры 
+.br
+\fIuser_input\fP Ввод пользователя
+.RE
+.PP
+\fBВозвращает\fP
+.RS 4
+str Детализированное описание действия
+.RE
+.PP
+Генерирует подробное нарративное описание действия на основе команд мастера игры и контекста активных персонажей\&. Учитывает язык генерации и сохраняет историю сообщений\&. 
+.PP
+См\&. определение в файле \fBActor\&.py\fP строка \fB86\fP
+.SS " List[Dict[str, str]] src\&.Actor\&.Actor\&.Actor\&.get_message_history ( self)"
+
+.PP
+Получение истории сообщений 
+.PP
+\fBВозвращает\fP
+.RS 4
+List[Dict[str, str]] Список словарей с историей сообщений
+.RE
+.PP
+Возвращает полную историю сообщений, включая системные сообщения, сообщения пользователя и ответы актора\&. 
+.PP
+См\&. определение в файле \fBActor\&.py\fP строка \fB131\fP
+.SS " None src\&.Actor\&.Actor\&.Actor\&.update_active_characters ( self, Dict[str, str] characters)"
+
+.PP
+Обновление списка активных персонажей 
+.PP
+\fBАргументы\fP
+.RS 4
+\fIcharacters\fP Словарь с именами и описаниями активных персонажей
+.RE
+.PP
+Обновляет список персонажей, которые в данный момент присутствуют в сцене и могут участвовать в действиях\&. 
+.PP
+См\&. определение в файле \fBActor\&.py\fP строка \fB74\fP
+
+.SH "Автор"
+.PP 
+Автоматически создано Doxygen для My Project из исходного текста\&.

@@ -1,0 +1,2 @@
+DATABASE_NAME: str 
+IMAGE_OUTPUT_DIR: str

@@ -1,0 +1,24 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.13.2" xml:lang="ru">
+  <compounddef id="namespacesrc" kind="namespace" language="Python">
+    <compoundname>src</compoundname>
+    <innernamespace refid="namespacesrc_1_1____main____">src::__main__</innernamespace>
+    <innernamespace refid="namespacesrc_1_1_actor">src::Actor</innernamespace>
+    <innernamespace refid="namespacesrc_1_1config">src::config</innernamespace>
+    <innernamespace refid="namespacesrc_1_1_database_manager">src::DatabaseManager</innernamespace>
+    <innernamespace refid="namespacesrc_1_1_descriptions">src::Descriptions</innernamespace>
+    <innernamespace refid="namespacesrc_1_1_game_master">src::GameMaster</innernamespace>
+    <innernamespace refid="namespacesrc_1_1_image_generator">src::ImageGenerator</innernamespace>
+    <innernamespace refid="namespacesrc_1_1_image_manager">src::ImageManager</innernamespace>
+    <innernamespace refid="namespacesrc_1_1_image_prompt_generator">src::ImagePromptGenerator</innernamespace>
+    <innernamespace refid="namespacesrc_1_1_message_generator">src::MessageGenerator</innernamespace>
+    <innernamespace refid="namespacesrc_1_1_session_manager">src::SessionManager</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para><verbatim>Game Master API package
+</verbatim> </para>
+    </detaileddescription>
+    <location file="C:/Users/kir/Desktop/py/API/src/__init__.py" line="1" column="1"/>
+  </compounddef>
+</doxygen>

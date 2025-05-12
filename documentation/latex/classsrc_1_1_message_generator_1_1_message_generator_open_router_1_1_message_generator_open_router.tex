@@ -1,0 +1,185 @@
+\doxysection{Класс src.\+Message\+Generator.\+Message\+Generator\+Open\+Router.\+Message\+Generator\+Open\+Router}
+\label{classsrc_1_1_message_generator_1_1_message_generator_open_router_1_1_message_generator_open_router}\index{src.MessageGenerator.MessageGeneratorOpenRouter.MessageGeneratorOpenRouter@{src.MessageGenerator.MessageGeneratorOpenRouter.MessageGeneratorOpenRouter}}
+
+
+Генератор сообщений с использованием Open\+Router API.  
+
+
+Граф наследования\+:src.\+Message\+Generator.\+Message\+Generator\+Open\+Router.\+Message\+Generator\+Open\+Router\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{classsrc_1_1_message_generator_1_1_message_generator_open_router_1_1_message_generator_open_router}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Открытые члены}
+\begin{DoxyCompactItemize}
+\item 
+None \textbf{ \+\_\+\+\_\+init\+\_\+\+\_\+} (self, str model=\textquotesingle{}google/gemini-\/2.\+0-\/flash-\/exp\+:free\textquotesingle{})
+\begin{DoxyCompactList}\small\item\em Инициализация генератора сообщений \end{DoxyCompactList}\item 
+str \textbf{ generate} (self, str input\+\_\+message, Optional[str] model=None)
+\begin{DoxyCompactList}\small\item\em Генерация ответа с использованием Open\+Router API. \end{DoxyCompactList}\item 
+None \textbf{ add\+\_\+user\+\_\+message} (self, str message\+\_\+content)
+\begin{DoxyCompactList}\small\item\em Добавление сообщения пользователя в историю \end{DoxyCompactList}\item 
+None \textbf{ add\+\_\+ai\+\_\+message} (self, str message\+\_\+content)
+\begin{DoxyCompactList}\small\item\em Добавление сообщения ИИ в историю \end{DoxyCompactList}\item 
+None \textbf{ add\+\_\+system\+\_\+message} (self, str message\+\_\+content)
+\begin{DoxyCompactList}\small\item\em Добавление системного сообщения в историю \end{DoxyCompactList}\item 
+List[Dict[str, str]] \textbf{ get\+\_\+message\+\_\+history} (self)
+\begin{DoxyCompactList}\small\item\em Получение истории сообщений \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Подробное описание}
+Генератор сообщений с использованием Open\+Router API. 
+
+Реализует интерфейс \doxyref{Protocol\+Message\+Generator}{стр.}{classsrc_1_1_message_generator_1_1_protocol_message_generator_1_1_protocol_message_generator} для генерации сообщений через Open\+Router API, предоставляющий доступ к различным языковым моделям. 
+
+См. определение в файле \textbf{ Message\+Generator\+Open\+Router.\+py} строка \textbf{ 8}
+
+
+
+\doxysubsection{Конструктор(ы)}
+\index{src.MessageGenerator.MessageGeneratorOpenRouter.MessageGeneratorOpenRouter@{src.MessageGenerator.MessageGeneratorOpenRouter.MessageGeneratorOpenRouter}!\_\_init\_\_@{\_\_init\_\_}}
+\index{\_\_init\_\_@{\_\_init\_\_}!src.MessageGenerator.MessageGeneratorOpenRouter.MessageGeneratorOpenRouter@{src.MessageGenerator.MessageGeneratorOpenRouter.MessageGeneratorOpenRouter}}
+\doxysubsubsection{\_\_init\_\_()}
+{\footnotesize\ttfamily \label{classsrc_1_1_message_generator_1_1_message_generator_open_router_1_1_message_generator_open_router_a75a7a3626f6c6189f666a22d74a18303} 
+ None src.\+Message\+Generator.\+Message\+Generator\+Open\+Router.\+Message\+Generator\+Open\+Router.\+\_\+\+\_\+init\+\_\+\+\_\+ (\begin{DoxyParamCaption}\item[{}]{self}{, }\item[{str }]{model}{ = {\ttfamily \textquotesingle{}google/gemini-\/2.0-\/flash-\/exp\+:free\textquotesingle{}}}\end{DoxyParamCaption})}
+
+
+
+Инициализация генератора сообщений 
+
+
+\begin{DoxyParams}{Аргументы}
+{\em model} & Название модели для генерации (по умолчанию \textquotesingle{}openrouter/quasar-\/alpha\textquotesingle{}) \\
+\hline
+\end{DoxyParams}
+
+
+См. определение в файле \textbf{ Message\+Generator\+Open\+Router.\+py} строка \textbf{ 20}
+
+
+
+\doxysubsection{Методы}
+\index{src.MessageGenerator.MessageGeneratorOpenRouter.MessageGeneratorOpenRouter@{src.MessageGenerator.MessageGeneratorOpenRouter.MessageGeneratorOpenRouter}!add\_ai\_message@{add\_ai\_message}}
+\index{add\_ai\_message@{add\_ai\_message}!src.MessageGenerator.MessageGeneratorOpenRouter.MessageGeneratorOpenRouter@{src.MessageGenerator.MessageGeneratorOpenRouter.MessageGeneratorOpenRouter}}
+\doxysubsubsection{add\_ai\_message()}
+{\footnotesize\ttfamily \label{classsrc_1_1_message_generator_1_1_message_generator_open_router_1_1_message_generator_open_router_aa5d3cc3f60a9d6fa9dd5b3953ddeb96d} 
+ None src.\+Message\+Generator.\+Message\+Generator\+Open\+Router.\+Message\+Generator\+Open\+Router.\+add\+\_\+ai\+\_\+message (\begin{DoxyParamCaption}\item[{}]{self}{, }\item[{str}]{message\+\_\+content}{}\end{DoxyParamCaption})}
+
+
+
+Добавление сообщения ИИ в историю 
+
+
+\begin{DoxyParams}{Аргументы}
+{\em message\+\_\+content} & Текст сообщения ИИ \\
+\hline
+\end{DoxyParams}
+
+
+Переопределяет метод предка \textbf{ src.\+Message\+Generator.\+Protocol\+Message\+Generator.\+Protocol\+Message\+Generator} \doxyref{}{стр.}{classsrc_1_1_message_generator_1_1_protocol_message_generator_1_1_protocol_message_generator_afaffcee2207244df4fa8b5b398196062}.
+
+
+
+См. определение в файле \textbf{ Message\+Generator\+Open\+Router.\+py} строка \textbf{ 81}
+
+\index{src.MessageGenerator.MessageGeneratorOpenRouter.MessageGeneratorOpenRouter@{src.MessageGenerator.MessageGeneratorOpenRouter.MessageGeneratorOpenRouter}!add\_system\_message@{add\_system\_message}}
+\index{add\_system\_message@{add\_system\_message}!src.MessageGenerator.MessageGeneratorOpenRouter.MessageGeneratorOpenRouter@{src.MessageGenerator.MessageGeneratorOpenRouter.MessageGeneratorOpenRouter}}
+\doxysubsubsection{add\_system\_message()}
+{\footnotesize\ttfamily \label{classsrc_1_1_message_generator_1_1_message_generator_open_router_1_1_message_generator_open_router_a1fb2452d509bfbf2b1bcf924265fe386} 
+ None src.\+Message\+Generator.\+Message\+Generator\+Open\+Router.\+Message\+Generator\+Open\+Router.\+add\+\_\+system\+\_\+message (\begin{DoxyParamCaption}\item[{}]{self}{, }\item[{str}]{message\+\_\+content}{}\end{DoxyParamCaption})}
+
+
+
+Добавление системного сообщения в историю 
+
+
+\begin{DoxyParams}{Аргументы}
+{\em message\+\_\+content} & Текст системного сообщения \\
+\hline
+\end{DoxyParams}
+
+
+Переопределяет метод предка \textbf{ src.\+Message\+Generator.\+Protocol\+Message\+Generator.\+Protocol\+Message\+Generator} \doxyref{}{стр.}{classsrc_1_1_message_generator_1_1_protocol_message_generator_1_1_protocol_message_generator_a05e18c9670112887e7fd920ad79caf14}.
+
+
+
+См. определение в файле \textbf{ Message\+Generator\+Open\+Router.\+py} строка \textbf{ 93}
+
+\index{src.MessageGenerator.MessageGeneratorOpenRouter.MessageGeneratorOpenRouter@{src.MessageGenerator.MessageGeneratorOpenRouter.MessageGeneratorOpenRouter}!add\_user\_message@{add\_user\_message}}
+\index{add\_user\_message@{add\_user\_message}!src.MessageGenerator.MessageGeneratorOpenRouter.MessageGeneratorOpenRouter@{src.MessageGenerator.MessageGeneratorOpenRouter.MessageGeneratorOpenRouter}}
+\doxysubsubsection{add\_user\_message()}
+{\footnotesize\ttfamily \label{classsrc_1_1_message_generator_1_1_message_generator_open_router_1_1_message_generator_open_router_af52bb8a0267ae1b4daa825306d899a7e} 
+ None src.\+Message\+Generator.\+Message\+Generator\+Open\+Router.\+Message\+Generator\+Open\+Router.\+add\+\_\+user\+\_\+message (\begin{DoxyParamCaption}\item[{}]{self}{, }\item[{str}]{message\+\_\+content}{}\end{DoxyParamCaption})}
+
+
+
+Добавление сообщения пользователя в историю 
+
+
+\begin{DoxyParams}{Аргументы}
+{\em message\+\_\+content} & Текст сообщения пользователя \\
+\hline
+\end{DoxyParams}
+
+
+Переопределяет метод предка \textbf{ src.\+Message\+Generator.\+Protocol\+Message\+Generator.\+Protocol\+Message\+Generator} \doxyref{}{стр.}{classsrc_1_1_message_generator_1_1_protocol_message_generator_1_1_protocol_message_generator_acecf0dcf2a5261a36c56da5ab6e253e3}.
+
+
+
+См. определение в файле \textbf{ Message\+Generator\+Open\+Router.\+py} строка \textbf{ 69}
+
+\index{src.MessageGenerator.MessageGeneratorOpenRouter.MessageGeneratorOpenRouter@{src.MessageGenerator.MessageGeneratorOpenRouter.MessageGeneratorOpenRouter}!generate@{generate}}
+\index{generate@{generate}!src.MessageGenerator.MessageGeneratorOpenRouter.MessageGeneratorOpenRouter@{src.MessageGenerator.MessageGeneratorOpenRouter.MessageGeneratorOpenRouter}}
+\doxysubsubsection{generate()}
+{\footnotesize\ttfamily \label{classsrc_1_1_message_generator_1_1_message_generator_open_router_1_1_message_generator_open_router_a15028a5b1b03263bf167d0b962b6a8ed} 
+ str src.\+Message\+Generator.\+Message\+Generator\+Open\+Router.\+Message\+Generator\+Open\+Router.\+generate (\begin{DoxyParamCaption}\item[{}]{self}{, }\item[{str}]{input\+\_\+message}{, }\item[{Optional[str] }]{model}{ = {\ttfamily None}}\end{DoxyParamCaption})}
+
+
+
+Генерация ответа с использованием Open\+Router API. 
+
+
+\begin{DoxyParams}{Аргументы}
+{\em input\+\_\+message} & Входное сообщение для обработки \\
+\hline
+{\em model} & Название модели для генерации (опционально)\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Возвращает}
+str Сгенерированный ответ 
+\end{DoxyReturn}
+
+
+Переопределяет метод предка \textbf{ src.\+Message\+Generator.\+Protocol\+Message\+Generator.\+Protocol\+Message\+Generator} \doxyref{}{стр.}{classsrc_1_1_message_generator_1_1_protocol_message_generator_1_1_protocol_message_generator_a3b2d9e3f4f31cce6400c8fe8b5329bf4}.
+
+
+
+См. определение в файле \textbf{ Message\+Generator\+Open\+Router.\+py} строка \textbf{ 31}
+
+\index{src.MessageGenerator.MessageGeneratorOpenRouter.MessageGeneratorOpenRouter@{src.MessageGenerator.MessageGeneratorOpenRouter.MessageGeneratorOpenRouter}!get\_message\_history@{get\_message\_history}}
+\index{get\_message\_history@{get\_message\_history}!src.MessageGenerator.MessageGeneratorOpenRouter.MessageGeneratorOpenRouter@{src.MessageGenerator.MessageGeneratorOpenRouter.MessageGeneratorOpenRouter}}
+\doxysubsubsection{get\_message\_history()}
+{\footnotesize\ttfamily \label{classsrc_1_1_message_generator_1_1_message_generator_open_router_1_1_message_generator_open_router_a7578f9aa506627b7e8de5e6b322f401e} 
+ List[Dict[str, str]] src.\+Message\+Generator.\+Message\+Generator\+Open\+Router.\+Message\+Generator\+Open\+Router.\+get\+\_\+message\+\_\+history (\begin{DoxyParamCaption}\item[{}]{self}{}\end{DoxyParamCaption})}
+
+
+
+Получение истории сообщений 
+
+\begin{DoxyReturn}{Возвращает}
+List[Dict[str, str]] Список сообщений в формате словарей 
+\end{DoxyReturn}
+
+
+Переопределяет метод предка \textbf{ src.\+Message\+Generator.\+Protocol\+Message\+Generator.\+Protocol\+Message\+Generator} \doxyref{}{стр.}{classsrc_1_1_message_generator_1_1_protocol_message_generator_1_1_protocol_message_generator_a854ce7a11bf37223a2b51f465a0a7638}.
+
+
+
+См. определение в файле \textbf{ Message\+Generator\+Open\+Router.\+py} строка \textbf{ 105}
+
+
+
+Объявления и описания членов класса находятся в файле\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/kir/\+Desktop/py/\+API/src/\+Message\+Generator/Message\+Generator\+Open\+Router.\+py\end{DoxyCompactItemize}

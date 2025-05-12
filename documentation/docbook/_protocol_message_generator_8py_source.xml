@@ -1,0 +1,59 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="__protocol_message_generator_8py_source" xml:lang="ru">
+<title>ProtocolMessageGenerator.py</title>
+<indexterm><primary>C:/Users/kir/Desktop/py/API/src/MessageGenerator/ProtocolMessageGenerator.py</primary></indexterm>
+<programlisting linenumbering="unnumbered"><anchor xml:id="__protocol_message_generator_8py_source_1l00001"/>00001 <emphasis role="keyword">from</emphasis>&#32;typing&#32;<emphasis role="keyword">import</emphasis>&#32;Protocol,&#32;Optional,&#32;List,&#32;Dict
+<anchor xml:id="__protocol_message_generator_8py_source_1l00002"/>00002 
+<anchor xml:id="__protocol_message_generator_8py_source_1l00003"/>00003 
+<anchor xml:id="__protocol_message_generator_8py_source_1l00004"/><link linkend="_classsrc_1_1_message_generator_1_1_protocol_message_generator_1_1_protocol_message_generator">00004</link> <emphasis role="keyword">class&#32;</emphasis><link linkend="_classsrc_1_1_message_generator_1_1_protocol_message_generator_1_1_protocol_message_generator">ProtocolMessageGenerator</link>(Protocol):
+<anchor xml:id="__protocol_message_generator_8py_source_1l00005"/>00005 &#32;&#32;&#32;&#32;<emphasis role="stringliteral">&quot;&quot;&quot;!</emphasis>
+<anchor xml:id="__protocol_message_generator_8py_source_1l00006"/>00006 <emphasis role="stringliteral">&#32;&#32;&#32;&#32;@brief&#32;Протокол&#32;для&#32;генерации&#32;сообщений</emphasis>
+<anchor xml:id="__protocol_message_generator_8py_source_1l00007"/>00007 <emphasis role="stringliteral">&#32;&#32;&#32;&#32;</emphasis>
+<anchor xml:id="__protocol_message_generator_8py_source_1l00008"/>00008 <emphasis role="stringliteral">&#32;&#32;&#32;&#32;@details</emphasis>
+<anchor xml:id="__protocol_message_generator_8py_source_1l00009"/>00009 <emphasis role="stringliteral">&#32;&#32;&#32;&#32;Определяет&#32;интерфейс&#32;для&#32;классов,&#32;реализующих&#32;генерацию&#32;сообщений.</emphasis>
+<anchor xml:id="__protocol_message_generator_8py_source_1l00010"/>00010 <emphasis role="stringliteral">&#32;&#32;&#32;&#32;Используется&#32;как&#32;контракт&#32;для&#32;различных&#32;реализаций&#32;генераторов&#32;сообщений.</emphasis>
+<anchor xml:id="__protocol_message_generator_8py_source_1l00011"/>00011 <emphasis role="stringliteral">&#32;&#32;&#32;&#32;&quot;&quot;&quot;</emphasis>
+<anchor xml:id="__protocol_message_generator_8py_source_1l00012"/>00012 
+<anchor xml:id="__protocol_message_generator_8py_source_1l00013"/><link linkend="_classsrc_1_1_message_generator_1_1_protocol_message_generator_1_1_protocol_message_generator_1a3b2d9e3f4f31cce6400c8fe8b5329bf4">00013</link> &#32;&#32;&#32;&#32;<emphasis role="keyword">def&#32;</emphasis><link linkend="_classsrc_1_1_message_generator_1_1_protocol_message_generator_1_1_protocol_message_generator_1a3b2d9e3f4f31cce6400c8fe8b5329bf4">generate</link>(self,&#32;messages:&#32;str,&#32;model:&#32;str&#32;=&#32;<emphasis role="stringliteral">&apos;&apos;</emphasis>)&#32;-&gt;&#32;str:
+<anchor xml:id="__protocol_message_generator_8py_source_1l00014"/>00014 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="stringliteral">&quot;&quot;&quot;!</emphasis>
+<anchor xml:id="__protocol_message_generator_8py_source_1l00015"/>00015 <emphasis role="stringliteral">&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;@brief&#32;Генерация&#32;ответа&#32;на&#32;основе&#32;входного&#32;сообщения</emphasis>
+<anchor xml:id="__protocol_message_generator_8py_source_1l00016"/>00016 <emphasis role="stringliteral">&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;</emphasis>
+<anchor xml:id="__protocol_message_generator_8py_source_1l00017"/>00017 <emphasis role="stringliteral">&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;@param&#32;messages&#32;Входное&#32;сообщение&#32;для&#32;обработки</emphasis>
+<anchor xml:id="__protocol_message_generator_8py_source_1l00018"/>00018 <emphasis role="stringliteral">&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;@param&#32;model&#32;Название&#32;модели&#32;для&#32;генерации&#32;(опционально)</emphasis>
+<anchor xml:id="__protocol_message_generator_8py_source_1l00019"/>00019 <emphasis role="stringliteral">&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;</emphasis>
+<anchor xml:id="__protocol_message_generator_8py_source_1l00020"/>00020 <emphasis role="stringliteral">&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;@return&#32;str&#32;Сгенерированный&#32;ответ</emphasis>
+<anchor xml:id="__protocol_message_generator_8py_source_1l00021"/>00021 <emphasis role="stringliteral">&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&quot;&quot;&quot;</emphasis>
+<anchor xml:id="__protocol_message_generator_8py_source_1l00022"/>00022 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;...
+<anchor xml:id="__protocol_message_generator_8py_source_1l00023"/>00023 
+<anchor xml:id="__protocol_message_generator_8py_source_1l00024"/><link linkend="_classsrc_1_1_message_generator_1_1_protocol_message_generator_1_1_protocol_message_generator_1acecf0dcf2a5261a36c56da5ab6e253e3">00024</link> &#32;&#32;&#32;&#32;<emphasis role="keyword">def&#32;</emphasis><link linkend="_classsrc_1_1_message_generator_1_1_protocol_message_generator_1_1_protocol_message_generator_1acecf0dcf2a5261a36c56da5ab6e253e3">add_user_message</link>(self,&#32;message:&#32;str)&#32;-&gt;&#32;<emphasis role="keywordtype">None</emphasis>:
+<anchor xml:id="__protocol_message_generator_8py_source_1l00025"/>00025 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="stringliteral">&quot;&quot;&quot;!</emphasis>
+<anchor xml:id="__protocol_message_generator_8py_source_1l00026"/>00026 <emphasis role="stringliteral">&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;@brief&#32;Добавление&#32;сообщения&#32;пользователя&#32;в&#32;историю</emphasis>
+<anchor xml:id="__protocol_message_generator_8py_source_1l00027"/>00027 <emphasis role="stringliteral">&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;</emphasis>
+<anchor xml:id="__protocol_message_generator_8py_source_1l00028"/>00028 <emphasis role="stringliteral">&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;@param&#32;message&#32;Текст&#32;сообщения&#32;пользователя</emphasis>
+<anchor xml:id="__protocol_message_generator_8py_source_1l00029"/>00029 <emphasis role="stringliteral">&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&quot;&quot;&quot;</emphasis>
+<anchor xml:id="__protocol_message_generator_8py_source_1l00030"/>00030 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;...
+<anchor xml:id="__protocol_message_generator_8py_source_1l00031"/>00031 
+<anchor xml:id="__protocol_message_generator_8py_source_1l00032"/><link linkend="_classsrc_1_1_message_generator_1_1_protocol_message_generator_1_1_protocol_message_generator_1a05e18c9670112887e7fd920ad79caf14">00032</link> &#32;&#32;&#32;&#32;<emphasis role="keyword">def&#32;</emphasis><link linkend="_classsrc_1_1_message_generator_1_1_protocol_message_generator_1_1_protocol_message_generator_1a05e18c9670112887e7fd920ad79caf14">add_system_message</link>(self,&#32;message:&#32;str)&#32;-&gt;&#32;<emphasis role="keywordtype">None</emphasis>:
+<anchor xml:id="__protocol_message_generator_8py_source_1l00033"/>00033 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="stringliteral">&quot;&quot;&quot;!</emphasis>
+<anchor xml:id="__protocol_message_generator_8py_source_1l00034"/>00034 <emphasis role="stringliteral">&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;@brief&#32;Добавление&#32;системного&#32;сообщения&#32;в&#32;историю</emphasis>
+<anchor xml:id="__protocol_message_generator_8py_source_1l00035"/>00035 <emphasis role="stringliteral">&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;</emphasis>
+<anchor xml:id="__protocol_message_generator_8py_source_1l00036"/>00036 <emphasis role="stringliteral">&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;@param&#32;message&#32;Текст&#32;системного&#32;сообщения</emphasis>
+<anchor xml:id="__protocol_message_generator_8py_source_1l00037"/>00037 <emphasis role="stringliteral">&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&quot;&quot;&quot;</emphasis>
+<anchor xml:id="__protocol_message_generator_8py_source_1l00038"/>00038 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;...
+<anchor xml:id="__protocol_message_generator_8py_source_1l00039"/>00039 
+<anchor xml:id="__protocol_message_generator_8py_source_1l00040"/><link linkend="_classsrc_1_1_message_generator_1_1_protocol_message_generator_1_1_protocol_message_generator_1afaffcee2207244df4fa8b5b398196062">00040</link> &#32;&#32;&#32;&#32;<emphasis role="keyword">def&#32;</emphasis><link linkend="_classsrc_1_1_message_generator_1_1_protocol_message_generator_1_1_protocol_message_generator_1afaffcee2207244df4fa8b5b398196062">add_ai_message</link>(self,&#32;message:&#32;str)&#32;-&gt;&#32;<emphasis role="keywordtype">None</emphasis>:
+<anchor xml:id="__protocol_message_generator_8py_source_1l00041"/>00041 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="stringliteral">&quot;&quot;&quot;!</emphasis>
+<anchor xml:id="__protocol_message_generator_8py_source_1l00042"/>00042 <emphasis role="stringliteral">&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;@brief&#32;Добавление&#32;сообщения&#32;ИИ&#32;в&#32;историю</emphasis>
+<anchor xml:id="__protocol_message_generator_8py_source_1l00043"/>00043 <emphasis role="stringliteral">&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;</emphasis>
+<anchor xml:id="__protocol_message_generator_8py_source_1l00044"/>00044 <emphasis role="stringliteral">&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;@param&#32;message&#32;Текст&#32;сообщения&#32;ИИ</emphasis>
+<anchor xml:id="__protocol_message_generator_8py_source_1l00045"/>00045 <emphasis role="stringliteral">&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&quot;&quot;&quot;</emphasis>
+<anchor xml:id="__protocol_message_generator_8py_source_1l00046"/>00046 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;...
+<anchor xml:id="__protocol_message_generator_8py_source_1l00047"/>00047 
+<anchor xml:id="__protocol_message_generator_8py_source_1l00048"/><link linkend="_classsrc_1_1_message_generator_1_1_protocol_message_generator_1_1_protocol_message_generator_1a854ce7a11bf37223a2b51f465a0a7638">00048</link> &#32;&#32;&#32;&#32;<emphasis role="keyword">def&#32;</emphasis><link linkend="_classsrc_1_1_message_generator_1_1_protocol_message_generator_1_1_protocol_message_generator_1a854ce7a11bf37223a2b51f465a0a7638">get_message_history</link>(self)&#32;-&gt;&#32;List[Dict[str,&#32;str]]:
+<anchor xml:id="__protocol_message_generator_8py_source_1l00049"/>00049 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="stringliteral">&quot;&quot;&quot;!</emphasis>
+<anchor xml:id="__protocol_message_generator_8py_source_1l00050"/>00050 <emphasis role="stringliteral">&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;@brief&#32;Получение&#32;истории&#32;сообщений</emphasis>
+<anchor xml:id="__protocol_message_generator_8py_source_1l00051"/>00051 <emphasis role="stringliteral">&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;</emphasis>
+<anchor xml:id="__protocol_message_generator_8py_source_1l00052"/>00052 <emphasis role="stringliteral">&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;@return&#32;List[Dict[str,&#32;str]]&#32;Список&#32;сообщений&#32;в&#32;формате&#32;словарей</emphasis>
+<anchor xml:id="__protocol_message_generator_8py_source_1l00053"/>00053 <emphasis role="stringliteral">&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&quot;&quot;&quot;</emphasis>
+<anchor xml:id="__protocol_message_generator_8py_source_1l00054"/>00054 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;...
+</programlisting></section>

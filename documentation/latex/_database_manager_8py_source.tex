@@ -1,0 +1,793 @@
+\doxysection{Database\+Manager.\+py}
+\label{_database_manager_8py_source}\index{C:/Users/kir/Desktop/py/API/src/DatabaseManager/DatabaseManager.py@{C:/Users/kir/Desktop/py/API/src/DatabaseManager/DatabaseManager.py}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{keyword}{import}\ sqlite3}
+\DoxyCodeLine{00002\ \textcolor{keyword}{from}\ typing\ \textcolor{keyword}{import}\ Optional,\ Dict,\ List,\ Tuple}
+\DoxyCodeLine{00003\ \textcolor{keyword}{from}\ datetime\ \textcolor{keyword}{import}\ datetime}
+\DoxyCodeLine{00004\ \textcolor{keyword}{from}\ src.config\ \textcolor{keyword}{import}\ DATABASE\_NAME}
+\DoxyCodeLine{00005\ \textcolor{keyword}{import}\ logging}
+\DoxyCodeLine{00006\ \textcolor{keyword}{from}\ sqlalchemy\ \textcolor{keyword}{import}\ text}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ \textcolor{keyword}{class\ }DatabaseManager:}
+\DoxyCodeLine{00009\ \ \ \ \ \textcolor{stringliteral}{"{}"{}"{}!}}
+\DoxyCodeLine{00010\ \textcolor{stringliteral}{\ \ \ \ @brief\ Менеджер\ базы\ данных\ для\ управления\ игровыми\ сессиями}}
+\DoxyCodeLine{00011\ \textcolor{stringliteral}{\ \ \ \ }}
+\DoxyCodeLine{00012\ \textcolor{stringliteral}{\ \ \ \ @details}}
+\DoxyCodeLine{00013\ \textcolor{stringliteral}{\ \ \ \ Реализует\ паттерн\ Singleton\ для\ обеспечения\ единой\ точки\ доступа\ к\ базе\ данных.}}
+\DoxyCodeLine{00014\ \textcolor{stringliteral}{\ \ \ \ Управляет\ всеми\ операциями\ с\ базой\ данных,\ включая:}}
+\DoxyCodeLine{00015\ \textcolor{stringliteral}{\ \ \ \ -\/\ Пользователей\ и\ их\ сессии}}
+\DoxyCodeLine{00016\ \textcolor{stringliteral}{\ \ \ \ -\/\ Персонажей\ и\ их\ описания}}
+\DoxyCodeLine{00017\ \textcolor{stringliteral}{\ \ \ \ -\/\ Историю\ сообщений\ и\ диалогов}}
+\DoxyCodeLine{00018\ \textcolor{stringliteral}{\ \ \ \ -\/\ Промпты\ для\ генерации\ контента}}
+\DoxyCodeLine{00019\ \textcolor{stringliteral}{\ \ \ \ -\/\ Изображения\ и\ их\ промпты}}
+\DoxyCodeLine{00020\ \textcolor{stringliteral}{\ \ \ \ }}
+\DoxyCodeLine{00021\ \textcolor{stringliteral}{\ \ \ \ @note\ Класс\ использует\ SQLite\ в\ качестве\ системы\ управления\ базами\ данных}}
+\DoxyCodeLine{00022\ \textcolor{stringliteral}{\ \ \ \ "{}"{}"{}}}
+\DoxyCodeLine{00023\ \ \ \ \ \_instance\ =\ \textcolor{keywordtype}{None}}
+\DoxyCodeLine{00024\ \ \ \ \ db\_path:\ str}
+\DoxyCodeLine{00025\ }
+\DoxyCodeLine{00026\ \ \ \ \ \textcolor{keyword}{def\ }\_\_new\_\_(cls)\ -\/>\ 'DatabaseManager':}
+\DoxyCodeLine{00027\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}"{}"{}!}}
+\DoxyCodeLine{00028\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ @brief\ Реализация\ паттерна\ Singleton}}
+\DoxyCodeLine{00029\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ }}
+\DoxyCodeLine{00030\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ @return\ DatabaseManager\ Единственный\ экземпляр\ класса}}
+\DoxyCodeLine{00031\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ "{}"{}"{}}}
+\DoxyCodeLine{00032\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ cls.\_instance\ \textcolor{keywordflow}{is}\ \textcolor{keywordtype}{None}:}
+\DoxyCodeLine{00033\ \ \ \ \ \ \ \ \ \ \ \ \ cls.\_instance\ =\ super(DatabaseManager,\ cls).\_\_new\_\_(cls)}
+\DoxyCodeLine{00034\ \ \ \ \ \ \ \ \ \ \ \ \ cls.\_instance.db\_path\ =\ DATABASE\_NAME}
+\DoxyCodeLine{00035\ \ \ \ \ \ \ \ \ \ \ \ \ cls.\_instance.\_init\_database()}
+\DoxyCodeLine{00036\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ cls.\_instance}
+\DoxyCodeLine{00037\ }
+\DoxyCodeLine{00038\ \ \ \ \ \textcolor{keyword}{def\ }\_\_init\_\_(self)\ -\/>\ None:}
+\DoxyCodeLine{00039\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}"{}"{}!}}
+\DoxyCodeLine{00040\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ @brief\ Инициализация\ атрибутов\ экземпляра}}
+\DoxyCodeLine{00041\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ }}
+\DoxyCodeLine{00042\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ @details}}
+\DoxyCodeLine{00043\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ Устанавливает\ путь\ к\ базе\ данных\ и\ инициализирует\ структуру\ базы\ данных}}
+\DoxyCodeLine{00044\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ "{}"{}"{}}}
+\DoxyCodeLine{00045\ \ \ \ \ \ \ \ \ self.db\_path\ =\ DATABASE\_NAME}
+\DoxyCodeLine{00046\ \ \ \ \ \ \ \ \ self.\_init\_database()}
+\DoxyCodeLine{00047\ }
+\DoxyCodeLine{00048\ \ \ \ \ \textcolor{keyword}{def\ }\_init\_database(self)\ -\/>\ None:}
+\DoxyCodeLine{00049\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}"{}"{}!}}
+\DoxyCodeLine{00050\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ @brief\ Инициализация\ структуры\ базы\ данных}}
+\DoxyCodeLine{00051\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ }}
+\DoxyCodeLine{00052\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ @details}}
+\DoxyCodeLine{00053\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ Создает\ все\ необходимые\ таблицы,\ если\ они\ не\ существуют:}}
+\DoxyCodeLine{00054\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ -\/\ users:\ информация\ о\ пользователях}}
+\DoxyCodeLine{00055\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ -\/\ sessions:\ игровые\ сессии}}
+\DoxyCodeLine{00056\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ -\/\ characters:\ персонажи}}
+\DoxyCodeLine{00057\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ -\/\ active\_characters:\ активные\ персонажи\ в\ сессии}}
+\DoxyCodeLine{00058\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ -\/\ user\_messages:\ история\ сообщений\ пользователя}}
+\DoxyCodeLine{00059\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ -\/\ master\_messages:\ история\ сообщений\ мастера\ игры}}
+\DoxyCodeLine{00060\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ -\/\ actor\_messages:\ история\ сообщений\ актора}}
+\DoxyCodeLine{00061\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ -\/\ game\_master\_prompts:\ промпты\ для\ мастера\ игры}}
+\DoxyCodeLine{00062\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ -\/\ actor\_prompts:\ промпты\ для\ актора}}
+\DoxyCodeLine{00063\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ -\/\ image\_prompts:\ промпты\ для\ генерации\ изображений}}
+\DoxyCodeLine{00064\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ "{}"{}"{}}}
+\DoxyCodeLine{00065\ \ \ \ \ \ \ \ \ \textcolor{keyword}{with}\ sqlite3.connect(self.db\_path)\ \textcolor{keyword}{as}\ conn:}
+\DoxyCodeLine{00066\ \ \ \ \ \ \ \ \ \ \ \ \ cursor\ =\ conn.cursor()}
+\DoxyCodeLine{00067\ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00068\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{\#\ Create\ users\ table}}
+\DoxyCodeLine{00069\ \ \ \ \ \ \ \ \ \ \ \ \ cursor.execute(\textcolor{stringliteral}{'''}}
+\DoxyCodeLine{00070\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ CREATE\ TABLE\ IF\ NOT\ EXISTS\ users\ (}}
+\DoxyCodeLine{00071\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ user\_id\ INTEGER\ PRIMARY\ KEY\ AUTOINCREMENT}}
+\DoxyCodeLine{00072\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ )}}
+\DoxyCodeLine{00073\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ '''})}
+\DoxyCodeLine{00074\ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00075\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{\#\ Create\ sessions\ table}}
+\DoxyCodeLine{00076\ \ \ \ \ \ \ \ \ \ \ \ \ cursor.execute(\textcolor{stringliteral}{'''}}
+\DoxyCodeLine{00077\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ CREATE\ TABLE\ IF\ NOT\ EXISTS\ sessions\ (}}
+\DoxyCodeLine{00078\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ session\_id\ INTEGER\ PRIMARY\ KEY\ AUTOINCREMENT,}}
+\DoxyCodeLine{00079\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ user\_id\ INTEGER,}}
+\DoxyCodeLine{00080\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ created\_at\ TIMESTAMP\ DEFAULT\ CURRENT\_TIMESTAMP,}}
+\DoxyCodeLine{00081\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ world\_description\ TEXT,}}
+\DoxyCodeLine{00082\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ player\_description\ TEXT,}}
+\DoxyCodeLine{00083\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ language\ TEXT,}}
+\DoxyCodeLine{00084\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ FOREIGN\ KEY\ (user\_id)\ REFERENCES\ users(user\_id)}}
+\DoxyCodeLine{00085\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ )}}
+\DoxyCodeLine{00086\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ '''})}
+\DoxyCodeLine{00087\ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00088\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{\#\ Create\ characters\ table}}
+\DoxyCodeLine{00089\ \ \ \ \ \ \ \ \ \ \ \ \ cursor.execute(\textcolor{stringliteral}{'''}}
+\DoxyCodeLine{00090\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ CREATE\ TABLE\ IF\ NOT\ EXISTS\ characters\ (}}
+\DoxyCodeLine{00091\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ character\_id\ INTEGER\ PRIMARY\ KEY\ AUTOINCREMENT,}}
+\DoxyCodeLine{00092\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ session\_id\ INTEGER,}}
+\DoxyCodeLine{00093\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ name\ TEXT,}}
+\DoxyCodeLine{00094\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ description\ TEXT,}}
+\DoxyCodeLine{00095\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ FOREIGN\ KEY\ (session\_id)\ REFERENCES\ sessions(session\_id)}}
+\DoxyCodeLine{00096\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ )}}
+\DoxyCodeLine{00097\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ '''})}
+\DoxyCodeLine{00098\ }
+\DoxyCodeLine{00099\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{\#\ Create\ active\ characters\ table}}
+\DoxyCodeLine{00100\ \ \ \ \ \ \ \ \ \ \ \ \ cursor.execute(\textcolor{stringliteral}{'''}}
+\DoxyCodeLine{00101\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ CREATE\ TABLE\ IF\ NOT\ EXISTS\ active\_characters\ (}}
+\DoxyCodeLine{00102\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ session\_id\ INTEGER,}}
+\DoxyCodeLine{00103\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ sequence\_number\ INTEGER,}}
+\DoxyCodeLine{00104\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ character\_id\ INTEGER,}}
+\DoxyCodeLine{00105\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ PRIMARY\ KEY\ (session\_id,\ sequence\_number,\ character\_id),}}
+\DoxyCodeLine{00106\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ FOREIGN\ KEY\ (session\_id)\ REFERENCES\ sessions(session\_id),}}
+\DoxyCodeLine{00107\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ FOREIGN\ KEY\ (character\_id)\ REFERENCES\ characters(character\_id)}}
+\DoxyCodeLine{00108\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ )}}
+\DoxyCodeLine{00109\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ '''})}
+\DoxyCodeLine{00110\ }
+\DoxyCodeLine{00111\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{\#\ Create\ user\ dialog\ history\ table\ (what\ user\ sees)}}
+\DoxyCodeLine{00112\ \ \ \ \ \ \ \ \ \ \ \ \ cursor.execute(\textcolor{stringliteral}{'''}}
+\DoxyCodeLine{00113\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ CREATE\ TABLE\ IF\ NOT\ EXISTS\ user\_messages\ (}}
+\DoxyCodeLine{00114\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ message\_id\ INTEGER\ PRIMARY\ KEY\ AUTOINCREMENT,}}
+\DoxyCodeLine{00115\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ session\_id\ INTEGER,}}
+\DoxyCodeLine{00116\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ sequence\_number\ INTEGER,}}
+\DoxyCodeLine{00117\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ user\_input\ TEXT,}}
+\DoxyCodeLine{00118\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ response\ TEXT,}}
+\DoxyCodeLine{00119\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ created\_at\ TIMESTAMP\ DEFAULT\ CURRENT\_TIMESTAMP,}}
+\DoxyCodeLine{00120\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ FOREIGN\ KEY\ (session\_id)\ REFERENCES\ sessions(session\_id)}}
+\DoxyCodeLine{00121\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ )}}
+\DoxyCodeLine{00122\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ '''})}
+\DoxyCodeLine{00123\ }
+\DoxyCodeLine{00124\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{\#\ Create\ game\ master\ history\ table}}
+\DoxyCodeLine{00125\ \ \ \ \ \ \ \ \ \ \ \ \ cursor.execute(\textcolor{stringliteral}{'''}}
+\DoxyCodeLine{00126\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ CREATE\ TABLE\ IF\ NOT\ EXISTS\ master\_messages\ (}}
+\DoxyCodeLine{00127\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ message\_id\ INTEGER\ PRIMARY\ KEY\ AUTOINCREMENT,}}
+\DoxyCodeLine{00128\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ session\_id\ INTEGER,}}
+\DoxyCodeLine{00129\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ sequence\_number\ INTEGER,}}
+\DoxyCodeLine{00130\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ user\_input\ TEXT,}}
+\DoxyCodeLine{00131\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ master\_output\ TEXT,}}
+\DoxyCodeLine{00132\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ actor\_output\ TEXT,}}
+\DoxyCodeLine{00133\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ created\_at\ TIMESTAMP\ DEFAULT\ CURRENT\_TIMESTAMP,}}
+\DoxyCodeLine{00134\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ FOREIGN\ KEY\ (session\_id)\ REFERENCES\ sessions(session\_id)}}
+\DoxyCodeLine{00135\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ )}}
+\DoxyCodeLine{00136\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ '''})}
+\DoxyCodeLine{00137\ }
+\DoxyCodeLine{00138\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{\#\ Create\ actor\ history\ table}}
+\DoxyCodeLine{00139\ \ \ \ \ \ \ \ \ \ \ \ \ cursor.execute(\textcolor{stringliteral}{'''}}
+\DoxyCodeLine{00140\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ CREATE\ TABLE\ IF\ NOT\ EXISTS\ actor\_messages\ (}}
+\DoxyCodeLine{00141\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ message\_id\ INTEGER\ PRIMARY\ KEY\ AUTOINCREMENT,}}
+\DoxyCodeLine{00142\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ session\_id\ INTEGER,}}
+\DoxyCodeLine{00143\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ sequence\_number\ INTEGER,}}
+\DoxyCodeLine{00144\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ master\_prompt\ TEXT,}}
+\DoxyCodeLine{00145\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ actor\_response\ TEXT,}}
+\DoxyCodeLine{00146\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ created\_at\ TIMESTAMP\ DEFAULT\ CURRENT\_TIMESTAMP,}}
+\DoxyCodeLine{00147\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ FOREIGN\ KEY\ (session\_id)\ REFERENCES\ sessions(session\_id)}}
+\DoxyCodeLine{00148\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ )}}
+\DoxyCodeLine{00149\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ '''})}
+\DoxyCodeLine{00150\ }
+\DoxyCodeLine{00151\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{\#\ Create\ game\ master\ prompts\ table}}
+\DoxyCodeLine{00152\ \ \ \ \ \ \ \ \ \ \ \ \ cursor.execute(\textcolor{stringliteral}{'''}}
+\DoxyCodeLine{00153\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ CREATE\ TABLE\ IF\ NOT\ EXISTS\ game\_master\_prompts\ (}}
+\DoxyCodeLine{00154\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ prompt\_id\ INTEGER\ PRIMARY\ KEY\ AUTOINCREMENT,}}
+\DoxyCodeLine{00155\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ session\_id\ INTEGER,}}
+\DoxyCodeLine{00156\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ prompt\_type\ TEXT,}}
+\DoxyCodeLine{00157\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ prompt\_content\ TEXT,}}
+\DoxyCodeLine{00158\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ model\_response\ TEXT,}}
+\DoxyCodeLine{00159\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ created\_at\ TIMESTAMP\ DEFAULT\ CURRENT\_TIMESTAMP,}}
+\DoxyCodeLine{00160\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ FOREIGN\ KEY\ (session\_id)\ REFERENCES\ sessions(session\_id)}}
+\DoxyCodeLine{00161\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ )}}
+\DoxyCodeLine{00162\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ '''})}
+\DoxyCodeLine{00163\ }
+\DoxyCodeLine{00164\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{\#\ Create\ actor\ prompts\ table}}
+\DoxyCodeLine{00165\ \ \ \ \ \ \ \ \ \ \ \ \ cursor.execute(\textcolor{stringliteral}{'''}}
+\DoxyCodeLine{00166\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ CREATE\ TABLE\ IF\ NOT\ EXISTS\ actor\_prompts\ (}}
+\DoxyCodeLine{00167\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ prompt\_id\ INTEGER\ PRIMARY\ KEY\ AUTOINCREMENT,}}
+\DoxyCodeLine{00168\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ session\_id\ INTEGER,}}
+\DoxyCodeLine{00169\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ prompt\_content\ TEXT,}}
+\DoxyCodeLine{00170\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ model\_response\ TEXT,}}
+\DoxyCodeLine{00171\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ created\_at\ TIMESTAMP\ DEFAULT\ CURRENT\_TIMESTAMP,}}
+\DoxyCodeLine{00172\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ FOREIGN\ KEY\ (session\_id)\ REFERENCES\ sessions(session\_id)}}
+\DoxyCodeLine{00173\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ )}}
+\DoxyCodeLine{00174\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ '''})}
+\DoxyCodeLine{00175\ }
+\DoxyCodeLine{00176\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{\#\ Create\ image\ prompts\ table}}
+\DoxyCodeLine{00177\ \ \ \ \ \ \ \ \ \ \ \ \ cursor.execute(\textcolor{stringliteral}{'''}}
+\DoxyCodeLine{00178\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ CREATE\ TABLE\ IF\ NOT\ EXISTS\ image\_prompts\ (}}
+\DoxyCodeLine{00179\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ prompt\_id\ INTEGER\ PRIMARY\ KEY\ AUTOINCREMENT,}}
+\DoxyCodeLine{00180\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ session\_id\ INTEGER,}}
+\DoxyCodeLine{00181\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ sequence\_number\ INTEGER,}}
+\DoxyCodeLine{00182\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ user\_input\ TEXT,}}
+\DoxyCodeLine{00183\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ narrative\_response\ TEXT,}}
+\DoxyCodeLine{00184\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ image\_prompt\ TEXT,}}
+\DoxyCodeLine{00185\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ created\_at\ TIMESTAMP\ DEFAULT\ CURRENT\_TIMESTAMP,}}
+\DoxyCodeLine{00186\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ FOREIGN\ KEY\ (session\_id)\ REFERENCES\ sessions(session\_id)}}
+\DoxyCodeLine{00187\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ )}}
+\DoxyCodeLine{00188\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ '''})}
+\DoxyCodeLine{00189\ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00190\ \ \ \ \ \ \ \ \ \ \ \ \ conn.commit()}
+\DoxyCodeLine{00191\ }
+\DoxyCodeLine{00192\ \ \ \ \ \textcolor{keyword}{def\ }create\_user(self)\ -\/>\ int:}
+\DoxyCodeLine{00193\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}"{}"{}!}}
+\DoxyCodeLine{00194\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ @brief\ Создание\ нового\ пользователя}}
+\DoxyCodeLine{00195\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ }}
+\DoxyCodeLine{00196\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ @return\ int\ ID\ созданного\ пользователя}}
+\DoxyCodeLine{00197\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ }}
+\DoxyCodeLine{00198\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ @throws\ RuntimeError\ если\ не\ удалось\ создать\ пользователя}}
+\DoxyCodeLine{00199\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ "{}"{}"{}}}
+\DoxyCodeLine{00200\ \ \ \ \ \ \ \ \ \textcolor{keyword}{with}\ sqlite3.connect(self.db\_path)\ \textcolor{keyword}{as}\ conn:}
+\DoxyCodeLine{00201\ \ \ \ \ \ \ \ \ \ \ \ \ cursor\ =\ conn.cursor()}
+\DoxyCodeLine{00202\ \ \ \ \ \ \ \ \ \ \ \ \ cursor.execute(\textcolor{stringliteral}{'INSERT\ INTO\ users\ DEFAULT\ VALUES'})}
+\DoxyCodeLine{00203\ \ \ \ \ \ \ \ \ \ \ \ \ conn.commit()}
+\DoxyCodeLine{00204\ \ \ \ \ \ \ \ \ \ \ \ \ result\ =\ cursor.lastrowid}
+\DoxyCodeLine{00205\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ result\ \textcolor{keywordflow}{is}\ \textcolor{keywordtype}{None}:}
+\DoxyCodeLine{00206\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{raise}\ RuntimeError(\textcolor{stringliteral}{"{}Failed\ to\ create\ user:\ no\ ID\ returned"{}})}
+\DoxyCodeLine{00207\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ result}
+\DoxyCodeLine{00208\ }
+\DoxyCodeLine{00209\ \ \ \ \ \textcolor{keyword}{def\ }get\_all\_users(self)\ -\/>\ List[int]:}
+\DoxyCodeLine{00210\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}"{}"{}!}}
+\DoxyCodeLine{00211\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ @brief\ Получение\ списка\ всех\ пользователей}}
+\DoxyCodeLine{00212\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ }}
+\DoxyCodeLine{00213\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ @return\ List[int]\ Список\ ID\ всех\ пользователей}}
+\DoxyCodeLine{00214\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ "{}"{}"{}}}
+\DoxyCodeLine{00215\ \ \ \ \ \ \ \ \ \textcolor{keyword}{with}\ sqlite3.connect(self.db\_path)\ \textcolor{keyword}{as}\ conn:}
+\DoxyCodeLine{00216\ \ \ \ \ \ \ \ \ \ \ \ \ cursor\ =\ conn.cursor()}
+\DoxyCodeLine{00217\ \ \ \ \ \ \ \ \ \ \ \ \ cursor.execute(\textcolor{stringliteral}{'SELECT\ user\_id\ FROM\ users'})}
+\DoxyCodeLine{00218\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ [row[0]\ \textcolor{keywordflow}{for}\ row\ \textcolor{keywordflow}{in}\ cursor.fetchall()]}
+\DoxyCodeLine{00219\ }
+\DoxyCodeLine{00220\ \ \ \ \ \textcolor{keyword}{def\ }create\_session(self,\ user\_id:\ int,\ world\_description:\ str,\ player\_description:\ str,\ language:\ str\ =\ \textcolor{stringliteral}{"{}Russian"{}})\ -\/>\ int:}
+\DoxyCodeLine{00221\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}"{}"{}!}}
+\DoxyCodeLine{00222\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ @brief\ Создание\ новой\ игровой\ сессии}}
+\DoxyCodeLine{00223\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ }}
+\DoxyCodeLine{00224\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ @param\ user\_id\ ID\ пользователя}}
+\DoxyCodeLine{00225\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ @param\ world\_description\ Описание\ игрового\ мира}}
+\DoxyCodeLine{00226\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ @param\ player\_description\ Описание\ игрока}}
+\DoxyCodeLine{00227\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ @param\ language\ Язык\ сессии\ (Russian/English)}}
+\DoxyCodeLine{00228\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ }}
+\DoxyCodeLine{00229\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ @return\ int\ ID\ созданной\ сессии}}
+\DoxyCodeLine{00230\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ }}
+\DoxyCodeLine{00231\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ @throws\ ValueError\ если\ указан\ неподдерживаемый\ язык}}
+\DoxyCodeLine{00232\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ @throws\ RuntimeError\ если\ не\ удалось\ создать\ сессию}}
+\DoxyCodeLine{00233\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ "{}"{}"{}}}
+\DoxyCodeLine{00234\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ language\ \textcolor{keywordflow}{not}\ \textcolor{keywordflow}{in}\ [\textcolor{stringliteral}{"{}Russian"{}},\ \textcolor{stringliteral}{"{}English"{}}]:}
+\DoxyCodeLine{00235\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{raise}\ ValueError(f\textcolor{stringliteral}{"{}Неподдерживаемый\ язык:\ \{language\}.\ Поддерживаемые\ языки:\ Russian,\ English"{}})}
+\DoxyCodeLine{00236\ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00237\ \ \ \ \ \ \ \ \ \textcolor{keyword}{with}\ sqlite3.connect(self.db\_path)\ \textcolor{keyword}{as}\ conn:}
+\DoxyCodeLine{00238\ \ \ \ \ \ \ \ \ \ \ \ \ cursor\ =\ conn.cursor()}
+\DoxyCodeLine{00239\ \ \ \ \ \ \ \ \ \ \ \ \ cursor.execute(\textcolor{stringliteral}{'''}}
+\DoxyCodeLine{00240\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ INSERT\ INTO\ sessions\ (user\_id,\ world\_description,\ player\_description,\ language)}}
+\DoxyCodeLine{00241\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ VALUES\ (?,\ ?,\ ?,\ ?)}}
+\DoxyCodeLine{00242\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ '''},\ (user\_id,\ world\_description,\ player\_description,\ language))}
+\DoxyCodeLine{00243\ \ \ \ \ \ \ \ \ \ \ \ \ conn.commit()}
+\DoxyCodeLine{00244\ \ \ \ \ \ \ \ \ \ \ \ \ result\ =\ cursor.lastrowid}
+\DoxyCodeLine{00245\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ result\ \textcolor{keywordflow}{is}\ \textcolor{keywordtype}{None}:}
+\DoxyCodeLine{00246\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{raise}\ RuntimeError(\textcolor{stringliteral}{"{}Failed\ to\ create\ session:\ no\ ID\ returned"{}})}
+\DoxyCodeLine{00247\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ result}
+\DoxyCodeLine{00248\ }
+\DoxyCodeLine{00249\ \ \ \ \ \textcolor{keyword}{def\ }get\_user\_sessions(self,\ user\_id:\ int)\ -\/>\ List[Tuple[int,\ str,\ str,\ str]]:}
+\DoxyCodeLine{00250\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}"{}"{}!}}
+\DoxyCodeLine{00251\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ @brief\ Получение\ списка\ сессий\ пользователя}}
+\DoxyCodeLine{00252\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ }}
+\DoxyCodeLine{00253\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ @param\ user\_id\ ID\ пользователя}}
+\DoxyCodeLine{00254\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ }}
+\DoxyCodeLine{00255\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ @return\ List[Tuple[int,\ str,\ str,\ str]]\ Список\ кортежей\ (session\_id,\ created\_at,\ world\_description,\ player\_description)}}
+\DoxyCodeLine{00256\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ "{}"{}"{}}}
+\DoxyCodeLine{00257\ \ \ \ \ \ \ \ \ \textcolor{keyword}{with}\ sqlite3.connect(self.db\_path)\ \textcolor{keyword}{as}\ conn:}
+\DoxyCodeLine{00258\ \ \ \ \ \ \ \ \ \ \ \ \ cursor\ =\ conn.cursor()}
+\DoxyCodeLine{00259\ \ \ \ \ \ \ \ \ \ \ \ \ cursor.execute(\textcolor{stringliteral}{'''}}
+\DoxyCodeLine{00260\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ SELECT\ session\_id,\ created\_at,\ world\_description,\ player\_description}}
+\DoxyCodeLine{00261\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ FROM\ sessions\ WHERE\ user\_id\ =\ ?}}
+\DoxyCodeLine{00262\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ORDER\ BY\ created\_at\ DESC}}
+\DoxyCodeLine{00263\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ '''},\ (user\_id,))}
+\DoxyCodeLine{00264\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ cursor.fetchall()}
+\DoxyCodeLine{00265\ }
+\DoxyCodeLine{00266\ \ \ \ \ \textcolor{keyword}{def\ }get\_session\_info(self,\ session\_id:\ int)\ -\/>\ Optional[Tuple[str,\ str]]:}
+\DoxyCodeLine{00267\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}"{}"{}!}}
+\DoxyCodeLine{00268\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ @brief\ Получение\ информации\ о\ сессии}}
+\DoxyCodeLine{00269\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ }}
+\DoxyCodeLine{00270\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ @param\ session\_id\ ID\ сессии}}
+\DoxyCodeLine{00271\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ }}
+\DoxyCodeLine{00272\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ @return\ Optional[Tuple[str,\ str]]\ Кортеж\ (world\_description,\ player\_description)\ или\ None\ если\ сессия\ не\ найдена}}
+\DoxyCodeLine{00273\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ "{}"{}"{}}}
+\DoxyCodeLine{00274\ \ \ \ \ \ \ \ \ \textcolor{keyword}{with}\ sqlite3.connect(self.db\_path)\ \textcolor{keyword}{as}\ conn:}
+\DoxyCodeLine{00275\ \ \ \ \ \ \ \ \ \ \ \ \ cursor\ =\ conn.cursor()}
+\DoxyCodeLine{00276\ \ \ \ \ \ \ \ \ \ \ \ \ cursor.execute(\textcolor{stringliteral}{'''}}
+\DoxyCodeLine{00277\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ SELECT\ world\_description,\ player\_description}}
+\DoxyCodeLine{00278\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ FROM\ sessions\ WHERE\ session\_id\ =\ ?}}
+\DoxyCodeLine{00279\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ '''},\ (session\_id,))}
+\DoxyCodeLine{00280\ \ \ \ \ \ \ \ \ \ \ \ \ result\ =\ cursor.fetchone()}
+\DoxyCodeLine{00281\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ result\ \textcolor{keywordflow}{if}\ result\ \textcolor{keywordflow}{else}\ \textcolor{keywordtype}{None}}
+\DoxyCodeLine{00282\ }
+\DoxyCodeLine{00283\ \ \ \ \ \textcolor{keyword}{def\ }save\_character(self,\ session\_id:\ int,\ name:\ str,\ description:\ str)\ -\/>\ \textcolor{keywordtype}{None}:}
+\DoxyCodeLine{00284\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}"{}"{}!}}
+\DoxyCodeLine{00285\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ @brief\ Сохранение\ персонажа}}
+\DoxyCodeLine{00286\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ }}
+\DoxyCodeLine{00287\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ @param\ session\_id\ ID\ сессии}}
+\DoxyCodeLine{00288\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ @param\ name\ Имя\ персонажа}}
+\DoxyCodeLine{00289\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ @param\ description\ Описание\ персонажа}}
+\DoxyCodeLine{00290\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ "{}"{}"{}}}
+\DoxyCodeLine{00291\ \ \ \ \ \ \ \ \ \textcolor{keyword}{with}\ sqlite3.connect(self.db\_path)\ \textcolor{keyword}{as}\ conn:}
+\DoxyCodeLine{00292\ \ \ \ \ \ \ \ \ \ \ \ \ cursor\ =\ conn.cursor()}
+\DoxyCodeLine{00293\ \ \ \ \ \ \ \ \ \ \ \ \ cursor.execute(\textcolor{stringliteral}{'''}}
+\DoxyCodeLine{00294\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ INSERT\ OR\ REPLACE\ INTO\ characters\ (session\_id,\ name,\ description)}}
+\DoxyCodeLine{00295\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ VALUES\ (?,\ ?,\ ?)}}
+\DoxyCodeLine{00296\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ '''},\ (session\_id,\ name,\ description))}
+\DoxyCodeLine{00297\ \ \ \ \ \ \ \ \ \ \ \ \ conn.commit()}
+\DoxyCodeLine{00298\ }
+\DoxyCodeLine{00299\ \ \ \ \ \textcolor{keyword}{def\ }get\_characters(self,\ session\_id:\ int)\ -\/>\ List[Tuple[str,\ str]]:}
+\DoxyCodeLine{00300\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}"{}"{}!}}
+\DoxyCodeLine{00301\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ @brief\ Получение\ списка\ персонажей\ сессии}}
+\DoxyCodeLine{00302\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ }}
+\DoxyCodeLine{00303\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ @param\ session\_id\ ID\ сессии}}
+\DoxyCodeLine{00304\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ }}
+\DoxyCodeLine{00305\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ @return\ List[Tuple[str,\ str]]\ Список\ кортежей\ (name,\ description)}}
+\DoxyCodeLine{00306\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ "{}"{}"{}}}
+\DoxyCodeLine{00307\ \ \ \ \ \ \ \ \ \textcolor{keyword}{with}\ sqlite3.connect(self.db\_path)\ \textcolor{keyword}{as}\ conn:}
+\DoxyCodeLine{00308\ \ \ \ \ \ \ \ \ \ \ \ \ cursor\ =\ conn.cursor()}
+\DoxyCodeLine{00309\ \ \ \ \ \ \ \ \ \ \ \ \ cursor.execute(\textcolor{stringliteral}{'''}}
+\DoxyCodeLine{00310\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ SELECT\ name,\ description\ FROM\ characters\ }}
+\DoxyCodeLine{00311\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ WHERE\ session\_id\ =\ ?}}
+\DoxyCodeLine{00312\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ '''},\ (session\_id,))}
+\DoxyCodeLine{00313\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ cursor.fetchall()}
+\DoxyCodeLine{00314\ }
+\DoxyCodeLine{00315\ \ \ \ \ \textcolor{keyword}{def\ }save\_user\_message(self,\ session\_id:\ int,\ user\_input:\ str,\ response:\ str)\ -\/>\ \textcolor{keywordtype}{None}:}
+\DoxyCodeLine{00316\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}"{}"{}!}}
+\DoxyCodeLine{00317\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ @brief\ Сохранение\ сообщения\ пользователя}}
+\DoxyCodeLine{00318\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ }}
+\DoxyCodeLine{00319\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ @param\ session\_id\ ID\ сессии}}
+\DoxyCodeLine{00320\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ @param\ user\_input\ Ввод\ пользователя}}
+\DoxyCodeLine{00321\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ @param\ response\ Ответ\ системы}}
+\DoxyCodeLine{00322\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ "{}"{}"{}}}
+\DoxyCodeLine{00323\ \ \ \ \ \ \ \ \ \textcolor{keyword}{with}\ sqlite3.connect(self.db\_path)\ \textcolor{keyword}{as}\ conn:}
+\DoxyCodeLine{00324\ \ \ \ \ \ \ \ \ \ \ \ \ cursor\ =\ conn.cursor()}
+\DoxyCodeLine{00325\ \ \ \ \ \ \ \ \ \ \ \ \ cursor.execute(\textcolor{stringliteral}{'''}}
+\DoxyCodeLine{00326\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ SELECT\ COALESCE(MAX(sequence\_number),\ 0)\ FROM\ user\_messages\ }}
+\DoxyCodeLine{00327\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ WHERE\ session\_id\ =\ ?}}
+\DoxyCodeLine{00328\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ '''},\ (session\_id,))}
+\DoxyCodeLine{00329\ \ \ \ \ \ \ \ \ \ \ \ \ next\_seq\ =\ cursor.fetchone()[0]\ +\ 1}
+\DoxyCodeLine{00330\ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00331\ \ \ \ \ \ \ \ \ \ \ \ \ cursor.execute(\textcolor{stringliteral}{'''}}
+\DoxyCodeLine{00332\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ INSERT\ INTO\ user\_messages\ (session\_id,\ sequence\_number,\ user\_input,\ response)}}
+\DoxyCodeLine{00333\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ VALUES\ (?,\ ?,\ ?,\ ?)}}
+\DoxyCodeLine{00334\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ '''},\ (session\_id,\ next\_seq,\ user\_input,\ response))}
+\DoxyCodeLine{00335\ \ \ \ \ \ \ \ \ \ \ \ \ conn.commit()}
+\DoxyCodeLine{00336\ }
+\DoxyCodeLine{00337\ \ \ \ \ \textcolor{keyword}{def\ }save\_master\_message(self,\ session\_id:\ int,\ user\_input:\ str,\ master\_output:\ str,\ actor\_output:\ str)\ -\/>\ \textcolor{keywordtype}{None}:}
+\DoxyCodeLine{00338\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}"{}"{}!}}
+\DoxyCodeLine{00339\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ @brief\ Сохранение\ сообщения\ мастера\ игры}}
+\DoxyCodeLine{00340\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ }}
+\DoxyCodeLine{00341\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ @param\ session\_id\ ID\ сессии}}
+\DoxyCodeLine{00342\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ @param\ user\_input\ Ввод\ пользователя}}
+\DoxyCodeLine{00343\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ @param\ master\_output\ Вывод\ мастера\ игры}}
+\DoxyCodeLine{00344\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ @param\ actor\_output\ Вывод\ актора}}
+\DoxyCodeLine{00345\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ "{}"{}"{}}}
+\DoxyCodeLine{00346\ \ \ \ \ \ \ \ \ \textcolor{keyword}{with}\ sqlite3.connect(self.db\_path)\ \textcolor{keyword}{as}\ conn:}
+\DoxyCodeLine{00347\ \ \ \ \ \ \ \ \ \ \ \ \ cursor\ =\ conn.cursor()}
+\DoxyCodeLine{00348\ \ \ \ \ \ \ \ \ \ \ \ \ cursor.execute(\textcolor{stringliteral}{'''}}
+\DoxyCodeLine{00349\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ SELECT\ COALESCE(MAX(sequence\_number),\ 0)\ FROM\ master\_messages\ }}
+\DoxyCodeLine{00350\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ WHERE\ session\_id\ =\ ?}}
+\DoxyCodeLine{00351\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ '''},\ (session\_id,))}
+\DoxyCodeLine{00352\ \ \ \ \ \ \ \ \ \ \ \ \ next\_seq\ =\ cursor.fetchone()[0]\ +\ 1}
+\DoxyCodeLine{00353\ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00354\ \ \ \ \ \ \ \ \ \ \ \ \ cursor.execute(\textcolor{stringliteral}{'''}}
+\DoxyCodeLine{00355\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ INSERT\ INTO\ master\_messages\ (session\_id,\ sequence\_number,\ user\_input,\ master\_output,\ actor\_output)}}
+\DoxyCodeLine{00356\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ VALUES\ (?,\ ?,\ ?,\ ?,\ ?)}}
+\DoxyCodeLine{00357\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ '''},\ (session\_id,\ next\_seq,\ user\_input,\ master\_output,\ actor\_output))}
+\DoxyCodeLine{00358\ \ \ \ \ \ \ \ \ \ \ \ \ conn.commit()}
+\DoxyCodeLine{00359\ }
+\DoxyCodeLine{00360\ \ \ \ \ \textcolor{keyword}{def\ }save\_actor\_message(self,\ session\_id:\ int,\ master\_prompt:\ str,\ actor\_response:\ str)\ -\/>\ \textcolor{keywordtype}{None}:}
+\DoxyCodeLine{00361\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}"{}"{}!}}
+\DoxyCodeLine{00362\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ @brief\ Сохранение\ сообщения\ актора}}
+\DoxyCodeLine{00363\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ }}
+\DoxyCodeLine{00364\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ @param\ session\_id\ ID\ сессии}}
+\DoxyCodeLine{00365\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ @param\ master\_prompt\ Промпт\ мастера\ игры}}
+\DoxyCodeLine{00366\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ @param\ actor\_response\ Ответ\ актора}}
+\DoxyCodeLine{00367\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ "{}"{}"{}}}
+\DoxyCodeLine{00368\ \ \ \ \ \ \ \ \ \textcolor{keyword}{with}\ sqlite3.connect(self.db\_path)\ \textcolor{keyword}{as}\ conn:}
+\DoxyCodeLine{00369\ \ \ \ \ \ \ \ \ \ \ \ \ cursor\ =\ conn.cursor()}
+\DoxyCodeLine{00370\ \ \ \ \ \ \ \ \ \ \ \ \ cursor.execute(\textcolor{stringliteral}{'''}}
+\DoxyCodeLine{00371\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ SELECT\ COALESCE(MAX(sequence\_number),\ 0)\ FROM\ actor\_messages\ }}
+\DoxyCodeLine{00372\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ WHERE\ session\_id\ =\ ?}}
+\DoxyCodeLine{00373\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ '''},\ (session\_id,))}
+\DoxyCodeLine{00374\ \ \ \ \ \ \ \ \ \ \ \ \ next\_seq\ =\ cursor.fetchone()[0]\ +\ 1}
+\DoxyCodeLine{00375\ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00376\ \ \ \ \ \ \ \ \ \ \ \ \ cursor.execute(\textcolor{stringliteral}{'''}}
+\DoxyCodeLine{00377\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ INSERT\ INTO\ actor\_messages\ (session\_id,\ sequence\_number,\ master\_prompt,\ actor\_response)}}
+\DoxyCodeLine{00378\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ VALUES\ (?,\ ?,\ ?,\ ?)}}
+\DoxyCodeLine{00379\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ '''},\ (session\_id,\ next\_seq,\ master\_prompt,\ actor\_response))}
+\DoxyCodeLine{00380\ \ \ \ \ \ \ \ \ \ \ \ \ conn.commit()}
+\DoxyCodeLine{00381\ }
+\DoxyCodeLine{00382\ \ \ \ \ \textcolor{keyword}{def\ }get\_user\_messages(self,\ session\_id:\ int)\ -\/>\ List[Tuple[int,\ str,\ str]]:}
+\DoxyCodeLine{00383\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}"{}"{}!}}
+\DoxyCodeLine{00384\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ @brief\ Получение\ истории\ сообщений\ пользователя}}
+\DoxyCodeLine{00385\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ }}
+\DoxyCodeLine{00386\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ @param\ session\_id\ ID\ сессии}}
+\DoxyCodeLine{00387\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ }}
+\DoxyCodeLine{00388\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ @return\ List[Tuple[int,\ str,\ str]]\ Список\ кортежей\ (sequence\_number,\ user\_input,\ response)}}
+\DoxyCodeLine{00389\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ "{}"{}"{}}}
+\DoxyCodeLine{00390\ \ \ \ \ \ \ \ \ \textcolor{keyword}{with}\ sqlite3.connect(self.db\_path)\ \textcolor{keyword}{as}\ conn:}
+\DoxyCodeLine{00391\ \ \ \ \ \ \ \ \ \ \ \ \ cursor\ =\ conn.cursor()}
+\DoxyCodeLine{00392\ \ \ \ \ \ \ \ \ \ \ \ \ cursor.execute(\textcolor{stringliteral}{'''}}
+\DoxyCodeLine{00393\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ SELECT\ sequence\_number,\ user\_input,\ response\ }}
+\DoxyCodeLine{00394\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ FROM\ user\_messages\ }}
+\DoxyCodeLine{00395\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ WHERE\ session\_id\ =\ ?}}
+\DoxyCodeLine{00396\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ORDER\ BY\ sequence\_number}}
+\DoxyCodeLine{00397\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ '''},\ (session\_id,))}
+\DoxyCodeLine{00398\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ cursor.fetchall()}
+\DoxyCodeLine{00399\ }
+\DoxyCodeLine{00400\ \ \ \ \ \textcolor{keyword}{def\ }get\_master\_messages(self,\ session\_id:\ int)\ -\/>\ List[Tuple[int,\ str,\ str,\ str]]:}
+\DoxyCodeLine{00401\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}"{}"{}!}}
+\DoxyCodeLine{00402\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ @brief\ Получение\ истории\ сообщений\ мастера\ игры}}
+\DoxyCodeLine{00403\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ }}
+\DoxyCodeLine{00404\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ @param\ session\_id\ ID\ сессии}}
+\DoxyCodeLine{00405\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ }}
+\DoxyCodeLine{00406\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ @return\ List[Tuple[int,\ str,\ str,\ str]]\ Список\ кортежей\ (sequence\_number,\ user\_input,\ master\_output,\ actor\_output)}}
+\DoxyCodeLine{00407\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ "{}"{}"{}}}
+\DoxyCodeLine{00408\ \ \ \ \ \ \ \ \ \textcolor{keyword}{with}\ sqlite3.connect(self.db\_path)\ \textcolor{keyword}{as}\ conn:}
+\DoxyCodeLine{00409\ \ \ \ \ \ \ \ \ \ \ \ \ cursor\ =\ conn.cursor()}
+\DoxyCodeLine{00410\ \ \ \ \ \ \ \ \ \ \ \ \ cursor.execute(\textcolor{stringliteral}{'''}}
+\DoxyCodeLine{00411\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ SELECT\ sequence\_number,\ user\_input,\ master\_output,\ actor\_output\ }}
+\DoxyCodeLine{00412\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ FROM\ master\_messages\ }}
+\DoxyCodeLine{00413\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ WHERE\ session\_id\ =\ ?}}
+\DoxyCodeLine{00414\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ORDER\ BY\ sequence\_number}}
+\DoxyCodeLine{00415\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ '''},\ (session\_id,))}
+\DoxyCodeLine{00416\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ cursor.fetchall()}
+\DoxyCodeLine{00417\ }
+\DoxyCodeLine{00418\ \ \ \ \ \textcolor{keyword}{def\ }get\_actor\_messages(self,\ session\_id:\ int)\ -\/>\ List[Tuple[int,\ str,\ str]]:}
+\DoxyCodeLine{00419\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}"{}"{}!}}
+\DoxyCodeLine{00420\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ @brief\ Получение\ истории\ сообщений\ актора}}
+\DoxyCodeLine{00421\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ }}
+\DoxyCodeLine{00422\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ @param\ session\_id\ ID\ сессии}}
+\DoxyCodeLine{00423\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ }}
+\DoxyCodeLine{00424\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ @return\ List[Tuple[int,\ str,\ str]]\ Список\ кортежей\ (sequence\_number,\ master\_prompt,\ actor\_response)}}
+\DoxyCodeLine{00425\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ "{}"{}"{}}}
+\DoxyCodeLine{00426\ \ \ \ \ \ \ \ \ \textcolor{keyword}{with}\ sqlite3.connect(self.db\_path)\ \textcolor{keyword}{as}\ conn:}
+\DoxyCodeLine{00427\ \ \ \ \ \ \ \ \ \ \ \ \ cursor\ =\ conn.cursor()}
+\DoxyCodeLine{00428\ \ \ \ \ \ \ \ \ \ \ \ \ cursor.execute(\textcolor{stringliteral}{'''}}
+\DoxyCodeLine{00429\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ SELECT\ sequence\_number,\ master\_prompt,\ actor\_response\ }}
+\DoxyCodeLine{00430\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ FROM\ actor\_messages\ }}
+\DoxyCodeLine{00431\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ WHERE\ session\_id\ =\ ?}}
+\DoxyCodeLine{00432\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ORDER\ BY\ sequence\_number}}
+\DoxyCodeLine{00433\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ '''},\ (session\_id,))}
+\DoxyCodeLine{00434\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ cursor.fetchall()}
+\DoxyCodeLine{00435\ }
+\DoxyCodeLine{00436\ \ \ \ \ \textcolor{keyword}{def\ }delete\_session(self,\ session\_id:\ int)\ -\/>\ \textcolor{keywordtype}{None}:}
+\DoxyCodeLine{00437\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}"{}"{}!}}
+\DoxyCodeLine{00438\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ @brief\ Удаление\ сессии\ и\ всех\ связанных\ с\ ней\ данных}}
+\DoxyCodeLine{00439\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ }}
+\DoxyCodeLine{00440\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ @param\ session\_id\ ID\ сессии}}
+\DoxyCodeLine{00441\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ "{}"{}"{}}}
+\DoxyCodeLine{00442\ \ \ \ \ \ \ \ \ \textcolor{keyword}{with}\ sqlite3.connect(self.db\_path)\ \textcolor{keyword}{as}\ conn:}
+\DoxyCodeLine{00443\ \ \ \ \ \ \ \ \ \ \ \ \ cursor\ =\ conn.cursor()}
+\DoxyCodeLine{00444\ \ \ \ \ \ \ \ \ \ \ \ \ cursor.execute(\textcolor{stringliteral}{'DELETE\ FROM\ messages\ WHERE\ session\_id\ =\ ?'},\ (session\_id,))}
+\DoxyCodeLine{00445\ \ \ \ \ \ \ \ \ \ \ \ \ cursor.execute(\textcolor{stringliteral}{'DELETE\ FROM\ characters\ WHERE\ session\_id\ =\ ?'},\ (session\_id,))}
+\DoxyCodeLine{00446\ \ \ \ \ \ \ \ \ \ \ \ \ cursor.execute(\textcolor{stringliteral}{'DELETE\ FROM\ sessions\ WHERE\ session\_id\ =\ ?'},\ (session\_id,))}
+\DoxyCodeLine{00447\ \ \ \ \ \ \ \ \ \ \ \ \ conn.commit()}
+\DoxyCodeLine{00448\ }
+\DoxyCodeLine{00449\ \ \ \ \ \textcolor{keyword}{def\ }delete\_user\_data(self,\ user\_id:\ int)\ -\/>\ \textcolor{keywordtype}{None}:}
+\DoxyCodeLine{00450\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}"{}"{}!}}
+\DoxyCodeLine{00451\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ @brief\ Удаление\ всех\ данных\ пользователя}}
+\DoxyCodeLine{00452\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ }}
+\DoxyCodeLine{00453\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ @param\ user\_id\ ID\ пользователя}}
+\DoxyCodeLine{00454\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ "{}"{}"{}}}
+\DoxyCodeLine{00455\ \ \ \ \ \ \ \ \ \textcolor{keyword}{with}\ sqlite3.connect(self.db\_path)\ \textcolor{keyword}{as}\ conn:}
+\DoxyCodeLine{00456\ \ \ \ \ \ \ \ \ \ \ \ \ cursor\ =\ conn.cursor()}
+\DoxyCodeLine{00457\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{\#\ Get\ all\ sessions\ for\ this\ user}}
+\DoxyCodeLine{00458\ \ \ \ \ \ \ \ \ \ \ \ \ cursor.execute(\textcolor{stringliteral}{'SELECT\ session\_id\ FROM\ sessions\ WHERE\ user\_id\ =\ ?'},\ (user\_id,))}
+\DoxyCodeLine{00459\ \ \ \ \ \ \ \ \ \ \ \ \ sessions\ =\ cursor.fetchall()}
+\DoxyCodeLine{00460\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (session\_id,)\ \textcolor{keywordflow}{in}\ sessions:}
+\DoxyCodeLine{00461\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ self.delete\_session(session\_id)}
+\DoxyCodeLine{00462\ \ \ \ \ \ \ \ \ \ \ \ \ cursor.execute(\textcolor{stringliteral}{'DELETE\ FROM\ users\ WHERE\ user\_id\ =\ ?'},\ (user\_id,))}
+\DoxyCodeLine{00463\ \ \ \ \ \ \ \ \ \ \ \ \ conn.commit()}
+\DoxyCodeLine{00464\ }
+\DoxyCodeLine{00465\ \ \ \ \ \textcolor{keyword}{def\ }save\_game\_master\_prompt(self,\ session\_id:\ int,\ prompt\_type:\ str,\ prompt\_content:\ str,\ model\_response:\ str)\ -\/>\ \textcolor{keywordtype}{None}:}
+\DoxyCodeLine{00466\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}"{}"{}!}}
+\DoxyCodeLine{00467\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ @brief\ Сохранение\ промпта\ мастера\ игры}}
+\DoxyCodeLine{00468\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ }}
+\DoxyCodeLine{00469\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ @param\ session\_id\ ID\ сессии}}
+\DoxyCodeLine{00470\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ @param\ prompt\_type\ Тип\ промпта}}
+\DoxyCodeLine{00471\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ @param\ prompt\_content\ Содержимое\ промпта}}
+\DoxyCodeLine{00472\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ @param\ model\_response\ Ответ\ модели}}
+\DoxyCodeLine{00473\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ "{}"{}"{}}}
+\DoxyCodeLine{00474\ \ \ \ \ \ \ \ \ \textcolor{keyword}{with}\ sqlite3.connect(self.db\_path)\ \textcolor{keyword}{as}\ conn:}
+\DoxyCodeLine{00475\ \ \ \ \ \ \ \ \ \ \ \ \ cursor\ =\ conn.cursor()}
+\DoxyCodeLine{00476\ \ \ \ \ \ \ \ \ \ \ \ \ cursor.execute(\textcolor{stringliteral}{'''}}
+\DoxyCodeLine{00477\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ INSERT\ INTO\ game\_master\_prompts\ (session\_id,\ prompt\_type,\ prompt\_content,\ model\_response)}}
+\DoxyCodeLine{00478\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ VALUES\ (?,\ ?,\ ?,\ ?)}}
+\DoxyCodeLine{00479\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ '''},\ (session\_id,\ prompt\_type,\ prompt\_content,\ model\_response))}
+\DoxyCodeLine{00480\ \ \ \ \ \ \ \ \ \ \ \ \ conn.commit()}
+\DoxyCodeLine{00481\ }
+\DoxyCodeLine{00482\ \ \ \ \ \textcolor{keyword}{def\ }save\_actor\_prompt(self,\ session\_id:\ int,\ prompt\_content:\ str,\ model\_response:\ str)\ -\/>\ \textcolor{keywordtype}{None}:}
+\DoxyCodeLine{00483\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}"{}"{}!}}
+\DoxyCodeLine{00484\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ @brief\ Сохранение\ промпта\ актора}}
+\DoxyCodeLine{00485\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ }}
+\DoxyCodeLine{00486\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ @param\ session\_id\ ID\ сессии}}
+\DoxyCodeLine{00487\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ @param\ prompt\_content\ Содержимое\ промпта}}
+\DoxyCodeLine{00488\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ @param\ model\_response\ Ответ\ модели}}
+\DoxyCodeLine{00489\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ "{}"{}"{}}}
+\DoxyCodeLine{00490\ \ \ \ \ \ \ \ \ \textcolor{keyword}{with}\ sqlite3.connect(self.db\_path)\ \textcolor{keyword}{as}\ conn:}
+\DoxyCodeLine{00491\ \ \ \ \ \ \ \ \ \ \ \ \ cursor\ =\ conn.cursor()}
+\DoxyCodeLine{00492\ \ \ \ \ \ \ \ \ \ \ \ \ cursor.execute(\textcolor{stringliteral}{'''}}
+\DoxyCodeLine{00493\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ INSERT\ INTO\ actor\_prompts\ (session\_id,\ prompt\_content,\ model\_response)}}
+\DoxyCodeLine{00494\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ VALUES\ (?,\ ?,\ ?)}}
+\DoxyCodeLine{00495\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ '''},\ (session\_id,\ prompt\_content,\ model\_response))}
+\DoxyCodeLine{00496\ \ \ \ \ \ \ \ \ \ \ \ \ conn.commit()}
+\DoxyCodeLine{00497\ }
+\DoxyCodeLine{00498\ \ \ \ \ \textcolor{keyword}{def\ }get\_game\_master\_prompts(self,\ session\_id:\ int)\ -\/>\ List[Tuple[str,\ str,\ str]]:}
+\DoxyCodeLine{00499\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}"{}"{}!}}
+\DoxyCodeLine{00500\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ @brief\ Получение\ промптов\ мастера\ игры}}
+\DoxyCodeLine{00501\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ }}
+\DoxyCodeLine{00502\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ @param\ session\_id\ ID\ сессии}}
+\DoxyCodeLine{00503\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ }}
+\DoxyCodeLine{00504\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ @return\ List[Tuple[str,\ str,\ str]]\ Список\ кортежей\ (prompt\_type,\ prompt\_content,\ model\_response)}}
+\DoxyCodeLine{00505\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ "{}"{}"{}}}
+\DoxyCodeLine{00506\ \ \ \ \ \ \ \ \ \textcolor{keyword}{with}\ sqlite3.connect(self.db\_path)\ \textcolor{keyword}{as}\ conn:}
+\DoxyCodeLine{00507\ \ \ \ \ \ \ \ \ \ \ \ \ cursor\ =\ conn.cursor()}
+\DoxyCodeLine{00508\ \ \ \ \ \ \ \ \ \ \ \ \ cursor.execute(\textcolor{stringliteral}{'''}}
+\DoxyCodeLine{00509\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ SELECT\ prompt\_type,\ prompt\_content,\ model\_response\ }}
+\DoxyCodeLine{00510\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ FROM\ game\_master\_prompts\ }}
+\DoxyCodeLine{00511\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ WHERE\ session\_id\ =\ ?}}
+\DoxyCodeLine{00512\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ORDER\ BY\ created\_at}}
+\DoxyCodeLine{00513\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ '''},\ (session\_id,))}
+\DoxyCodeLine{00514\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ cursor.fetchall()}
+\DoxyCodeLine{00515\ }
+\DoxyCodeLine{00516\ \ \ \ \ \textcolor{keyword}{def\ }get\_actor\_prompts(self,\ session\_id:\ int)\ -\/>\ List[Tuple[str,\ str]]:}
+\DoxyCodeLine{00517\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}"{}"{}!}}
+\DoxyCodeLine{00518\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ @brief\ Получение\ промптов\ актора}}
+\DoxyCodeLine{00519\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ }}
+\DoxyCodeLine{00520\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ @param\ session\_id\ ID\ сессии}}
+\DoxyCodeLine{00521\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ }}
+\DoxyCodeLine{00522\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ @return\ List[Tuple[str,\ str]]\ Список\ кортежей\ (prompt\_content,\ model\_response)}}
+\DoxyCodeLine{00523\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ "{}"{}"{}}}
+\DoxyCodeLine{00524\ \ \ \ \ \ \ \ \ \textcolor{keyword}{with}\ sqlite3.connect(self.db\_path)\ \textcolor{keyword}{as}\ conn:}
+\DoxyCodeLine{00525\ \ \ \ \ \ \ \ \ \ \ \ \ cursor\ =\ conn.cursor()}
+\DoxyCodeLine{00526\ \ \ \ \ \ \ \ \ \ \ \ \ cursor.execute(\textcolor{stringliteral}{'''}}
+\DoxyCodeLine{00527\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ SELECT\ prompt\_content,\ model\_response\ }}
+\DoxyCodeLine{00528\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ FROM\ actor\_prompts\ }}
+\DoxyCodeLine{00529\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ WHERE\ session\_id\ =\ ?}}
+\DoxyCodeLine{00530\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ORDER\ BY\ created\_at}}
+\DoxyCodeLine{00531\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ '''},\ (session\_id,))}
+\DoxyCodeLine{00532\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ cursor.fetchall()}
+\DoxyCodeLine{00533\ }
+\DoxyCodeLine{00534\ \ \ \ \ \textcolor{keyword}{def\ }is\_new\_session\_actor\_prompt(self,\ session\_id:\ int)\ -\/>\ bool:}
+\DoxyCodeLine{00535\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}"{}"{}!}}
+\DoxyCodeLine{00536\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ @brief\ Проверка,\ является\ ли\ сессия\ новой\ для\ промптов\ актора}}
+\DoxyCodeLine{00537\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ }}
+\DoxyCodeLine{00538\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ @param\ session\_id\ ID\ сессии}}
+\DoxyCodeLine{00539\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ }}
+\DoxyCodeLine{00540\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ @return\ bool\ True\ если\ сессия\ новая,\ False\ если\ промпты\ уже\ существуют}}
+\DoxyCodeLine{00541\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ "{}"{}"{}}}
+\DoxyCodeLine{00542\ \ \ \ \ \ \ \ \ \textcolor{keyword}{with}\ sqlite3.connect(self.db\_path)\ \textcolor{keyword}{as}\ conn:}
+\DoxyCodeLine{00543\ \ \ \ \ \ \ \ \ \ \ \ \ cursor\ =\ conn.cursor()}
+\DoxyCodeLine{00544\ \ \ \ \ \ \ \ \ \ \ \ \ cursor.execute(\textcolor{stringliteral}{'''}}
+\DoxyCodeLine{00545\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ SELECT\ EXISTS\ (}}
+\DoxyCodeLine{00546\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ SELECT\ 1\ FROM\ actor\_prompts\ WHERE\ session\_id\ =\ ?}}
+\DoxyCodeLine{00547\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ )}}
+\DoxyCodeLine{00548\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ '''},\ (session\_id,))}
+\DoxyCodeLine{00549\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keywordflow}{not}\ bool(cursor.fetchone()[0])}
+\DoxyCodeLine{00550\ }
+\DoxyCodeLine{00551\ \ \ \ \ \textcolor{keyword}{def\ }is\_new\_session\_gm\_prompt(self,\ session\_id:\ int)\ -\/>\ bool:}
+\DoxyCodeLine{00552\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}"{}"{}!}}
+\DoxyCodeLine{00553\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ @brief\ Проверка,\ является\ ли\ сессия\ новой\ для\ промптов\ мастера\ игры}}
+\DoxyCodeLine{00554\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ }}
+\DoxyCodeLine{00555\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ @param\ session\_id\ ID\ сессии}}
+\DoxyCodeLine{00556\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ }}
+\DoxyCodeLine{00557\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ @return\ bool\ True\ если\ сессия\ новая,\ False\ если\ промпты\ уже\ существуют}}
+\DoxyCodeLine{00558\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ "{}"{}"{}}}
+\DoxyCodeLine{00559\ \ \ \ \ \ \ \ \ \textcolor{keyword}{with}\ sqlite3.connect(self.db\_path)\ \textcolor{keyword}{as}\ conn:}
+\DoxyCodeLine{00560\ \ \ \ \ \ \ \ \ \ \ \ \ cursor\ =\ conn.cursor()}
+\DoxyCodeLine{00561\ \ \ \ \ \ \ \ \ \ \ \ \ cursor.execute(\textcolor{stringliteral}{'''}}
+\DoxyCodeLine{00562\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ SELECT\ EXISTS\ (}}
+\DoxyCodeLine{00563\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ SELECT\ 1\ FROM\ game\_master\_prompts\ WHERE\ session\_id\ =\ ?}}
+\DoxyCodeLine{00564\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ )}}
+\DoxyCodeLine{00565\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ '''},\ (session\_id,))}
+\DoxyCodeLine{00566\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keywordflow}{not}\ bool(cursor.fetchone()[0])}
+\DoxyCodeLine{00567\ }
+\DoxyCodeLine{00568\ \ \ \ \ \textcolor{keyword}{def\ }save\_image\_prompt(self,\ session\_id:\ int,\ user\_input:\ str,\ narrative\_response:\ str,\ image\_prompt:\ str)\ -\/>\ \textcolor{keywordtype}{None}:}
+\DoxyCodeLine{00569\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}"{}"{}!}}
+\DoxyCodeLine{00570\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ @brief\ Сохранение\ промпта\ для\ генерации\ изображения}}
+\DoxyCodeLine{00571\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ }}
+\DoxyCodeLine{00572\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ @param\ session\_id\ ID\ сессии}}
+\DoxyCodeLine{00573\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ @param\ user\_input\ Ввод\ пользователя}}
+\DoxyCodeLine{00574\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ @param\ narrative\_response\ Нарративный\ ответ}}
+\DoxyCodeLine{00575\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ @param\ image\_prompt\ Промпт\ для\ генерации\ изображения}}
+\DoxyCodeLine{00576\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ "{}"{}"{}}}
+\DoxyCodeLine{00577\ \ \ \ \ \ \ \ \ \textcolor{keyword}{with}\ sqlite3.connect(self.db\_path)\ \textcolor{keyword}{as}\ conn:}
+\DoxyCodeLine{00578\ \ \ \ \ \ \ \ \ \ \ \ \ cursor\ =\ conn.cursor()}
+\DoxyCodeLine{00579\ \ \ \ \ \ \ \ \ \ \ \ \ cursor.execute(\textcolor{stringliteral}{'''}}
+\DoxyCodeLine{00580\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ SELECT\ COALESCE(MAX(sequence\_number),\ 0)\ FROM\ image\_prompts\ }}
+\DoxyCodeLine{00581\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ WHERE\ session\_id\ =\ ?}}
+\DoxyCodeLine{00582\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ '''},\ (session\_id,))}
+\DoxyCodeLine{00583\ \ \ \ \ \ \ \ \ \ \ \ \ next\_seq\ =\ cursor.fetchone()[0]\ +\ 1}
+\DoxyCodeLine{00584\ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00585\ \ \ \ \ \ \ \ \ \ \ \ \ cursor.execute(\textcolor{stringliteral}{'''}}
+\DoxyCodeLine{00586\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ INSERT\ INTO\ image\_prompts\ (session\_id,\ sequence\_number,\ user\_input,\ narrative\_response,\ image\_prompt)}}
+\DoxyCodeLine{00587\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ VALUES\ (?,\ ?,\ ?,\ ?,\ ?)}}
+\DoxyCodeLine{00588\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ '''},\ (session\_id,\ next\_seq,\ user\_input,\ narrative\_response,\ image\_prompt))}
+\DoxyCodeLine{00589\ \ \ \ \ \ \ \ \ \ \ \ \ conn.commit()}
+\DoxyCodeLine{00590\ }
+\DoxyCodeLine{00591\ \ \ \ \ \textcolor{keyword}{def\ }get\_image\_prompts(self,\ session\_id:\ int)\ -\/>\ List[Tuple[int,\ str,\ str,\ str]]:}
+\DoxyCodeLine{00592\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}"{}"{}!}}
+\DoxyCodeLine{00593\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ @brief\ Получение\ промптов\ для\ генерации\ изображений}}
+\DoxyCodeLine{00594\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ }}
+\DoxyCodeLine{00595\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ @param\ session\_id\ ID\ сессии}}
+\DoxyCodeLine{00596\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ }}
+\DoxyCodeLine{00597\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ @return\ List[Tuple[int,\ str,\ str,\ str]]\ Список\ кортежей\ (sequence\_number,\ user\_input,\ narrative\_response,\ image\_prompt)}}
+\DoxyCodeLine{00598\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ "{}"{}"{}}}
+\DoxyCodeLine{00599\ \ \ \ \ \ \ \ \ \textcolor{keyword}{with}\ sqlite3.connect(self.db\_path)\ \textcolor{keyword}{as}\ conn:}
+\DoxyCodeLine{00600\ \ \ \ \ \ \ \ \ \ \ \ \ cursor\ =\ conn.cursor()}
+\DoxyCodeLine{00601\ \ \ \ \ \ \ \ \ \ \ \ \ cursor.execute(\textcolor{stringliteral}{'''}}
+\DoxyCodeLine{00602\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ SELECT\ sequence\_number,\ user\_input,\ narrative\_response,\ image\_prompt\ }}
+\DoxyCodeLine{00603\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ FROM\ image\_prompts\ }}
+\DoxyCodeLine{00604\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ WHERE\ session\_id\ =\ ?}}
+\DoxyCodeLine{00605\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ORDER\ BY\ sequence\_number}}
+\DoxyCodeLine{00606\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ '''},\ (session\_id,))}
+\DoxyCodeLine{00607\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ cursor.fetchall()}
+\DoxyCodeLine{00608\ }
+\DoxyCodeLine{00609\ \ \ \ \ \textcolor{keyword}{def\ }save\_active\_characters(self,\ session\_id:\ int,\ sequence\_number:\ int,\ character\_ids:\ List[int])\ -\/>\ \textcolor{keywordtype}{None}:}
+\DoxyCodeLine{00610\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}"{}"{}!}}
+\DoxyCodeLine{00611\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ @brief\ Сохранение\ активных\ персонажей\ для\ конкретного\ номера\ последовательности\ в\ сессии}}
+\DoxyCodeLine{00612\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ }}
+\DoxyCodeLine{00613\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ @param\ session\_id\ ID\ сессии}}
+\DoxyCodeLine{00614\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ @param\ sequence\_number\ Номер\ последовательности\ промпта\ мастера}}
+\DoxyCodeLine{00615\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ @param\ character\_ids\ Список\ ID\ персонажей,\ которые\ в\ данный\ момент\ активны}}
+\DoxyCodeLine{00616\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ }}
+\DoxyCodeLine{00617\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ @throws\ Exception\ если\ произошла\ ошибка\ при\ сохранении}}
+\DoxyCodeLine{00618\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ "{}"{}"{}}}
+\DoxyCodeLine{00619\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{try}:}
+\DoxyCodeLine{00620\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{with}\ sqlite3.connect(self.db\_path)\ \textcolor{keyword}{as}\ conn:}
+\DoxyCodeLine{00621\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ cursor\ =\ conn.cursor()}
+\DoxyCodeLine{00622\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{\#\ Delete\ existing\ active\ characters\ for\ this\ sequence}}
+\DoxyCodeLine{00623\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ cursor.execute(}
+\DoxyCodeLine{00624\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}DELETE\ FROM\ active\_characters\ WHERE\ session\_id\ =\ ?\ AND\ sequence\_number\ =\ ?"{}},}
+\DoxyCodeLine{00625\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (session\_id,\ sequence\_number)}
+\DoxyCodeLine{00626\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ )}
+\DoxyCodeLine{00627\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{\#\ Insert\ new\ active\ characters}}
+\DoxyCodeLine{00628\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ char\_id\ \textcolor{keywordflow}{in}\ character\_ids:}
+\DoxyCodeLine{00629\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ cursor.execute(}
+\DoxyCodeLine{00630\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}INSERT\ INTO\ active\_characters\ (session\_id,\ sequence\_number,\ character\_id)\ VALUES\ (?,\ ?,\ ?)"{}},}
+\DoxyCodeLine{00631\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (session\_id,\ sequence\_number,\ char\_id)}
+\DoxyCodeLine{00632\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ )}
+\DoxyCodeLine{00633\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ conn.commit()}
+\DoxyCodeLine{00634\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{except}\ Exception\ \textcolor{keyword}{as}\ e:}
+\DoxyCodeLine{00635\ \ \ \ \ \ \ \ \ \ \ \ \ logging.error(f\textcolor{stringliteral}{"{}Error\ saving\ active\ characters:\ \{str(e)\}"{}})}
+\DoxyCodeLine{00636\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{raise}}
+\DoxyCodeLine{00637\ }
+\DoxyCodeLine{00638\ \ \ \ \ \textcolor{keyword}{def\ }get\_active\_characters(self,\ session\_id:\ int,\ sequence\_number:\ int)\ -\/>\ List[str]:}
+\DoxyCodeLine{00639\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}"{}"{}!}}
+\DoxyCodeLine{00640\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ @brief\ Получение\ списка\ активных\ персонажей\ для\ конкретного\ номера\ последовательности\ в\ сессии}}
+\DoxyCodeLine{00641\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ }}
+\DoxyCodeLine{00642\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ @param\ session\_id\ ID\ сессии}}
+\DoxyCodeLine{00643\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ @param\ sequence\_number\ Номер\ последовательности\ промпта\ мастера}}
+\DoxyCodeLine{00644\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ }}
+\DoxyCodeLine{00645\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ @return\ List[str]\ Список\ имен\ активных\ персонажей}}
+\DoxyCodeLine{00646\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ }}
+\DoxyCodeLine{00647\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ @throws\ Exception\ если\ произошла\ ошибка\ при\ получении\ данных}}
+\DoxyCodeLine{00648\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ "{}"{}"{}}}
+\DoxyCodeLine{00649\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{try}:}
+\DoxyCodeLine{00650\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{with}\ sqlite3.connect(self.db\_path)\ \textcolor{keyword}{as}\ conn:}
+\DoxyCodeLine{00651\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ cursor\ =\ conn.cursor()}
+\DoxyCodeLine{00652\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ cursor.execute(\textcolor{stringliteral}{'''}}
+\DoxyCodeLine{00653\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ SELECT\ c.name\ }}
+\DoxyCodeLine{00654\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ FROM\ active\_characters\ ac}}
+\DoxyCodeLine{00655\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ JOIN\ characters\ c\ ON\ ac.character\_id\ =\ c.character\_id}}
+\DoxyCodeLine{00656\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ WHERE\ ac.session\_id\ =\ ?\ AND\ ac.sequence\_number\ =\ ?}}
+\DoxyCodeLine{00657\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ '''},\ (session\_id,\ sequence\_number))}
+\DoxyCodeLine{00658\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ [row[0]\ \textcolor{keywordflow}{for}\ row\ \textcolor{keywordflow}{in}\ cursor.fetchall()]}
+\DoxyCodeLine{00659\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{except}\ Exception\ \textcolor{keyword}{as}\ e:}
+\DoxyCodeLine{00660\ \ \ \ \ \ \ \ \ \ \ \ \ logging.error(f\textcolor{stringliteral}{"{}Error\ getting\ active\ characters:\ \{str(e)\}"{}})}
+\DoxyCodeLine{00661\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{raise}}
+\DoxyCodeLine{00662\ }
+\DoxyCodeLine{00663\ \ \ \ \ \textcolor{keyword}{def\ }update\_active\_characters(self,\ session\_id:\ int,\ sequence\_number:\ int,\ character\_ids:\ List[int])\ -\/>\ \textcolor{keywordtype}{None}:}
+\DoxyCodeLine{00664\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}"{}"{}!}}
+\DoxyCodeLine{00665\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ @brief\ Обновление\ списка\ активных\ персонажей\ для\ конкретного\ номера\ последовательности\ в\ сессии}}
+\DoxyCodeLine{00666\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ }}
+\DoxyCodeLine{00667\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ @param\ session\_id\ ID\ сессии}}
+\DoxyCodeLine{00668\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ @param\ sequence\_number\ Номер\ последовательности\ промпта\ мастера}}
+\DoxyCodeLine{00669\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ @param\ character\_ids\ Список\ ID\ персонажей,\ которые\ в\ данный\ момент\ активны}}
+\DoxyCodeLine{00670\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ "{}"{}"{}}}
+\DoxyCodeLine{00671\ \ \ \ \ \ \ \ \ self.save\_active\_characters(session\_id,\ sequence\_number,\ character\_ids)}
+\DoxyCodeLine{00672\ }
+\DoxyCodeLine{00673\ \ \ \ \ \textcolor{keyword}{def\ }get\_character(self,\ character\_id:\ int)\ -\/>\ Optional[Tuple[str,\ str]]:}
+\DoxyCodeLine{00674\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}"{}"{}!}}
+\DoxyCodeLine{00675\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ @brief\ Получение\ информации\ о\ персонаже\ по\ ID}}
+\DoxyCodeLine{00676\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ }}
+\DoxyCodeLine{00677\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ @param\ character\_id\ ID\ персонажа}}
+\DoxyCodeLine{00678\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ }}
+\DoxyCodeLine{00679\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ @return\ Optional[Tuple[str,\ str]]\ Кортеж\ (name,\ description)\ или\ None\ если\ персонаж\ не\ найден}}
+\DoxyCodeLine{00680\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ }}
+\DoxyCodeLine{00681\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ @throws\ Exception\ если\ произошла\ ошибка\ при\ получении\ данных}}
+\DoxyCodeLine{00682\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ "{}"{}"{}}}
+\DoxyCodeLine{00683\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{try}:}
+\DoxyCodeLine{00684\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{with}\ sqlite3.connect(self.db\_path)\ \textcolor{keyword}{as}\ conn:}
+\DoxyCodeLine{00685\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ cursor\ =\ conn.cursor()}
+\DoxyCodeLine{00686\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ cursor.execute(}
+\DoxyCodeLine{00687\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}SELECT\ name,\ description\ FROM\ characters\ WHERE\ character\_id\ =\ ?"{}},}
+\DoxyCodeLine{00688\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (character\_id,)}
+\DoxyCodeLine{00689\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ )}
+\DoxyCodeLine{00690\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ result\ =\ cursor.fetchone()}
+\DoxyCodeLine{00691\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ result\ \textcolor{keywordflow}{if}\ result\ \textcolor{keywordflow}{else}\ \textcolor{keywordtype}{None}}
+\DoxyCodeLine{00692\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{except}\ Exception\ \textcolor{keyword}{as}\ e:}
+\DoxyCodeLine{00693\ \ \ \ \ \ \ \ \ \ \ \ \ logging.error(f\textcolor{stringliteral}{"{}Error\ getting\ character:\ \{str(e)\}"{}})}
+\DoxyCodeLine{00694\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{raise}}
+\DoxyCodeLine{00695\ }
+\DoxyCodeLine{00696\ \ \ \ \ \textcolor{keyword}{def\ }get\_active\_characters\_ids(self,\ session\_id:\ int,\ sequence\_number:\ int)\ -\/>\ List[int]:}
+\DoxyCodeLine{00697\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}"{}"{}!}}
+\DoxyCodeLine{00698\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ @brief\ Получение\ ID\ активных\ персонажей\ для\ конкретного\ номера\ последовательности\ в\ сессии}}
+\DoxyCodeLine{00699\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ }}
+\DoxyCodeLine{00700\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ @param\ session\_id\ ID\ сессии}}
+\DoxyCodeLine{00701\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ @param\ sequence\_number\ Номер\ последовательности\ промпта\ мастера}}
+\DoxyCodeLine{00702\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ }}
+\DoxyCodeLine{00703\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ @return\ List[int]\ Список\ ID\ активных\ персонажей}}
+\DoxyCodeLine{00704\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ }}
+\DoxyCodeLine{00705\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ @throws\ Exception\ если\ произошла\ ошибка\ при\ получении\ данных}}
+\DoxyCodeLine{00706\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ "{}"{}"{}}}
+\DoxyCodeLine{00707\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{try}:}
+\DoxyCodeLine{00708\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{with}\ sqlite3.connect(self.db\_path)\ \textcolor{keyword}{as}\ conn:}
+\DoxyCodeLine{00709\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ cursor\ =\ conn.cursor()}
+\DoxyCodeLine{00710\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ cursor.execute(\textcolor{stringliteral}{'''}}
+\DoxyCodeLine{00711\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ SELECT\ character\_id\ }}
+\DoxyCodeLine{00712\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ FROM\ active\_characters\ }}
+\DoxyCodeLine{00713\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ WHERE\ session\_id\ =\ ?\ AND\ sequence\_number\ =\ ?}}
+\DoxyCodeLine{00714\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ '''},\ (session\_id,\ sequence\_number))}
+\DoxyCodeLine{00715\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ [row[0]\ \textcolor{keywordflow}{for}\ row\ \textcolor{keywordflow}{in}\ cursor.fetchall()]}
+\DoxyCodeLine{00716\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{except}\ Exception\ \textcolor{keyword}{as}\ e:}
+\DoxyCodeLine{00717\ \ \ \ \ \ \ \ \ \ \ \ \ logging.error(f\textcolor{stringliteral}{"{}Error\ getting\ active\ character\ IDs:\ \{str(e)\}"{}})}
+\DoxyCodeLine{00718\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{raise}}
+\DoxyCodeLine{00719\ }
+\DoxyCodeLine{00720\ \ \ \ \ \textcolor{keyword}{def\ }get\_user\_message(self,\ session\_id:\ int,\ sequence:\ int)\ -\/>\ Optional[Tuple[str,\ str]]:}
+\DoxyCodeLine{00721\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}"{}"{}!}}
+\DoxyCodeLine{00722\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ @brief\ Получение\ конкретного\ сообщения\ пользователя\ по\ номеру\ последовательности}}
+\DoxyCodeLine{00723\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ }}
+\DoxyCodeLine{00724\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ @param\ session\_id\ ID\ сессии}}
+\DoxyCodeLine{00725\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ @param\ sequence\ Номер\ последовательности\ сообщения}}
+\DoxyCodeLine{00726\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ }}
+\DoxyCodeLine{00727\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ @return\ Optional[Tuple[str,\ str]]\ Кортеж\ (user\_input,\ response)\ или\ None\ если\ сообщение\ не\ найдено}}
+\DoxyCodeLine{00728\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ }}
+\DoxyCodeLine{00729\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ @throws\ Exception\ если\ произошла\ ошибка\ при\ получении\ данных}}
+\DoxyCodeLine{00730\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ "{}"{}"{}}}
+\DoxyCodeLine{00731\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{try}:}
+\DoxyCodeLine{00732\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{with}\ sqlite3.connect(self.db\_path)\ \textcolor{keyword}{as}\ conn:}
+\DoxyCodeLine{00733\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ cursor\ =\ conn.cursor()}
+\DoxyCodeLine{00734\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ cursor.execute(\textcolor{stringliteral}{'''}}
+\DoxyCodeLine{00735\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ SELECT\ user\_input,\ response\ }}
+\DoxyCodeLine{00736\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ FROM\ user\_messages\ }}
+\DoxyCodeLine{00737\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ WHERE\ session\_id\ =\ ?\ AND\ sequence\_number\ =\ ?}}
+\DoxyCodeLine{00738\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ '''},\ (session\_id,\ sequence))}
+\DoxyCodeLine{00739\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ result\ =\ cursor.fetchone()}
+\DoxyCodeLine{00740\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ result\ \textcolor{keywordflow}{if}\ result\ \textcolor{keywordflow}{else}\ \textcolor{keywordtype}{None}}
+\DoxyCodeLine{00741\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{except}\ Exception\ \textcolor{keyword}{as}\ e:}
+\DoxyCodeLine{00742\ \ \ \ \ \ \ \ \ \ \ \ \ logging.error(f\textcolor{stringliteral}{"{}Error\ getting\ user\ message:\ \{str(e)\}"{}})}
+\DoxyCodeLine{00743\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{raise}}
+\DoxyCodeLine{00744\ }
+\DoxyCodeLine{00745\ \ \ \ \ \textcolor{keyword}{def\ }get\_character\_id(self,\ session\_id:\ int,\ name:\ str)\ -\/>\ Optional[int]:}
+\DoxyCodeLine{00746\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}"{}"{}!}}
+\DoxyCodeLine{00747\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ @brief\ Получение\ ID\ персонажа\ по\ ID\ сессии\ и\ имени}}
+\DoxyCodeLine{00748\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ }}
+\DoxyCodeLine{00749\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ @param\ session\_id\ ID\ сессии}}
+\DoxyCodeLine{00750\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ @param\ name\ Имя\ персонажа}}
+\DoxyCodeLine{00751\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ }}
+\DoxyCodeLine{00752\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ @return\ Optional[int]\ ID\ персонажа\ или\ None\ если\ персонаж\ не\ найден}}
+\DoxyCodeLine{00753\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ }}
+\DoxyCodeLine{00754\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ @throws\ Exception\ если\ произошла\ ошибка\ при\ получении\ данных}}
+\DoxyCodeLine{00755\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ "{}"{}"{}}}
+\DoxyCodeLine{00756\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{try}:}
+\DoxyCodeLine{00757\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{with}\ sqlite3.connect(self.db\_path)\ \textcolor{keyword}{as}\ conn:}
+\DoxyCodeLine{00758\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ cursor\ =\ conn.cursor()}
+\DoxyCodeLine{00759\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ cursor.execute(}
+\DoxyCodeLine{00760\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}SELECT\ character\_id\ FROM\ characters\ WHERE\ session\_id\ =\ ?\ AND\ name\ =\ ?"{}},}
+\DoxyCodeLine{00761\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (session\_id,\ name)}
+\DoxyCodeLine{00762\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ )}
+\DoxyCodeLine{00763\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ result\ =\ cursor.fetchone()}
+\DoxyCodeLine{00764\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ result[0]\ \textcolor{keywordflow}{if}\ result\ \textcolor{keywordflow}{else}\ \textcolor{keywordtype}{None}}
+\DoxyCodeLine{00765\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{except}\ Exception\ \textcolor{keyword}{as}\ e:}
+\DoxyCodeLine{00766\ \ \ \ \ \ \ \ \ \ \ \ \ logging.error(f\textcolor{stringliteral}{"{}Error\ getting\ character\ ID:\ \{str(e)\}"{}})}
+\DoxyCodeLine{00767\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{raise}}
+\DoxyCodeLine{00768\ }
+\DoxyCodeLine{00769\ \ \ \ \ \textcolor{keyword}{def\ }get\_session\_language(self,\ session\_id:\ int)\ -\/>\ str:}
+\DoxyCodeLine{00770\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}"{}"{}!}}
+\DoxyCodeLine{00771\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ @brief\ Получение\ языка\ сессии}}
+\DoxyCodeLine{00772\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ }}
+\DoxyCodeLine{00773\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ @param\ session\_id\ ID\ сессии}}
+\DoxyCodeLine{00774\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ }}
+\DoxyCodeLine{00775\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ @return\ str\ Язык\ сессии\ (Russian/English)}}
+\DoxyCodeLine{00776\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ }}
+\DoxyCodeLine{00777\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ @throws\ RuntimeError\ если\ сессия\ не\ найдена}}
+\DoxyCodeLine{00778\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ "{}"{}"{}}}
+\DoxyCodeLine{00779\ \ \ \ \ \ \ \ \ \textcolor{keyword}{with}\ sqlite3.connect(self.db\_path)\ \textcolor{keyword}{as}\ conn:}
+\DoxyCodeLine{00780\ \ \ \ \ \ \ \ \ \ \ \ \ cursor\ =\ conn.cursor()}
+\DoxyCodeLine{00781\ \ \ \ \ \ \ \ \ \ \ \ \ cursor.execute(\textcolor{stringliteral}{'''}}
+\DoxyCodeLine{00782\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ SELECT\ language\ FROM\ sessions\ WHERE\ session\_id\ =\ ?}}
+\DoxyCodeLine{00783\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ '''},\ (session\_id,))}
+\DoxyCodeLine{00784\ \ \ \ \ \ \ \ \ \ \ \ \ result\ =\ cursor.fetchone()}
+\DoxyCodeLine{00785\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ result\ \textcolor{keywordflow}{is}\ \textcolor{keywordtype}{None}:}
+\DoxyCodeLine{00786\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{raise}\ RuntimeError(f\textcolor{stringliteral}{"{}Session\ \{session\_id\}\ not\ found"{}})}
+\DoxyCodeLine{00787\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ str(result[0])\ \ \textcolor{comment}{\#\ Ensure\ we\ return\ a\ string}}
+
+\end{DoxyCode}

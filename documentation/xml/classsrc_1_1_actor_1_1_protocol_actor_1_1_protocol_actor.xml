@@ -1,0 +1,76 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.13.2" xml:lang="ru">
+  <compounddef id="classsrc_1_1_actor_1_1_protocol_actor_1_1_protocol_actor" kind="class" language="Python" prot="public">
+    <compoundname>src::Actor::ProtocolActor::ProtocolActor</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">Protocol</basecompoundref>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classsrc_1_1_actor_1_1_protocol_actor_1_1_protocol_actor_1a56b4f71b5273de57aae8a65e1e0e3fb3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>str</type>
+        <definition> str src.Actor.ProtocolActor.ProtocolActor.get_detailed_action</definition>
+        <argsstring>(self, str game_master_output)</argsstring>
+        <name>get_detailed_action</name>
+        <qualifiedname>src.Actor.ProtocolActor.ProtocolActor.get_detailed_action</qualifiedname>
+        <param>
+          <type>self</type>
+          <defname>self</defname>
+        </param>
+        <param>
+          <type>str</type>
+          <declname>game_master_output</declname>
+        </param>
+        <briefdescription>
+<para>Получение детализированного описания действия </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>game_master_output</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Выходные данные мастера игры </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>str Детализированное описание действия</para>
+</simplesect>
+Преобразует команды мастера игры в подробное нарративное описание действий и событий. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/kir/Desktop/py/API/src/Actor/ProtocolActor.py" line="20" column="1" bodyfile="C:/Users/kir/Desktop/py/API/src/Actor/ProtocolActor.py" bodystart="20" bodyend="32"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>Протокол для актора в игровой системе </para>
+    </briefdescription>
+    <detaileddescription>
+<para>Определяет интерфейс для актора, который отвечает за генерацию детализированных действий и описаний в игре. Актор преобразует команды мастера игры в нарративные описания. </para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>Protocol</label>
+      </node>
+      <node id="1">
+        <label>src.Actor.ProtocolActor.ProtocolActor</label>
+        <link refid="classsrc_1_1_actor_1_1_protocol_actor_1_1_protocol_actor"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>Protocol</label>
+      </node>
+      <node id="1">
+        <label>src.Actor.ProtocolActor.ProtocolActor</label>
+        <link refid="classsrc_1_1_actor_1_1_protocol_actor_1_1_protocol_actor"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="C:/Users/kir/Desktop/py/API/src/Actor/ProtocolActor.py" line="6" column="1" bodyfile="C:/Users/kir/Desktop/py/API/src/Actor/ProtocolActor.py" bodystart="6" bodyend="32"/>
+    <listofallmembers>
+      <member refid="classsrc_1_1_actor_1_1_protocol_actor_1_1_protocol_actor_1a56b4f71b5273de57aae8a65e1e0e3fb3" prot="public" virt="non-virtual"><scope>src::Actor::ProtocolActor::ProtocolActor</scope><name>get_detailed_action</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

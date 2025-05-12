@@ -1,0 +1,84 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="__command_data_8py_source" xml:lang="ru">
+<title>CommandData.py</title>
+<indexterm><primary>C:/Users/kir/Desktop/py/API/src/GameMaster/CommandData.py</primary></indexterm>
+<programlisting linenumbering="unnumbered"><anchor xml:id="__command_data_8py_source_1l00001"/>00001 <emphasis role="keyword">from</emphasis>&#32;dataclasses&#32;<emphasis role="keyword">import</emphasis>&#32;dataclass
+<anchor xml:id="__command_data_8py_source_1l00002"/>00002 <emphasis role="keyword">from</emphasis>&#32;typing&#32;<emphasis role="keyword">import</emphasis>&#32;Optional
+<anchor xml:id="__command_data_8py_source_1l00003"/>00003 
+<anchor xml:id="__command_data_8py_source_1l00004"/>00004 <emphasis role="preprocessor">@dataclass</emphasis>
+<anchor xml:id="__command_data_8py_source_1l00005"/><link linkend="_classsrc_1_1_game_master_1_1_command_data_1_1_command_data">00005</link> <emphasis role="keyword">class&#32;</emphasis><link linkend="_classsrc_1_1_game_master_1_1_command_data_1_1_command_data">CommandData</link>:
+<anchor xml:id="__command_data_8py_source_1l00006"/>00006 &#32;&#32;&#32;&#32;<emphasis role="stringliteral">&quot;&quot;&quot;!</emphasis>
+<anchor xml:id="__command_data_8py_source_1l00007"/>00007 <emphasis role="stringliteral">&#32;&#32;&#32;&#32;@brief&#32;Базовый&#32;класс&#32;для&#32;всех&#32;команд&#32;в&#32;игровой&#32;системе</emphasis>
+<anchor xml:id="__command_data_8py_source_1l00008"/>00008 <emphasis role="stringliteral">&#32;&#32;&#32;&#32;</emphasis>
+<anchor xml:id="__command_data_8py_source_1l00009"/>00009 <emphasis role="stringliteral">&#32;&#32;&#32;&#32;@details</emphasis>
+<anchor xml:id="__command_data_8py_source_1l00010"/>00010 <emphasis role="stringliteral">&#32;&#32;&#32;&#32;Используется&#32;как&#32;маркер&#32;для&#32;типизации&#32;команд&#32;и&#32;обеспечивает</emphasis>
+<anchor xml:id="__command_data_8py_source_1l00011"/>00011 <emphasis role="stringliteral">&#32;&#32;&#32;&#32;единый&#32;интерфейс&#32;для&#32;всех&#32;типов&#32;команд&#32;в&#32;системе.</emphasis>
+<anchor xml:id="__command_data_8py_source_1l00012"/>00012 <emphasis role="stringliteral">&#32;&#32;&#32;&#32;&quot;&quot;&quot;</emphasis>
+<anchor xml:id="__command_data_8py_source_1l00013"/>00013 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">pass</emphasis>
+<anchor xml:id="__command_data_8py_source_1l00014"/>00014 
+<anchor xml:id="__command_data_8py_source_1l00015"/>00015 @dataclass
+<anchor xml:id="__command_data_8py_source_1l00016"/><link linkend="_classsrc_1_1_game_master_1_1_command_data_1_1_command_data_environment_description">00016</link> <emphasis role="keyword">class&#32;</emphasis><link linkend="_classsrc_1_1_game_master_1_1_command_data_1_1_command_data_environment_description">CommandDataEnvironmentDescription</link>(<link linkend="_classsrc_1_1_game_master_1_1_command_data_1_1_command_data">CommandData</link>):
+<anchor xml:id="__command_data_8py_source_1l00017"/>00017 &#32;&#32;&#32;&#32;<emphasis role="stringliteral">&quot;&quot;&quot;!</emphasis>
+<anchor xml:id="__command_data_8py_source_1l00018"/>00018 <emphasis role="stringliteral">&#32;&#32;&#32;&#32;@brief&#32;Команда&#32;для&#32;описания&#32;окружения</emphasis>
+<anchor xml:id="__command_data_8py_source_1l00019"/>00019 <emphasis role="stringliteral">&#32;&#32;&#32;&#32;</emphasis>
+<anchor xml:id="__command_data_8py_source_1l00020"/>00020 <emphasis role="stringliteral">&#32;&#32;&#32;&#32;@details</emphasis>
+<anchor xml:id="__command_data_8py_source_1l00021"/>00021 <emphasis role="stringliteral">&#32;&#32;&#32;&#32;Используется&#32;для&#32;генерации&#32;описания&#32;текущего&#32;окружения,</emphasis>
+<anchor xml:id="__command_data_8py_source_1l00022"/>00022 <emphasis role="stringliteral">&#32;&#32;&#32;&#32;в&#32;котором&#32;находятся&#32;персонажи.</emphasis>
+<anchor xml:id="__command_data_8py_source_1l00023"/>00023 <emphasis role="stringliteral">&#32;&#32;&#32;&#32;</emphasis>
+<anchor xml:id="__command_data_8py_source_1l00024"/>00024 <emphasis role="stringliteral">&#32;&#32;&#32;&#32;@param&#32;description&#32;Текстовое&#32;описание&#32;окружения</emphasis>
+<anchor xml:id="__command_data_8py_source_1l00025"/>00025 <emphasis role="stringliteral">&#32;&#32;&#32;&#32;&quot;&quot;&quot;</emphasis>
+<anchor xml:id="__command_data_8py_source_1l00026"/>00026 &#32;&#32;&#32;&#32;description:&#32;str
+<anchor xml:id="__command_data_8py_source_1l00027"/>00027 
+<anchor xml:id="__command_data_8py_source_1l00028"/>00028 <emphasis role="preprocessor">@dataclass</emphasis>
+<anchor xml:id="__command_data_8py_source_1l00029"/><link linkend="_classsrc_1_1_game_master_1_1_command_data_1_1_command_select_character">00029</link> <emphasis role="keyword">class&#32;</emphasis><link linkend="_classsrc_1_1_game_master_1_1_command_data_1_1_command_select_character">CommandSelectCharacter</link>(<link linkend="_classsrc_1_1_game_master_1_1_command_data_1_1_command_data">CommandData</link>):
+<anchor xml:id="__command_data_8py_source_1l00030"/>00030 &#32;&#32;&#32;&#32;<emphasis role="stringliteral">&quot;&quot;&quot;!</emphasis>
+<anchor xml:id="__command_data_8py_source_1l00031"/>00031 <emphasis role="stringliteral">&#32;&#32;&#32;&#32;@brief&#32;Команда&#32;выбора&#32;персонажа&#32;для&#32;действия</emphasis>
+<anchor xml:id="__command_data_8py_source_1l00032"/>00032 <emphasis role="stringliteral">&#32;&#32;&#32;&#32;</emphasis>
+<anchor xml:id="__command_data_8py_source_1l00033"/>00033 <emphasis role="stringliteral">&#32;&#32;&#32;&#32;@details</emphasis>
+<anchor xml:id="__command_data_8py_source_1l00034"/>00034 <emphasis role="stringliteral">&#32;&#32;&#32;&#32;Определяет,&#32;какой&#32;персонаж&#32;выполняет&#32;действие&#32;и</emphasis>
+<anchor xml:id="__command_data_8py_source_1l00035"/>00035 <emphasis role="stringliteral">&#32;&#32;&#32;&#32;какое&#32;именно&#32;действие&#32;он&#32;выполняет.</emphasis>
+<anchor xml:id="__command_data_8py_source_1l00036"/>00036 <emphasis role="stringliteral">&#32;&#32;&#32;&#32;</emphasis>
+<anchor xml:id="__command_data_8py_source_1l00037"/>00037 <emphasis role="stringliteral">&#32;&#32;&#32;&#32;@param&#32;name&#32;Имя&#32;персонажа</emphasis>
+<anchor xml:id="__command_data_8py_source_1l00038"/>00038 <emphasis role="stringliteral">&#32;&#32;&#32;&#32;@param&#32;action&#32;Описание&#32;действия</emphasis>
+<anchor xml:id="__command_data_8py_source_1l00039"/>00039 <emphasis role="stringliteral">&#32;&#32;&#32;&#32;&quot;&quot;&quot;</emphasis>
+<anchor xml:id="__command_data_8py_source_1l00040"/>00040 &#32;&#32;&#32;&#32;name:&#32;str
+<anchor xml:id="__command_data_8py_source_1l00041"/>00041 &#32;&#32;&#32;&#32;action:&#32;str
+<anchor xml:id="__command_data_8py_source_1l00042"/>00042 
+<anchor xml:id="__command_data_8py_source_1l00043"/>00043 <emphasis role="preprocessor">@dataclass</emphasis>
+<anchor xml:id="__command_data_8py_source_1l00044"/><link linkend="_classsrc_1_1_game_master_1_1_command_data_1_1_command_create_character">00044</link> <emphasis role="keyword">class&#32;</emphasis><link linkend="_classsrc_1_1_game_master_1_1_command_data_1_1_command_create_character">CommandCreateCharacter</link>(<link linkend="_classsrc_1_1_game_master_1_1_command_data_1_1_command_data">CommandData</link>):
+<anchor xml:id="__command_data_8py_source_1l00045"/>00045 &#32;&#32;&#32;&#32;<emphasis role="stringliteral">&quot;&quot;&quot;!</emphasis>
+<anchor xml:id="__command_data_8py_source_1l00046"/>00046 <emphasis role="stringliteral">&#32;&#32;&#32;&#32;@brief&#32;Команда&#32;создания&#32;нового&#32;персонажа</emphasis>
+<anchor xml:id="__command_data_8py_source_1l00047"/>00047 <emphasis role="stringliteral">&#32;&#32;&#32;&#32;</emphasis>
+<anchor xml:id="__command_data_8py_source_1l00048"/>00048 <emphasis role="stringliteral">&#32;&#32;&#32;&#32;@details</emphasis>
+<anchor xml:id="__command_data_8py_source_1l00049"/>00049 <emphasis role="stringliteral">&#32;&#32;&#32;&#32;Используется&#32;для&#32;добавления&#32;нового&#32;персонажа&#32;в&#32;игру</emphasis>
+<anchor xml:id="__command_data_8py_source_1l00050"/>00050 <emphasis role="stringliteral">&#32;&#32;&#32;&#32;с&#32;заданным&#32;именем&#32;и&#32;описанием.</emphasis>
+<anchor xml:id="__command_data_8py_source_1l00051"/>00051 <emphasis role="stringliteral">&#32;&#32;&#32;&#32;</emphasis>
+<anchor xml:id="__command_data_8py_source_1l00052"/>00052 <emphasis role="stringliteral">&#32;&#32;&#32;&#32;@param&#32;name&#32;Имя&#32;нового&#32;персонажа</emphasis>
+<anchor xml:id="__command_data_8py_source_1l00053"/>00053 <emphasis role="stringliteral">&#32;&#32;&#32;&#32;@param&#32;description&#32;Описание&#32;нового&#32;персонажа</emphasis>
+<anchor xml:id="__command_data_8py_source_1l00054"/>00054 <emphasis role="stringliteral">&#32;&#32;&#32;&#32;&quot;&quot;&quot;</emphasis>
+<anchor xml:id="__command_data_8py_source_1l00055"/>00055 &#32;&#32;&#32;&#32;name:&#32;str
+<anchor xml:id="__command_data_8py_source_1l00056"/>00056 &#32;&#32;&#32;&#32;description:&#32;str
+<anchor xml:id="__command_data_8py_source_1l00057"/>00057 
+<anchor xml:id="__command_data_8py_source_1l00058"/>00058 <emphasis role="preprocessor">@dataclass</emphasis>
+<anchor xml:id="__command_data_8py_source_1l00059"/><link linkend="_classsrc_1_1_game_master_1_1_command_data_1_1_command_off_topic">00059</link> <emphasis role="keyword">class&#32;</emphasis><link linkend="_classsrc_1_1_game_master_1_1_command_data_1_1_command_off_topic">CommandOffTopic</link>(<link linkend="_classsrc_1_1_game_master_1_1_command_data_1_1_command_data">CommandData</link>):
+<anchor xml:id="__command_data_8py_source_1l00060"/>00060 &#32;&#32;&#32;&#32;<emphasis role="stringliteral">&quot;&quot;&quot;!</emphasis>
+<anchor xml:id="__command_data_8py_source_1l00061"/>00061 <emphasis role="stringliteral">&#32;&#32;&#32;&#32;@brief&#32;Команда&#32;для&#32;обработки&#32;внеигрового&#32;ввода</emphasis>
+<anchor xml:id="__command_data_8py_source_1l00062"/>00062 <emphasis role="stringliteral">&#32;&#32;&#32;&#32;</emphasis>
+<anchor xml:id="__command_data_8py_source_1l00063"/>00063 <emphasis role="stringliteral">&#32;&#32;&#32;&#32;@details</emphasis>
+<anchor xml:id="__command_data_8py_source_1l00064"/>00064 <emphasis role="stringliteral">&#32;&#32;&#32;&#32;Используется,&#32;когда&#32;ввод&#32;пользователя&#32;не&#32;относится</emphasis>
+<anchor xml:id="__command_data_8py_source_1l00065"/>00065 <emphasis role="stringliteral">&#32;&#32;&#32;&#32;к&#32;игровому&#32;процессу&#32;или&#32;нарушает&#32;правила&#32;игры.</emphasis>
+<anchor xml:id="__command_data_8py_source_1l00066"/>00066 <emphasis role="stringliteral">&#32;&#32;&#32;&#32;&quot;&quot;&quot;</emphasis>
+<anchor xml:id="__command_data_8py_source_1l00067"/>00067 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">pass</emphasis>
+<anchor xml:id="__command_data_8py_source_1l00068"/>00068 
+<anchor xml:id="__command_data_8py_source_1l00069"/>00069 @dataclass
+<anchor xml:id="__command_data_8py_source_1l00070"/><link linkend="_classsrc_1_1_game_master_1_1_command_data_1_1_command_player_death">00070</link> <emphasis role="keyword">class&#32;</emphasis><link linkend="_classsrc_1_1_game_master_1_1_command_data_1_1_command_player_death">CommandPlayerDeath</link>(<link linkend="_classsrc_1_1_game_master_1_1_command_data_1_1_command_data">CommandData</link>):
+<anchor xml:id="__command_data_8py_source_1l00071"/>00071 &#32;&#32;&#32;&#32;<emphasis role="stringliteral">&quot;&quot;&quot;!</emphasis>
+<anchor xml:id="__command_data_8py_source_1l00072"/>00072 <emphasis role="stringliteral">&#32;&#32;&#32;&#32;@brief&#32;Команда&#32;смерти&#32;игрового&#32;персонажа</emphasis>
+<anchor xml:id="__command_data_8py_source_1l00073"/>00073 <emphasis role="stringliteral">&#32;&#32;&#32;&#32;</emphasis>
+<anchor xml:id="__command_data_8py_source_1l00074"/>00074 <emphasis role="stringliteral">&#32;&#32;&#32;&#32;@details</emphasis>
+<anchor xml:id="__command_data_8py_source_1l00075"/>00075 <emphasis role="stringliteral">&#32;&#32;&#32;&#32;Используется&#32;для&#32;обработки&#32;ситуации,&#32;когда</emphasis>
+<anchor xml:id="__command_data_8py_source_1l00076"/>00076 <emphasis role="stringliteral">&#32;&#32;&#32;&#32;игровой&#32;персонаж&#32;умирает,&#32;что&#32;приводит&#32;к</emphasis>
+<anchor xml:id="__command_data_8py_source_1l00077"/>00077 <emphasis role="stringliteral">&#32;&#32;&#32;&#32;завершению&#32;игровой&#32;сессии.</emphasis>
+<anchor xml:id="__command_data_8py_source_1l00078"/>00078 <emphasis role="stringliteral">&#32;&#32;&#32;&#32;&quot;&quot;&quot;</emphasis>
+<anchor xml:id="__command_data_8py_source_1l00079"/>00079 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">pass</emphasis>&#32;
+</programlisting></section>

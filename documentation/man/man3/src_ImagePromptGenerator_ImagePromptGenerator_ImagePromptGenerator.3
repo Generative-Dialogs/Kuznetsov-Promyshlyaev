@@ -1,0 +1,81 @@
+.TH "src.ImagePromptGenerator.ImagePromptGenerator.ImagePromptGenerator" 3 "My Project" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+src.ImagePromptGenerator.ImagePromptGenerator.ImagePromptGenerator \- Генератор промптов для создания изображений  
+
+.SH SYNOPSIS
+.br
+.PP
+.SS "Открытые члены"
+
+.in +1c
+.ti -1c
+.RI "None \fB__init__\fP (self, int session_id)"
+.br
+.RI "Инициализация генератора промптов "
+.ti -1c
+.RI "Optional[str] \fBgenerate_prompt\fP (self, str user_input, str system_output, List[int] character_ids)"
+.br
+.RI "Генерация промпта для создания изображения "
+.in -1c
+.SH "Подробное описание"
+.PP 
+Генератор промптов для создания изображений 
+
+Класс отвечает за:
+.IP "\(bu" 2
+Создание детальных промптов для генерации изображений
+.IP "\(bu" 2
+Поддержание согласованности описаний персонажей
+.IP "\(bu" 2
+Учет контекста сцены и действий
+.IP "\(bu" 2
+Генерацию стилистически согласованных описаний 
+.PP
+
+.PP
+См\&. определение в файле \fBImagePromptGenerator\&.py\fP строка \fB8\fP
+.SH "Конструктор(ы)"
+.PP 
+.SS " None src\&.ImagePromptGenerator\&.ImagePromptGenerator\&.ImagePromptGenerator\&.__init__ ( self, int session_id)"
+
+.PP
+Инициализация генератора промптов 
+.PP
+\fBАргументы\fP
+.RS 4
+\fIsession_id\fP ID сессии для организации промптов 
+.RE
+.PP
+
+.PP
+См\&. определение в файле \fBImagePromptGenerator\&.py\fP строка \fB19\fP
+.SH "Методы"
+.PP 
+.SS " Optional[str] src\&.ImagePromptGenerator\&.ImagePromptGenerator\&.ImagePromptGenerator\&.generate_prompt ( self, str user_input, str system_output, List[int] character_ids)"
+
+.PP
+Генерация промпта для создания изображения 
+.PP
+\fBАргументы\fP
+.RS 4
+\fIuser_input\fP Ввод пользователя 
+.br
+\fIsystem_output\fP Ответ системы 
+.br
+\fIcharacter_ids\fP Список ID персонажей, участвующих в сцене
+.RE
+.PP
+\fBВозвращает\fP
+.RS 4
+Optional[str] Сгенерированный промпт или None в случае ошибки 
+.RE
+.PP
+
+.PP
+См\&. определение в файле \fBImagePromptGenerator\&.py\fP строка \fB87\fP
+
+.SH "Автор"
+.PP 
+Автоматически создано Doxygen для My Project из исходного текста\&.

@@ -1,0 +1,1678 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_classsrc_1_1_database_manager_1_1_database_manager_1_1_database_manager" xml:lang="ru">
+<title>Класс src.DatabaseManager.DatabaseManager.DatabaseManager</title>
+<indexterm><primary>src.DatabaseManager.DatabaseManager.DatabaseManager</primary></indexterm>
+<para>
+
+<para>Менеджер базы данных для управления игровыми сессиями </para>
+ 
+</para>
+<simplesect>
+    <title>Открытые члены    </title>
+        <itemizedlist>
+            <listitem><para> &apos;<link linkend="_classsrc_1_1_database_manager_1_1_database_manager_1_1_database_manager">DatabaseManager</link>&apos; <link linkend="_classsrc_1_1_database_manager_1_1_database_manager_1_1_database_manager_1ae8e9b4a5cf7f9c4a05276052a98528ee">__new__</link> (cls)</para>
+
+<para>Реализация паттерна Singleton. </para>
+</listitem>
+            <listitem><para>None <link linkend="_classsrc_1_1_database_manager_1_1_database_manager_1_1_database_manager_1ac07876128f530806fb845ee3ca550c8a">__init__</link> (self)</para>
+
+<para>Инициализация атрибутов экземпляра </para>
+</listitem>
+            <listitem><para>int <link linkend="_classsrc_1_1_database_manager_1_1_database_manager_1_1_database_manager_1a90bfa9b37df42c63ceabd1630c901025">create_user</link> (self)</para>
+
+<para>Создание нового пользователя </para>
+</listitem>
+            <listitem><para>List[int] <link linkend="_classsrc_1_1_database_manager_1_1_database_manager_1_1_database_manager_1ae5727ae5eb1a749423299458b67948d8">get_all_users</link> (self)</para>
+
+<para>Получение списка всех пользователей </para>
+</listitem>
+            <listitem><para>int <link linkend="_classsrc_1_1_database_manager_1_1_database_manager_1_1_database_manager_1a4ef04a04c179b51dd3650ddd7f0a1044">create_session</link> (self, int user_id, str world_description, str player_description, str language=&quot;Russian&quot;)</para>
+
+<para>Создание новой игровой сессии </para>
+</listitem>
+            <listitem><para>List[Tuple[int, str, str, str]] <link linkend="_classsrc_1_1_database_manager_1_1_database_manager_1_1_database_manager_1af7ba5da6c9851f8a7572ddd0b100e83a">get_user_sessions</link> (self, int user_id)</para>
+
+<para>Получение списка сессий пользователя </para>
+</listitem>
+            <listitem><para>Optional[Tuple[str, str]] <link linkend="_classsrc_1_1_database_manager_1_1_database_manager_1_1_database_manager_1a8b470f05c518dbf890db72c451494b36">get_session_info</link> (self, int session_id)</para>
+
+<para>Получение информации о сессии </para>
+</listitem>
+            <listitem><para>None <link linkend="_classsrc_1_1_database_manager_1_1_database_manager_1_1_database_manager_1a78b9f08ef4c174650284fb7ff55fa201">save_character</link> (self, int session_id, str name, str description)</para>
+
+<para>Сохранение персонажа </para>
+</listitem>
+            <listitem><para>List[Tuple[str, str]] <link linkend="_classsrc_1_1_database_manager_1_1_database_manager_1_1_database_manager_1ad57a9638af3e753cb56ac36905049a59">get_characters</link> (self, int session_id)</para>
+
+<para>Получение списка персонажей сессии </para>
+</listitem>
+            <listitem><para>None <link linkend="_classsrc_1_1_database_manager_1_1_database_manager_1_1_database_manager_1a7ca1b98dcdd0b87151292b22868f1abd">save_user_message</link> (self, int session_id, str user_input, str response)</para>
+
+<para>Сохранение сообщения пользователя </para>
+</listitem>
+            <listitem><para>None <link linkend="_classsrc_1_1_database_manager_1_1_database_manager_1_1_database_manager_1a6fce88139b93dc797e02b7b93777e3ac">save_master_message</link> (self, int session_id, str user_input, str master_output, str actor_output)</para>
+
+<para>Сохранение сообщения мастера игры </para>
+</listitem>
+            <listitem><para>None <link linkend="_classsrc_1_1_database_manager_1_1_database_manager_1_1_database_manager_1a89e3e3073c296d111a67339cbbcc9de5">save_actor_message</link> (self, int session_id, str master_prompt, str actor_response)</para>
+
+<para>Сохранение сообщения актора </para>
+</listitem>
+            <listitem><para>List[Tuple[int, str, str]] <link linkend="_classsrc_1_1_database_manager_1_1_database_manager_1_1_database_manager_1ad86bf1f4095f7ef32b50e3ce2d87bde7">get_user_messages</link> (self, int session_id)</para>
+
+<para>Получение истории сообщений пользователя </para>
+</listitem>
+            <listitem><para>List[Tuple[int, str, str, str]] <link linkend="_classsrc_1_1_database_manager_1_1_database_manager_1_1_database_manager_1acb0c3701f33e33493c5f83e09d6b2582">get_master_messages</link> (self, int session_id)</para>
+
+<para>Получение истории сообщений мастера игры </para>
+</listitem>
+            <listitem><para>List[Tuple[int, str, str]] <link linkend="_classsrc_1_1_database_manager_1_1_database_manager_1_1_database_manager_1a662d9f39b1dea0e44bed824197cb2232">get_actor_messages</link> (self, int session_id)</para>
+
+<para>Получение истории сообщений актора </para>
+</listitem>
+            <listitem><para>None <link linkend="_classsrc_1_1_database_manager_1_1_database_manager_1_1_database_manager_1a415f0d8b3bef38865370bddc8203e3ff">delete_session</link> (self, int session_id)</para>
+
+<para>Удаление сессии и всех связанных с ней данных </para>
+</listitem>
+            <listitem><para>None <link linkend="_classsrc_1_1_database_manager_1_1_database_manager_1_1_database_manager_1a9f15c3a6da37337d517fe72327a261e3">delete_user_data</link> (self, int user_id)</para>
+
+<para>Удаление всех данных пользователя </para>
+</listitem>
+            <listitem><para>None <link linkend="_classsrc_1_1_database_manager_1_1_database_manager_1_1_database_manager_1adbac8da66f7473e585fa1b1b4ab1d9c8">save_game_master_prompt</link> (self, int session_id, str prompt_type, str prompt_content, str model_response)</para>
+
+<para>Сохранение промпта мастера игры </para>
+</listitem>
+            <listitem><para>None <link linkend="_classsrc_1_1_database_manager_1_1_database_manager_1_1_database_manager_1a96f76fb4ab001ccbf497590b0b04281c">save_actor_prompt</link> (self, int session_id, str prompt_content, str model_response)</para>
+
+<para>Сохранение промпта актора </para>
+</listitem>
+            <listitem><para>List[Tuple[str, str, str]] <link linkend="_classsrc_1_1_database_manager_1_1_database_manager_1_1_database_manager_1a9a1872c584c8c411e2915234baeb9eba">get_game_master_prompts</link> (self, int session_id)</para>
+
+<para>Получение промптов мастера игры </para>
+</listitem>
+            <listitem><para>List[Tuple[str, str]] <link linkend="_classsrc_1_1_database_manager_1_1_database_manager_1_1_database_manager_1a23c74e9358f840a3cdca80aa993758be">get_actor_prompts</link> (self, int session_id)</para>
+
+<para>Получение промптов актора </para>
+</listitem>
+            <listitem><para>bool <link linkend="_classsrc_1_1_database_manager_1_1_database_manager_1_1_database_manager_1a89252dc2b29611b424ecb352c99de987">is_new_session_actor_prompt</link> (self, int session_id)</para>
+
+<para>Проверка, является ли сессия новой для промптов актора </para>
+</listitem>
+            <listitem><para>bool <link linkend="_classsrc_1_1_database_manager_1_1_database_manager_1_1_database_manager_1a062acf7bf40d0d49920cceaa844318b0">is_new_session_gm_prompt</link> (self, int session_id)</para>
+
+<para>Проверка, является ли сессия новой для промптов мастера игры </para>
+</listitem>
+            <listitem><para>None <link linkend="_classsrc_1_1_database_manager_1_1_database_manager_1_1_database_manager_1a6bdafff6a250fc4aa977fed2611b6710">save_image_prompt</link> (self, int session_id, str user_input, str narrative_response, str image_prompt)</para>
+
+<para>Сохранение промпта для генерации изображения </para>
+</listitem>
+            <listitem><para>List[Tuple[int, str, str, str]] <link linkend="_classsrc_1_1_database_manager_1_1_database_manager_1_1_database_manager_1af2ed9a550ccd1c8f98ff811f1e2938df">get_image_prompts</link> (self, int session_id)</para>
+
+<para>Получение промптов для генерации изображений </para>
+</listitem>
+            <listitem><para>None <link linkend="_classsrc_1_1_database_manager_1_1_database_manager_1_1_database_manager_1a28df3ea877ad1afa4aab83d911b15b62">save_active_characters</link> (self, int session_id, int sequence_number, List[int] character_ids)</para>
+
+<para>Сохранение активных персонажей для конкретного номера последовательности в сессии </para>
+</listitem>
+            <listitem><para>List[str] <link linkend="_classsrc_1_1_database_manager_1_1_database_manager_1_1_database_manager_1ac0e4345b683038740e4d9720a00fca6d">get_active_characters</link> (self, int session_id, int sequence_number)</para>
+
+<para>Получение списка активных персонажей для конкретного номера последовательности в сессии </para>
+</listitem>
+            <listitem><para>None <link linkend="_classsrc_1_1_database_manager_1_1_database_manager_1_1_database_manager_1a7e4425052cdd6ee6ba50c65ce565e010">update_active_characters</link> (self, int session_id, int sequence_number, List[int] character_ids)</para>
+
+<para>Обновление списка активных персонажей для конкретного номера последовательности в сессии </para>
+</listitem>
+            <listitem><para>Optional[Tuple[str, str]] <link linkend="_classsrc_1_1_database_manager_1_1_database_manager_1_1_database_manager_1ad487ccaff17690e1b0063da99ffacae6">get_character</link> (self, int character_id)</para>
+
+<para>Получение информации о персонаже по ID. </para>
+</listitem>
+            <listitem><para>List[int] <link linkend="_classsrc_1_1_database_manager_1_1_database_manager_1_1_database_manager_1ac3ca7f87598cfa981e29de5b60aadadf">get_active_characters_ids</link> (self, int session_id, int sequence_number)</para>
+
+<para>Получение ID активных персонажей для конкретного номера последовательности в сессии </para>
+</listitem>
+            <listitem><para>Optional[Tuple[str, str]] <link linkend="_classsrc_1_1_database_manager_1_1_database_manager_1_1_database_manager_1abd4dc8956da9fdb1ea64343e4000d363">get_user_message</link> (self, int session_id, int sequence)</para>
+
+<para>Получение конкретного сообщения пользователя по номеру последовательности </para>
+</listitem>
+            <listitem><para>Optional[int] <link linkend="_classsrc_1_1_database_manager_1_1_database_manager_1_1_database_manager_1a36029029cb0970d72a9a6ce0bc05b6d3">get_character_id</link> (self, int session_id, str name)</para>
+
+<para>Получение ID персонажа по ID сессии и имени </para>
+</listitem>
+            <listitem><para>str <link linkend="_classsrc_1_1_database_manager_1_1_database_manager_1_1_database_manager_1a52d0357efb41c804f645c5e42e1560eb">get_session_language</link> (self, int session_id)</para>
+
+<para>Получение языка сессии </para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Открытые атрибуты    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_classsrc_1_1_database_manager_1_1_database_manager_1_1_database_manager_1a0d4c59d10e40d5663df4c8308e9e9d15">db_path</link> = DATABASE_NAME</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Защищенные члены    </title>
+        <itemizedlist>
+            <listitem><para>None <link linkend="_classsrc_1_1_database_manager_1_1_database_manager_1_1_database_manager_1ab455f7780512cbb276d0725bae1e6df4">_init_database</link> (self)</para>
+
+<para>Инициализация структуры базы данных </para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Статические защищенные данные    </title>
+        <itemizedlist>
+            <listitem><para>&apos;<link linkend="_classsrc_1_1_database_manager_1_1_database_manager_1_1_database_manager">DatabaseManager</link>&apos; <link linkend="_classsrc_1_1_database_manager_1_1_database_manager_1_1_database_manager_1a7ad3dcb044e31b90bf31806853bfc837">_instance</link> = None</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Подробное описание</title>
+
+<para>Менеджер базы данных для управления игровыми сессиями </para>
+
+
+
+<para>Реализует паттерн Singleton для обеспечения единой точки доступа к базе данных. Управляет всеми операциями с базой данных, включая:<itemizedlist>
+<listitem>
+<para>Пользователей и их сессии</para>
+</listitem><listitem>
+<para>Персонажей и их описания</para>
+</listitem><listitem>
+<para>Историю сообщений и диалогов</para>
+</listitem><listitem>
+<para>Промпты для генерации контента</para>
+</listitem><listitem>
+<para>Изображения и их промпты</para>
+</listitem></itemizedlist>
+</para>
+
+<para><note><title>Заметки</title>
+
+<para>Класс использует SQLite в качестве системы управления базами данных </para>
+</note>
+</para>
+<para>
+См. определение в файле <link linkend="__database_manager_8py_source">DatabaseManager.py</link> строка <link linkend="__database_manager_8py_source_1l00008">8</link></para>
+</section>
+<section>
+<title>Конструктор(ы)</title>
+<anchor xml:id="_classsrc_1_1_database_manager_1_1_database_manager_1_1_database_manager_1ac07876128f530806fb845ee3ca550c8a"/><section>
+    <title>__init__()</title>
+<indexterm><primary>__init__</primary><secondary>src.DatabaseManager.DatabaseManager.DatabaseManager</secondary></indexterm>
+<indexterm><primary>src.DatabaseManager.DatabaseManager.DatabaseManager</primary><secondary>__init__</secondary></indexterm>
+<para><computeroutput> None src.DatabaseManager.DatabaseManager.DatabaseManager.__init__ ( self)</computeroutput></para><para>
+
+<para>Инициализация атрибутов экземпляра </para>
+</para>
+
+<para>Устанавливает путь к базе данных и инициализирует структуру базы данных </para>
+<para>
+См. определение в файле <link linkend="__database_manager_8py_source">DatabaseManager.py</link> строка <link linkend="__database_manager_8py_source_1l00038">38</link></para>
+</section>
+</section>
+<section>
+<title>Методы</title>
+<anchor xml:id="_classsrc_1_1_database_manager_1_1_database_manager_1_1_database_manager_1ae8e9b4a5cf7f9c4a05276052a98528ee"/><section>
+    <title>__new__()</title>
+<indexterm><primary>__new__</primary><secondary>src.DatabaseManager.DatabaseManager.DatabaseManager</secondary></indexterm>
+<indexterm><primary>src.DatabaseManager.DatabaseManager.DatabaseManager</primary><secondary>__new__</secondary></indexterm>
+<para><computeroutput> &apos;<link linkend="_classsrc_1_1_database_manager_1_1_database_manager_1_1_database_manager">DatabaseManager</link>&apos; src.DatabaseManager.DatabaseManager.DatabaseManager.__new__ ( cls)</computeroutput></para><para>
+
+<para>Реализация паттерна Singleton. </para>
+</para>
+
+<para><formalpara><title>Возвращает</title>
+
+<para><link linkend="_classsrc_1_1_database_manager_1_1_database_manager_1_1_database_manager">DatabaseManager</link> Единственный экземпляр класса </para>
+</formalpara>
+</para>
+<para>
+См. определение в файле <link linkend="__database_manager_8py_source">DatabaseManager.py</link> строка <link linkend="__database_manager_8py_source_1l00026">26</link></para>
+</section>
+<anchor xml:id="_classsrc_1_1_database_manager_1_1_database_manager_1_1_database_manager_1ab455f7780512cbb276d0725bae1e6df4"/><section>
+    <title>_init_database()</title>
+<indexterm><primary>_init_database</primary><secondary>src.DatabaseManager.DatabaseManager.DatabaseManager</secondary></indexterm>
+<indexterm><primary>src.DatabaseManager.DatabaseManager.DatabaseManager</primary><secondary>_init_database</secondary></indexterm>
+<para><computeroutput> None src.DatabaseManager.DatabaseManager.DatabaseManager._init_database ( self)<computeroutput>[protected]</computeroutput></computeroutput></para><para>
+
+<para>Инициализация структуры базы данных </para>
+</para>
+
+<para>Создает все необходимые таблицы, если они не существуют:<itemizedlist>
+<listitem>
+<para>users: информация о пользователях</para>
+</listitem><listitem>
+<para>sessions: игровые сессии</para>
+</listitem><listitem>
+<para>characters: персонажи</para>
+</listitem><listitem>
+<para>active_characters: активные персонажи в сессии</para>
+</listitem><listitem>
+<para>user_messages: история сообщений пользователя</para>
+</listitem><listitem>
+<para>master_messages: история сообщений мастера игры</para>
+</listitem><listitem>
+<para>actor_messages: история сообщений актора</para>
+</listitem><listitem>
+<para>game_master_prompts: промпты для мастера игры</para>
+</listitem><listitem>
+<para>actor_prompts: промпты для актора</para>
+</listitem><listitem>
+<para>image_prompts: промпты для генерации изображений </para>
+</listitem></itemizedlist>
+</para>
+<para>
+См. определение в файле <link linkend="__database_manager_8py_source">DatabaseManager.py</link> строка <link linkend="__database_manager_8py_source_1l00048">48</link></para>
+</section>
+<anchor xml:id="_classsrc_1_1_database_manager_1_1_database_manager_1_1_database_manager_1a4ef04a04c179b51dd3650ddd7f0a1044"/><section>
+    <title>create_session()</title>
+<indexterm><primary>create_session</primary><secondary>src.DatabaseManager.DatabaseManager.DatabaseManager</secondary></indexterm>
+<indexterm><primary>src.DatabaseManager.DatabaseManager.DatabaseManager</primary><secondary>create_session</secondary></indexterm>
+<para><computeroutput> int src.DatabaseManager.DatabaseManager.DatabaseManager.create_session ( self, int user_id, str world_description, str player_description, str  language = <computeroutput>&quot;Russian&quot;</computeroutput>
+)</computeroutput></para><para>
+
+<para>Создание новой игровой сессии </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Аргументы</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>user_id</entry><entry>
+<para>ID пользователя </para>
+</entry>
+                            </row>
+                            <row>
+<entry>world_description</entry><entry>
+<para>Описание игрового мира </para>
+</entry>
+                            </row>
+                            <row>
+<entry>player_description</entry><entry>
+<para>Описание игрока </para>
+</entry>
+                            </row>
+                            <row>
+<entry>language</entry><entry>
+<para>Язык сессии (Russian/English)</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Возвращает</title>
+
+<para>int ID созданной сессии</para>
+</formalpara>
+
+                <formalpara>
+                    <title>
+Исключения</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>ValueError</entry><entry>
+<para>если указан неподдерживаемый язык </para>
+</entry>
+                            </row>
+                            <row>
+<entry>RuntimeError</entry><entry>
+<para>если не удалось создать сессию </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+<para>
+См. определение в файле <link linkend="__database_manager_8py_source">DatabaseManager.py</link> строка <link linkend="__database_manager_8py_source_1l00220">220</link></para>
+</section>
+<anchor xml:id="_classsrc_1_1_database_manager_1_1_database_manager_1_1_database_manager_1a90bfa9b37df42c63ceabd1630c901025"/><section>
+    <title>create_user()</title>
+<indexterm><primary>create_user</primary><secondary>src.DatabaseManager.DatabaseManager.DatabaseManager</secondary></indexterm>
+<indexterm><primary>src.DatabaseManager.DatabaseManager.DatabaseManager</primary><secondary>create_user</secondary></indexterm>
+<para><computeroutput> int src.DatabaseManager.DatabaseManager.DatabaseManager.create_user ( self)</computeroutput></para><para>
+
+<para>Создание нового пользователя </para>
+</para>
+
+<para><formalpara><title>Возвращает</title>
+
+<para>int ID созданного пользователя</para>
+</formalpara>
+
+                <formalpara>
+                    <title>
+Исключения</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>RuntimeError</entry><entry>
+<para>если не удалось создать пользователя </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+<para>
+См. определение в файле <link linkend="__database_manager_8py_source">DatabaseManager.py</link> строка <link linkend="__database_manager_8py_source_1l00192">192</link></para>
+</section>
+<anchor xml:id="_classsrc_1_1_database_manager_1_1_database_manager_1_1_database_manager_1a415f0d8b3bef38865370bddc8203e3ff"/><section>
+    <title>delete_session()</title>
+<indexterm><primary>delete_session</primary><secondary>src.DatabaseManager.DatabaseManager.DatabaseManager</secondary></indexterm>
+<indexterm><primary>src.DatabaseManager.DatabaseManager.DatabaseManager</primary><secondary>delete_session</secondary></indexterm>
+<para><computeroutput> None src.DatabaseManager.DatabaseManager.DatabaseManager.delete_session ( self, int session_id)</computeroutput></para><para>
+
+<para>Удаление сессии и всех связанных с ней данных </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Аргументы</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>session_id</entry><entry>
+<para>ID сессии </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+<para>
+См. определение в файле <link linkend="__database_manager_8py_source">DatabaseManager.py</link> строка <link linkend="__database_manager_8py_source_1l00436">436</link></para>
+</section>
+<anchor xml:id="_classsrc_1_1_database_manager_1_1_database_manager_1_1_database_manager_1a9f15c3a6da37337d517fe72327a261e3"/><section>
+    <title>delete_user_data()</title>
+<indexterm><primary>delete_user_data</primary><secondary>src.DatabaseManager.DatabaseManager.DatabaseManager</secondary></indexterm>
+<indexterm><primary>src.DatabaseManager.DatabaseManager.DatabaseManager</primary><secondary>delete_user_data</secondary></indexterm>
+<para><computeroutput> None src.DatabaseManager.DatabaseManager.DatabaseManager.delete_user_data ( self, int user_id)</computeroutput></para><para>
+
+<para>Удаление всех данных пользователя </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Аргументы</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>user_id</entry><entry>
+<para>ID пользователя </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+<para>
+См. определение в файле <link linkend="__database_manager_8py_source">DatabaseManager.py</link> строка <link linkend="__database_manager_8py_source_1l00449">449</link></para>
+</section>
+<anchor xml:id="_classsrc_1_1_database_manager_1_1_database_manager_1_1_database_manager_1ac0e4345b683038740e4d9720a00fca6d"/><section>
+    <title>get_active_characters()</title>
+<indexterm><primary>get_active_characters</primary><secondary>src.DatabaseManager.DatabaseManager.DatabaseManager</secondary></indexterm>
+<indexterm><primary>src.DatabaseManager.DatabaseManager.DatabaseManager</primary><secondary>get_active_characters</secondary></indexterm>
+<para><computeroutput> List[str] src.DatabaseManager.DatabaseManager.DatabaseManager.get_active_characters ( self, int session_id, int sequence_number)</computeroutput></para><para>
+
+<para>Получение списка активных персонажей для конкретного номера последовательности в сессии </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Аргументы</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>session_id</entry><entry>
+<para>ID сессии </para>
+</entry>
+                            </row>
+                            <row>
+<entry>sequence_number</entry><entry>
+<para>Номер последовательности промпта мастера</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Возвращает</title>
+
+<para>List[str] Список имен активных персонажей</para>
+</formalpara>
+
+                <formalpara>
+                    <title>
+Исключения</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>Exception</entry><entry>
+<para>если произошла ошибка при получении данных </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+<para>
+См. определение в файле <link linkend="__database_manager_8py_source">DatabaseManager.py</link> строка <link linkend="__database_manager_8py_source_1l00638">638</link></para>
+</section>
+<anchor xml:id="_classsrc_1_1_database_manager_1_1_database_manager_1_1_database_manager_1ac3ca7f87598cfa981e29de5b60aadadf"/><section>
+    <title>get_active_characters_ids()</title>
+<indexterm><primary>get_active_characters_ids</primary><secondary>src.DatabaseManager.DatabaseManager.DatabaseManager</secondary></indexterm>
+<indexterm><primary>src.DatabaseManager.DatabaseManager.DatabaseManager</primary><secondary>get_active_characters_ids</secondary></indexterm>
+<para><computeroutput> List[int] src.DatabaseManager.DatabaseManager.DatabaseManager.get_active_characters_ids ( self, int session_id, int sequence_number)</computeroutput></para><para>
+
+<para>Получение ID активных персонажей для конкретного номера последовательности в сессии </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Аргументы</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>session_id</entry><entry>
+<para>ID сессии </para>
+</entry>
+                            </row>
+                            <row>
+<entry>sequence_number</entry><entry>
+<para>Номер последовательности промпта мастера</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Возвращает</title>
+
+<para>List[int] Список ID активных персонажей</para>
+</formalpara>
+
+                <formalpara>
+                    <title>
+Исключения</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>Exception</entry><entry>
+<para>если произошла ошибка при получении данных </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+<para>
+См. определение в файле <link linkend="__database_manager_8py_source">DatabaseManager.py</link> строка <link linkend="__database_manager_8py_source_1l00696">696</link></para>
+</section>
+<anchor xml:id="_classsrc_1_1_database_manager_1_1_database_manager_1_1_database_manager_1a662d9f39b1dea0e44bed824197cb2232"/><section>
+    <title>get_actor_messages()</title>
+<indexterm><primary>get_actor_messages</primary><secondary>src.DatabaseManager.DatabaseManager.DatabaseManager</secondary></indexterm>
+<indexterm><primary>src.DatabaseManager.DatabaseManager.DatabaseManager</primary><secondary>get_actor_messages</secondary></indexterm>
+<para><computeroutput> List[Tuple[int, str, str]] src.DatabaseManager.DatabaseManager.DatabaseManager.get_actor_messages ( self, int session_id)</computeroutput></para><para>
+
+<para>Получение истории сообщений актора </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Аргументы</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>session_id</entry><entry>
+<para>ID сессии</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Возвращает</title>
+
+<para>List[Tuple[int, str, str]] Список кортежей (sequence_number, master_prompt, actor_response) </para>
+</formalpara>
+</para>
+<para>
+См. определение в файле <link linkend="__database_manager_8py_source">DatabaseManager.py</link> строка <link linkend="__database_manager_8py_source_1l00418">418</link></para>
+</section>
+<anchor xml:id="_classsrc_1_1_database_manager_1_1_database_manager_1_1_database_manager_1a23c74e9358f840a3cdca80aa993758be"/><section>
+    <title>get_actor_prompts()</title>
+<indexterm><primary>get_actor_prompts</primary><secondary>src.DatabaseManager.DatabaseManager.DatabaseManager</secondary></indexterm>
+<indexterm><primary>src.DatabaseManager.DatabaseManager.DatabaseManager</primary><secondary>get_actor_prompts</secondary></indexterm>
+<para><computeroutput> List[Tuple[str, str]] src.DatabaseManager.DatabaseManager.DatabaseManager.get_actor_prompts ( self, int session_id)</computeroutput></para><para>
+
+<para>Получение промптов актора </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Аргументы</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>session_id</entry><entry>
+<para>ID сессии</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Возвращает</title>
+
+<para>List[Tuple[str, str]] Список кортежей (prompt_content, model_response) </para>
+</formalpara>
+</para>
+<para>
+См. определение в файле <link linkend="__database_manager_8py_source">DatabaseManager.py</link> строка <link linkend="__database_manager_8py_source_1l00516">516</link></para>
+</section>
+<anchor xml:id="_classsrc_1_1_database_manager_1_1_database_manager_1_1_database_manager_1ae5727ae5eb1a749423299458b67948d8"/><section>
+    <title>get_all_users()</title>
+<indexterm><primary>get_all_users</primary><secondary>src.DatabaseManager.DatabaseManager.DatabaseManager</secondary></indexterm>
+<indexterm><primary>src.DatabaseManager.DatabaseManager.DatabaseManager</primary><secondary>get_all_users</secondary></indexterm>
+<para><computeroutput> List[int] src.DatabaseManager.DatabaseManager.DatabaseManager.get_all_users ( self)</computeroutput></para><para>
+
+<para>Получение списка всех пользователей </para>
+</para>
+
+<para><formalpara><title>Возвращает</title>
+
+<para>List[int] Список ID всех пользователей </para>
+</formalpara>
+</para>
+<para>
+См. определение в файле <link linkend="__database_manager_8py_source">DatabaseManager.py</link> строка <link linkend="__database_manager_8py_source_1l00209">209</link></para>
+</section>
+<anchor xml:id="_classsrc_1_1_database_manager_1_1_database_manager_1_1_database_manager_1ad487ccaff17690e1b0063da99ffacae6"/><section>
+    <title>get_character()</title>
+<indexterm><primary>get_character</primary><secondary>src.DatabaseManager.DatabaseManager.DatabaseManager</secondary></indexterm>
+<indexterm><primary>src.DatabaseManager.DatabaseManager.DatabaseManager</primary><secondary>get_character</secondary></indexterm>
+<para><computeroutput> Optional[Tuple[str, str]] src.DatabaseManager.DatabaseManager.DatabaseManager.get_character ( self, int character_id)</computeroutput></para><para>
+
+<para>Получение информации о персонаже по ID. </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Аргументы</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>character_id</entry><entry>
+<para>ID персонажа</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Возвращает</title>
+
+<para>Optional[Tuple[str, str]] Кортеж (name, description) или None если персонаж не найден</para>
+</formalpara>
+
+                <formalpara>
+                    <title>
+Исключения</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>Exception</entry><entry>
+<para>если произошла ошибка при получении данных </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+<para>
+См. определение в файле <link linkend="__database_manager_8py_source">DatabaseManager.py</link> строка <link linkend="__database_manager_8py_source_1l00673">673</link></para>
+</section>
+<anchor xml:id="_classsrc_1_1_database_manager_1_1_database_manager_1_1_database_manager_1a36029029cb0970d72a9a6ce0bc05b6d3"/><section>
+    <title>get_character_id()</title>
+<indexterm><primary>get_character_id</primary><secondary>src.DatabaseManager.DatabaseManager.DatabaseManager</secondary></indexterm>
+<indexterm><primary>src.DatabaseManager.DatabaseManager.DatabaseManager</primary><secondary>get_character_id</secondary></indexterm>
+<para><computeroutput> Optional[int] src.DatabaseManager.DatabaseManager.DatabaseManager.get_character_id ( self, int session_id, str name)</computeroutput></para><para>
+
+<para>Получение ID персонажа по ID сессии и имени </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Аргументы</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>session_id</entry><entry>
+<para>ID сессии </para>
+</entry>
+                            </row>
+                            <row>
+<entry>name</entry><entry>
+<para>Имя персонажа</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Возвращает</title>
+
+<para>Optional[int] ID персонажа или None если персонаж не найден</para>
+</formalpara>
+
+                <formalpara>
+                    <title>
+Исключения</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>Exception</entry><entry>
+<para>если произошла ошибка при получении данных </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+<para>
+См. определение в файле <link linkend="__database_manager_8py_source">DatabaseManager.py</link> строка <link linkend="__database_manager_8py_source_1l00745">745</link></para>
+</section>
+<anchor xml:id="_classsrc_1_1_database_manager_1_1_database_manager_1_1_database_manager_1ad57a9638af3e753cb56ac36905049a59"/><section>
+    <title>get_characters()</title>
+<indexterm><primary>get_characters</primary><secondary>src.DatabaseManager.DatabaseManager.DatabaseManager</secondary></indexterm>
+<indexterm><primary>src.DatabaseManager.DatabaseManager.DatabaseManager</primary><secondary>get_characters</secondary></indexterm>
+<para><computeroutput> List[Tuple[str, str]] src.DatabaseManager.DatabaseManager.DatabaseManager.get_characters ( self, int session_id)</computeroutput></para><para>
+
+<para>Получение списка персонажей сессии </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Аргументы</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>session_id</entry><entry>
+<para>ID сессии</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Возвращает</title>
+
+<para>List[Tuple[str, str]] Список кортежей (name, description) </para>
+</formalpara>
+</para>
+<para>
+См. определение в файле <link linkend="__database_manager_8py_source">DatabaseManager.py</link> строка <link linkend="__database_manager_8py_source_1l00299">299</link></para>
+</section>
+<anchor xml:id="_classsrc_1_1_database_manager_1_1_database_manager_1_1_database_manager_1a9a1872c584c8c411e2915234baeb9eba"/><section>
+    <title>get_game_master_prompts()</title>
+<indexterm><primary>get_game_master_prompts</primary><secondary>src.DatabaseManager.DatabaseManager.DatabaseManager</secondary></indexterm>
+<indexterm><primary>src.DatabaseManager.DatabaseManager.DatabaseManager</primary><secondary>get_game_master_prompts</secondary></indexterm>
+<para><computeroutput> List[Tuple[str, str, str]] src.DatabaseManager.DatabaseManager.DatabaseManager.get_game_master_prompts ( self, int session_id)</computeroutput></para><para>
+
+<para>Получение промптов мастера игры </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Аргументы</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>session_id</entry><entry>
+<para>ID сессии</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Возвращает</title>
+
+<para>List[Tuple[str, str, str]] Список кортежей (prompt_type, prompt_content, model_response) </para>
+</formalpara>
+</para>
+<para>
+См. определение в файле <link linkend="__database_manager_8py_source">DatabaseManager.py</link> строка <link linkend="__database_manager_8py_source_1l00498">498</link></para>
+</section>
+<anchor xml:id="_classsrc_1_1_database_manager_1_1_database_manager_1_1_database_manager_1af2ed9a550ccd1c8f98ff811f1e2938df"/><section>
+    <title>get_image_prompts()</title>
+<indexterm><primary>get_image_prompts</primary><secondary>src.DatabaseManager.DatabaseManager.DatabaseManager</secondary></indexterm>
+<indexterm><primary>src.DatabaseManager.DatabaseManager.DatabaseManager</primary><secondary>get_image_prompts</secondary></indexterm>
+<para><computeroutput> List[Tuple[int, str, str, str]] src.DatabaseManager.DatabaseManager.DatabaseManager.get_image_prompts ( self, int session_id)</computeroutput></para><para>
+
+<para>Получение промптов для генерации изображений </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Аргументы</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>session_id</entry><entry>
+<para>ID сессии</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Возвращает</title>
+
+<para>List[Tuple[int, str, str, str]] Список кортежей (sequence_number, user_input, narrative_response, image_prompt) </para>
+</formalpara>
+</para>
+<para>
+См. определение в файле <link linkend="__database_manager_8py_source">DatabaseManager.py</link> строка <link linkend="__database_manager_8py_source_1l00591">591</link></para>
+</section>
+<anchor xml:id="_classsrc_1_1_database_manager_1_1_database_manager_1_1_database_manager_1acb0c3701f33e33493c5f83e09d6b2582"/><section>
+    <title>get_master_messages()</title>
+<indexterm><primary>get_master_messages</primary><secondary>src.DatabaseManager.DatabaseManager.DatabaseManager</secondary></indexterm>
+<indexterm><primary>src.DatabaseManager.DatabaseManager.DatabaseManager</primary><secondary>get_master_messages</secondary></indexterm>
+<para><computeroutput> List[Tuple[int, str, str, str]] src.DatabaseManager.DatabaseManager.DatabaseManager.get_master_messages ( self, int session_id)</computeroutput></para><para>
+
+<para>Получение истории сообщений мастера игры </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Аргументы</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>session_id</entry><entry>
+<para>ID сессии</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Возвращает</title>
+
+<para>List[Tuple[int, str, str, str]] Список кортежей (sequence_number, user_input, master_output, actor_output) </para>
+</formalpara>
+</para>
+<para>
+См. определение в файле <link linkend="__database_manager_8py_source">DatabaseManager.py</link> строка <link linkend="__database_manager_8py_source_1l00400">400</link></para>
+</section>
+<anchor xml:id="_classsrc_1_1_database_manager_1_1_database_manager_1_1_database_manager_1a8b470f05c518dbf890db72c451494b36"/><section>
+    <title>get_session_info()</title>
+<indexterm><primary>get_session_info</primary><secondary>src.DatabaseManager.DatabaseManager.DatabaseManager</secondary></indexterm>
+<indexterm><primary>src.DatabaseManager.DatabaseManager.DatabaseManager</primary><secondary>get_session_info</secondary></indexterm>
+<para><computeroutput> Optional[Tuple[str, str]] src.DatabaseManager.DatabaseManager.DatabaseManager.get_session_info ( self, int session_id)</computeroutput></para><para>
+
+<para>Получение информации о сессии </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Аргументы</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>session_id</entry><entry>
+<para>ID сессии</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Возвращает</title>
+
+<para>Optional[Tuple[str, str]] Кортеж (world_description, player_description) или None если сессия не найдена </para>
+</formalpara>
+</para>
+<para>
+См. определение в файле <link linkend="__database_manager_8py_source">DatabaseManager.py</link> строка <link linkend="__database_manager_8py_source_1l00266">266</link></para>
+</section>
+<anchor xml:id="_classsrc_1_1_database_manager_1_1_database_manager_1_1_database_manager_1a52d0357efb41c804f645c5e42e1560eb"/><section>
+    <title>get_session_language()</title>
+<indexterm><primary>get_session_language</primary><secondary>src.DatabaseManager.DatabaseManager.DatabaseManager</secondary></indexterm>
+<indexterm><primary>src.DatabaseManager.DatabaseManager.DatabaseManager</primary><secondary>get_session_language</secondary></indexterm>
+<para><computeroutput> str src.DatabaseManager.DatabaseManager.DatabaseManager.get_session_language ( self, int session_id)</computeroutput></para><para>
+
+<para>Получение языка сессии </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Аргументы</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>session_id</entry><entry>
+<para>ID сессии</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Возвращает</title>
+
+<para>str Язык сессии (Russian/English)</para>
+</formalpara>
+
+                <formalpara>
+                    <title>
+Исключения</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>RuntimeError</entry><entry>
+<para>если сессия не найдена </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+<para>
+См. определение в файле <link linkend="__database_manager_8py_source">DatabaseManager.py</link> строка <link linkend="__database_manager_8py_source_1l00769">769</link></para>
+</section>
+<anchor xml:id="_classsrc_1_1_database_manager_1_1_database_manager_1_1_database_manager_1abd4dc8956da9fdb1ea64343e4000d363"/><section>
+    <title>get_user_message()</title>
+<indexterm><primary>get_user_message</primary><secondary>src.DatabaseManager.DatabaseManager.DatabaseManager</secondary></indexterm>
+<indexterm><primary>src.DatabaseManager.DatabaseManager.DatabaseManager</primary><secondary>get_user_message</secondary></indexterm>
+<para><computeroutput> Optional[Tuple[str, str]] src.DatabaseManager.DatabaseManager.DatabaseManager.get_user_message ( self, int session_id, int sequence)</computeroutput></para><para>
+
+<para>Получение конкретного сообщения пользователя по номеру последовательности </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Аргументы</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>session_id</entry><entry>
+<para>ID сессии </para>
+</entry>
+                            </row>
+                            <row>
+<entry>sequence</entry><entry>
+<para>Номер последовательности сообщения</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Возвращает</title>
+
+<para>Optional[Tuple[str, str]] Кортеж (user_input, response) или None если сообщение не найдено</para>
+</formalpara>
+
+                <formalpara>
+                    <title>
+Исключения</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>Exception</entry><entry>
+<para>если произошла ошибка при получении данных </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+<para>
+См. определение в файле <link linkend="__database_manager_8py_source">DatabaseManager.py</link> строка <link linkend="__database_manager_8py_source_1l00720">720</link></para>
+</section>
+<anchor xml:id="_classsrc_1_1_database_manager_1_1_database_manager_1_1_database_manager_1ad86bf1f4095f7ef32b50e3ce2d87bde7"/><section>
+    <title>get_user_messages()</title>
+<indexterm><primary>get_user_messages</primary><secondary>src.DatabaseManager.DatabaseManager.DatabaseManager</secondary></indexterm>
+<indexterm><primary>src.DatabaseManager.DatabaseManager.DatabaseManager</primary><secondary>get_user_messages</secondary></indexterm>
+<para><computeroutput> List[Tuple[int, str, str]] src.DatabaseManager.DatabaseManager.DatabaseManager.get_user_messages ( self, int session_id)</computeroutput></para><para>
+
+<para>Получение истории сообщений пользователя </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Аргументы</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>session_id</entry><entry>
+<para>ID сессии</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Возвращает</title>
+
+<para>List[Tuple[int, str, str]] Список кортежей (sequence_number, user_input, response) </para>
+</formalpara>
+</para>
+<para>
+См. определение в файле <link linkend="__database_manager_8py_source">DatabaseManager.py</link> строка <link linkend="__database_manager_8py_source_1l00382">382</link></para>
+</section>
+<anchor xml:id="_classsrc_1_1_database_manager_1_1_database_manager_1_1_database_manager_1af7ba5da6c9851f8a7572ddd0b100e83a"/><section>
+    <title>get_user_sessions()</title>
+<indexterm><primary>get_user_sessions</primary><secondary>src.DatabaseManager.DatabaseManager.DatabaseManager</secondary></indexterm>
+<indexterm><primary>src.DatabaseManager.DatabaseManager.DatabaseManager</primary><secondary>get_user_sessions</secondary></indexterm>
+<para><computeroutput> List[Tuple[int, str, str, str]] src.DatabaseManager.DatabaseManager.DatabaseManager.get_user_sessions ( self, int user_id)</computeroutput></para><para>
+
+<para>Получение списка сессий пользователя </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Аргументы</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>user_id</entry><entry>
+<para>ID пользователя</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Возвращает</title>
+
+<para>List[Tuple[int, str, str, str]] Список кортежей (session_id, created_at, world_description, player_description) </para>
+</formalpara>
+</para>
+<para>
+См. определение в файле <link linkend="__database_manager_8py_source">DatabaseManager.py</link> строка <link linkend="__database_manager_8py_source_1l00249">249</link></para>
+</section>
+<anchor xml:id="_classsrc_1_1_database_manager_1_1_database_manager_1_1_database_manager_1a89252dc2b29611b424ecb352c99de987"/><section>
+    <title>is_new_session_actor_prompt()</title>
+<indexterm><primary>is_new_session_actor_prompt</primary><secondary>src.DatabaseManager.DatabaseManager.DatabaseManager</secondary></indexterm>
+<indexterm><primary>src.DatabaseManager.DatabaseManager.DatabaseManager</primary><secondary>is_new_session_actor_prompt</secondary></indexterm>
+<para><computeroutput> bool src.DatabaseManager.DatabaseManager.DatabaseManager.is_new_session_actor_prompt ( self, int session_id)</computeroutput></para><para>
+
+<para>Проверка, является ли сессия новой для промптов актора </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Аргументы</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>session_id</entry><entry>
+<para>ID сессии</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Возвращает</title>
+
+<para>bool True если сессия новая, False если промпты уже существуют </para>
+</formalpara>
+</para>
+<para>
+См. определение в файле <link linkend="__database_manager_8py_source">DatabaseManager.py</link> строка <link linkend="__database_manager_8py_source_1l00534">534</link></para>
+</section>
+<anchor xml:id="_classsrc_1_1_database_manager_1_1_database_manager_1_1_database_manager_1a062acf7bf40d0d49920cceaa844318b0"/><section>
+    <title>is_new_session_gm_prompt()</title>
+<indexterm><primary>is_new_session_gm_prompt</primary><secondary>src.DatabaseManager.DatabaseManager.DatabaseManager</secondary></indexterm>
+<indexterm><primary>src.DatabaseManager.DatabaseManager.DatabaseManager</primary><secondary>is_new_session_gm_prompt</secondary></indexterm>
+<para><computeroutput> bool src.DatabaseManager.DatabaseManager.DatabaseManager.is_new_session_gm_prompt ( self, int session_id)</computeroutput></para><para>
+
+<para>Проверка, является ли сессия новой для промптов мастера игры </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Аргументы</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>session_id</entry><entry>
+<para>ID сессии</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Возвращает</title>
+
+<para>bool True если сессия новая, False если промпты уже существуют </para>
+</formalpara>
+</para>
+<para>
+См. определение в файле <link linkend="__database_manager_8py_source">DatabaseManager.py</link> строка <link linkend="__database_manager_8py_source_1l00551">551</link></para>
+</section>
+<anchor xml:id="_classsrc_1_1_database_manager_1_1_database_manager_1_1_database_manager_1a28df3ea877ad1afa4aab83d911b15b62"/><section>
+    <title>save_active_characters()</title>
+<indexterm><primary>save_active_characters</primary><secondary>src.DatabaseManager.DatabaseManager.DatabaseManager</secondary></indexterm>
+<indexterm><primary>src.DatabaseManager.DatabaseManager.DatabaseManager</primary><secondary>save_active_characters</secondary></indexterm>
+<para><computeroutput> None src.DatabaseManager.DatabaseManager.DatabaseManager.save_active_characters ( self, int session_id, int sequence_number, List[int] character_ids)</computeroutput></para><para>
+
+<para>Сохранение активных персонажей для конкретного номера последовательности в сессии </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Аргументы</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>session_id</entry><entry>
+<para>ID сессии </para>
+</entry>
+                            </row>
+                            <row>
+<entry>sequence_number</entry><entry>
+<para>Номер последовательности промпта мастера </para>
+</entry>
+                            </row>
+                            <row>
+<entry>character_ids</entry><entry>
+<para>Список ID персонажей, которые в данный момент активны</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                
+                <formalpara>
+                    <title>
+Исключения</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>Exception</entry><entry>
+<para>если произошла ошибка при сохранении </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+<para>
+См. определение в файле <link linkend="__database_manager_8py_source">DatabaseManager.py</link> строка <link linkend="__database_manager_8py_source_1l00609">609</link></para>
+</section>
+<anchor xml:id="_classsrc_1_1_database_manager_1_1_database_manager_1_1_database_manager_1a89e3e3073c296d111a67339cbbcc9de5"/><section>
+    <title>save_actor_message()</title>
+<indexterm><primary>save_actor_message</primary><secondary>src.DatabaseManager.DatabaseManager.DatabaseManager</secondary></indexterm>
+<indexterm><primary>src.DatabaseManager.DatabaseManager.DatabaseManager</primary><secondary>save_actor_message</secondary></indexterm>
+<para><computeroutput> None src.DatabaseManager.DatabaseManager.DatabaseManager.save_actor_message ( self, int session_id, str master_prompt, str actor_response)</computeroutput></para><para>
+
+<para>Сохранение сообщения актора </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Аргументы</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>session_id</entry><entry>
+<para>ID сессии </para>
+</entry>
+                            </row>
+                            <row>
+<entry>master_prompt</entry><entry>
+<para>Промпт мастера игры </para>
+</entry>
+                            </row>
+                            <row>
+<entry>actor_response</entry><entry>
+<para>Ответ актора </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+<para>
+См. определение в файле <link linkend="__database_manager_8py_source">DatabaseManager.py</link> строка <link linkend="__database_manager_8py_source_1l00360">360</link></para>
+</section>
+<anchor xml:id="_classsrc_1_1_database_manager_1_1_database_manager_1_1_database_manager_1a96f76fb4ab001ccbf497590b0b04281c"/><section>
+    <title>save_actor_prompt()</title>
+<indexterm><primary>save_actor_prompt</primary><secondary>src.DatabaseManager.DatabaseManager.DatabaseManager</secondary></indexterm>
+<indexterm><primary>src.DatabaseManager.DatabaseManager.DatabaseManager</primary><secondary>save_actor_prompt</secondary></indexterm>
+<para><computeroutput> None src.DatabaseManager.DatabaseManager.DatabaseManager.save_actor_prompt ( self, int session_id, str prompt_content, str model_response)</computeroutput></para><para>
+
+<para>Сохранение промпта актора </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Аргументы</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>session_id</entry><entry>
+<para>ID сессии </para>
+</entry>
+                            </row>
+                            <row>
+<entry>prompt_content</entry><entry>
+<para>Содержимое промпта </para>
+</entry>
+                            </row>
+                            <row>
+<entry>model_response</entry><entry>
+<para>Ответ модели </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+<para>
+См. определение в файле <link linkend="__database_manager_8py_source">DatabaseManager.py</link> строка <link linkend="__database_manager_8py_source_1l00482">482</link></para>
+</section>
+<anchor xml:id="_classsrc_1_1_database_manager_1_1_database_manager_1_1_database_manager_1a78b9f08ef4c174650284fb7ff55fa201"/><section>
+    <title>save_character()</title>
+<indexterm><primary>save_character</primary><secondary>src.DatabaseManager.DatabaseManager.DatabaseManager</secondary></indexterm>
+<indexterm><primary>src.DatabaseManager.DatabaseManager.DatabaseManager</primary><secondary>save_character</secondary></indexterm>
+<para><computeroutput> None src.DatabaseManager.DatabaseManager.DatabaseManager.save_character ( self, int session_id, str name, str description)</computeroutput></para><para>
+
+<para>Сохранение персонажа </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Аргументы</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>session_id</entry><entry>
+<para>ID сессии </para>
+</entry>
+                            </row>
+                            <row>
+<entry>name</entry><entry>
+<para>Имя персонажа </para>
+</entry>
+                            </row>
+                            <row>
+<entry>description</entry><entry>
+<para>Описание персонажа </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+<para>
+См. определение в файле <link linkend="__database_manager_8py_source">DatabaseManager.py</link> строка <link linkend="__database_manager_8py_source_1l00283">283</link></para>
+</section>
+<anchor xml:id="_classsrc_1_1_database_manager_1_1_database_manager_1_1_database_manager_1adbac8da66f7473e585fa1b1b4ab1d9c8"/><section>
+    <title>save_game_master_prompt()</title>
+<indexterm><primary>save_game_master_prompt</primary><secondary>src.DatabaseManager.DatabaseManager.DatabaseManager</secondary></indexterm>
+<indexterm><primary>src.DatabaseManager.DatabaseManager.DatabaseManager</primary><secondary>save_game_master_prompt</secondary></indexterm>
+<para><computeroutput> None src.DatabaseManager.DatabaseManager.DatabaseManager.save_game_master_prompt ( self, int session_id, str prompt_type, str prompt_content, str model_response)</computeroutput></para><para>
+
+<para>Сохранение промпта мастера игры </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Аргументы</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>session_id</entry><entry>
+<para>ID сессии </para>
+</entry>
+                            </row>
+                            <row>
+<entry>prompt_type</entry><entry>
+<para>Тип промпта </para>
+</entry>
+                            </row>
+                            <row>
+<entry>prompt_content</entry><entry>
+<para>Содержимое промпта </para>
+</entry>
+                            </row>
+                            <row>
+<entry>model_response</entry><entry>
+<para>Ответ модели </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+<para>
+См. определение в файле <link linkend="__database_manager_8py_source">DatabaseManager.py</link> строка <link linkend="__database_manager_8py_source_1l00465">465</link></para>
+</section>
+<anchor xml:id="_classsrc_1_1_database_manager_1_1_database_manager_1_1_database_manager_1a6bdafff6a250fc4aa977fed2611b6710"/><section>
+    <title>save_image_prompt()</title>
+<indexterm><primary>save_image_prompt</primary><secondary>src.DatabaseManager.DatabaseManager.DatabaseManager</secondary></indexterm>
+<indexterm><primary>src.DatabaseManager.DatabaseManager.DatabaseManager</primary><secondary>save_image_prompt</secondary></indexterm>
+<para><computeroutput> None src.DatabaseManager.DatabaseManager.DatabaseManager.save_image_prompt ( self, int session_id, str user_input, str narrative_response, str image_prompt)</computeroutput></para><para>
+
+<para>Сохранение промпта для генерации изображения </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Аргументы</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>session_id</entry><entry>
+<para>ID сессии </para>
+</entry>
+                            </row>
+                            <row>
+<entry>user_input</entry><entry>
+<para>Ввод пользователя </para>
+</entry>
+                            </row>
+                            <row>
+<entry>narrative_response</entry><entry>
+<para>Нарративный ответ </para>
+</entry>
+                            </row>
+                            <row>
+<entry>image_prompt</entry><entry>
+<para>Промпт для генерации изображения </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+<para>
+См. определение в файле <link linkend="__database_manager_8py_source">DatabaseManager.py</link> строка <link linkend="__database_manager_8py_source_1l00568">568</link></para>
+</section>
+<anchor xml:id="_classsrc_1_1_database_manager_1_1_database_manager_1_1_database_manager_1a6fce88139b93dc797e02b7b93777e3ac"/><section>
+    <title>save_master_message()</title>
+<indexterm><primary>save_master_message</primary><secondary>src.DatabaseManager.DatabaseManager.DatabaseManager</secondary></indexterm>
+<indexterm><primary>src.DatabaseManager.DatabaseManager.DatabaseManager</primary><secondary>save_master_message</secondary></indexterm>
+<para><computeroutput> None src.DatabaseManager.DatabaseManager.DatabaseManager.save_master_message ( self, int session_id, str user_input, str master_output, str actor_output)</computeroutput></para><para>
+
+<para>Сохранение сообщения мастера игры </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Аргументы</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>session_id</entry><entry>
+<para>ID сессии </para>
+</entry>
+                            </row>
+                            <row>
+<entry>user_input</entry><entry>
+<para>Ввод пользователя </para>
+</entry>
+                            </row>
+                            <row>
+<entry>master_output</entry><entry>
+<para>Вывод мастера игры </para>
+</entry>
+                            </row>
+                            <row>
+<entry>actor_output</entry><entry>
+<para>Вывод актора </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+<para>
+См. определение в файле <link linkend="__database_manager_8py_source">DatabaseManager.py</link> строка <link linkend="__database_manager_8py_source_1l00337">337</link></para>
+</section>
+<anchor xml:id="_classsrc_1_1_database_manager_1_1_database_manager_1_1_database_manager_1a7ca1b98dcdd0b87151292b22868f1abd"/><section>
+    <title>save_user_message()</title>
+<indexterm><primary>save_user_message</primary><secondary>src.DatabaseManager.DatabaseManager.DatabaseManager</secondary></indexterm>
+<indexterm><primary>src.DatabaseManager.DatabaseManager.DatabaseManager</primary><secondary>save_user_message</secondary></indexterm>
+<para><computeroutput> None src.DatabaseManager.DatabaseManager.DatabaseManager.save_user_message ( self, int session_id, str user_input, str response)</computeroutput></para><para>
+
+<para>Сохранение сообщения пользователя </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Аргументы</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>session_id</entry><entry>
+<para>ID сессии </para>
+</entry>
+                            </row>
+                            <row>
+<entry>user_input</entry><entry>
+<para>Ввод пользователя </para>
+</entry>
+                            </row>
+                            <row>
+<entry>response</entry><entry>
+<para>Ответ системы </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+<para>
+См. определение в файле <link linkend="__database_manager_8py_source">DatabaseManager.py</link> строка <link linkend="__database_manager_8py_source_1l00315">315</link></para>
+</section>
+<anchor xml:id="_classsrc_1_1_database_manager_1_1_database_manager_1_1_database_manager_1a7e4425052cdd6ee6ba50c65ce565e010"/><section>
+    <title>update_active_characters()</title>
+<indexterm><primary>update_active_characters</primary><secondary>src.DatabaseManager.DatabaseManager.DatabaseManager</secondary></indexterm>
+<indexterm><primary>src.DatabaseManager.DatabaseManager.DatabaseManager</primary><secondary>update_active_characters</secondary></indexterm>
+<para><computeroutput> None src.DatabaseManager.DatabaseManager.DatabaseManager.update_active_characters ( self, int session_id, int sequence_number, List[int] character_ids)</computeroutput></para><para>
+
+<para>Обновление списка активных персонажей для конкретного номера последовательности в сессии </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Аргументы</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>session_id</entry><entry>
+<para>ID сессии </para>
+</entry>
+                            </row>
+                            <row>
+<entry>sequence_number</entry><entry>
+<para>Номер последовательности промпта мастера </para>
+</entry>
+                            </row>
+                            <row>
+<entry>character_ids</entry><entry>
+<para>Список ID персонажей, которые в данный момент активны </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+<para>
+См. определение в файле <link linkend="__database_manager_8py_source">DatabaseManager.py</link> строка <link linkend="__database_manager_8py_source_1l00663">663</link></para>
+</section>
+</section>
+<section>
+<title>Данные класса</title>
+<anchor xml:id="_classsrc_1_1_database_manager_1_1_database_manager_1_1_database_manager_1a7ad3dcb044e31b90bf31806853bfc837"/><section>
+    <title>_instance</title>
+<indexterm><primary>_instance</primary><secondary>src.DatabaseManager.DatabaseManager.DatabaseManager</secondary></indexterm>
+<indexterm><primary>src.DatabaseManager.DatabaseManager.DatabaseManager</primary><secondary>_instance</secondary></indexterm>
+<para><computeroutput>&apos;<link linkend="_classsrc_1_1_database_manager_1_1_database_manager_1_1_database_manager">DatabaseManager</link>&apos; src.DatabaseManager.DatabaseManager.DatabaseManager._instance = None<computeroutput>[static]</computeroutput>, <computeroutput>[protected]</computeroutput></computeroutput></para><para>
+См. определение в файле <link linkend="__database_manager_8py_source">DatabaseManager.py</link> строка <link linkend="__database_manager_8py_source_1l00023">23</link></para>
+</section>
+<anchor xml:id="_classsrc_1_1_database_manager_1_1_database_manager_1_1_database_manager_1a0d4c59d10e40d5663df4c8308e9e9d15"/><section>
+    <title>db_path</title>
+<indexterm><primary>db_path</primary><secondary>src.DatabaseManager.DatabaseManager.DatabaseManager</secondary></indexterm>
+<indexterm><primary>src.DatabaseManager.DatabaseManager.DatabaseManager</primary><secondary>db_path</secondary></indexterm>
+<para><computeroutput>src.DatabaseManager.DatabaseManager.DatabaseManager.db_path = DATABASE_NAME</computeroutput></para><para>
+См. определение в файле <link linkend="__database_manager_8py_source">DatabaseManager.py</link> строка <link linkend="__database_manager_8py_source_1l00045">45</link></para>
+</section>
+<para>
+Объявления и описания членов класса находятся в файле:</para>
+C:/Users/kir/Desktop/py/API/src/DatabaseManager/DatabaseManager.py</section>
+</section>

@@ -1,0 +1,181 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="__s_t_t_8py_source" xml:lang="ru">
+<title>STT.py</title>
+<indexterm><primary>C:/Users/kir/Desktop/py/API/src/STT/STT.py</primary></indexterm>
+<programlisting linenumbering="unnumbered"><anchor xml:id="__s_t_t_8py_source_1l00001"/>00001 <emphasis role="keyword">import</emphasis>&#32;speech_recognition&#32;<emphasis role="keyword">as</emphasis>&#32;sr&#32;&#32;<emphasis role="comment">#&#32;type:&#32;ignore</emphasis>
+<anchor xml:id="__s_t_t_8py_source_1l00002"/>00002 <emphasis role="keyword">from</emphasis>&#32;typing&#32;<emphasis role="keyword">import</emphasis>&#32;Optional,&#32;Dict
+<anchor xml:id="__s_t_t_8py_source_1l00003"/>00003 <emphasis role="keyword">import</emphasis>&#32;numpy&#32;<emphasis role="keyword">as</emphasis>&#32;np
+<anchor xml:id="__s_t_t_8py_source_1l00004"/>00004 <emphasis role="keyword">from</emphasis>&#32;pydub&#32;<emphasis role="keyword">import</emphasis>&#32;AudioSegment&#32;&#32;<emphasis role="comment">#&#32;type:&#32;ignore</emphasis>
+<anchor xml:id="__s_t_t_8py_source_1l00005"/>00005 <emphasis role="keyword">import</emphasis>&#32;os
+<anchor xml:id="__s_t_t_8py_source_1l00006"/>00006 
+<anchor xml:id="__s_t_t_8py_source_1l00007"/>00007 
+<anchor xml:id="__s_t_t_8py_source_1l00008"/><link linkend="_class_s_t_t_1_1_s_t_t">00008</link> <emphasis role="keyword">class&#32;</emphasis><link linkend="_class_s_t_t_1_1_s_t_t">STT</link>:
+<anchor xml:id="__s_t_t_8py_source_1l00009"/>00009 &#32;&#32;&#32;&#32;<emphasis role="stringliteral">&quot;&quot;&quot;!</emphasis>
+<anchor xml:id="__s_t_t_8py_source_1l00010"/>00010 <emphasis role="stringliteral">&#32;&#32;&#32;&#32;@brief&#32;Класс&#32;для&#32;распознавания&#32;речи&#32;(Speech-to-Text)</emphasis>
+<anchor xml:id="__s_t_t_8py_source_1l00011"/>00011 <emphasis role="stringliteral">&#32;&#32;&#32;&#32;</emphasis>
+<anchor xml:id="__s_t_t_8py_source_1l00012"/>00012 <emphasis role="stringliteral">&#32;&#32;&#32;&#32;@details</emphasis>
+<anchor xml:id="__s_t_t_8py_source_1l00013"/>00013 <emphasis role="stringliteral">&#32;&#32;&#32;&#32;Реализует&#32;паттерн&#32;Singleton&#32;для&#32;обеспечения&#32;единой&#32;точки&#32;доступа</emphasis>
+<anchor xml:id="__s_t_t_8py_source_1l00014"/>00014 <emphasis role="stringliteral">&#32;&#32;&#32;&#32;к&#32;функционалу&#32;распознавания&#32;речи.&#32;Использует&#32;библиотеку&#32;speech_recognition</emphasis>
+<anchor xml:id="__s_t_t_8py_source_1l00015"/>00015 <emphasis role="stringliteral">&#32;&#32;&#32;&#32;для&#32;преобразования&#32;аудио&#32;в&#32;текст.</emphasis>
+<anchor xml:id="__s_t_t_8py_source_1l00016"/>00016 <emphasis role="stringliteral">&#32;&#32;&#32;&#32;</emphasis>
+<anchor xml:id="__s_t_t_8py_source_1l00017"/>00017 <emphasis role="stringliteral">&#32;&#32;&#32;&#32;@note&#32;Поддерживает&#32;русский&#32;и&#32;английский&#32;языки&#32;для&#32;распознавания</emphasis>
+<anchor xml:id="__s_t_t_8py_source_1l00018"/>00018 <emphasis role="stringliteral">&#32;&#32;&#32;&#32;&quot;&quot;&quot;</emphasis>
+<anchor xml:id="__s_t_t_8py_source_1l00019"/>00019 &#32;&#32;&#32;&#32;__instance:&#32;Optional[<emphasis role="stringliteral">&apos;STT&apos;</emphasis>]&#32;=&#32;<emphasis role="keywordtype">None</emphasis>
+<anchor xml:id="__s_t_t_8py_source_1l00020"/>00020 &#32;&#32;&#32;&#32;__recognizer:&#32;Optional[sr.Recognizer]&#32;=&#32;<emphasis role="keywordtype">None</emphasis>
+<anchor xml:id="__s_t_t_8py_source_1l00021"/>00021 &#32;&#32;&#32;&#32;__silence_duration_ms:&#32;int&#32;=&#32;2000&#32;&#32;<emphasis role="comment">#&#32;2&#32;секунды&#32;тишины&#32;в&#32;начале</emphasis>
+<anchor xml:id="__s_t_t_8py_source_1l00022"/>00022 &#32;&#32;&#32;&#32;__energy_threshold:&#32;float&#32;=&#32;300&#32;&#32;<emphasis role="comment">#&#32;Порог&#32;энергии&#32;для&#32;определения&#32;речи</emphasis>
+<anchor xml:id="__s_t_t_8py_source_1l00023"/>00023 &#32;&#32;&#32;&#32;__pause_threshold:&#32;float&#32;=&#32;0.8&#32;&#32;<emphasis role="comment">#&#32;Порог&#32;паузы&#32;между&#32;словами</emphasis>
+<anchor xml:id="__s_t_t_8py_source_1l00024"/>00024 &#32;&#32;&#32;&#32;__dynamic_energy_threshold:&#32;bool&#32;=&#32;<emphasis role="keyword">True</emphasis>&#32;&#32;<emphasis role="comment">#&#32;Динамическая&#32;настройка&#32;порога&#32;энергии</emphasis>
+<anchor xml:id="__s_t_t_8py_source_1l00025"/>00025 &#32;&#32;&#32;&#32;
+<anchor xml:id="__s_t_t_8py_source_1l00026"/>00026 &#32;&#32;&#32;&#32;<emphasis role="comment">#&#32;Словарь&#32;соответствия&#32;языков&#32;и&#32;их&#32;кодов</emphasis>
+<anchor xml:id="__s_t_t_8py_source_1l00027"/>00027 &#32;&#32;&#32;&#32;__language_codes:&#32;Dict[str,&#32;str]&#32;=&#32;{
+<anchor xml:id="__s_t_t_8py_source_1l00028"/>00028 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="stringliteral">&quot;Russian&quot;</emphasis>:&#32;<emphasis role="stringliteral">&quot;ru-RU&quot;</emphasis>,
+<anchor xml:id="__s_t_t_8py_source_1l00029"/>00029 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="stringliteral">&quot;English&quot;</emphasis>:&#32;<emphasis role="stringliteral">&quot;en-US&quot;</emphasis>,
+<anchor xml:id="__s_t_t_8py_source_1l00030"/>00030 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="stringliteral">&quot;ru-RU&quot;</emphasis>:&#32;<emphasis role="stringliteral">&quot;ru-RU&quot;</emphasis>,
+<anchor xml:id="__s_t_t_8py_source_1l00031"/>00031 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="stringliteral">&quot;en-US&quot;</emphasis>:&#32;<emphasis role="stringliteral">&quot;en-US&quot;</emphasis>
+<anchor xml:id="__s_t_t_8py_source_1l00032"/>00032 &#32;&#32;&#32;&#32;}
+<anchor xml:id="__s_t_t_8py_source_1l00033"/>00033 &#32;&#32;&#32;&#32;
+<anchor xml:id="__s_t_t_8py_source_1l00034"/>00034 &#32;&#32;&#32;&#32;<emphasis role="comment">#&#32;Текущий&#32;язык&#32;распознавания</emphasis>
+<anchor xml:id="__s_t_t_8py_source_1l00035"/>00035 &#32;&#32;&#32;&#32;__current_language:&#32;str&#32;=&#32;<emphasis role="stringliteral">&quot;Russian&quot;</emphasis>
+<anchor xml:id="__s_t_t_8py_source_1l00036"/>00036 
+<anchor xml:id="__s_t_t_8py_source_1l00037"/><link linkend="_class_s_t_t_1_1_s_t_t_1a00806fedb423f01c5e88d7b05428ed42">00037</link> &#32;&#32;&#32;&#32;<emphasis role="keyword">def&#32;</emphasis><link linkend="_class_s_t_t_1_1_s_t_t_1a00806fedb423f01c5e88d7b05428ed42">__new__</link>(cls)&#32;-&gt;&#32;&apos;STT&apos;:
+<anchor xml:id="__s_t_t_8py_source_1l00038"/>00038 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="stringliteral">&quot;&quot;&quot;!</emphasis>
+<anchor xml:id="__s_t_t_8py_source_1l00039"/>00039 <emphasis role="stringliteral">&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;@brief&#32;Создание&#32;единственного&#32;экземпляра&#32;класса</emphasis>
+<anchor xml:id="__s_t_t_8py_source_1l00040"/>00040 <emphasis role="stringliteral">&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;</emphasis>
+<anchor xml:id="__s_t_t_8py_source_1l00041"/>00041 <emphasis role="stringliteral">&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;@return&#32;STT&#32;Единственный&#32;экземпляр&#32;класса&#32;STT</emphasis>
+<anchor xml:id="__s_t_t_8py_source_1l00042"/>00042 <emphasis role="stringliteral">&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&quot;&quot;&quot;</emphasis>
+<anchor xml:id="__s_t_t_8py_source_1l00043"/>00043 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;cls.<link linkend="_class_s_t_t_1_1_s_t_t_1a135af9a06c5abce11d9f7d6dc11b66e4">__instance</link>&#32;<emphasis role="keywordflow">is</emphasis>&#32;<emphasis role="keywordtype">None</emphasis>:
+<anchor xml:id="__s_t_t_8py_source_1l00044"/>00044 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;cls.<link linkend="_class_s_t_t_1_1_s_t_t_1a135af9a06c5abce11d9f7d6dc11b66e4">__instance</link>&#32;=&#32;super(STT,&#32;cls).<link linkend="_class_s_t_t_1_1_s_t_t_1a00806fedb423f01c5e88d7b05428ed42">__new__</link>(cls)
+<anchor xml:id="__s_t_t_8py_source_1l00045"/>00045 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;cls.<link linkend="_class_s_t_t_1_1_s_t_t_1a18d65b38e82a8a6d2332dcb77448c334">__recognizer</link>&#32;=&#32;sr.Recognizer()
+<anchor xml:id="__s_t_t_8py_source_1l00046"/>00046 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;cls.<link linkend="_class_s_t_t_1_1_s_t_t_1a135af9a06c5abce11d9f7d6dc11b66e4">__instance</link>
+<anchor xml:id="__s_t_t_8py_source_1l00047"/>00047 
+<anchor xml:id="__s_t_t_8py_source_1l00048"/><link linkend="_class_s_t_t_1_1_s_t_t_1afd1233e0d05b742a70ac41d656c39d7a">00048</link> &#32;&#32;&#32;&#32;<emphasis role="keyword">def&#32;</emphasis><link linkend="_class_s_t_t_1_1_s_t_t_1afd1233e0d05b742a70ac41d656c39d7a">__init__</link>(self)&#32;-&gt;&#32;None:
+<anchor xml:id="__s_t_t_8py_source_1l00049"/>00049 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="stringliteral">&quot;&quot;&quot;!</emphasis>
+<anchor xml:id="__s_t_t_8py_source_1l00050"/>00050 <emphasis role="stringliteral">&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;@brief&#32;Инициализация&#32;распознавателя&#32;речи</emphasis>
+<anchor xml:id="__s_t_t_8py_source_1l00051"/>00051 <emphasis role="stringliteral">&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;</emphasis>
+<anchor xml:id="__s_t_t_8py_source_1l00052"/>00052 <emphasis role="stringliteral">&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;@note&#32;Метод&#32;выполняется&#32;только&#32;при&#32;первом&#32;создании&#32;экземпляра</emphasis>
+<anchor xml:id="__s_t_t_8py_source_1l00053"/>00053 <emphasis role="stringliteral">&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&quot;&quot;&quot;</emphasis>
+<anchor xml:id="__s_t_t_8py_source_1l00054"/>00054 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;self.<link linkend="_class_s_t_t_1_1_s_t_t_1a18d65b38e82a8a6d2332dcb77448c334">__recognizer</link>&#32;<emphasis role="keywordflow">is</emphasis>&#32;<emphasis role="keywordtype">None</emphasis>:
+<anchor xml:id="__s_t_t_8py_source_1l00055"/>00055 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;self.<link linkend="_class_s_t_t_1_1_s_t_t_1a18d65b38e82a8a6d2332dcb77448c334">__recognizer</link>&#32;=&#32;sr.Recognizer()
+<anchor xml:id="__s_t_t_8py_source_1l00056"/>00056 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">#&#32;Настройка&#32;параметров&#32;распознавателя</emphasis>
+<anchor xml:id="__s_t_t_8py_source_1l00057"/>00057 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;self.<link linkend="_class_s_t_t_1_1_s_t_t_1a18d65b38e82a8a6d2332dcb77448c334">__recognizer</link>.energy_threshold&#32;=&#32;self.<link linkend="_class_s_t_t_1_1_s_t_t_1a0eb5f46b9bbcfad3f8c5ea052d9d75dc">__energy_threshold</link>
+<anchor xml:id="__s_t_t_8py_source_1l00058"/>00058 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;self.<link linkend="_class_s_t_t_1_1_s_t_t_1a18d65b38e82a8a6d2332dcb77448c334">__recognizer</link>.pause_threshold&#32;=&#32;self.<link linkend="_class_s_t_t_1_1_s_t_t_1a2f168079f8932bca18ff8ea847b01072">__pause_threshold</link>
+<anchor xml:id="__s_t_t_8py_source_1l00059"/>00059 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;self.<link linkend="_class_s_t_t_1_1_s_t_t_1a18d65b38e82a8a6d2332dcb77448c334">__recognizer</link>.dynamic_energy_threshold&#32;=&#32;self.<link linkend="_class_s_t_t_1_1_s_t_t_1a96f1b5f438df84284f82933791420440">__dynamic_energy_threshold</link>
+<anchor xml:id="__s_t_t_8py_source_1l00060"/>00060 
+<anchor xml:id="__s_t_t_8py_source_1l00061"/><link linkend="_class_s_t_t_1_1_s_t_t_1a26c6ff8183dcc74ae777214092921ddf">00061</link> &#32;&#32;&#32;&#32;<emphasis role="keyword">def&#32;</emphasis><link linkend="_class_s_t_t_1_1_s_t_t_1a26c6ff8183dcc74ae777214092921ddf">set_language</link>(self,&#32;language:&#32;str)&#32;-&gt;&#32;<emphasis role="keywordtype">None</emphasis>:
+<anchor xml:id="__s_t_t_8py_source_1l00062"/>00062 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="stringliteral">&quot;&quot;&quot;!</emphasis>
+<anchor xml:id="__s_t_t_8py_source_1l00063"/>00063 <emphasis role="stringliteral">&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;@brief&#32;Установка&#32;языка&#32;распознавания</emphasis>
+<anchor xml:id="__s_t_t_8py_source_1l00064"/>00064 <emphasis role="stringliteral">&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;</emphasis>
+<anchor xml:id="__s_t_t_8py_source_1l00065"/>00065 <emphasis role="stringliteral">&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;@param&#32;language&#32;Язык&#32;для&#32;распознавания&#32;(Russian/English&#32;или&#32;ru-RU/en-US)</emphasis>
+<anchor xml:id="__s_t_t_8py_source_1l00066"/>00066 <emphasis role="stringliteral">&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;</emphasis>
+<anchor xml:id="__s_t_t_8py_source_1l00067"/>00067 <emphasis role="stringliteral">&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;@throws&#32;ValueError&#32;если&#32;указанный&#32;язык&#32;не&#32;поддерживается</emphasis>
+<anchor xml:id="__s_t_t_8py_source_1l00068"/>00068 <emphasis role="stringliteral">&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&quot;&quot;&quot;</emphasis>
+<anchor xml:id="__s_t_t_8py_source_1l00069"/>00069 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;language&#32;<emphasis role="keywordflow">not</emphasis>&#32;<emphasis role="keywordflow">in</emphasis>&#32;self.<link linkend="_class_s_t_t_1_1_s_t_t_1add1948143ef0071a4e01484adf81ab04">__language_codes</link>:
+<anchor xml:id="__s_t_t_8py_source_1l00070"/>00070 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">raise</emphasis>&#32;ValueError(f<emphasis role="stringliteral">&quot;Неподдерживаемый&#32;язык:&#32;{language}.&#32;Поддерживаемые&#32;языки:&#32;{&apos;,&#32;&apos;.join(self.__language_codes.keys())}&quot;</emphasis>)
+<anchor xml:id="__s_t_t_8py_source_1l00071"/>00071 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;self.<link linkend="_class_s_t_t_1_1_s_t_t_1a4ca8df1cdc6958d6ee4897155e8f95f6">__current_language</link>&#32;=&#32;language
+<anchor xml:id="__s_t_t_8py_source_1l00072"/>00072 
+<anchor xml:id="__s_t_t_8py_source_1l00073"/><link linkend="_class_s_t_t_1_1_s_t_t_1a2834cb4380855d9beb3d8a70ac675523">00073</link> &#32;&#32;&#32;&#32;<emphasis role="keyword">def&#32;</emphasis><link linkend="_class_s_t_t_1_1_s_t_t_1a2834cb4380855d9beb3d8a70ac675523">get_language</link>(self)&#32;-&gt;&#32;str:
+<anchor xml:id="__s_t_t_8py_source_1l00074"/>00074 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="stringliteral">&quot;&quot;&quot;!</emphasis>
+<anchor xml:id="__s_t_t_8py_source_1l00075"/>00075 <emphasis role="stringliteral">&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;@brief&#32;Получение&#32;текущего&#32;языка&#32;распознавания</emphasis>
+<anchor xml:id="__s_t_t_8py_source_1l00076"/>00076 <emphasis role="stringliteral">&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;</emphasis>
+<anchor xml:id="__s_t_t_8py_source_1l00077"/>00077 <emphasis role="stringliteral">&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;@return&#32;str&#32;Текущий&#32;язык&#32;распознавания</emphasis>
+<anchor xml:id="__s_t_t_8py_source_1l00078"/>00078 <emphasis role="stringliteral">&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&quot;&quot;&quot;</emphasis>
+<anchor xml:id="__s_t_t_8py_source_1l00079"/>00079 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;self.<link linkend="_class_s_t_t_1_1_s_t_t_1a4ca8df1cdc6958d6ee4897155e8f95f6">__current_language</link>
+<anchor xml:id="__s_t_t_8py_source_1l00080"/>00080 
+<anchor xml:id="__s_t_t_8py_source_1l00081"/>00081 &#32;&#32;&#32;&#32;<emphasis role="keyword">def&#32;</emphasis>__add_silence_padding(self,&#32;audio_path:&#32;str)&#32;-&gt;&#32;str:
+<anchor xml:id="__s_t_t_8py_source_1l00082"/>00082 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="stringliteral">&quot;&quot;&quot;!</emphasis>
+<anchor xml:id="__s_t_t_8py_source_1l00083"/>00083 <emphasis role="stringliteral">&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;@brief&#32;Добавление&#32;тишины&#32;в&#32;начало&#32;аудиофайла</emphasis>
+<anchor xml:id="__s_t_t_8py_source_1l00084"/>00084 <emphasis role="stringliteral">&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;</emphasis>
+<anchor xml:id="__s_t_t_8py_source_1l00085"/>00085 <emphasis role="stringliteral">&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;@param&#32;audio_path&#32;Путь&#32;к&#32;исходному&#32;аудиофайлу</emphasis>
+<anchor xml:id="__s_t_t_8py_source_1l00086"/>00086 <emphasis role="stringliteral">&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;</emphasis>
+<anchor xml:id="__s_t_t_8py_source_1l00087"/>00087 <emphasis role="stringliteral">&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;@return&#32;str&#32;Путь&#32;к&#32;новому&#32;аудиофайлу&#32;с&#32;добавленной&#32;тишиной</emphasis>
+<anchor xml:id="__s_t_t_8py_source_1l00088"/>00088 <emphasis role="stringliteral">&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&quot;&quot;&quot;</emphasis>
+<anchor xml:id="__s_t_t_8py_source_1l00089"/>00089 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">try</emphasis>:
+<anchor xml:id="__s_t_t_8py_source_1l00090"/>00090 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">#&#32;Загрузка&#32;аудиофайла</emphasis>
+<anchor xml:id="__s_t_t_8py_source_1l00091"/>00091 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;audio&#32;=&#32;AudioSegment.from_file(audio_path)
+<anchor xml:id="__s_t_t_8py_source_1l00092"/>00092 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;
+<anchor xml:id="__s_t_t_8py_source_1l00093"/>00093 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">#&#32;Создание&#32;тишины</emphasis>
+<anchor xml:id="__s_t_t_8py_source_1l00094"/>00094 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;silence&#32;=&#32;AudioSegment.silent(duration=self.<link linkend="_class_s_t_t_1_1_s_t_t_1a31995431a1081b0e1fa5e22634677c63">__silence_duration_ms</link>)
+<anchor xml:id="__s_t_t_8py_source_1l00095"/>00095 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;
+<anchor xml:id="__s_t_t_8py_source_1l00096"/>00096 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">#&#32;Добавление&#32;тишины&#32;в&#32;начало</emphasis>
+<anchor xml:id="__s_t_t_8py_source_1l00097"/>00097 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;audio_with_silence&#32;=&#32;silence&#32;+&#32;audio
+<anchor xml:id="__s_t_t_8py_source_1l00098"/>00098 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;
+<anchor xml:id="__s_t_t_8py_source_1l00099"/>00099 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">#&#32;Создание&#32;временного&#32;файла</emphasis>
+<anchor xml:id="__s_t_t_8py_source_1l00100"/>00100 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;temp_path&#32;=&#32;audio_path.replace(<emphasis role="stringliteral">&apos;.wav&apos;</emphasis>,&#32;<emphasis role="stringliteral">&apos;_with_silence.wav&apos;</emphasis>)
+<anchor xml:id="__s_t_t_8py_source_1l00101"/>00101 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;audio_with_silence.export(temp_path,&#32;format=<emphasis role="stringliteral">&quot;wav&quot;</emphasis>)
+<anchor xml:id="__s_t_t_8py_source_1l00102"/>00102 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;
+<anchor xml:id="__s_t_t_8py_source_1l00103"/>00103 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;temp_path
+<anchor xml:id="__s_t_t_8py_source_1l00104"/>00104 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">except</emphasis>&#32;Exception&#32;<emphasis role="keyword">as</emphasis>&#32;e:
+<anchor xml:id="__s_t_t_8py_source_1l00105"/>00105 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;print(f<emphasis role="stringliteral">&quot;Ошибка&#32;при&#32;добавлении&#32;тишины:&#32;{str(e)}&quot;</emphasis>)
+<anchor xml:id="__s_t_t_8py_source_1l00106"/>00106 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;audio_path
+<anchor xml:id="__s_t_t_8py_source_1l00107"/>00107 
+<anchor xml:id="__s_t_t_8py_source_1l00108"/>00108 &#32;&#32;&#32;&#32;<emphasis role="keyword">def&#32;</emphasis>__cleanup_temp_file(self,&#32;temp_path:&#32;str)&#32;-&gt;&#32;<emphasis role="keywordtype">None</emphasis>:
+<anchor xml:id="__s_t_t_8py_source_1l00109"/>00109 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="stringliteral">&quot;&quot;&quot;!</emphasis>
+<anchor xml:id="__s_t_t_8py_source_1l00110"/>00110 <emphasis role="stringliteral">&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;@brief&#32;Удаление&#32;временного&#32;файла</emphasis>
+<anchor xml:id="__s_t_t_8py_source_1l00111"/>00111 <emphasis role="stringliteral">&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;</emphasis>
+<anchor xml:id="__s_t_t_8py_source_1l00112"/>00112 <emphasis role="stringliteral">&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;@param&#32;temp_path&#32;Путь&#32;к&#32;временному&#32;файлу</emphasis>
+<anchor xml:id="__s_t_t_8py_source_1l00113"/>00113 <emphasis role="stringliteral">&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&quot;&quot;&quot;</emphasis>
+<anchor xml:id="__s_t_t_8py_source_1l00114"/>00114 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">try</emphasis>:
+<anchor xml:id="__s_t_t_8py_source_1l00115"/>00115 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;os.path.exists(temp_path)&#32;<emphasis role="keywordflow">and</emphasis>&#32;<emphasis role="stringliteral">&apos;_with_silence.wav&apos;</emphasis>&#32;<emphasis role="keywordflow">in</emphasis>&#32;temp_path:
+<anchor xml:id="__s_t_t_8py_source_1l00116"/>00116 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;os.remove(temp_path)
+<anchor xml:id="__s_t_t_8py_source_1l00117"/>00117 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">except</emphasis>&#32;Exception&#32;<emphasis role="keyword">as</emphasis>&#32;e:
+<anchor xml:id="__s_t_t_8py_source_1l00118"/>00118 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;print(f<emphasis role="stringliteral">&quot;Ошибка&#32;при&#32;удалении&#32;временного&#32;файла:&#32;{str(e)}&quot;</emphasis>)
+<anchor xml:id="__s_t_t_8py_source_1l00119"/>00119 
+<anchor xml:id="__s_t_t_8py_source_1l00120"/><link linkend="_class_s_t_t_1_1_s_t_t_1ab26c7c8dcf0c6c835b4f596cac106d9b">00120</link> &#32;&#32;&#32;&#32;<emphasis role="keyword">def&#32;</emphasis><link linkend="_class_s_t_t_1_1_s_t_t_1ab26c7c8dcf0c6c835b4f596cac106d9b">audio_to_text</link>(self,&#32;audio_path:&#32;str)&#32;-&gt;&#32;str:
+<anchor xml:id="__s_t_t_8py_source_1l00121"/>00121 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="stringliteral">&quot;&quot;&quot;!</emphasis>
+<anchor xml:id="__s_t_t_8py_source_1l00122"/>00122 <emphasis role="stringliteral">&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;@brief&#32;Преобразование&#32;аудиофайла&#32;в&#32;текст</emphasis>
+<anchor xml:id="__s_t_t_8py_source_1l00123"/>00123 <emphasis role="stringliteral">&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;</emphasis>
+<anchor xml:id="__s_t_t_8py_source_1l00124"/>00124 <emphasis role="stringliteral">&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;@param&#32;audio_path&#32;Путь&#32;к&#32;аудиофайлу&#32;для&#32;распознавания</emphasis>
+<anchor xml:id="__s_t_t_8py_source_1l00125"/>00125 <emphasis role="stringliteral">&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;</emphasis>
+<anchor xml:id="__s_t_t_8py_source_1l00126"/>00126 <emphasis role="stringliteral">&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;@return&#32;str&#32;Распознанный&#32;текст&#32;или&#32;сообщение&#32;об&#32;ошибке</emphasis>
+<anchor xml:id="__s_t_t_8py_source_1l00127"/>00127 <emphasis role="stringliteral">&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;</emphasis>
+<anchor xml:id="__s_t_t_8py_source_1l00128"/>00128 <emphasis role="stringliteral">&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;@throws&#32;sr.UnknownValueError&#32;если&#32;речь&#32;не&#32;может&#32;быть&#32;распознана</emphasis>
+<anchor xml:id="__s_t_t_8py_source_1l00129"/>00129 <emphasis role="stringliteral">&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;@throws&#32;sr.RequestError&#32;если&#32;возникла&#32;ошибка&#32;при&#32;подключении&#32;к&#32;API</emphasis>
+<anchor xml:id="__s_t_t_8py_source_1l00130"/>00130 <emphasis role="stringliteral">&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&quot;&quot;&quot;</emphasis>
+<anchor xml:id="__s_t_t_8py_source_1l00131"/>00131 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;temp_path&#32;=&#32;<emphasis role="keywordtype">None</emphasis>
+<anchor xml:id="__s_t_t_8py_source_1l00132"/>00132 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">try</emphasis>:
+<anchor xml:id="__s_t_t_8py_source_1l00133"/>00133 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">#&#32;Добавляем&#32;тишину&#32;в&#32;начало&#32;файла</emphasis>
+<anchor xml:id="__s_t_t_8py_source_1l00134"/>00134 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;temp_path&#32;=&#32;self.<link linkend="_class_s_t_t_1_1_s_t_t_1a06e540126c6521cfacfcb842adfcd347">__add_silence_padding</link>(audio_path)
+<anchor xml:id="__s_t_t_8py_source_1l00135"/>00135 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;
+<anchor xml:id="__s_t_t_8py_source_1l00136"/>00136 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;self.<link linkend="_class_s_t_t_1_1_s_t_t_1a18d65b38e82a8a6d2332dcb77448c334">__recognizer</link>&#32;<emphasis role="keywordflow">is</emphasis>&#32;<emphasis role="keywordtype">None</emphasis>:
+<anchor xml:id="__s_t_t_8py_source_1l00137"/>00137 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<emphasis role="stringliteral">&quot;Ошибка:&#32;распознаватель&#32;речи&#32;не&#32;инициализирован&quot;</emphasis>
+<anchor xml:id="__s_t_t_8py_source_1l00138"/>00138 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;
+<anchor xml:id="__s_t_t_8py_source_1l00139"/>00139 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">with</emphasis>&#32;sr.AudioFile(temp_path)&#32;<emphasis role="keyword">as</emphasis>&#32;source:
+<anchor xml:id="__s_t_t_8py_source_1l00140"/>00140 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">#&#32;Настройка&#32;распознавателя&#32;для&#32;уменьшения&#32;шума</emphasis>
+<anchor xml:id="__s_t_t_8py_source_1l00141"/>00141 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;self.<link linkend="_class_s_t_t_1_1_s_t_t_1a18d65b38e82a8a6d2332dcb77448c334">__recognizer</link>.adjust_for_ambient_noise(source,&#32;duration=0.5)
+<anchor xml:id="__s_t_t_8py_source_1l00142"/>00142 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;audio_data&#32;=&#32;self.<link linkend="_class_s_t_t_1_1_s_t_t_1a18d65b38e82a8a6d2332dcb77448c334">__recognizer</link>.record(source)
+<anchor xml:id="__s_t_t_8py_source_1l00143"/>00143 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;
+<anchor xml:id="__s_t_t_8py_source_1l00144"/>00144 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">#&#32;Получаем&#32;код&#32;языка&#32;для&#32;Google&#32;Speech&#32;Recognition</emphasis>
+<anchor xml:id="__s_t_t_8py_source_1l00145"/>00145 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;language_code&#32;=&#32;self.<link linkend="_class_s_t_t_1_1_s_t_t_1add1948143ef0071a4e01484adf81ab04">__language_codes</link>[self.<link linkend="_class_s_t_t_1_1_s_t_t_1a4ca8df1cdc6958d6ee4897155e8f95f6">__current_language</link>]
+<anchor xml:id="__s_t_t_8py_source_1l00146"/>00146 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;
+<anchor xml:id="__s_t_t_8py_source_1l00147"/>00147 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">#&#32;Сначала&#32;пробуем&#32;использовать&#32;Google&#32;Speech&#32;Recognition</emphasis>
+<anchor xml:id="__s_t_t_8py_source_1l00148"/>00148 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">try</emphasis>:
+<anchor xml:id="__s_t_t_8py_source_1l00149"/>00149 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;text&#32;=&#32;self.<link linkend="_class_s_t_t_1_1_s_t_t_1a18d65b38e82a8a6d2332dcb77448c334">__recognizer</link>.recognize_google(audio_data,&#32;language=language_code)
+<anchor xml:id="__s_t_t_8py_source_1l00150"/>00150 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;str(text)
+<anchor xml:id="__s_t_t_8py_source_1l00151"/>00151 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">except</emphasis>&#32;(sr.UnknownValueError,&#32;sr.RequestError):
+<anchor xml:id="__s_t_t_8py_source_1l00152"/>00152 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">#&#32;Если&#32;Google&#32;не&#32;сработал,&#32;пробуем&#32;Sphinx</emphasis>
+<anchor xml:id="__s_t_t_8py_source_1l00153"/>00153 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">try</emphasis>:
+<anchor xml:id="__s_t_t_8py_source_1l00154"/>00154 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;text&#32;=&#32;self.<link linkend="_class_s_t_t_1_1_s_t_t_1a18d65b38e82a8a6d2332dcb77448c334">__recognizer</link>.recognize_sphinx(audio_data,&#32;language=language_code)
+<anchor xml:id="__s_t_t_8py_source_1l00155"/>00155 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;str(text)
+<anchor xml:id="__s_t_t_8py_source_1l00156"/>00156 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">except</emphasis>&#32;(sr.UnknownValueError,&#32;sr.RequestError):
+<anchor xml:id="__s_t_t_8py_source_1l00157"/>00157 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<emphasis role="stringliteral">&quot;Речь&#32;не&#32;распознана&quot;</emphasis>
+<anchor xml:id="__s_t_t_8py_source_1l00158"/>00158 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">except</emphasis>&#32;Exception&#32;<emphasis role="keyword">as</emphasis>&#32;e:
+<anchor xml:id="__s_t_t_8py_source_1l00159"/>00159 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;f<emphasis role="stringliteral">&quot;Ошибка&#32;при&#32;обработке&#32;аудио:&#32;{str(e)}&quot;</emphasis>
+<anchor xml:id="__s_t_t_8py_source_1l00160"/>00160 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">finally</emphasis>:
+<anchor xml:id="__s_t_t_8py_source_1l00161"/>00161 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">#&#32;Удаляем&#32;временный&#32;файл</emphasis>
+<anchor xml:id="__s_t_t_8py_source_1l00162"/>00162 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;temp_path:
+<anchor xml:id="__s_t_t_8py_source_1l00163"/>00163 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;self.<link linkend="_class_s_t_t_1_1_s_t_t_1a6c0c83ad8bd5648101d8cd0d2207282f">__cleanup_temp_file</link>(temp_path)
+<anchor xml:id="__s_t_t_8py_source_1l00164"/>00164 
+<anchor xml:id="__s_t_t_8py_source_1l00165"/>00165 
+<anchor xml:id="__s_t_t_8py_source_1l00166"/>00166 <emphasis role="comment">#&#32;Пример&#32;использования</emphasis>
+<anchor xml:id="__s_t_t_8py_source_1l00167"/>00167 <emphasis role="keywordflow">if</emphasis>&#32;__name__&#32;==&#32;<emphasis role="stringliteral">&quot;__main__&quot;</emphasis>:
+<anchor xml:id="__s_t_t_8py_source_1l00168"/>00168 &#32;&#32;&#32;&#32;stt&#32;=&#32;<link linkend="_class_s_t_t_1_1_s_t_t">STT</link>()
+<anchor xml:id="__s_t_t_8py_source_1l00169"/>00169 &#32;&#32;&#32;&#32;
+<anchor xml:id="__s_t_t_8py_source_1l00170"/>00170 &#32;&#32;&#32;&#32;<emphasis role="comment">#&#32;Установка&#32;языка&#32;(можно&#32;использовать&#32;&quot;Russian&quot;/&quot;English&quot;&#32;или&#32;&quot;ru-RU&quot;/&quot;en-US&quot;)</emphasis>
+<anchor xml:id="__s_t_t_8py_source_1l00171"/>00171 &#32;&#32;&#32;&#32;stt.set_language(<emphasis role="stringliteral">&quot;Russian&quot;</emphasis>)
+<anchor xml:id="__s_t_t_8py_source_1l00172"/>00172 &#32;&#32;&#32;&#32;
+<anchor xml:id="__s_t_t_8py_source_1l00173"/>00173 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">for</emphasis>&#32;i&#32;<emphasis role="keywordflow">in</emphasis>&#32;range(1,&#32;5+1):
+<anchor xml:id="__s_t_t_8py_source_1l00174"/>00174 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;audio_file&#32;=&#32;f<emphasis role="stringliteral">&quot;Audio/test/{i}.wav&quot;</emphasis>
+<anchor xml:id="__s_t_t_8py_source_1l00175"/>00175 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;result&#32;=&#32;stt.audio_to_text(audio_file)
+<anchor xml:id="__s_t_t_8py_source_1l00176"/>00176 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;print(f<emphasis role="stringliteral">&quot;Файл&#32;{i}:&#32;{result}&quot;</emphasis>)
+</programlisting></section>

@@ -1,0 +1,269 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_classsrc_1_1_message_generator_1_1_message_generator_open_router_1_1_message_generator_open_router" xml:lang="ru">
+<title>Класс src.MessageGenerator.MessageGeneratorOpenRouter.MessageGeneratorOpenRouter</title>
+<indexterm><primary>src.MessageGenerator.MessageGeneratorOpenRouter.MessageGeneratorOpenRouter</primary></indexterm>
+<para>
+
+<para>Генератор сообщений с использованием OpenRouter API. </para>
+ 
+</para>
+<para>Граф наследования:src.MessageGenerator.MessageGeneratorOpenRouter.MessageGeneratorOpenRouter:    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="classsrc_1_1_message_generator_1_1_message_generator_open_router_1_1_message_generator_open_router.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Открытые члены    </title>
+        <itemizedlist>
+            <listitem><para>None <link linkend="_classsrc_1_1_message_generator_1_1_message_generator_open_router_1_1_message_generator_open_router_1a75a7a3626f6c6189f666a22d74a18303">__init__</link> (self, str model=&apos;google/gemini-2.0-flash-exp:free&apos;)</para>
+
+<para>Инициализация генератора сообщений </para>
+</listitem>
+            <listitem><para>str <link linkend="_classsrc_1_1_message_generator_1_1_message_generator_open_router_1_1_message_generator_open_router_1a15028a5b1b03263bf167d0b962b6a8ed">generate</link> (self, str input_message, Optional[str] model=None)</para>
+
+<para>Генерация ответа с использованием OpenRouter API. </para>
+</listitem>
+            <listitem><para>None <link linkend="_classsrc_1_1_message_generator_1_1_message_generator_open_router_1_1_message_generator_open_router_1af52bb8a0267ae1b4daa825306d899a7e">add_user_message</link> (self, str message_content)</para>
+
+<para>Добавление сообщения пользователя в историю </para>
+</listitem>
+            <listitem><para>None <link linkend="_classsrc_1_1_message_generator_1_1_message_generator_open_router_1_1_message_generator_open_router_1aa5d3cc3f60a9d6fa9dd5b3953ddeb96d">add_ai_message</link> (self, str message_content)</para>
+
+<para>Добавление сообщения ИИ в историю </para>
+</listitem>
+            <listitem><para>None <link linkend="_classsrc_1_1_message_generator_1_1_message_generator_open_router_1_1_message_generator_open_router_1a1fb2452d509bfbf2b1bcf924265fe386">add_system_message</link> (self, str message_content)</para>
+
+<para>Добавление системного сообщения в историю </para>
+</listitem>
+            <listitem><para>List[Dict[str, str]] <link linkend="_classsrc_1_1_message_generator_1_1_message_generator_open_router_1_1_message_generator_open_router_1a7578f9aa506627b7e8de5e6b322f401e">get_message_history</link> (self)</para>
+
+<para>Получение истории сообщений </para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Подробное описание</title>
+
+<para>Генератор сообщений с использованием OpenRouter API. </para>
+
+
+
+<para>Реализует интерфейс <link linkend="_classsrc_1_1_message_generator_1_1_protocol_message_generator_1_1_protocol_message_generator">ProtocolMessageGenerator</link> для генерации сообщений через OpenRouter API, предоставляющий доступ к различным языковым моделям. </para>
+<para>
+См. определение в файле <link linkend="__message_generator_open_router_8py_source">MessageGeneratorOpenRouter.py</link> строка <link linkend="__message_generator_open_router_8py_source_1l00008">8</link></para>
+</section>
+<section>
+<title>Конструктор(ы)</title>
+<anchor xml:id="_classsrc_1_1_message_generator_1_1_message_generator_open_router_1_1_message_generator_open_router_1a75a7a3626f6c6189f666a22d74a18303"/><section>
+    <title>__init__()</title>
+<indexterm><primary>__init__</primary><secondary>src.MessageGenerator.MessageGeneratorOpenRouter.MessageGeneratorOpenRouter</secondary></indexterm>
+<indexterm><primary>src.MessageGenerator.MessageGeneratorOpenRouter.MessageGeneratorOpenRouter</primary><secondary>__init__</secondary></indexterm>
+<para><computeroutput> None src.MessageGenerator.MessageGeneratorOpenRouter.MessageGeneratorOpenRouter.__init__ ( self, str  model = <computeroutput>&apos;google/gemini-2.0-flash-exp:free&apos;</computeroutput>
+)</computeroutput></para><para>
+
+<para>Инициализация генератора сообщений </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Аргументы</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>model</entry><entry>
+<para>Название модели для генерации (по умолчанию &apos;openrouter/quasar-alpha&apos;) </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+<para>
+См. определение в файле <link linkend="__message_generator_open_router_8py_source">MessageGeneratorOpenRouter.py</link> строка <link linkend="__message_generator_open_router_8py_source_1l00020">20</link></para>
+</section>
+</section>
+<section>
+<title>Методы</title>
+<anchor xml:id="_classsrc_1_1_message_generator_1_1_message_generator_open_router_1_1_message_generator_open_router_1aa5d3cc3f60a9d6fa9dd5b3953ddeb96d"/><section>
+    <title>add_ai_message()</title>
+<indexterm><primary>add_ai_message</primary><secondary>src.MessageGenerator.MessageGeneratorOpenRouter.MessageGeneratorOpenRouter</secondary></indexterm>
+<indexterm><primary>src.MessageGenerator.MessageGeneratorOpenRouter.MessageGeneratorOpenRouter</primary><secondary>add_ai_message</secondary></indexterm>
+<para><computeroutput> None src.MessageGenerator.MessageGeneratorOpenRouter.MessageGeneratorOpenRouter.add_ai_message ( self, str message_content)</computeroutput></para><para>
+
+<para>Добавление сообщения ИИ в историю </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Аргументы</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>message_content</entry><entry>
+<para>Текст сообщения ИИ </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+<para>
+Переопределяет метод предка <link linkend="_classsrc_1_1_message_generator_1_1_protocol_message_generator_1_1_protocol_message_generator_1afaffcee2207244df4fa8b5b398196062">src.MessageGenerator.ProtocolMessageGenerator.ProtocolMessageGenerator</link>.</para>
+<para>
+См. определение в файле <link linkend="__message_generator_open_router_8py_source">MessageGeneratorOpenRouter.py</link> строка <link linkend="__message_generator_open_router_8py_source_1l00081">81</link></para>
+</section>
+<anchor xml:id="_classsrc_1_1_message_generator_1_1_message_generator_open_router_1_1_message_generator_open_router_1a1fb2452d509bfbf2b1bcf924265fe386"/><section>
+    <title>add_system_message()</title>
+<indexterm><primary>add_system_message</primary><secondary>src.MessageGenerator.MessageGeneratorOpenRouter.MessageGeneratorOpenRouter</secondary></indexterm>
+<indexterm><primary>src.MessageGenerator.MessageGeneratorOpenRouter.MessageGeneratorOpenRouter</primary><secondary>add_system_message</secondary></indexterm>
+<para><computeroutput> None src.MessageGenerator.MessageGeneratorOpenRouter.MessageGeneratorOpenRouter.add_system_message ( self, str message_content)</computeroutput></para><para>
+
+<para>Добавление системного сообщения в историю </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Аргументы</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>message_content</entry><entry>
+<para>Текст системного сообщения </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+<para>
+Переопределяет метод предка <link linkend="_classsrc_1_1_message_generator_1_1_protocol_message_generator_1_1_protocol_message_generator_1a05e18c9670112887e7fd920ad79caf14">src.MessageGenerator.ProtocolMessageGenerator.ProtocolMessageGenerator</link>.</para>
+<para>
+См. определение в файле <link linkend="__message_generator_open_router_8py_source">MessageGeneratorOpenRouter.py</link> строка <link linkend="__message_generator_open_router_8py_source_1l00093">93</link></para>
+</section>
+<anchor xml:id="_classsrc_1_1_message_generator_1_1_message_generator_open_router_1_1_message_generator_open_router_1af52bb8a0267ae1b4daa825306d899a7e"/><section>
+    <title>add_user_message()</title>
+<indexterm><primary>add_user_message</primary><secondary>src.MessageGenerator.MessageGeneratorOpenRouter.MessageGeneratorOpenRouter</secondary></indexterm>
+<indexterm><primary>src.MessageGenerator.MessageGeneratorOpenRouter.MessageGeneratorOpenRouter</primary><secondary>add_user_message</secondary></indexterm>
+<para><computeroutput> None src.MessageGenerator.MessageGeneratorOpenRouter.MessageGeneratorOpenRouter.add_user_message ( self, str message_content)</computeroutput></para><para>
+
+<para>Добавление сообщения пользователя в историю </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Аргументы</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>message_content</entry><entry>
+<para>Текст сообщения пользователя </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+<para>
+Переопределяет метод предка <link linkend="_classsrc_1_1_message_generator_1_1_protocol_message_generator_1_1_protocol_message_generator_1acecf0dcf2a5261a36c56da5ab6e253e3">src.MessageGenerator.ProtocolMessageGenerator.ProtocolMessageGenerator</link>.</para>
+<para>
+См. определение в файле <link linkend="__message_generator_open_router_8py_source">MessageGeneratorOpenRouter.py</link> строка <link linkend="__message_generator_open_router_8py_source_1l00069">69</link></para>
+</section>
+<anchor xml:id="_classsrc_1_1_message_generator_1_1_message_generator_open_router_1_1_message_generator_open_router_1a15028a5b1b03263bf167d0b962b6a8ed"/><section>
+    <title>generate()</title>
+<indexterm><primary>generate</primary><secondary>src.MessageGenerator.MessageGeneratorOpenRouter.MessageGeneratorOpenRouter</secondary></indexterm>
+<indexterm><primary>src.MessageGenerator.MessageGeneratorOpenRouter.MessageGeneratorOpenRouter</primary><secondary>generate</secondary></indexterm>
+<para><computeroutput> str src.MessageGenerator.MessageGeneratorOpenRouter.MessageGeneratorOpenRouter.generate ( self, str input_message, Optional[str]  model = <computeroutput>None</computeroutput>
+)</computeroutput></para><para>
+
+<para>Генерация ответа с использованием OpenRouter API. </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Аргументы</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>input_message</entry><entry>
+<para>Входное сообщение для обработки </para>
+</entry>
+                            </row>
+                            <row>
+<entry>model</entry><entry>
+<para>Название модели для генерации (опционально)</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Возвращает</title>
+
+<para>str Сгенерированный ответ </para>
+</formalpara>
+</para>
+<para>
+Переопределяет метод предка <link linkend="_classsrc_1_1_message_generator_1_1_protocol_message_generator_1_1_protocol_message_generator_1a3b2d9e3f4f31cce6400c8fe8b5329bf4">src.MessageGenerator.ProtocolMessageGenerator.ProtocolMessageGenerator</link>.</para>
+<para>
+См. определение в файле <link linkend="__message_generator_open_router_8py_source">MessageGeneratorOpenRouter.py</link> строка <link linkend="__message_generator_open_router_8py_source_1l00031">31</link></para>
+</section>
+<anchor xml:id="_classsrc_1_1_message_generator_1_1_message_generator_open_router_1_1_message_generator_open_router_1a7578f9aa506627b7e8de5e6b322f401e"/><section>
+    <title>get_message_history()</title>
+<indexterm><primary>get_message_history</primary><secondary>src.MessageGenerator.MessageGeneratorOpenRouter.MessageGeneratorOpenRouter</secondary></indexterm>
+<indexterm><primary>src.MessageGenerator.MessageGeneratorOpenRouter.MessageGeneratorOpenRouter</primary><secondary>get_message_history</secondary></indexterm>
+<para><computeroutput> List[Dict[str, str]] src.MessageGenerator.MessageGeneratorOpenRouter.MessageGeneratorOpenRouter.get_message_history ( self)</computeroutput></para><para>
+
+<para>Получение истории сообщений </para>
+</para>
+
+<para><formalpara><title>Возвращает</title>
+
+<para>List[Dict[str, str]] Список сообщений в формате словарей </para>
+</formalpara>
+</para>
+<para>
+Переопределяет метод предка <link linkend="_classsrc_1_1_message_generator_1_1_protocol_message_generator_1_1_protocol_message_generator_1a854ce7a11bf37223a2b51f465a0a7638">src.MessageGenerator.ProtocolMessageGenerator.ProtocolMessageGenerator</link>.</para>
+<para>
+См. определение в файле <link linkend="__message_generator_open_router_8py_source">MessageGeneratorOpenRouter.py</link> строка <link linkend="__message_generator_open_router_8py_source_1l00105">105</link></para>
+</section>
+<para>
+Объявления и описания членов класса находятся в файле:</para>
+C:/Users/kir/Desktop/py/API/src/MessageGenerator/MessageGeneratorOpenRouter.py</section>
+</section>

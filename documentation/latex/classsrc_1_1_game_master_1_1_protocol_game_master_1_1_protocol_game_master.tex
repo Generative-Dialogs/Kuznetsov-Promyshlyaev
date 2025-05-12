@@ -1,0 +1,135 @@
+\doxysection{Класс src.\+Game\+Master.\+Protocol\+Game\+Master.\+Protocol\+Game\+Master}
+\label{classsrc_1_1_game_master_1_1_protocol_game_master_1_1_protocol_game_master}\index{src.GameMaster.ProtocolGameMaster.ProtocolGameMaster@{src.GameMaster.ProtocolGameMaster.ProtocolGameMaster}}
+
+
+Протокол для мастера игры  
+
+
+Граф наследования\+:src.\+Game\+Master.\+Protocol\+Game\+Master.\+Protocol\+Game\+Master\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classsrc_1_1_game_master_1_1_protocol_game_master_1_1_protocol_game_master}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Открытые члены}
+\begin{DoxyCompactItemize}
+\item 
+str \textbf{ generate\+\_\+answer} (self, str message)
+\begin{DoxyCompactList}\small\item\em Генерация ответа на сообщение игрока \end{DoxyCompactList}\item 
+Tuple[List[\textbf{ Command\+Data}], str] \textbf{ generate\+\_\+instruction} (self, str message)
+\begin{DoxyCompactList}\small\item\em Генерация инструкций на основе сообщения \end{DoxyCompactList}\item 
+Tuple[str, Set[str]] \textbf{ parse\+\_\+commands} (self, List[\textbf{ Command\+Data}] commands)
+\begin{DoxyCompactList}\small\item\em Обработка списка команд \end{DoxyCompactList}\item 
+Tuple[Optional[List[\textbf{ Command\+Data}]], str] \textbf{ validate\+\_\+and\+\_\+parse} (self, str input\+\_\+text)
+\begin{DoxyCompactList}\small\item\em Валидация и парсинг входного текста \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Подробное описание}
+Протокол для мастера игры 
+
+Определяет интерфейс для мастера игры, который отвечает за\+:
+\begin{DoxyItemize}
+\item Генерацию ответов на действия игрока
+\item Управление игровыми персонажами
+\item Поддержание целостности игрового мира
+\item Обработку команд и инструкций 
+\end{DoxyItemize}
+
+См. определение в файле \textbf{ Protocol\+Game\+Master.\+py} строка \textbf{ 4}
+
+
+
+\doxysubsection{Методы}
+\index{src.GameMaster.ProtocolGameMaster.ProtocolGameMaster@{src.GameMaster.ProtocolGameMaster.ProtocolGameMaster}!generate\_answer@{generate\_answer}}
+\index{generate\_answer@{generate\_answer}!src.GameMaster.ProtocolGameMaster.ProtocolGameMaster@{src.GameMaster.ProtocolGameMaster.ProtocolGameMaster}}
+\doxysubsubsection{generate\_answer()}
+{\footnotesize\ttfamily \label{classsrc_1_1_game_master_1_1_protocol_game_master_1_1_protocol_game_master_a6e421e6e57783f84be9b98d42cfb9af2} 
+ str src.\+Game\+Master.\+Protocol\+Game\+Master.\+Protocol\+Game\+Master.\+generate\+\_\+answer (\begin{DoxyParamCaption}\item[{}]{self}{, }\item[{str}]{message}{}\end{DoxyParamCaption})}
+
+
+
+Генерация ответа на сообщение игрока 
+
+
+\begin{DoxyParams}{Аргументы}
+{\em message} & Сообщение игрока \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Возвращает}
+str Ответ системы 
+\end{DoxyReturn}
+
+
+См. определение в файле \textbf{ Protocol\+Game\+Master.\+py} строка \textbf{ 18}
+
+\index{src.GameMaster.ProtocolGameMaster.ProtocolGameMaster@{src.GameMaster.ProtocolGameMaster.ProtocolGameMaster}!generate\_instruction@{generate\_instruction}}
+\index{generate\_instruction@{generate\_instruction}!src.GameMaster.ProtocolGameMaster.ProtocolGameMaster@{src.GameMaster.ProtocolGameMaster.ProtocolGameMaster}}
+\doxysubsubsection{generate\_instruction()}
+{\footnotesize\ttfamily \label{classsrc_1_1_game_master_1_1_protocol_game_master_1_1_protocol_game_master_ac842ff606b7dd24e62ff6e62f5163035} 
+ Tuple[List[\textbf{ Command\+Data}], str] src.\+Game\+Master.\+Protocol\+Game\+Master.\+Protocol\+Game\+Master.\+generate\+\_\+instruction (\begin{DoxyParamCaption}\item[{}]{self}{, }\item[{str}]{message}{}\end{DoxyParamCaption})}
+
+
+
+Генерация инструкций на основе сообщения 
+
+
+\begin{DoxyParams}{Аргументы}
+{\em message} & Сообщение для обработки \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Возвращает}
+Tuple[List[\doxyref{Command\+Data}{стр.}{classsrc_1_1_game_master_1_1_command_data_1_1_command_data}], str] Кортеж из списка команд и текстового вывода 
+\end{DoxyReturn}
+
+
+См. определение в файле \textbf{ Protocol\+Game\+Master.\+py} строка \textbf{ 27}
+
+\index{src.GameMaster.ProtocolGameMaster.ProtocolGameMaster@{src.GameMaster.ProtocolGameMaster.ProtocolGameMaster}!parse\_commands@{parse\_commands}}
+\index{parse\_commands@{parse\_commands}!src.GameMaster.ProtocolGameMaster.ProtocolGameMaster@{src.GameMaster.ProtocolGameMaster.ProtocolGameMaster}}
+\doxysubsubsection{parse\_commands()}
+{\footnotesize\ttfamily \label{classsrc_1_1_game_master_1_1_protocol_game_master_1_1_protocol_game_master_a2ca7cf4f8163b1dd4056a66403117f04} 
+ Tuple[str, Set[str]] src.\+Game\+Master.\+Protocol\+Game\+Master.\+Protocol\+Game\+Master.\+parse\+\_\+commands (\begin{DoxyParamCaption}\item[{}]{self}{, }\item[{List[\textbf{ Command\+Data}]}]{commands}{}\end{DoxyParamCaption})}
+
+
+
+Обработка списка команд 
+
+
+\begin{DoxyParams}{Аргументы}
+{\em commands} & Список команд для обработки \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Возвращает}
+Tuple[str, Set[str]] Кортеж из текстового вывода и множества имен активных персонажей 
+\end{DoxyReturn}
+
+
+См. определение в файле \textbf{ Protocol\+Game\+Master.\+py} строка \textbf{ 36}
+
+\index{src.GameMaster.ProtocolGameMaster.ProtocolGameMaster@{src.GameMaster.ProtocolGameMaster.ProtocolGameMaster}!validate\_and\_parse@{validate\_and\_parse}}
+\index{validate\_and\_parse@{validate\_and\_parse}!src.GameMaster.ProtocolGameMaster.ProtocolGameMaster@{src.GameMaster.ProtocolGameMaster.ProtocolGameMaster}}
+\doxysubsubsection{validate\_and\_parse()}
+{\footnotesize\ttfamily \label{classsrc_1_1_game_master_1_1_protocol_game_master_1_1_protocol_game_master_a8a9b7dd7fd2039e11dc803822e5f159c} 
+ Tuple[Optional[List[\textbf{ Command\+Data}]], str] src.\+Game\+Master.\+Protocol\+Game\+Master.\+Protocol\+Game\+Master.\+validate\+\_\+and\+\_\+parse (\begin{DoxyParamCaption}\item[{}]{self}{, }\item[{str}]{input\+\_\+text}{}\end{DoxyParamCaption})}
+
+
+
+Валидация и парсинг входного текста 
+
+
+\begin{DoxyParams}{Аргументы}
+{\em input\+\_\+text} & Текст для валидации и парсинга \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Возвращает}
+Tuple[Optional[List[\doxyref{Command\+Data}{стр.}{classsrc_1_1_game_master_1_1_command_data_1_1_command_data}]], str] Кортеж из списка команд (или None) и сообщения об ошибке 
+\end{DoxyReturn}
+
+
+См. определение в файле \textbf{ Protocol\+Game\+Master.\+py} строка \textbf{ 45}
+
+
+
+Объявления и описания членов класса находятся в файле\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/kir/\+Desktop/py/\+API/src/\+Game\+Master/Protocol\+Game\+Master.\+py\end{DoxyCompactItemize}

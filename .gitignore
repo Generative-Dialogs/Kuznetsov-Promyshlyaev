@@ -1,0 +1,6 @@
+.env
+venv/
+game_master.log
+main.db
+images/
+sound/

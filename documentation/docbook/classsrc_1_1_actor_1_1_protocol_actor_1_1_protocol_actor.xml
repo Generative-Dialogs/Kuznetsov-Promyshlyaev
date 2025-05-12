@@ -1,0 +1,80 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_classsrc_1_1_actor_1_1_protocol_actor_1_1_protocol_actor" xml:lang="ru">
+<title>Класс src.Actor.ProtocolActor.ProtocolActor</title>
+<indexterm><primary>src.Actor.ProtocolActor.ProtocolActor</primary></indexterm>
+<para>
+
+<para>Протокол для актора в игровой системе </para>
+ 
+</para>
+<para>Граф наследования:src.Actor.ProtocolActor.ProtocolActor:    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="classsrc_1_1_actor_1_1_protocol_actor_1_1_protocol_actor.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Открытые члены    </title>
+        <itemizedlist>
+            <listitem><para>str <link linkend="_classsrc_1_1_actor_1_1_protocol_actor_1_1_protocol_actor_1a56b4f71b5273de57aae8a65e1e0e3fb3">get_detailed_action</link> (self, str game_master_output)</para>
+
+<para>Получение детализированного описания действия </para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Подробное описание</title>
+
+<para>Протокол для актора в игровой системе </para>
+
+
+
+<para>Определяет интерфейс для актора, который отвечает за генерацию детализированных действий и описаний в игре. Актор преобразует команды мастера игры в нарративные описания. </para>
+<para>
+См. определение в файле <link linkend="__protocol_actor_8py_source">ProtocolActor.py</link> строка <link linkend="__protocol_actor_8py_source_1l00006">6</link></para>
+</section>
+<section>
+<title>Методы</title>
+<anchor xml:id="_classsrc_1_1_actor_1_1_protocol_actor_1_1_protocol_actor_1a56b4f71b5273de57aae8a65e1e0e3fb3"/><section>
+    <title>get_detailed_action()</title>
+<indexterm><primary>get_detailed_action</primary><secondary>src.Actor.ProtocolActor.ProtocolActor</secondary></indexterm>
+<indexterm><primary>src.Actor.ProtocolActor.ProtocolActor</primary><secondary>get_detailed_action</secondary></indexterm>
+<para><computeroutput> str src.Actor.ProtocolActor.ProtocolActor.get_detailed_action ( self, str game_master_output)</computeroutput></para><para>
+
+<para>Получение детализированного описания действия </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Аргументы</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>game_master_output</entry><entry>
+<para>Выходные данные мастера игры </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Возвращает</title>
+
+<para>str Детализированное описание действия</para>
+</formalpara>
+Преобразует команды мастера игры в подробное нарративное описание действий и событий. </para>
+<para>
+См. определение в файле <link linkend="__protocol_actor_8py_source">ProtocolActor.py</link> строка <link linkend="__protocol_actor_8py_source_1l00020">20</link></para>
+</section>
+<para>
+Объявления и описания членов класса находятся в файле:</para>
+C:/Users/kir/Desktop/py/API/src/Actor/ProtocolActor.py</section>
+</section>

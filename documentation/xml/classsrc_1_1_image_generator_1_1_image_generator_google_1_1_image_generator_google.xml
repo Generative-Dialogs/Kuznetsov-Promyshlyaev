@@ -1,0 +1,236 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.13.2" xml:lang="ru">
+  <compounddef id="classsrc_1_1_image_generator_1_1_image_generator_google_1_1_image_generator_google" kind="class" language="Python" prot="public">
+    <compoundname>src::ImageGenerator::ImageGeneratorGoogle::ImageGeneratorGoogle</compoundname>
+    <basecompoundref refid="classsrc_1_1_image_generator_1_1_image_generator_protocol_1_1_image_generator_protocol" prot="public" virt="non-virtual">src.ImageGenerator.ImageGeneratorProtocol.ImageGeneratorProtocol</basecompoundref>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classsrc_1_1_image_generator_1_1_image_generator_google_1_1_image_generator_google_1a98b723b41003f9158623a75f002ff107" prot="private" static="no" mutable="no">
+        <type></type>
+        <definition>src.ImageGenerator.ImageGeneratorGoogle.ImageGeneratorGoogle::__client</definition>
+        <argsstring></argsstring>
+        <name>__client</name>
+        <qualifiedname>src.ImageGenerator.ImageGeneratorGoogle.ImageGeneratorGoogle.__client</qualifiedname>
+        <initializer>=  genai.Client(api_key=os.getenv(&quot;GOOGLE_API_KEY&quot;))</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/kir/Desktop/py/API/src/ImageGenerator/ImageGeneratorGoogle.py" line="36" column="1" bodyfile="C:/Users/kir/Desktop/py/API/src/ImageGenerator/ImageGeneratorGoogle.py" bodystart="36" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classsrc_1_1_image_generator_1_1_image_generator_google_1_1_image_generator_google_1ae0a51614b9204606eb4b425f21b1f142" prot="private" static="no" mutable="no">
+        <type></type>
+        <definition>src.ImageGenerator.ImageGeneratorGoogle.ImageGeneratorGoogle::__output_dir</definition>
+        <argsstring></argsstring>
+        <name>__output_dir</name>
+        <qualifiedname>src.ImageGenerator.ImageGeneratorGoogle.ImageGeneratorGoogle.__output_dir</qualifiedname>
+        <initializer>=  os.path.join(IMAGE_OUTPUT_DIR, str(session_id))</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/kir/Desktop/py/API/src/ImageGenerator/ImageGeneratorGoogle.py" line="39" column="1" bodyfile="C:/Users/kir/Desktop/py/API/src/ImageGenerator/ImageGeneratorGoogle.py" bodystart="39" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classsrc_1_1_image_generator_1_1_image_generator_google_1_1_image_generator_google_1a2069327fc05d70f8c2f6f488c2abfa05" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>None</type>
+        <definition> None src.ImageGenerator.ImageGeneratorGoogle.ImageGeneratorGoogle.__init__</definition>
+        <argsstring>(self, int session_id)</argsstring>
+        <name>__init__</name>
+        <qualifiedname>src.ImageGenerator.ImageGeneratorGoogle.ImageGeneratorGoogle.__init__</qualifiedname>
+        <param>
+          <type>self</type>
+          <defname>self</defname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>session_id</declname>
+        </param>
+        <briefdescription>
+<para>Инициализация генератора изображений </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>session_id</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>ID сессии для организации файлов изображений </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/kir/Desktop/py/API/src/ImageGenerator/ImageGeneratorGoogle.py" line="27" column="1" bodyfile="C:/Users/kir/Desktop/py/API/src/ImageGenerator/ImageGeneratorGoogle.py" bodystart="27" bodyend="41"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrc_1_1_image_generator_1_1_image_generator_google_1_1_image_generator_google_1a3470aae404ebe3e833362ae57500e44f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Optional[str]</type>
+        <definition> Optional[str] src.ImageGenerator.ImageGeneratorGoogle.ImageGeneratorGoogle.generate_image_response</definition>
+        <argsstring>(self, str prompt, str target_path, Optional[List[str]] character_images=None)</argsstring>
+        <name>generate_image_response</name>
+        <qualifiedname>src.ImageGenerator.ImageGeneratorGoogle.ImageGeneratorGoogle.generate_image_response</qualifiedname>
+        <reimplements refid="classsrc_1_1_image_generator_1_1_image_generator_protocol_1_1_image_generator_protocol_1a67dc32bad76939e2ba372be83049fcbb">generate_image_response</reimplements>
+        <param>
+          <type>self</type>
+          <defname>self</defname>
+        </param>
+        <param>
+          <type>str</type>
+          <declname>prompt</declname>
+        </param>
+        <param>
+          <type>str</type>
+          <declname>target_path</declname>
+        </param>
+        <param>
+          <type>Optional]</type>
+          <declname>character_images</declname>
+          <array>[List[str]</array>
+          <defval>None</defval>
+        </param>
+        <briefdescription>
+<para>Генерация изображения с использованием Gemini API. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>prompt</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Текстовый промпт для генерации изображения </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>target_path</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Полный путь для сохранения изображения </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>character_images</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Опциональный список путей к изображениям персонажей</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Optional[str] Путь к сохраненному изображению или None в случае ошибки </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/kir/Desktop/py/API/src/ImageGenerator/ImageGeneratorGoogle.py" line="65" column="1" bodyfile="C:/Users/kir/Desktop/py/API/src/ImageGenerator/ImageGeneratorGoogle.py" bodystart="65" bodyend="108"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-func">
+      <memberdef kind="function" id="classsrc_1_1_image_generator_1_1_image_generator_google_1_1_image_generator_google_1a6d4412e01117f519c922c1e0fefa5a81" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Optional[str]</type>
+        <definition> Optional[str] src.ImageGenerator.ImageGeneratorGoogle.ImageGeneratorGoogle.__save_image</definition>
+        <argsstring>(self, bytes image_data, str target_path)</argsstring>
+        <name>__save_image</name>
+        <qualifiedname>src.ImageGenerator.ImageGeneratorGoogle.ImageGeneratorGoogle.__save_image</qualifiedname>
+        <param>
+          <type>self</type>
+          <defname>self</defname>
+        </param>
+        <param>
+          <type>bytes</type>
+          <declname>image_data</declname>
+        </param>
+        <param>
+          <type>str</type>
+          <declname>target_path</declname>
+        </param>
+        <briefdescription>
+<para>Сохранение изображения в файл </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>image_data</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Бинарные данные изображения </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>target_path</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Путь для сохранения файла</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Optional[str] Путь к сохраненному файлу или None в случае ошибки </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/kir/Desktop/py/API/src/ImageGenerator/ImageGeneratorGoogle.py" line="42" column="1" bodyfile="C:/Users/kir/Desktop/py/API/src/ImageGenerator/ImageGeneratorGoogle.py" bodystart="42" bodyend="64"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>Класс для генерации изображений с использованием Google Gemini API. </para>
+    </briefdescription>
+    <detaileddescription>
+<para>Реализует интерфейс <ref refid="classsrc_1_1_image_generator_1_1_image_generator_protocol_1_1_image_generator_protocol" kindref="compound">ImageGeneratorProtocol</ref> для генерации изображений. Использует Google Gemini API для создания изображений на основе текстовых промптов и опциональных изображений персонажей.</para>
+<para><simplesect kind="note"><para>Требуется прокси/vpn для работы с Google API </para>
+</simplesect>
+</para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="3">
+        <label>Protocol</label>
+      </node>
+      <node id="1">
+        <label>src.ImageGenerator.ImageGeneratorGoogle.ImageGeneratorGoogle</label>
+        <link refid="classsrc_1_1_image_generator_1_1_image_generator_google_1_1_image_generator_google"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>src.ImageGenerator.ImageGeneratorProtocol.ImageGeneratorProtocol</label>
+        <link refid="classsrc_1_1_image_generator_1_1_image_generator_protocol_1_1_image_generator_protocol"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="3">
+        <label>Protocol</label>
+      </node>
+      <node id="1">
+        <label>src.ImageGenerator.ImageGeneratorGoogle.ImageGeneratorGoogle</label>
+        <link refid="classsrc_1_1_image_generator_1_1_image_generator_google_1_1_image_generator_google"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>src.ImageGenerator.ImageGeneratorProtocol.ImageGeneratorProtocol</label>
+        <link refid="classsrc_1_1_image_generator_1_1_image_generator_protocol_1_1_image_generator_protocol"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="C:/Users/kir/Desktop/py/API/src/ImageGenerator/ImageGeneratorGoogle.py" line="13" column="1" bodyfile="C:/Users/kir/Desktop/py/API/src/ImageGenerator/ImageGeneratorGoogle.py" bodystart="13" bodyend="108"/>
+    <listofallmembers>
+      <member refid="classsrc_1_1_image_generator_1_1_image_generator_google_1_1_image_generator_google_1a98b723b41003f9158623a75f002ff107" prot="private" virt="non-virtual"><scope>src::ImageGenerator::ImageGeneratorGoogle::ImageGeneratorGoogle</scope><name>__client</name></member>
+      <member refid="classsrc_1_1_image_generator_1_1_image_generator_google_1_1_image_generator_google_1a2069327fc05d70f8c2f6f488c2abfa05" prot="public" virt="non-virtual"><scope>src::ImageGenerator::ImageGeneratorGoogle::ImageGeneratorGoogle</scope><name>__init__</name></member>
+      <member refid="classsrc_1_1_image_generator_1_1_image_generator_google_1_1_image_generator_google_1ae0a51614b9204606eb4b425f21b1f142" prot="private" virt="non-virtual"><scope>src::ImageGenerator::ImageGeneratorGoogle::ImageGeneratorGoogle</scope><name>__output_dir</name></member>
+      <member refid="classsrc_1_1_image_generator_1_1_image_generator_google_1_1_image_generator_google_1a6d4412e01117f519c922c1e0fefa5a81" prot="private" virt="non-virtual"><scope>src::ImageGenerator::ImageGeneratorGoogle::ImageGeneratorGoogle</scope><name>__save_image</name></member>
+      <member refid="classsrc_1_1_image_generator_1_1_image_generator_google_1_1_image_generator_google_1a3470aae404ebe3e833362ae57500e44f" prot="public" virt="non-virtual"><scope>src::ImageGenerator::ImageGeneratorGoogle::ImageGeneratorGoogle</scope><name>generate_image_response</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

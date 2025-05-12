@@ -1,0 +1,132 @@
+\doxysection{Image\+Prompt\+Generator.\+py}
+\label{_image_prompt_generator_8py_source}\index{C:/Users/kir/Desktop/py/API/src/ImagePromptGenerator/ImagePromptGenerator.py@{C:/Users/kir/Desktop/py/API/src/ImagePromptGenerator/ImagePromptGenerator.py}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{keyword}{from}\ typing\ \textcolor{keyword}{import}\ List,\ Dict,\ Optional}
+\DoxyCodeLine{00002\ \textcolor{keyword}{from}\ src.MessageGenerator.MessageGeneratorOpenRouter\ \textcolor{keyword}{import}\ MessageGeneratorOpenRouter}
+\DoxyCodeLine{00003\ \textcolor{keyword}{from}\ src.DatabaseManager.DatabaseManager\ \textcolor{keyword}{import}\ DatabaseManager}
+\DoxyCodeLine{00004\ \textcolor{keyword}{from}\ src.Descriptions.WorldDecription\ \textcolor{keyword}{import}\ base\_world\_description}
+\DoxyCodeLine{00005\ \textcolor{keyword}{import}\ logging}
+\DoxyCodeLine{00006\ }
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ \textcolor{keyword}{class\ }ImagePromptGenerator:}
+\DoxyCodeLine{00009\ \ \ \ \ \textcolor{stringliteral}{"{}"{}"{}!}}
+\DoxyCodeLine{00010\ \textcolor{stringliteral}{\ \ \ \ @brief\ Генератор\ промптов\ для\ создания\ изображений}}
+\DoxyCodeLine{00011\ \textcolor{stringliteral}{\ \ \ \ }}
+\DoxyCodeLine{00012\ \textcolor{stringliteral}{\ \ \ \ @details}}
+\DoxyCodeLine{00013\ \textcolor{stringliteral}{\ \ \ \ Класс\ отвечает\ за:}}
+\DoxyCodeLine{00014\ \textcolor{stringliteral}{\ \ \ \ -\/\ Создание\ детальных\ промптов\ для\ генерации\ изображений}}
+\DoxyCodeLine{00015\ \textcolor{stringliteral}{\ \ \ \ -\/\ Поддержание\ согласованности\ описаний\ персонажей}}
+\DoxyCodeLine{00016\ \textcolor{stringliteral}{\ \ \ \ -\/\ Учет\ контекста\ сцены\ и\ действий}}
+\DoxyCodeLine{00017\ \textcolor{stringliteral}{\ \ \ \ -\/\ Генерацию\ стилистически\ согласованных\ описаний}}
+\DoxyCodeLine{00018\ \textcolor{stringliteral}{\ \ \ \ "{}"{}"{}}}
+\DoxyCodeLine{00019\ \ \ \ \ \textcolor{keyword}{def\ }\_\_init\_\_(self,\ session\_id:\ int)\ -\/>\ \textcolor{keywordtype}{None}:}
+\DoxyCodeLine{00020\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}"{}"{}!}}
+\DoxyCodeLine{00021\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ @brief\ Инициализация\ генератора\ промптов}}
+\DoxyCodeLine{00022\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ }}
+\DoxyCodeLine{00023\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ @param\ session\_id\ ID\ сессии\ для\ организации\ промптов}}
+\DoxyCodeLine{00024\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ "{}"{}"{}}}
+\DoxyCodeLine{00025\ \ \ \ \ \ \ \ \ self.\_\_session\_id\ =\ session\_id}
+\DoxyCodeLine{00026\ \ \ \ \ \ \ \ \ self.\_\_messageGenerator\ =\ MessageGeneratorOpenRouter()}
+\DoxyCodeLine{00027\ \ \ \ \ \ \ \ \ self.\_\_db\ =\ DatabaseManager()}
+\DoxyCodeLine{00028\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00029\ \ \ \ \ \ \ \ \ start\_message\ =\ f\textcolor{stringliteral}{'''}}
+\DoxyCodeLine{00030\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ You\ are\ an\ expert\ at\ creating\ detailed\ image\ generation\ prompts.\ Your\ task\ is\ to\ create\ a\ prompt\ that\ will\ generate\ an\ image\ showing\ the\ final\ state\ of\ a\ scene\ after\ described\ events.}}
+\DoxyCodeLine{00031\ \textcolor{stringliteral}{}}
+\DoxyCodeLine{00032\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ World\ Description:}}
+\DoxyCodeLine{00033\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \{base\_world\_description\}}}
+\DoxyCodeLine{00034\ \textcolor{stringliteral}{}}
+\DoxyCodeLine{00035\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ Guidelines\ for\ creating\ prompts:}}
+\DoxyCodeLine{00036\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ 1.\ Character\ Consistency:}}
+\DoxyCodeLine{00037\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ -\/\ Maintain\ consistent\ appearance\ for\ each\ character\ across\ all\ images}}
+\DoxyCodeLine{00038\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ -\/\ Update\ character\ appearance\ based\ on\ events\ (injuries,\ changes\ in\ clothing,\ etc.)}}
+\DoxyCodeLine{00039\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ -\/\ Include\ detailed\ physical\ descriptions\ for\ each\ character}}
+\DoxyCodeLine{00040\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ -\/\ Reference\ previous\ character\ descriptions\ to\ maintain\ consistency}}
+\DoxyCodeLine{00041\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ -\/\ The\ image\ generation\ model\ will\ receive\ full\ character\ descriptions\ and\ their\ reference\ images}}
+\DoxyCodeLine{00042\ \textcolor{stringliteral}{}}
+\DoxyCodeLine{00043\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ 2.\ Scene\ Composition:}}
+\DoxyCodeLine{00044\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ -\/\ Show\ the\ final\ state\ of\ the\ scene\ after\ all\ actions}}
+\DoxyCodeLine{00045\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ -\/\ Focus\ on\ what\ the\ player\ character\ sees\ at\ the\ moment}}
+\DoxyCodeLine{00046\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ -\/\ Include\ all\ relevant\ characters\ and\ their\ positions}}
+\DoxyCodeLine{00047\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ -\/\ Show\ environmental\ changes\ caused\ by\ events}}
+\DoxyCodeLine{00048\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ -\/\ DO\ NOT\ include\ any\ text,\ words,\ or\ writing\ in\ the\ generated\ image}}
+\DoxyCodeLine{00049\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ -\/\ The\ image\ should\ be\ purely\ visual\ without\ any\ text\ elements}}
+\DoxyCodeLine{00050\ \textcolor{stringliteral}{}}
+\DoxyCodeLine{00051\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ 3.\ Visual\ Style:}}
+\DoxyCodeLine{00052\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ -\/\ Use\ a\ consistent\ gloomy\ classical\ painting\ style}}
+\DoxyCodeLine{00053\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ -\/\ Emphasize\ dramatic\ chiaroscuro\ lighting}}
+\DoxyCodeLine{00054\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ -\/\ Use\ muted\ dark\ tones\ (charcoal\ black,\ deep\ navy,\ antique\ gold)}}
+\DoxyCodeLine{00055\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ -\/\ Include\ Baroque/Romantic-\/era\ aesthetics}}
+\DoxyCodeLine{00056\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ -\/\ Show\ weathered\ oil\ texture\ and\ cracked\ varnish\ aging}}
+\DoxyCodeLine{00057\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ -\/\ Use\ somber\ atmospheric\ lighting}}
+\DoxyCodeLine{00058\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ -\/\ Include\ Goya-\/esque\ melancholy\ and\ Caravaggio-\/inspired\ contrasts}}
+\DoxyCodeLine{00059\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ -\/\ Add\ Turner-\/like\ stormy\ ambiance}}
+\DoxyCodeLine{00060\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ -\/\ Include\ haunting\ ethereal\ undertones}}
+\DoxyCodeLine{00061\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ -\/\ Show\ detailed\ brushwork\ on\ textures\ (stone,\ fabric)}}
+\DoxyCodeLine{00062\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ -\/\ Use\ cold\ palette\ with\ crimson\ accents}}
+\DoxyCodeLine{00063\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ -\/\ Include\ gothic\ decay\ motifs\ and\ misty\ spectral\ ambiance}}
+\DoxyCodeLine{00064\ \textcolor{stringliteral}{}}
+\DoxyCodeLine{00065\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ 4.\ Technical\ Requirements:}}
+\DoxyCodeLine{00066\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ -\/\ Be\ extremely\ detailed\ in\ descriptions}}
+\DoxyCodeLine{00067\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ -\/\ Include\ specific\ colors,\ textures,\ and\ materials}}
+\DoxyCodeLine{00068\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ -\/\ Specify\ lighting\ conditions\ and\ atmosphere}}
+\DoxyCodeLine{00069\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ -\/\ Describe\ character\ expressions\ and\ body\ language}}
+\DoxyCodeLine{00070\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ -\/\ Include\ environmental\ details\ and\ weather\ conditions}}
+\DoxyCodeLine{00071\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ -\/\ Reference\ previous\ character\ appearances\ for\ consistency}}
+\DoxyCodeLine{00072\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ -\/\ The\ image\ generation\ model\ will\ receive\ complete\ character\ descriptions\ and\ reference\ images}}
+\DoxyCodeLine{00073\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ -\/\ Ensure\ no\ text\ or\ writing\ appears\ in\ the\ generated\ image}}
+\DoxyCodeLine{00074\ \textcolor{stringliteral}{}}
+\DoxyCodeLine{00075\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ Format\ your\ response\ as\ a\ single,\ detailed\ prompt\ without\ any\ additional\ text\ or\ explanations.}}
+\DoxyCodeLine{00076\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ '''}}
+\DoxyCodeLine{00077\ }
+\DoxyCodeLine{00078\ \ \ \ \ \ \ \ \ \textcolor{comment}{\#\ Load\ existing\ image\ prompts\ from\ database}}
+\DoxyCodeLine{00079\ \ \ \ \ \ \ \ \ image\_prompts\ =\ self.\_\_db.get\_image\_prompts(session\_id)}
+\DoxyCodeLine{00080\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ \_,\ user\_input,\ narrative\_response,\ image\_prompt\ \textcolor{keywordflow}{in}\ image\_prompts:}
+\DoxyCodeLine{00081\ \ \ \ \ \ \ \ \ \ \ \ \ self.\_\_messageGenerator.add\_user\_message(f\textcolor{stringliteral}{"{}User's\ action:\ \{user\_input\}\(\backslash\)nScene\ description:\ \{narrative\_response\}"{}})}
+\DoxyCodeLine{00082\ \ \ \ \ \ \ \ \ \ \ \ \ self.\_\_messageGenerator.add\_ai\_message(image\_prompt)}
+\DoxyCodeLine{00083\ }
+\DoxyCodeLine{00084\ \ \ \ \ \ \ \ \ \textcolor{comment}{\#\ Add\ the\ start\ message}}
+\DoxyCodeLine{00085\ \ \ \ \ \ \ \ \ self.\_\_messageGenerator.add\_system\_message(start\_message)}
+\DoxyCodeLine{00086\ }
+\DoxyCodeLine{00087\ \ \ \ \ \textcolor{keyword}{def\ }generate\_prompt(self,\ user\_input:\ str,\ system\_output:\ str,\ character\_ids:\ List[int])\ -\/>\ Optional[str]:}
+\DoxyCodeLine{00088\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}"{}"{}!}}
+\DoxyCodeLine{00089\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ @brief\ Генерация\ промпта\ для\ создания\ изображения}}
+\DoxyCodeLine{00090\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ }}
+\DoxyCodeLine{00091\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ @param\ user\_input\ Ввод\ пользователя}}
+\DoxyCodeLine{00092\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ @param\ system\_output\ Ответ\ системы}}
+\DoxyCodeLine{00093\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ @param\ character\_ids\ Список\ ID\ персонажей,\ участвующих\ в\ сцене}}
+\DoxyCodeLine{00094\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ }}
+\DoxyCodeLine{00095\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ @return\ Optional[str]\ Сгенерированный\ промпт\ или\ None\ в\ случае\ ошибки}}
+\DoxyCodeLine{00096\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ "{}"{}"{}}}
+\DoxyCodeLine{00097\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{try}:}
+\DoxyCodeLine{00098\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{\#\ Get\ character\ information\ from\ database}}
+\DoxyCodeLine{00099\ \ \ \ \ \ \ \ \ \ \ \ \ character\_info\ =\ []}
+\DoxyCodeLine{00100\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ char\_id\ \textcolor{keywordflow}{in}\ character\_ids:}
+\DoxyCodeLine{00101\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ character\ =\ self.\_\_db.get\_character(char\_id)}
+\DoxyCodeLine{00102\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ character:}
+\DoxyCodeLine{00103\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ name,\ description\ =\ character}
+\DoxyCodeLine{00104\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ character\_info.append(f\textcolor{stringliteral}{"{}\{name\}:\ \{description\}"{}})}
+\DoxyCodeLine{00105\ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00106\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{\#\ Construct\ the\ prompt\ with\ character\ information}}
+\DoxyCodeLine{00107\ \ \ \ \ \ \ \ \ \ \ \ \ character\_section\ =\ \textcolor{stringliteral}{"{}"{}}}
+\DoxyCodeLine{00108\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ character\_info:}
+\DoxyCodeLine{00109\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ character\_section\ =\ \textcolor{stringliteral}{"{}\(\backslash\)n\(\backslash\)nCharacter\ information:\(\backslash\)n"{}}\ +\ \textcolor{stringliteral}{"{}\(\backslash\)n"{}}.join(character\_info)}
+\DoxyCodeLine{00110\ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00111\ \ \ \ \ \ \ \ \ \ \ \ \ prompt\ =\ self.\_\_messageGenerator.generate(}
+\DoxyCodeLine{00112\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ f\textcolor{stringliteral}{'''Don't\ describe\ the\ scenes\ of\ cruelty\ too\ colorfully.\ Scene\ description:\ \{system\_output\}\ }}
+\DoxyCodeLine{00113\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)n\ It\ is\ character\ description\ image\ generation\ model\ also\ has\ this\ description\ and\ images\ of\ these\ characters:\ \{character\_section\}'''})}
+\DoxyCodeLine{00114\ \ \ \ \ \ \ \ \ \ \ \ \ character\_section\ +=\ \textcolor{stringliteral}{"{}\(\backslash\)n\(\backslash\)nImages\ of\ these\ characters\ are\ attached\ for\ reference.\ In\ the\ same\ order"{}}}
+\DoxyCodeLine{00115\ }
+\DoxyCodeLine{00116\ \ \ \ \ \ \ \ \ \ \ \ \ prompt\ +=\ character\_section}
+\DoxyCodeLine{00117\ \ \ \ \ \ \ \ \ \ \ \ \ prompt\ +=\ \textcolor{stringliteral}{"{}You\ can\ censor\ violent\ scenes\ if\ they\ don't\ comply\ with\ company\ policy."{}}}
+\DoxyCodeLine{00118\ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00119\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{\#\ Save\ the\ prompt\ to\ database}}
+\DoxyCodeLine{00120\ \ \ \ \ \ \ \ \ \ \ \ \ self.\_\_db.save\_image\_prompt(self.\_\_session\_id,\ user\_input,\ system\_output,\ prompt)}
+\DoxyCodeLine{00121\ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00122\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ prompt}
+\DoxyCodeLine{00123\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{except}\ Exception\ \textcolor{keyword}{as}\ e:}
+\DoxyCodeLine{00124\ \ \ \ \ \ \ \ \ \ \ \ \ logging.error(f\textcolor{stringliteral}{"{}Error\ generating\ image\ prompt:\ \{str(e)\}"{}})}
+\DoxyCodeLine{00125\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keywordtype}{None}}
+\DoxyCodeLine{00126\ }
+
+\end{DoxyCode}
